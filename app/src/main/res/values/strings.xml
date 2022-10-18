@@ -5,22 +5,29 @@
     <string name="text_view">TextView</string>
 
     <!-- Generic strings -->
+
     <string name="startSession_label">Start Session</string>
     <string name="gameTips_label">Game Tips</string>
     <string name="statistics_label">View Statistics</string>
     <string name="back_label">Back</string>
 
+    <string name="next">Next</string>
+    <string name="previous">Previous</string>
+
     <!-- Strings used for fragments for navigation -->
+
     <string name="homeFrag_label">Home</string>
     <string name="startSessionFrag_label">Start Session</string>
     <string name="casinoSessionFrag_label">Casino Session</string>
 
-    <!-- Home Fragment Strings -->
+    <!-- HomeFragment Strings -->
+
     <string name="homeFrag_button_startSession_label">@string/startSession_label</string>
     <string name="homeFrag_button_gameTips_label">@string/gameTips_label</string>
     <string name="homeFrag_button_statistics_label">@string/statistics_label</string>
 
-    <!-- Start Session Fragment Strings -->
+    <!-- StartSessionFragment Strings -->
+
     <string name="startSessionFrag_alert_invalidBalance_title">Cannot Start Session</string>
     <string name="startSessionFrag_alert_invalidBalance_message">Please enter a valid balance to start a new session.</string>
     <string name="startSessionFrag_alert_invalidBalance_neutral">OK</string>
@@ -29,7 +36,8 @@
     <string name="startSessionFrag_button_start_label">@string/startSession_label</string>
     <string name="startSessionFrag_button_back_label">@string/back_label</string>
 
-    <!-- Casino Session Fragment Strings -->
+    <!-- CasinoSessionFragment Strings -->
+
     <string name="casinoSessionFrag_alert_endSession_title">Confirm End of Session</string>
     <string name="casinoSessionFrag_alert_endSession_message">Are you sure you want to end this casino session?</string>
     <string name="casinoSessionFrag_alert_endSession_positive">Confirm</string>
@@ -42,10 +50,7 @@
     <string name="CasinoSessionFrag_button_statistics_label">@string/statistics_label</string>
     <string name="casinoSessionFrag_button_endSession_label">End Session</string>
 
-
-
-    <string name="next">Next</string>
-    <string name="previous">Previous</string>
+    <!-- Other -->
 
     <string name="hello_first_fragment">Hello first fragment</string>
     <string name="hello_second_fragment">Hello second fragment. Arg: %1$s</string>
