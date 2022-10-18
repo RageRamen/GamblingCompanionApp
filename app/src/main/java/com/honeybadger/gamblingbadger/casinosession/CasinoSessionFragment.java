@@ -17,9 +17,11 @@ import com.honeybadger.gamblingbadger.databinding.FragmentCasinoSessionBinding;
 public class CasinoSessionFragment extends Fragment {
 
     private FragmentCasinoSessionBinding binding;
-    private AlertDialog.Builder alertBuilderEndSession;
+    private AlertDialog.Builder alertEndSession;
 
     public static CasinoSession casinoSession;
+
+    // Fragment Events:
 
     @Override
     public View onCreateView(
@@ -47,32 +49,40 @@ public class CasinoSessionFragment extends Fragment {
 
     }
 
-    // Interface Initializers:
+    @Override
+    public void onDestroyView() {
+        super.onDestroyView();
+        binding = null;
+    }
+
+    // Alert Initializers:
 
     private void initAlertBuilderEndSession() {
-        alertBuilderEndSession = new AlertDialog.Builder(this.getActivity());
-        alertBuilderEndSession.setCancelable(true);
-        alertBuilderEndSession.setTitle(R.string.casinoSessionFrag_alert_endSession_title);
-        alertBuilderEndSession.setMessage(R.string.casinoSessionFrag_alert_endSession_message);
-        alertBuilderEndSession.setPositiveButton(R.string.casinoSessionFrag_alert_endSession_positive,
+        alertEndSession = new AlertDialog.Builder(this.getActivity());
+        alertEndSession.setCancelable(true);
+        alertEndSession.setTitle(R.string.casinoSessionFrag_alert_endSession_title);
+        alertEndSession.setMessage(R.string.casinoSessionFrag_alert_endSession_message);
+        alertEndSession.setPositiveButton(R.string.casinoSessionFrag_alert_endSession_positive,
                 new DialogInterface.OnClickListener() {
                     @Override
                     public void onClick(DialogInterface dialogInterface, int i) {
                         actionEndSession();
                     }
                 });
-        alertBuilderEndSession.setNegativeButton(R.string.casinoSessionFrag_alert_endSession_negative,
+        alertEndSession.setNegativeButton(R.string.casinoSessionFrag_alert_endSession_negative,
                 new DialogInterface.OnClickListener() {
                     @Override
                     public void onClick(DialogInterface dialogInterface, int i) {}
                 });
     }
 
+    // Interface Initializers:
+
     private void initButtonEndSession() {
         binding.casinoSessionFragButtonEndSession.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                alertBuilderEndSession.show();
+                alertEndSession.show();
             }
         });
     }
@@ -85,12 +95,6 @@ public class CasinoSessionFragment extends Fragment {
 
         NavHostFragment.findNavController(CasinoSessionFragment.this)
                 .navigate(R.id.action_casinoSessionFragment_to_homeFragment);
-    }
-
-    @Override
-    public void onDestroyView() {
-        super.onDestroyView();
-        binding = null;
     }
 
 }

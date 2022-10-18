@@ -1,5 +1,7 @@
 package com.honeybadger.gamblingbadger.casinosession;
 
+import android.app.AlertDialog;
+import android.content.DialogInterface;
 import android.os.Bundle;
 import android.view.LayoutInflater;
 import android.view.View;
@@ -19,11 +21,18 @@ public class StartSessionFragment extends Fragment {
 
     private FragmentStartSessionBinding binding;
 
+    private AlertDialog.Builder alertInvalidBalance;
+
+    // Fragment Events:
+
     @Override
     public View onCreateView(
             LayoutInflater inflater, ViewGroup container,
             Bundle savedInstanceState
     ) {
+
+        // Alert Builder
+        initAlertBuilderEndSession();
 
         binding = FragmentStartSessionBinding.inflate(inflater, container, false);
         return binding.getRoot();
@@ -35,6 +44,27 @@ public class StartSessionFragment extends Fragment {
 
         initStartButton();
         initBackButton();
+    }
+
+    @Override
+    public void onDestroyView() {
+        super.onDestroyView();
+        binding = null;
+    }
+
+    // Alert Initializers:
+
+    private void initAlertBuilderEndSession() {
+        alertInvalidBalance = new AlertDialog.Builder(this.getActivity());
+        alertInvalidBalance.setCancelable(true);
+        alertInvalidBalance.setTitle(R.string.startSessionFrag_alert_invalidBalance_title);
+        alertInvalidBalance.setMessage(R.string.startSessionFrag_alert_invalidBalance_message);
+        alertInvalidBalance.setNeutralButton(R.string.startSessionFrag_alert_invalidBalance_neutral,
+                new DialogInterface.OnClickListener() {
+                    @Override
+                    public void onClick(DialogInterface dialogInterface, int i) {
+                    }
+                });
     }
 
     // Interface Initializers:
@@ -62,10 +92,17 @@ public class StartSessionFragment extends Fragment {
     private void actionStartCasinoSession() {
         // Get input
         // TODO: vv Make sure valid input vv
-        BigDecimal inputBal = new BigDecimal(binding.startSessionFragEditTextNumberDecimalBalance.getText().toString());
+        BigDecimal inputBalance;
+        try {
+            inputBalance = new BigDecimal(binding.startSessionFragEditTextNumberDecimalBalance.getText().toString());
+        }
+        catch (NumberFormatException e) {
+            alertInvalidBalance.show();
+            return;
+        }
 
         // Create Casino Session
-        CasinoSessionFragment.casinoSession = new CasinoSession(new Balance(inputBal));
+        CasinoSessionFragment.casinoSession = new CasinoSession(new Balance(inputBalance));
 
         // Navigate to Casino Session
         NavHostFragment.findNavController(StartSessionFragment.this)
@@ -76,12 +113,6 @@ public class StartSessionFragment extends Fragment {
         // Navigate Home
         NavHostFragment.findNavController(StartSessionFragment.this)
                 .navigate(R.id.action_startSessionFragment_to_homeFragment);
-    }
-
-    @Override
-    public void onDestroyView() {
-        super.onDestroyView();
-        binding = null;
     }
 
 }

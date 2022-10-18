@@ -21,6 +21,10 @@
     <string name="homeFrag_button_statistics_label">@string/statistics_label</string>
 
     <!-- Start Session Fragment Strings -->
+    <string name="startSessionFrag_alert_invalidBalance_title">Cannot Start Session</string>
+    <string name="startSessionFrag_alert_invalidBalance_message">Please enter a valid balance to start a new session.</string>
+    <string name="startSessionFrag_alert_invalidBalance_neutral">OK</string>
+
     <string name="startSessionFrag_editTextNumberDecimal_balance_hint">Enter Balance Amount</string>
     <string name="startSessionFrag_button_start_label">@string/startSession_label</string>
     <string name="startSessionFrag_button_back_label">@string/back_label</string>
