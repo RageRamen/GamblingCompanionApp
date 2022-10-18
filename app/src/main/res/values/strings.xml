@@ -5,8 +5,10 @@
     <string name="text_view">TextView</string>
 
     <!-- Generic strings -->
-    <string name="button_gameTips_label">Game Tips</string>
-    <string name="button_statistics_label">View Statistics</string>
+    <string name="startSession_label">Start Session</string>
+    <string name="gameTips_label">Game Tips</string>
+    <string name="statistics_label">View Statistics</string>
+    <string name="back_label">Back</string>
 
     <!-- Strings used for fragments for navigation -->
     <string name="homeFrag_label">Home</string>
@@ -14,13 +16,14 @@
     <string name="casinoSessionFrag_label">Casino Session</string>
 
     <!-- Home Fragment Strings -->
-    <string name="homeFrag_button_startSession_label">Start Session</string>
-    <string name="homeFrag_button_gameTips_label">@string/button_gameTips_label</string>
-    <string name="homeFrag_button_statistics_label">@string/button_statistics_label</string>
+    <string name="homeFrag_button_startSession_label">@string/startSession_label</string>
+    <string name="homeFrag_button_gameTips_label">@string/gameTips_label</string>
+    <string name="homeFrag_button_statistics_label">@string/statistics_label</string>
 
     <!-- Start Session Fragment Strings -->
     <string name="startSessionFrag_editTextNumberDecimal_balance_hint">Enter Balance Amount</string>
-    <string name="startSessionFrag_button_start_label">Start</string>
+    <string name="startSessionFrag_button_start_label">@string/startSession_label</string>
+    <string name="startSessionFrag_button_back_label">@string/back_label</string>
 
     <!-- Casino Session Fragment Strings -->
     <string name="casinoSessionFrag_alert_endSession_title">Confirm End of Session</string>
@@ -31,8 +34,8 @@
     <string name="casinoSessionFrag_button_startGame_label">Start Game</string>
     <string name="casinoSessionFrag_button_changeBalance_label">Change Balance</string>
     <string name="casinoSessionFrag_button_setTimer_label">Set Timer</string>
-    <string name="casinoSessionFrag_button_gameTips_label">Game Tips</string>
-    <string name="CasinoSessionFrag_button_statistics_label">@string/button_statistics_label</string>
+    <string name="casinoSessionFrag_button_gameTips_label">@string/gameTips_label</string>
+    <string name="CasinoSessionFrag_button_statistics_label">@string/statistics_label</string>
     <string name="casinoSessionFrag_button_endSession_label">End Session</string>
 
 

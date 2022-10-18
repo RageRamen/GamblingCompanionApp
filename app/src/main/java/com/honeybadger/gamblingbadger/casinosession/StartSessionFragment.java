@@ -34,6 +34,7 @@ public class StartSessionFragment extends Fragment {
         super.onViewCreated(view, savedInstanceState);
 
         initStartButton();
+        initBackButton();
     }
 
     // Interface Initializers:
@@ -43,6 +44,15 @@ public class StartSessionFragment extends Fragment {
             @Override
             public void onClick(View view) {
                 actionStartCasinoSession();
+            }
+        });
+    }
+
+    private void initBackButton() {
+        binding.startSessionFragButtonBack.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                actionGoBackHome();
             }
         });
     }
@@ -60,6 +70,12 @@ public class StartSessionFragment extends Fragment {
         // Navigate to Casino Session
         NavHostFragment.findNavController(StartSessionFragment.this)
                 .navigate(R.id.action_startSessionFragment_to_inSessionFragment);
+    }
+
+    private void actionGoBackHome() {
+        // Navigate Home
+        NavHostFragment.findNavController(StartSessionFragment.this)
+                .navigate(R.id.action_startSessionFragment_to_homeFragment);
     }
 
     @Override
