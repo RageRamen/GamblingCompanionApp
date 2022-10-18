@@ -25,8 +25,6 @@ public class StartSessionFragment extends Fragment {
             Bundle savedInstanceState
     ) {
 
-
-        //
         binding = FragmentStartSessionBinding.inflate(inflater, container, false);
         return binding.getRoot();
 
