@@ -7,41 +7,41 @@
     tools:context=".casinosession.CasinoSessionFragment" >
 
     <Button
-        android:id="@+id/button_casinoSession_statistics"
+        android:id="@+id/casinoSessionFrag_button_statistics"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="@string/statistics_button_label"
-        app:layout_constraintBottom_toTopOf="@+id/button_casinoSession_end_session"
+        android:text="@string/CasinoSessionFrag_button_statistics_label"
+        app:layout_constraintBottom_toTopOf="@+id/casinoSessionFrag_button_endSession"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.846"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/button_casinoSession_set_timer" />
+        app:layout_constraintTop_toBottomOf="@+id/casinoSessionFrag_button_setTimer" />
 
     <Button
-        android:id="@+id/button_casinoSession_set_timer"
+        android:id="@+id/casinoSessionFrag_button_setTimer"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="@string/set_timer_button_label"
-        app:layout_constraintBottom_toTopOf="@+id/button_casinoSession_end_session"
+        android:text="@string/casinoSessionFrag_button_setTimer_label"
+        app:layout_constraintBottom_toTopOf="@+id/casinoSessionFrag_button_endSession"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.821"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/button_casinoSession_start_game"
+        app:layout_constraintTop_toBottomOf="@+id/casinoSessionFrag_button_startGame"
         app:layout_constraintVertical_bias="0.25" />
 
     <Button
-        android:id="@+id/button_casinoSession_game_tips"
+        android:id="@+id/casinoSessionFrag_button_gameTips"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="@string/game_tips_button_label"
-        app:layout_constraintBottom_toTopOf="@+id/button_casinoSession_end_session"
+        android:text="@string/casinoSessionFrag_button_gameTips_label"
+        app:layout_constraintBottom_toTopOf="@+id/casinoSessionFrag_button_endSession"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.169"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/button_casinoSession_change_balance" />
+        app:layout_constraintTop_toBottomOf="@+id/casinoSessionFrag_button_changeBalance" />
 
     <TextView
-        android:id="@+id/textview_casinoSession_text"
+        android:id="@+id/casinoSessionFrag_textview_text"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:text="@string/text_view"
@@ -52,10 +52,10 @@
         app:layout_constraintVertical_bias="0.100000024" />
 
     <Button
-        android:id="@+id/button_casinoSession_start_game"
+        android:id="@+id/casinoSessionFrag_button_startGame"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="@string/start_game_button_label"
+        android:text="@string/casinoSessionFrag_button_startGame_label"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
@@ -63,22 +63,22 @@
         app:layout_constraintVertical_bias="0.308" />
 
     <Button
-        android:id="@+id/button_casinoSession_change_balance"
+        android:id="@+id/casinoSessionFrag_button_changeBalance"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="@string/change_balance_button_label"
-        app:layout_constraintBottom_toTopOf="@+id/button_casinoSession_end_session"
+        android:text="@string/casinoSessionFrag_button_changeBalance_label"
+        app:layout_constraintBottom_toTopOf="@+id/casinoSessionFrag_button_endSession"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.125"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/button_casinoSession_start_game"
+        app:layout_constraintTop_toBottomOf="@+id/casinoSessionFrag_button_startGame"
         app:layout_constraintVertical_bias="0.25" />
 
     <Button
-        android:id="@+id/button_casinoSession_end_session"
+        android:id="@+id/casinoSessionFrag_button_endSession"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="@string/end_session_button_label"
+        android:text="@string/casinoSessionFrag_button_endSession_label"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"

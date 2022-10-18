@@ -17,6 +17,10 @@ public class Balance {
 
     // Properties:
 
+    public BigDecimal getBalance() {
+        return this.currentBalance;
+    }
+
     // Action Methods:
 
     public EBalanceMsg addToBalance(BigDecimal amount) {

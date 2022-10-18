@@ -8,7 +8,7 @@
     <fragment
         android:id="@+id/homeFragment"
         android:name="com.honeybadger.gamblingbadger.HomeFragment"
-        android:label="@string/home_fragment_label"
+        android:label="@string/homeFrag_label"
         tools:layout="@layout/fragment_home">
 
         <action
@@ -18,7 +18,7 @@
     <fragment
         android:id="@+id/startSessionFragment"
         android:name="com.honeybadger.gamblingbadger.casinosession.StartSessionFragment"
-        android:label="@string/start_session_fragment_label"
+        android:label="@string/startSessionFrag_label"
         tools:layout="@layout/fragment_start_session">
 
         <action
@@ -31,7 +31,7 @@
     <fragment
         android:id="@+id/casinoSessionFragment"
         android:name="com.honeybadger.gamblingbadger.casinosession.CasinoSessionFragment"
-        android:label="@string/casino_session_fragment_label"
+        android:label="@string/casinoSessionFrag_label"
         tools:layout="@layout/fragment_casino_session" >
         <action
             android:id="@+id/action_casinoSessionFragment_to_homeFragment"

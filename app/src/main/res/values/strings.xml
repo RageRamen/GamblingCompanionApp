@@ -1,25 +1,41 @@
+
 <resources>
     <string name="app_name">Gambling Badger</string>
     <string name="action_settings">Settings</string>
     <string name="text_view">TextView</string>
 
+    <!-- Generic strings -->
+    <string name="button_gameTips_label">Game Tips</string>
+    <string name="button_statistics_label">View Statistics</string>
+
     <!-- Strings used for fragments for navigation -->
-    <string name="home_fragment_label">Home</string>
-    <string name="start_session_fragment_label">Start Session</string>
-    <string name="end_session_fragment_label">End Session</string>
-    <string name="casino_session_fragment_label">Casino Session</string>
+    <string name="homeFrag_label">Home</string>
+    <string name="startSessionFrag_label">Start Session</string>
+    <string name="casinoSessionFrag_label">Casino Session</string>
 
-    <string name="start_session_button_label">Start Session</string>
-    <string name="end_session_button_label">End Session</string>
-    <string name="change_balance_button_label">Change Balance</string>
-    <string name="set_timer_button_label">Set Timer</string>
-    <string name="start_game_button_label">Start Game</string>
-    <string name="game_tips_button_label">Game Tips</string>
-    <string name="statistics_button_label">View Statistics</string>
+    <!-- Home Fragment Strings -->
+    <string name="homeFrag_button_startSession_label">Start Session</string>
+    <string name="homeFrag_button_gameTips_label">@string/button_gameTips_label</string>
+    <string name="homeFrag_button_statistics_label">@string/button_statistics_label</string>
 
-    <string name="start_button_label">Start</string>
+    <!-- Start Session Fragment Strings -->
+    <string name="startSessionFrag_editTextNumberDecimal_balance_hint">Enter Balance Amount</string>
+    <string name="startSessionFrag_button_start_label">Start</string>
 
-    <string name="balance_entry_hint">Enter Balance Amount</string>
+    <!-- Casino Session Fragment Strings -->
+    <string name="casinoSessionFrag_alert_endSession_title">Confirm End of Session</string>
+    <string name="casinoSessionFrag_alert_endSession_message">Are you sure you want to end this casino session?</string>
+    <string name="casinoSessionFrag_alert_endSession_positive">Confirm</string>
+    <string name="casinoSessionFrag_alert_endSession_negative">Cancel</string>
+
+    <string name="casinoSessionFrag_button_startGame_label">Start Game</string>
+    <string name="casinoSessionFrag_button_changeBalance_label">Change Balance</string>
+    <string name="casinoSessionFrag_button_setTimer_label">Set Timer</string>
+    <string name="casinoSessionFrag_button_gameTips_label">Game Tips</string>
+    <string name="CasinoSessionFrag_button_statistics_label">@string/button_statistics_label</string>
+    <string name="casinoSessionFrag_button_endSession_label">End Session</string>
+
+
 
     <string name="next">Next</string>
     <string name="previous">Previous</string>

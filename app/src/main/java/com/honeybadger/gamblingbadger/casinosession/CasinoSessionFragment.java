@@ -1,5 +1,7 @@
 package com.honeybadger.gamblingbadger.casinosession;
 
+import android.app.AlertDialog;
+import android.content.DialogInterface;
 import android.os.Bundle;
 import android.view.LayoutInflater;
 import android.view.View;
@@ -12,11 +14,10 @@ import androidx.navigation.fragment.NavHostFragment;
 import com.honeybadger.gamblingbadger.R;
 import com.honeybadger.gamblingbadger.databinding.FragmentCasinoSessionBinding;
 
-import java.math.BigDecimal;
-
 public class CasinoSessionFragment extends Fragment {
 
     private FragmentCasinoSessionBinding binding;
+    private AlertDialog.Builder alertBuilderEndSession;
 
     public static CasinoSession casinoSession;
 
@@ -26,6 +27,10 @@ public class CasinoSessionFragment extends Fragment {
             Bundle savedInstanceState
     ) {
 
+        // Alert Builder
+        initAlertBuilderEndSession();
+
+        // Binding
         binding = FragmentCasinoSessionBinding.inflate(inflater, container, false);
         return binding.getRoot();
 
@@ -34,17 +39,52 @@ public class CasinoSessionFragment extends Fragment {
     public void onViewCreated(@NonNull View view, Bundle savedInstanceState) {
         super.onViewCreated(view, savedInstanceState);
 
-        binding.buttonCasinoSessionEndSession.setOnClickListener(new View.OnClickListener() {
+        // Visual
+        binding.casinoSessionFragTextviewText.setText(casinoSession.getBalance().getBalance().toString());
+
+        // Button bindings
+        initButtonEndSession();
+
+    }
+
+    // Interface Initializers:
+
+    private void initAlertBuilderEndSession() {
+        alertBuilderEndSession = new AlertDialog.Builder(this.getActivity());
+        alertBuilderEndSession.setCancelable(true);
+        alertBuilderEndSession.setTitle(R.string.casinoSessionFrag_alert_endSession_title);
+        alertBuilderEndSession.setMessage(R.string.casinoSessionFrag_alert_endSession_message);
+        alertBuilderEndSession.setPositiveButton(R.string.casinoSessionFrag_alert_endSession_positive,
+                new DialogInterface.OnClickListener() {
+                    @Override
+                    public void onClick(DialogInterface dialogInterface, int i) {
+                        actionEndSession();
+                    }
+                });
+        alertBuilderEndSession.setNegativeButton(R.string.casinoSessionFrag_alert_endSession_negative,
+                new DialogInterface.OnClickListener() {
+                    @Override
+                    public void onClick(DialogInterface dialogInterface, int i) {}
+                });
+    }
+
+    private void initButtonEndSession() {
+        binding.casinoSessionFragButtonEndSession.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                // TODO: Ask to confirm
-                casinoSession.closeSession();
-
-                NavHostFragment.findNavController(CasinoSessionFragment.this)
-                        .navigate(R.id.action_casinoSessionFragment_to_homeFragment);
+                alertBuilderEndSession.show();
             }
         });
+    }
 
+    // Actions:
+
+    private void actionEndSession() {
+        // TODO: Ask to confirm
+        casinoSession.closeSession();
+
+        NavHostFragment.findNavController(CasinoSessionFragment.this)
+                .navigate(R.id.action_casinoSessionFragment_to_homeFragment);
     }
 
     @Override
