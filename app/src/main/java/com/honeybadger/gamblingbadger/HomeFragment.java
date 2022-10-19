@@ -21,6 +21,8 @@ public class HomeFragment extends Fragment {
             Bundle savedInstanceState
     ) {
 
+
+
         binding = FragmentHomeBinding.inflate(inflater, container, false);
         return binding.getRoot();
 
