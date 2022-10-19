@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <blackjack_tables>
-    <table name="one_deck_dsoS17">
+    <table name="one_deck_dSos17">
         <hand key="4"  d2="H"  d3="H"  d4="H"  d5="H"  d6="H"  d7="H"  d8="H"  d9="H"  dt="H"  da="H" />
         <hand key="5"  d2="H"  d3="H"  d4="H"  d5="H"  d6="H"  d7="H"  d8="H"  d9="H"  dt="H"  da="H" />
         <hand key="6"  d2="H"  d3="H"  d4="H"  d5="H"  d6="H"  d7="H"  d8="H"  d9="H"  dt="H"  da="H" />
@@ -39,7 +39,7 @@
         <hand key="TT" d2="S"  d3="S"  d4="S"  d5="S"  d6="S"  d7="S"  d8="S"  d9="S"  dt="S"  da="S" />
         <hand key="AA" d2="P"  d3="P"  d4="P"  d5="P"  d6="P"  d7="P"  d8="P"  d9="P"  dt="P"  da="P" />
     </table>
-    <table name="one_deck_dhoS17">
+    <table name="one_deck_dHos17">
         <hand key="4"  d2="H"  d3="H"  d4="H"  d5="H"  d6="H"  d7="H"  d8="H"  d9="H"  dt="H"  da="H" />
         <hand key="5"  d2="H"  d3="H"  d4="H"  d5="H"  d6="H"  d7="H"  d8="H"  d9="H"  dt="H"  da="H" />
         <hand key="6"  d2="H"  d3="H"  d4="H"  d5="H"  d6="H"  d7="H"  d8="H"  d9="H"  dt="H"  da="H" />
@@ -78,7 +78,7 @@
         <hand key="TT" d2="S"  d3="S"  d4="S"  d5="S"  d6="S"  d7="S"  d8="S"  d9="S"  dt="S"  da="S" />
         <hand key="AA" d2="P"  d3="P"  d4="P"  d5="P"  d6="P"  d7="P"  d8="P"  d9="P"  dt="P"  da="P" />
     </table>
-    <table name="two_deck_dsoS17">
+    <table name="two_deck_dSos17">
         <hand key="4"  d2="H"  d3="H"  d4="H"  d5="H"  d6="H"  d7="H"  d8="H"  d9="H"  dt="H"  da="H" />
         <hand key="5"  d2="H"  d3="H"  d4="H"  d5="H"  d6="H"  d7="H"  d8="H"  d9="H"  dt="H"  da="H" />
         <hand key="6"  d2="H"  d3="H"  d4="H"  d5="H"  d6="H"  d7="H"  d8="H"  d9="H"  dt="H"  da="H" />
@@ -117,7 +117,7 @@
         <hand key="TT" d2="S"  d3="S"  d4="S"  d5="S"  d6="S"  d7="S"  d8="S"  d9="S"  dt="S"  da="S" />
         <hand key="AA" d2="P"  d3="P"  d4="P"  d5="P"  d6="P"  d7="P"  d8="P"  d9="P"  dt="P"  da="P" />
     </table>
-    <table name="two_deck_dhoS17">
+    <table name="two_deck_dHos17">
         <hand key="4"  d2="H"  d3="H"  d4="H"  d5="H"  d6="H"  d7="H"  d8="H"  d9="H"  dt="H"  da="H" />
         <hand key="5"  d2="H"  d3="H"  d4="H"  d5="H"  d6="H"  d7="H"  d8="H"  d9="H"  dt="H"  da="H" />
         <hand key="6"  d2="H"  d3="H"  d4="H"  d5="H"  d6="H"  d7="H"  d8="H"  d9="H"  dt="H"  da="H" />
@@ -156,7 +156,7 @@
         <hand key="TT" d2="S"  d3="S"  d4="S"  d5="S"  d6="S"  d7="S"  d8="S"  d9="S"  dt="S"  da="S" />
         <hand key="AA" d2="P"  d3="P"  d4="P"  d5="P"  d6="P"  d7="P"  d8="P"  d9="P"  dt="P"  da="P" />
     </table>
-    <table name="three_deck_dsoS17">
+    <table name="three_deck_dSos17">
         <hand key="4"  d2="H"  d3="H"  d4="H"  d5="H"  d6="H"  d7="H"  d8="H"  d9="H"  dt="H"  da="H" />
         <hand key="5"  d2="H"  d3="H"  d4="H"  d5="H"  d6="H"  d7="H"  d8="H"  d9="H"  dt="H"  da="H" />
         <hand key="6"  d2="H"  d3="H"  d4="H"  d5="H"  d6="H"  d7="H"  d8="H"  d9="H"  dt="H"  da="H" />
@@ -195,7 +195,7 @@
         <hand key="TT" d2="S"  d3="S"  d4="S"  d5="S"  d6="S"  d7="S"  d8="S"  d9="S"  dt="S"  da="S" />
         <hand key="AA" d2="S"  d3="S"  d4="S"  d5="S"  d6="S"  d7="S"  d8="S"  d9="S"  dt="S"  da="S" />
     </table>
-    <table name="three_deck_dhoS17">
+    <table name="three_deck_dHos17">
         <hand key="4"  d2="H"  d3="H"  d4="H"  d5="H"  d6="H"  d7="H"  d8="H"  d9="H"  dt="H"  da="H" />
         <hand key="5"  d2="H"  d3="H"  d4="H"  d5="H"  d6="H"  d7="H"  d8="H"  d9="H"  dt="H"  da="H" />
         <hand key="6"  d2="H"  d3="H"  d4="H"  d5="H"  d6="H"  d7="H"  d8="H"  d9="H"  dt="H"  da="H" />
@@ -234,7 +234,7 @@
         <hand key="TT" d2="S"  d3="S"  d4="S"  d5="S"  d6="S"  d7="S"  d8="S"  d9="S"  dt="S"  da="S" />
         <hand key="AA" d2="S"  d3="S"  d4="S"  d5="S"  d6="S"  d7="S"  d8="S"  d9="S"  dt="S"  da="S" />
     </table>
-    <table name="four_deck_dsoS17">
+    <table name="four_deck_dSos17">
         <hand key="4"  d2="H"  d3="H"  d4="H"  d5="H"  d6="H"  d7="H"  d8="H"  d9="H"  dt="H"  da="H" />
         <hand key="5"  d2="H"  d3="H"  d4="H"  d5="H"  d6="H"  d7="H"  d8="H"  d9="H"  dt="H"  da="H" />
         <hand key="6"  d2="H"  d3="H"  d4="H"  d5="H"  d6="H"  d7="H"  d8="H"  d9="H"  dt="H"  da="H" />
@@ -273,7 +273,7 @@
         <hand key="TT" d2="S"  d3="S"  d4="S"  d5="S"  d6="S"  d7="S"  d8="S"  d9="S"  dt="S"  da="S" />
         <hand key="AA" d2="P"  d3="P"  d4="P"  d5="P"  d6="P"  d7="P"  d8="P"  d9="P"  dt="P"  da="P" />
     </table>
-    <table name="four_deck_dhoS17">
+    <table name="four_deck_dHos17">
         <hand key="4"  d2="H"  d3="H"  d4="H"  d5="H"  d6="H"  d7="H"  d8="H"  d9="H"  dt="H"  da="H" />
         <hand key="5"  d2="H"  d3="H"  d4="H"  d5="H"  d6="H"  d7="H"  d8="H"  d9="H"  dt="H"  da="H" />
         <hand key="6"  d2="H"  d3="H"  d4="H"  d5="H"  d6="H"  d7="H"  d8="H"  d9="H"  dt="H"  da="H" />
@@ -312,7 +312,7 @@
         <hand key="TT" d2="S"  d3="S"  d4="S"  d5="S"  d6="S"  d7="S"  d8="S"  d9="S"  dt="S"  da="S" />
         <hand key="AA" d2="P"  d3="P"  d4="P"  d5="P"  d6="P"  d7="P"  d8="P"  d9="P"  dt="P"  da="P" />
     </table>
-    <table name="five_deck_dsoS17">
+    <table name="five_deck_dSos17">
         <hand key="4"  d2="H"  d3="H"  d4="H"  d5="H"  d6="H"  d7="H"  d8="H"  d9="H"  dt="H"  da="H" />
         <hand key="5"  d2="H"  d3="H"  d4="H"  d5="H"  d6="H"  d7="H"  d8="H"  d9="H"  dt="H"  da="H" />
         <hand key="6"  d2="H"  d3="H"  d4="H"  d5="H"  d6="H"  d7="H"  d8="H"  d9="H"  dt="H"  da="H" />
@@ -351,7 +351,7 @@
         <hand key="TT" d2="S"  d3="S"  d4="S"  d5="S"  d6="S"  d7="S"  d8="S"  d9="S"  dt="S"  da="S" />
         <hand key="AA" d2="P"  d3="P"  d4="P"  d5="P"  d6="P"  d7="P"  d8="P"  d9="P"  dt="P"  da="P" />
     </table>
-    <table name="five_deck_dhoS17">
+    <table name="five_deck_dHos17">
         <hand key="4"  d2="H"  d3="H"  d4="H"  d5="H"  d6="H"  d7="H"  d8="H"  d9="H"  dt="H"  da="H" />
         <hand key="5"  d2="H"  d3="H"  d4="H"  d5="H"  d6="H"  d7="H"  d8="H"  d9="H"  dt="H"  da="H" />
         <hand key="6"  d2="H"  d3="H"  d4="H"  d5="H"  d6="H"  d7="H"  d8="H"  d9="H"  dt="H"  da="H" />
@@ -390,7 +390,7 @@
         <hand key="TT" d2="S"  d3="S"  d4="S"  d5="S"  d6="S"  d7="S"  d8="S"  d9="S"  dt="S"  da="S" />
         <hand key="AA" d2="P"  d3="P"  d4="P"  d5="P"  d6="P"  d7="P"  d8="P"  d9="P"  dt="P"  da="P" />
     </table>
-    <table name="six_deck_dsoS17">
+    <table name="six_deck_dSos17">
         <hand key="4"  d2="H"  d3="H"  d4="H"  d5="H"  d6="H"  d7="H"  d8="H"  d9="H"  dt="H"  da="H" />
         <hand key="5"  d2="H"  d3="H"  d4="H"  d5="H"  d6="H"  d7="H"  d8="H"  d9="H"  dt="H"  da="H" />
         <hand key="6"  d2="H"  d3="H"  d4="H"  d5="H"  d6="H"  d7="H"  d8="H"  d9="H"  dt="H"  da="H" />
@@ -429,7 +429,7 @@
         <hand key="TT" d2="S"  d3="S"  d4="S"  d5="S"  d6="S"  d7="S"  d8="S"  d9="S"  dt="S"  da="S" />
         <hand key="AA" d2="P"  d3="P"  d4="P"  d5="P"  d6="P"  d7="P"  d8="P"  d9="P"  dt="P"  da="P" />
     </table>
-    <table name="six_deck_dhoS17">
+    <table name="six_deck_dHos17">
         <hand key="4"  d2="H"  d3="H"  d4="H"  d5="H"  d6="H"  d7="H"  d8="H"  d9="H"  dt="H"  da="H" />
         <hand key="5"  d2="H"  d3="H"  d4="H"  d5="H"  d6="H"  d7="H"  d8="H"  d9="H"  dt="H"  da="H" />
         <hand key="6"  d2="H"  d3="H"  d4="H"  d5="H"  d6="H"  d7="H"  d8="H"  d9="H"  dt="H"  da="H" />
@@ -468,7 +468,7 @@
         <hand key="TT" d2="S"  d3="S"  d4="S"  d5="S"  d6="S"  d7="S"  d8="S"  d9="S"  dt="S"  da="S" />
         <hand key="AA" d2="P"  d3="P"  d4="P"  d5="P"  d6="P"  d7="P"  d8="P"  d9="P"  dt="P"  da="P" />
     </table>
-    <table name="seven_deck_dsoS17">
+    <table name="seven_deck_dSos17">
         <hand key="4"  d2="H"  d3="H"  d4="H"  d5="H"  d6="H"  d7="H"  d8="H"  d9="H"  dt="H"  da="H" />
         <hand key="5"  d2="H"  d3="H"  d4="H"  d5="H"  d6="H"  d7="H"  d8="H"  d9="H"  dt="H"  da="H" />
         <hand key="6"  d2="H"  d3="H"  d4="H"  d5="H"  d6="H"  d7="H"  d8="H"  d9="H"  dt="H"  da="H" />
@@ -507,7 +507,7 @@
         <hand key="TT" d2="S"  d3="S"  d4="S"  d5="S"  d6="S"  d7="S"  d8="S"  d9="S"  dt="S"  da="S" />
         <hand key="AA" d2="P"  d3="P"  d4="P"  d5="P"  d6="P"  d7="P"  d8="P"  d9="P"  dt="P"  da="P" />
     </table>
-    <table name="seven_deck_dhoS17">
+    <table name="seven_deck_dHos17">
         <hand key="4"  d2="H"  d3="H"  d4="H"  d5="H"  d6="H"  d7="H"  d8="H"  d9="H"  dt="H"  da="H" />
         <hand key="5"  d2="H"  d3="H"  d4="H"  d5="H"  d6="H"  d7="H"  d8="H"  d9="H"  dt="H"  da="H" />
         <hand key="6"  d2="H"  d3="H"  d4="H"  d5="H"  d6="H"  d7="H"  d8="H"  d9="H"  dt="H"  da="H" />
@@ -546,7 +546,7 @@
         <hand key="TT" d2="S"  d3="S"  d4="S"  d5="S"  d6="S"  d7="S"  d8="S"  d9="S"  dt="S"  da="S" />
         <hand key="AA" d2="P"  d3="P"  d4="P"  d5="P"  d6="P"  d7="P"  d8="P"  d9="P"  dt="P"  da="P" />
     </table>
-    <table name="eight_deck_dsoS17">
+    <table name="eight_deck_dSos17">
         <hand key="4"  d2="H"  d3="H"  d4="H"  d5="H"  d6="H"  d7="H"  d8="H"  d9="H"  dt="H"  da="H" />
         <hand key="5"  d2="H"  d3="H"  d4="H"  d5="H"  d6="H"  d7="H"  d8="H"  d9="H"  dt="H"  da="H" />
         <hand key="6"  d2="H"  d3="H"  d4="H"  d5="H"  d6="H"  d7="H"  d8="H"  d9="H"  dt="H"  da="H" />
@@ -585,7 +585,7 @@
         <hand key="TT" d2="S"  d3="S"  d4="S"  d5="S"  d6="S"  d7="S"  d8="S"  d9="S"  dt="S"  da="S" />
         <hand key="AA" d2="P"  d3="P"  d4="P"  d5="P"  d6="P"  d7="P"  d8="P"  d9="P"  dt="P"  da="P" />
     </table>
-    <table name="eight_deck_dhoS17">
+    <table name="eight_deck_dHos17">
         <hand key="4"  d2="H"  d3="H"  d4="H"  d5="H"  d6="H"  d7="H"  d8="H"  d9="H"  dt="H"  da="H" />
         <hand key="5"  d2="H"  d3="H"  d4="H"  d5="H"  d6="H"  d7="H"  d8="H"  d9="H"  dt="H"  da="H" />
         <hand key="6"  d2="H"  d3="H"  d4="H"  d5="H"  d6="H"  d7="H"  d8="H"  d9="H"  dt="H"  da="H" />
@@ -635,12 +635,13 @@
     Ph = split if double-down-after-split is allowed (else hit)
     Ps = split if double-down-after-split is allowed (else stand)
     Pd = split if double-down-after-split is allowed (else Dh)
-    Rh = Surrender (else hit)
-    Rs = Surrender (else stand)
+    Rh = surrender (else hit)
+    Rs = surrender (else stand)
+    Rp = surrender (else split)
  -->
 
 <!-- Template
-    <table name="six_deck_dsoS17">
+    <table name="six_deck_dSos17">
         <hand key="4"  d2="" d3="" d4="" d5="" d6="" d7="" d8="" d9="" dt="" da="" />
         <hand key="5"  d2="" d3="" d4="" d5="" d6="" d7="" d8="" d9="" dt="" da="" />
         <hand key="6"  d2="" d3="" d4="" d5="" d6="" d7="" d8="" d9="" dt="" da="" />
