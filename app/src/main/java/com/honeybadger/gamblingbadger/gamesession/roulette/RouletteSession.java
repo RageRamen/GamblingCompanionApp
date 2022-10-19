@@ -1,6 +1,7 @@
-package com.honeybadger.gamblingbadger.gamesession;
+package com.honeybadger.gamblingbadger.gamesession.roulette;
 
 import com.honeybadger.gamblingbadger.casinosession.CasinoSession;
+import com.honeybadger.gamblingbadger.gamesession.*;
 
 public class RouletteSession extends GameSession {
 

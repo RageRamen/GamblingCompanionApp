@@ -1,13 +1,8 @@
 package com.honeybadger.gamblingbadger.casinosession;
 
 import java.math.BigDecimal;
-import java.time.Instant;
 import java.time.LocalDateTime;
 import java.time.Duration;
-
-import java.time.ZoneId;
-import java.util.Calendar;
-import java.util.Date;
 
 import java.util.List;
 import java.util.LinkedList;
@@ -18,11 +13,11 @@ import com.honeybadger.gamblingbadger.timer.Timer;
 
 import com.honeybadger.gamblingbadger.gamesession.EGameType;
 import com.honeybadger.gamblingbadger.gamesession.GameSession;
-import com.honeybadger.gamblingbadger.gamesession.BlackjackSession;
-import com.honeybadger.gamblingbadger.gamesession.PokerSession;
-import com.honeybadger.gamblingbadger.gamesession.TexasHoldemSession;
-import com.honeybadger.gamblingbadger.gamesession.RouletteSession;
-import com.honeybadger.gamblingbadger.gamesession.AmericanRouletteSession;
+import com.honeybadger.gamblingbadger.gamesession.blackjack.BlackjackSession;
+import com.honeybadger.gamblingbadger.gamesession.poker.PokerSession;
+import com.honeybadger.gamblingbadger.gamesession.texasholdem.TexasHoldemSession;
+import com.honeybadger.gamblingbadger.gamesession.roulette.RouletteSession;
+import com.honeybadger.gamblingbadger.gamesession.roulette.AmericanRouletteSession;
 
 public class CasinoSession {
     // Variables:
