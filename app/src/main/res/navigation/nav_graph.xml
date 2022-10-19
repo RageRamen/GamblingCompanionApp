@@ -36,5 +36,17 @@
         <action
             android:id="@+id/action_casinoSessionFragment_to_homeFragment"
             app:destination="@id/homeFragment" />
+        <action
+            android:id="@+id/action_casinoSessionFragment_to_startGameFragment"
+            app:destination="@id/startGameFragment" />
+    </fragment>
+    <fragment
+        android:id="@+id/startGameFragment"
+        android:name="com.honeybadger.gamblingbadger.gamesession.StartGameFragment"
+        android:label="@string/startGameFrag_label"
+        tools:layout="@layout/fragment_start_game" >
+        <action
+            android:id="@+id/action_startGameFragment_to_casinoSessionFragment"
+            app:destination="@id/casinoSessionFragment" />
     </fragment>
 </navigation>

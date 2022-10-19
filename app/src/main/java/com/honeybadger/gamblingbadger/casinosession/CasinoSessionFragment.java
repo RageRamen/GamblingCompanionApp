@@ -45,6 +45,7 @@ public class CasinoSessionFragment extends Fragment {
         binding.casinoSessionFragTextviewText.setText(casinoSession.getBalance().getBalance().toString());
 
         // Button bindings
+        initButtonStartGame();
         initButtonEndSession();
 
     }
@@ -78,6 +79,15 @@ public class CasinoSessionFragment extends Fragment {
 
     // Interface Initializers:
 
+    private void initButtonStartGame() {
+        binding.casinoSessionFragButtonStartGame.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                actionGoToStartGame();
+            }
+        });
+    }
+
     private void initButtonEndSession() {
         binding.casinoSessionFragButtonEndSession.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -88,6 +98,11 @@ public class CasinoSessionFragment extends Fragment {
     }
 
     // Actions:
+
+    private void actionGoToStartGame() {
+        NavHostFragment.findNavController(CasinoSessionFragment.this)
+                .navigate(R.id.action_casinoSessionFragment_to_startGameFragment);
+    }
 
     private void actionEndSession() {
         // TODO: Ask to confirm

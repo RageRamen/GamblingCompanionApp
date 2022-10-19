@@ -9,4 +9,11 @@ public class RouletteSession extends GameSession {
     public RouletteSession(CasinoSession casinoSession) {
         super(casinoSession, EGameType.GT_ROULETTE);
     }
+
+    // Info Methods:
+
+    @Override
+    public float getAverageLuck() {
+        return 0;
+    }
 }

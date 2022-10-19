@@ -39,7 +39,7 @@ public class CasinoSession {
     // Constructor:
 
     public CasinoSession(Balance balance) {
-        this.sessionStartTime = this.getCurrentTime();
+        this.sessionStartTime = Timer.getCurrentTime();
         this.sessionEndTime = this.sessionStartTime;
         this.balance = balance;
         this.timer = new Timer();
@@ -135,18 +135,11 @@ public class CasinoSession {
 
     public boolean closeSession() {
         // TODO: Other stuff
-        this.sessionEndTime = this.getCurrentTime();
+        this.sessionEndTime = Timer.getCurrentTime();
         return false;
     }
 
     // Info Methods:
-
-    private LocalDateTime getCurrentTime() {
-        Date date = Calendar.getInstance().getTime();
-        return date.toInstant()
-                .atZone(ZoneId.systemDefault())
-                .toLocalDateTime();
-    }
 
     public boolean isSessionOpen() {
         return this.sessionStartTime == this.sessionEndTime;
@@ -156,7 +149,7 @@ public class CasinoSession {
         Duration deltaTime;
 
         if (this.isSessionOpen()) {
-            deltaTime = Duration.between(this.sessionStartTime, this.getCurrentTime());
+            deltaTime = Duration.between(this.sessionStartTime, Timer.getCurrentTime());
         }
         else {
             deltaTime = Duration.between(this.sessionStartTime, this.sessionEndTime);
