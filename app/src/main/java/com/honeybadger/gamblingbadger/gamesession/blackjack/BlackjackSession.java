@@ -4,6 +4,7 @@ import com.honeybadger.gamblingbadger.casinosession.CasinoSession;
 import com.honeybadger.gamblingbadger.gamesession.*;
 
 public class BlackjackSession extends GameSession {
+    // Variables
 
     // Constructor
 
@@ -11,7 +12,7 @@ public class BlackjackSession extends GameSession {
         super(casinoSession, EGameType.GT_BLACKJACK);
     }
 
-    // Info Methods:
+    // Info Methods
 
     @Override
     public float getAverageLuck() {
