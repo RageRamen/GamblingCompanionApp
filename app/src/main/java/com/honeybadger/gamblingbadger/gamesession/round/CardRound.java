@@ -1,4 +1,4 @@
-package com.honeybadger.gamblingbadger.gamesession;
+package com.honeybadger.gamblingbadger.gamesession.round;
 
 import java.math.BigDecimal;
 
