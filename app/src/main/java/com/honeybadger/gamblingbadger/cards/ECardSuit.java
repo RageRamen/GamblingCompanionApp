@@ -1,4 +1,4 @@
-package com.honeybadger.gamblingbadger.gamesession.card;
+package com.honeybadger.gamblingbadger.cards;
 
 public enum ECardSuit {
     CS_NONE,

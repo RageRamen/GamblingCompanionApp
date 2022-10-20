@@ -4,7 +4,7 @@ import android.content.res.Resources;
 import android.util.Pair;
 
 import com.honeybadger.gamblingbadger.R;
-import com.honeybadger.gamblingbadger.gamesession.card.*;
+import com.honeybadger.gamblingbadger.cards.*;
 
 import org.xmlpull.v1.XmlPullParser;
 import org.xmlpull.v1.XmlPullParserException;
