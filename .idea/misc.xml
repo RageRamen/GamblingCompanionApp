@@ -3,6 +3,7 @@
   <component name="DesignSurface">
     <option name="filePathToZoomLevelMap">
       <map>
+        <entry key="..\:/Documents 2/AndroidStudioProjects/GamblingBadger1/app/src/main/res/layout/fragment_home.xml" value="0.22826086956521738" />
         <entry key="..\:/Users/bradd/AndroidStudioProjects/GamblingBadger/app/src/main/res/layout/activity_main.xml" value="0.36666666666666664" />
         <entry key="..\:/Users/bradd/AndroidStudioProjects/GamblingBadger/app/src/main/res/layout/content_main.xml" value="0.36666666666666664" />
         <entry key="..\:/Users/bradd/AndroidStudioProjects/GamblingBadger/app/src/main/res/layout/fragment_casino_session.xml" value="0.5" />
@@ -13,7 +14,6 @@
         <entry key="..\:/Users/bradd/AndroidStudioProjects/GamblingBadger/app/src/main/res/layout/fragment_start_session.xml" value="0.36666666666666664" />
         <entry key="..\:/Users/bradd/AndroidStudioProjects/GamblingBadger/app/src/main/res/menu/menu_main.xml" value="0.36666666666666664" />
         <entry key="..\:/Users/bradd/AndroidStudioProjects/GamblingBadger/app/src/main/res/xml/blackjack.xml" value="0.1" />
-        <entry key="..\:/Users/bradd/AndroidStudioProjects/GamblingBadger3/app/src/main/res/layout/fragment_home.xml" value="0.36666666666666664" />
       </map>
     </option>
   </component>
