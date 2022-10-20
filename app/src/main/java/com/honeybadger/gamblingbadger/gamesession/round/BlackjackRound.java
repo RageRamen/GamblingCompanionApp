@@ -131,103 +131,130 @@ public class BlackjackRound extends CardRound {
 
     // Info Methods
 
+    private List<Integer> getPossibleScores(final List<Card> deck, final List<Card> hand) {
+        List<Integer> possibleScores = new LinkedList<>();
+        recursiveScoreCheck(possibleScores, deck, hand);
+        return possibleScores;
+    }
+
+    private void recursiveScoreCheck(List<Integer> possibleScores, final List<Card> deck, final List<Card> dealerHand) {
+        // Assumes dealer stands on soft 17
+        int score = getBestScore(getLowHighScore(dealerHand));
+        if (score >= 17)
+            possibleScores.add(score);
+        else {
+            // Hit
+            List<Card> hitDeck = new LinkedList<>(deck);
+            List<Card> hitHand = new LinkedList<>(dealerHand);
+            for (Card card : deck) {
+                hitDeck.remove(card);
+                hitHand.add(card);
+                recursiveScoreCheck(possibleScores, hitDeck, hitHand);
+                hitHand.remove(card);
+                hitDeck.add(card);
+            }
+        }
+    }
+
     @Override
     public float getHandStrength() {
-        // Get deck
+        // Assumes dealer stands on soft 17
+
+        // Get deck remaining
         List<Card> deck = Card.getDecks(numberOfDecks);
-
-        // Remove taken cards
-        for (Card c : userHand)
-            deck.remove(c);
         deck.remove(dealerCard);
+        for (Card card : userHand)
+            deck.remove(card);
 
-        // Get current scores
-        int[] scores = getLowHighScore(userHand);
-        int activeScore;
+        // Declare calculation variables
+        List<Integer> possibleScores;
+        int bustNumber;
+        int validScoreSum;
+        int validScoreCount;
+        double bustPercent;
+        double averageValidScore;
 
-        // Get safe numbers
-        if (scores[0] == scores[1]) {  // No aces
-            activeScore = scores[0];
-            if (activeScore > 21) {
-                // Busted
-                // TODO
-            }
-            else if (activeScore == 21) {
-                // Best hand
-                // TODO
-            }
-            else {
-                // Playing
-                // TODO
-            }
-        }
-
-        return 0;
-    }
-
-    private static float[] getNumProbabilityDistribution(List<Card> deck) {
-        int[] count = new int[12];
-        float[] probabilityDist = new float[12];
-
-        for (Card card : deck) {
-            switch (card.num) {
-                case CN_ANY:
-                case CN_R:
-                    break;
-                case CN_A:
-                    count[1]++;
-                    count[11]++;
-                    break;
-                case CN_2:
-                    count[2]++;
-                    break;
-                case CN_3:
-                    count[3]++;
-                    break;
-                case CN_4:
-                    count[4]++;
-                    break;
-                case CN_5:
-                    count[5]++;
-                    break;
-                case CN_6:
-                    count[6]++;
-                    break;
-                case CN_7:
-                    count[7]++;
-                    break;
-                case CN_8:
-                    count[8]++;
-                    break;
-                case CN_9:
-                    count[9]++;
-                    break;
-                case CN_10:
-                case CN_J:
-                case CN_Q:
-                case CN_K:
-                    count[10]++;
-                    break;
+        // Get final user score
+        float finalUserScore = 0;
+        possibleScores = getPossibleScores(deck, userHand);
+        bustNumber = 0;
+        validScoreSum = 0;
+        validScoreCount = 0;
+        bustPercent = 0;
+        averageValidScore = 0;
+        for (Integer i : possibleScores) {
+            if (i <= 21) {
+                validScoreSum += i;
+                validScoreCount += 1;
+            } else {
+                bustNumber += 1;
             }
         }
+        if (possibleScores.size() > 0)
+            bustPercent = (double)bustNumber / (double)possibleScores.size();
+        if (validScoreCount > 0)
+            averageValidScore = (double)validScoreSum / (double)validScoreCount;
+        if (bustPercent >= 1.0f)
+            bustPercent = 1.0f - Float.MIN_VALUE;  // Is a double
+        finalUserScore = (float)averageValidScore / (float)(1.0f - bustPercent);
 
-        if (deck.size() > 0) {
-            for (int i = 1; i < 12; i++)
-                probabilityDist[i] = (float)count[i] / (float)deck.size();
-            probabilityDist[0] = 0.0f;  // pulling a 0 is impossible
+        // Get final dealer score
+        float finalDealerScore = 0;
+        bustPercent = 0;
+        averageValidScore = 0;
+        switch (numberOfDecks) {
+            case 1:
+            case 2:
+            case 3:
+                List<Card> dealerHand = new LinkedList<>();
+                dealerHand.add(dealerCard);
+                possibleScores = getPossibleScores(deck, dealerHand);
+                bustNumber = 0;
+                validScoreSum = 0;
+                validScoreCount = 0;
+                for (Integer i : possibleScores) {
+                    if (i <= 21) {
+                        validScoreSum += i;
+                        validScoreCount += 1;
+                    }
+                    else{
+                        bustNumber += 1;
+                    }
+                }
+                if (possibleScores.size() > 0)
+                    bustPercent = (double)bustNumber / (double)possibleScores.size();
+                if (validScoreCount > 0)
+                    averageValidScore = (double)validScoreSum / (double)validScoreCount;
+                if (bustPercent >= 1.0f)
+                    bustPercent = 1.0f - Float.MIN_VALUE;  // Is a double
+                finalDealerScore = (float)averageValidScore / (float)(1.0f - bustPercent);
+                break;
+            case 4:
+            case 5:
+            case 6:
+            case 7:
+            case 8:
+                // 4 - 8 practically the same
+                // 17 - 14%
+                // 18 - 14%
+                // 19 - 13%
+                // 20 - 18%
+                // 21 - 12%
+                // 22 - 7%
+                // 23 - 7%
+                // 24 - 6%
+                // 25 - 5%
+                // 26 - 4%
+                // BUST = 29%
+                bustPercent = 0.29f;
+                averageValidScore = 19.3f;
+                finalDealerScore = (float)averageValidScore / (float)(1.0f - bustPercent);
+                break;
+            default:
+                break;
         }
 
-        return probabilityDist;
-    }
-
-    private static float[] getNumCumulativeDistribution(float[] probabilityDist) {
-        float[] cumulativeDist = new float[11];
-
-        for (int i = 1; i < 11; i++) {
-            cumulativeDist[i] = cumulativeDist[i-1] + probabilityDist[i];
-        }
-
-        return cumulativeDist;
+        return finalUserScore - finalDealerScore;
     }
 
     private static int[] getLowHighScore(List<Card> hand) {
@@ -271,12 +298,15 @@ public class BlackjackRound extends CardRound {
         return scores;
     }
 
-    private static boolean scoreHasAce(int[] score) {
-        return score[0] != score[1];
+    private static int getBestScore(int[] lowHighScore) {
+        return lowHighScore[1] <= 21 ? lowHighScore[1] : lowHighScore[0];
+    }
+    private int getBestScore() {
+        return getBestScore(getLowHighScore(userHand));
     }
 
-    private static int getBestScore(int[] score) {
-        return score[1] <= 21 ? score[1] : score[0];
+    private static boolean lowHighScoreHasAce(int[] score) {
+        return score[0] != score[1];
     }
 
     @Override
@@ -381,7 +411,7 @@ public class BlackjackRound extends CardRound {
             // No pair
             int[] lowHighScore = getLowHighScore(userHand);
             int score = getBestScore(lowHighScore);
-            if (scoreHasAce(lowHighScore)) {
+            if (lowHighScoreHasAce(lowHighScore)) {
                 // Use soft section
                 switch (score) {
                     case 12: action = HIT;  // In the case of 2 aces with no splits allowed
