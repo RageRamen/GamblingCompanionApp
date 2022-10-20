@@ -10,6 +10,7 @@ import com.honeybadger.gamblingbadger.gamesession.card.ECardNum;
 import org.xmlpull.v1.XmlPullParser;
 import org.xmlpull.v1.XmlPullParserException;
 
+import java.io.IOException;
 import java.math.BigDecimal;
 import java.util.HashMap;
 import java.util.LinkedList;
@@ -71,6 +72,8 @@ public class BlackjackRound extends CardRound {
     private static final String PAIR_9 = "99";
     private static final String PAIR_10 = "TT";
     private static final String PAIR_A = "AA";
+
+    private static final int NUMBER_OF_TABLE_ENTRIES = 37;
 
     // Variables
 
@@ -427,27 +430,28 @@ public class BlackjackRound extends CardRound {
         HashMap<String, HashMap<ECardNum, String>> keys = new HashMap<>();
         Pair<String, HashMap<ECardNum, String>> hand;
 
-        while (parser.next() != XmlPullParser.END_DOCUMENT) {
-            if (parser.getEventType() != XmlPullParser.START_TAG)
-                continue;
+        try {
+            while (parser.next() != XmlPullParser.END_DOCUMENT) {
+                if (parser.getEventType() != XmlPullParser.START_TAG)
+                    continue;
 
-            if (parser.getName().equals("table")) {
-                if (parser.getAttributeValue(null, "name").equals(targetTable)) {
-                    try {
-                        while (true) {
+                if (parser.getName().equals("table")) {
+                    if (parser.getAttributeValue(null, "name").equals(targetTable)) {
+                        for (int i = 0; i < NUMBER_OF_TABLE_ENTRIES; i++) {
+                            while (parser.next() != XmlPullParser.START_TAG) ;
                             hand = parseXmlHand(parser);
                             keys.put(hand.first, hand.second);
                         }
                     }
-                    catch (Exception e) {}
                 }
             }
         }
+        catch (Exception ignored) {}
 
         return keys;
     }
 
-    private static Pair<String, HashMap<ECardNum, String>> parseXmlHand(XmlPullParser parser) throws XmlPullParserException {
+    private static Pair<String, HashMap<ECardNum, String>> parseXmlHand(XmlPullParser parser) throws XmlPullParserException, IOException {
         parser.require(XmlPullParser.START_TAG, null, "hand");
 
         // Set key
@@ -470,7 +474,7 @@ public class BlackjackRound extends CardRound {
         hand.put(ECardNum.CN_A, parser.getAttributeValue(null, "da"));
 
         // Burn to next tag
-        while (parser.next() != XmlPullParser.START_TAG);
+        while (parser.next() != XmlPullParser.END_TAG);
 
         return new Pair<>(key, hand);
     }
