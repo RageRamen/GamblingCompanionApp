@@ -31,6 +31,7 @@
         app:layout_constraintVertical_bias="0.669" />
 
     <NumberPicker
+        android:id="@+id/startGameFrag_numberPicker_pickGame"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         app:layout_constraintBottom_toBottomOf="parent"
