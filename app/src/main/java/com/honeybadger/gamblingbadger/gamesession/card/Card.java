@@ -2,22 +2,20 @@ package com.honeybadger.gamblingbadger.gamesession.card;
 
 import android.util.Pair;
 
-import androidx.annotation.NonNull;
-
 import java.util.ArrayList;
 import java.util.List;
 
 public class Card {
     // Variables
 
-    public ECardSuit suit = ECardSuit.CS_ANY;
-    public ECardNum num = ECardNum.CN_ANY;
+    public ECardSuit suit = ECardSuit.CS_NONE;
+    public ECardNum num = ECardNum.CN_NONE;
 
     // Constructors
 
     public Card() {
-        this.suit = ECardSuit.CS_ANY;
-        this.num = ECardNum.CN_ANY;
+        this.suit = ECardSuit.CS_NONE;
+        this.num = ECardNum.CN_NONE;
     }
     public Card(ECardSuit suit, ECardNum num) {
         this.suit = suit;
@@ -33,16 +31,16 @@ public class Card {
     public boolean equals(Card c) {
         boolean suitMatch, cardMatch;
 
-        suitMatch = this.suit == ECardSuit.CS_ANY || c.suit == ECardSuit.CS_ANY || this.suit == c.suit;
-        cardMatch = this.num == ECardNum.CN_ANY || c.num == ECardNum.CN_ANY || this.num == c.num;
+        suitMatch = this.suit == ECardSuit.CS_NONE || c.suit == ECardSuit.CS_NONE || this.suit == c.suit;
+        cardMatch = this.num == ECardNum.CN_NONE || c.num == ECardNum.CN_NONE || this.num == c.num;
 
         return suitMatch && cardMatch;
     }
     public boolean equals(Pair<ECardSuit, ECardNum> pair) {
         boolean suitMatch, cardMatch;
 
-        suitMatch = this.suit == ECardSuit.CS_ANY || pair.first == ECardSuit.CS_ANY || this.suit == pair.first;
-        cardMatch = this.num == ECardNum.CN_ANY || pair.second == ECardNum.CN_ANY || this.num == pair.second;
+        suitMatch = this.suit == ECardSuit.CS_NONE || pair.first == ECardSuit.CS_NONE || this.suit == pair.first;
+        cardMatch = this.num == ECardNum.CN_NONE || pair.second == ECardNum.CN_NONE || this.num == pair.second;
 
         return suitMatch && cardMatch;
     }

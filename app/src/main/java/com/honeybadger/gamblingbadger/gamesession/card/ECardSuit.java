@@ -1,7 +1,7 @@
 package com.honeybadger.gamblingbadger.gamesession.card;
 
 public enum ECardSuit {
-    CS_ANY,
+    CS_NONE,
     CS_S,
     CS_H,
     CS_D,

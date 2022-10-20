@@ -1,7 +1,7 @@
 package com.honeybadger.gamblingbadger.gamesession.card;
 
 public enum ECardNum {
-    CN_ANY,
+    CN_NONE,
     CN_R,  // Joker (almost never used, but included for completeness)
     CN_A,
     CN_2,

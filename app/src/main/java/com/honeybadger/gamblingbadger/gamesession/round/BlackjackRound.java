@@ -78,7 +78,7 @@ public class BlackjackRound extends CardRound {
     // Variables
 
     private final int numberOfDecks;
-    private List<Card> userHand;
+    private final List<Card> userHand;
     private Card dealerCard;
 
     // Constructor
@@ -86,7 +86,7 @@ public class BlackjackRound extends CardRound {
     public BlackjackRound(BigDecimal bet, int numberOfDecks) {
         super(bet);
         this.numberOfDecks = numberOfDecks;
-        this.userHand = new LinkedList<Card>();
+        this.userHand = new LinkedList<>();
     }
 
     // Properties
@@ -111,14 +111,15 @@ public class BlackjackRound extends CardRound {
     // Action Methods
 
     public BlackjackRound addUserCard(Card card) {
-        int count = 0;
+        // Get deck
+        List<Card> deck = Card.getDecks(numberOfDecks);
+        deck.remove(dealerCard);
+        for (Card c : userHand)
+            deck.remove(c);
 
-        for (Card uc : userHand) {
-            if (card == uc)
-                count++;
-        }
-
-        if (count <= numberOfDecks) {
+        // Check if card exists in deck
+        if (deck.contains(card)) {
+            // Card exists in deck
             userHand.add(card);
         }
 
@@ -139,7 +140,7 @@ public class BlackjackRound extends CardRound {
 
     private void recursiveScoreCheck(List<Integer> possibleScores, final List<Card> deck, final List<Card> dealerHand) {
         // Assumes dealer stands on soft 17
-        int score = getBestScore(getLowHighScore(dealerHand));
+        int score = getBestScore(getHardSoftScore(dealerHand));
         if (score >= 17)
             possibleScores.add(score);
         else {
@@ -175,7 +176,7 @@ public class BlackjackRound extends CardRound {
         double averageValidScore;
 
         // Get final user score
-        float finalUserScore = 0;
+        float finalUserScore;
         possibleScores = getPossibleScores(deck, userHand);
         bustNumber = 0;
         validScoreSum = 0;
@@ -257,56 +258,53 @@ public class BlackjackRound extends CardRound {
         return finalUserScore - finalDealerScore;
     }
 
-    private static int[] getLowHighScore(List<Card> hand) {
+    private static int[] getHardSoftScore(List<Card> hand) {
         int[] scores = new int[2];
-        int lowScore = 0, highScore = 0;
+        int hardScore = 0, softScore = 0;
         boolean hadAce = false;
 
         for (Card card : hand) {
             switch (card.num) {
-                case CN_ANY:
-                case CN_R:  // Joker (almost never used, but included for completeness)
-                    // TODO
-                    break;
                 case CN_A:
-                    lowScore += 1;
+                    hardScore += 1;
                     if (hadAce)
-                        highScore += 1;
+                        softScore += 1;
                     else {
                         // There can only be one ace with the value of 11 (two 11s will always bust)
-                        highScore += 11;
+                        softScore += 11;
                         hadAce = true;
                     }
                     break;
-                case CN_2: lowScore = highScore += 2; break;
-                case CN_3: lowScore = highScore += 3; break;
-                case CN_4: lowScore = highScore += 4; break;
-                case CN_5: lowScore = highScore += 5; break;
-                case CN_6: lowScore = highScore += 6; break;
-                case CN_7: lowScore = highScore += 7; break;
-                case CN_8: lowScore = highScore += 8; break;
-                case CN_9: lowScore = highScore += 9; break;
+                case CN_2: hardScore = softScore += 2; break;
+                case CN_3: hardScore = softScore += 3; break;
+                case CN_4: hardScore = softScore += 4; break;
+                case CN_5: hardScore = softScore += 5; break;
+                case CN_6: hardScore = softScore += 6; break;
+                case CN_7: hardScore = softScore += 7; break;
+                case CN_8: hardScore = softScore += 8; break;
+                case CN_9: hardScore = softScore += 9; break;
                 case CN_10:
                 case CN_J:
                 case CN_Q:
-                case CN_K: lowScore = highScore += 10; break;
+                case CN_K: hardScore = softScore += 10; break;
+                default: break;
             }
         }
 
-        scores[0] = lowScore;
-        scores[1] = highScore;
+        scores[0] = hardScore;
+        scores[1] = softScore;
         return scores;
     }
 
-    private static int getBestScore(int[] lowHighScore) {
-        return lowHighScore[1] <= 21 ? lowHighScore[1] : lowHighScore[0];
+    private static int getBestScore(int[] hardSoftScore) {
+        return hardSoftScore[1] <= 21 ? hardSoftScore[1] : hardSoftScore[0];
     }
     private int getBestScore() {
-        return getBestScore(getLowHighScore(userHand));
+        return getBestScore(getHardSoftScore(userHand));
     }
 
-    private static boolean lowHighScoreHasAce(int[] score) {
-        return score[0] != score[1];
+    private static boolean hardSoftScoreHasAce(int[] hardSoftScore) {
+        return hardSoftScore[0] != hardSoftScore[1];
     }
 
     @Override
@@ -409,12 +407,11 @@ public class BlackjackRound extends CardRound {
         assert action != null;
         if (action.isEmpty()) {
             // No pair
-            int[] lowHighScore = getLowHighScore(userHand);
-            int score = getBestScore(lowHighScore);
-            if (lowHighScoreHasAce(lowHighScore)) {
+            int[] hardSoftScore = getHardSoftScore(userHand);
+            int score = getBestScore(hardSoftScore);
+            if (hardSoftScoreHasAce(hardSoftScore)) {
                 // Use soft section
                 switch (score) {
-                    case 12: action = HIT;  // In the case of 2 aces with no splits allowed
                     case 13: action = Objects.requireNonNull(table.get(SOFT_13)).get(dealerCard.num); break;
                     case 14: action = Objects.requireNonNull(table.get(SOFT_14)).get(dealerCard.num); break;
                     case 15: action = Objects.requireNonNull(table.get(SOFT_15)).get(dealerCard.num); break;
