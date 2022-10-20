@@ -18,7 +18,7 @@ import java.util.Objects;
 
 public class BlackjackRound extends CardRound {
 
-    // Constants
+    // CONSTANTS:
 
     public static final String HIT = "H";
     public static final String STAND = "S";
@@ -75,13 +75,13 @@ public class BlackjackRound extends CardRound {
 
     private static final int NUMBER_OF_TABLE_ENTRIES = 37;
 
-    // Variables
+    // VARIABLES:
 
-    private final int numberOfDecks;
+    private int numberOfDecks;
     private final List<Card> userHand;
     private Card dealerCard;
 
-    // Constructor
+    // CONSTRUCTOR:
 
     public BlackjackRound(BigDecimal bet, int numberOfDecks) {
         super(bet);
@@ -89,10 +89,15 @@ public class BlackjackRound extends CardRound {
         this.userHand = new LinkedList<>();
     }
 
-    // Properties
+    // PROPERTIES:
 
     public int getNumberOfDecks() {
         return this.numberOfDecks;
+    }
+
+    public BlackjackRound setNumberOfDecks(int numberOfDecks) {
+        this.numberOfDecks = numberOfDecks;
+        return this;
     }
 
     public List<Card> getUserHand() {
@@ -108,7 +113,7 @@ public class BlackjackRound extends CardRound {
         return this;
     }
 
-    // Action Methods
+    // ACTION METHODS:
 
     public BlackjackRound addUserCard(Card card) {
         // Get deck
@@ -130,7 +135,7 @@ public class BlackjackRound extends CardRound {
         return userHand.remove(card);
     }
 
-    // Info Methods
+    // INFO METHODS:
 
     private List<Integer> getPossibleScores(final List<Card> deck, final List<Card> hand) {
         List<Integer> possibleScores = new LinkedList<>();
@@ -299,6 +304,7 @@ public class BlackjackRound extends CardRound {
     private static int getBestScore(int[] hardSoftScore) {
         return hardSoftScore[1] <= 21 ? hardSoftScore[1] : hardSoftScore[0];
     }
+
     private int getBestScore() {
         return getBestScore(getHardSoftScore(userHand));
     }
@@ -316,6 +322,7 @@ public class BlackjackRound extends CardRound {
     public String getRecommendedAction(Resources resources) {
         return getRecommendedAction(resources, true);
     }
+
     public String getRecommendedAction(Resources resources, boolean dealerStayOnSoft17) {
         String action = "";
 
