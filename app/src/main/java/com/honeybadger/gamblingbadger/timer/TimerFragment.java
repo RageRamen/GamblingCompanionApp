@@ -9,6 +9,7 @@ import androidx.annotation.NonNull;
 import androidx.fragment.app.Fragment;
 import androidx.navigation.fragment.NavHostFragment;
 
+import com.honeybadger.gamblingbadger.HomeFragment;
 import com.honeybadger.gamblingbadger.R;
 import com.honeybadger.gamblingbadger.databinding.FragmentTimerBinding;
 
@@ -32,6 +33,19 @@ public class TimerFragment extends Fragment {
     public void onViewCreated(@NonNull View view, Bundle savedInstanceState) {
         super.onViewCreated(view, savedInstanceState);
 
+        initButtonBack();
+    }
+
+    // Initialize Interface
+
+    private void initButtonBack() {
+        binding.timerFragButtonBack.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                NavHostFragment.findNavController(TimerFragment.this)
+                        .navigate(R.id.action_timerFragment_to_casinoSessionFragment);
+            }
+        });
     }
 
     @Override

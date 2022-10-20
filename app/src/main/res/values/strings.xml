@@ -54,6 +54,10 @@
     <!-- TODO: Remove or change this placeholder text -->
     <string name="hello_blank_fragment">Hello blank fragment</string>
 
+    <!-- TimerFragment strings -->
+
+    <string name="timerFrag_button_back_label">@string/back_label</string>
+
     <!-- Other -->
 
     <!-- TODO: Remove or change this placeholder text -->

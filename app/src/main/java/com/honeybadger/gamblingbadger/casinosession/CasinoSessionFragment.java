@@ -46,6 +46,7 @@ public class CasinoSessionFragment extends Fragment {
 
         // Button bindings
         initButtonStartGame();
+        initButtonSetTimer();
         initButtonEndSession();
 
     }
@@ -88,6 +89,15 @@ public class CasinoSessionFragment extends Fragment {
         });
     }
 
+    private void initButtonSetTimer() {
+        binding.casinoSessionFragButtonSetTimer.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                actionGoToTimer();
+            }
+        });
+    }
+
     private void initButtonEndSession() {
         binding.casinoSessionFragButtonEndSession.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -102,6 +112,11 @@ public class CasinoSessionFragment extends Fragment {
     private void actionGoToStartGame() {
         NavHostFragment.findNavController(CasinoSessionFragment.this)
                 .navigate(R.id.action_casinoSessionFragment_to_startGameFragment);
+    }
+
+    private void actionGoToTimer() {
+        NavHostFragment.findNavController(CasinoSessionFragment.this)
+                .navigate(R.id.action_casinoSessionFragment_to_timerFragment);
     }
 
     private void actionEndSession() {

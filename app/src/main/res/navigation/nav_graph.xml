@@ -39,6 +39,9 @@
         <action
             android:id="@+id/action_casinoSessionFragment_to_startGameFragment"
             app:destination="@id/startGameFragment" />
+        <action
+            android:id="@+id/action_casinoSessionFragment_to_timerFragment"
+            app:destination="@id/timerFragment" />
     </fragment>
     <fragment
         android:id="@+id/startGameFragment"
@@ -47,6 +50,15 @@
         tools:layout="@layout/fragment_start_game" >
         <action
             android:id="@+id/action_startGameFragment_to_casinoSessionFragment"
+            app:destination="@id/casinoSessionFragment" />
+    </fragment>
+    <fragment
+        android:id="@+id/timerFragment"
+        android:name="com.honeybadger.gamblingbadger.timer.TimerFragment"
+        android:label="fragment_timer"
+        tools:layout="@layout/fragment_timer" >
+        <action
+            android:id="@+id/action_timerFragment_to_casinoSessionFragment"
             app:destination="@id/casinoSessionFragment" />
     </fragment>
 </navigation>
