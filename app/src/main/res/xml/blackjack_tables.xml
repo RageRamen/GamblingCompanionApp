@@ -18,6 +18,7 @@
         <hand key="18" d2="S"  d3="S"  d4="S"  d5="S"  d6="S"  d7="S"  d8="S"  d9="S"  dt="S"  da="S" />
         <hand key="19" d2="S"  d3="S"  d4="S"  d5="S"  d6="S"  d7="S"  d8="S"  d9="S"  dt="S"  da="S" />
         <hand key="20" d2="S"  d3="S"  d4="S"  d5="S"  d6="S"  d7="S"  d8="S"  d9="S"  dt="S"  da="S" />
+        <hand key="21" d2="S"  d3="S"  d4="S"  d5="S"  d6="S"  d7="S"  d8="S"  d9="S"  dt="S"  da="S" />
 
         <hand key="A2" d2="H"  d3="H"  d4="Dh" d5="Dh" d6="Dh" d7="H"  d8="H"  d9="H"  dt="H"  da="H" />
         <hand key="A3" d2="H"  d3="H"  d4="Dh" d5="Dh" d6="Dh" d7="H"  d8="H"  d9="H"  dt="H"  da="H" />
@@ -27,6 +28,7 @@
         <hand key="A7" d2="S"  d3="Ds" d4="Ds" d5="Ds" d6="Ds" d7="S"  d8="S"  d9="H"  dt="H"  da="S" />
         <hand key="A8" d2="S"  d3="S"  d4="S"  d5="S"  d6="Ds" d7="S"  d8="S"  d9="S"  dt="S"  da="S" />
         <hand key="A9" d2="S"  d3="S"  d4="S"  d5="S"  d6="S"  d7="S"  d8="S"  d9="S"  dt="S"  da="S" />
+        <hand key="AT" d2="S"  d3="S"  d4="S"  d5="S"  d6="S"  d7="S"  d8="S"  d9="S"  dt="S"  da="S" />
 
         <hand key="22" d2="Ph" d3="P"  d4="P"  d5="P"  d6="P"  d7="P"  d8="H"  d9="H"  dt="H"  da="H" />
         <hand key="33" d2="Ph" d3="Ph" d4="P"  d5="P"  d6="P"  d7="P"  d8="Ph" d9="H"  dt="H"  da="H" />
@@ -57,6 +59,7 @@
         <hand key="18" d2="S"  d3="S"  d4="S"  d5="S"  d6="S"  d7="S"  d8="S"  d9="S"  dt="S"  da="S" />
         <hand key="19" d2="S"  d3="S"  d4="S"  d5="S"  d6="S"  d7="S"  d8="S"  d9="S"  dt="S"  da="S" />
         <hand key="20" d2="S"  d3="S"  d4="S"  d5="S"  d6="S"  d7="S"  d8="S"  d9="S"  dt="S"  da="S" />
+        <hand key="21" d2="S"  d3="S"  d4="S"  d5="S"  d6="S"  d7="S"  d8="S"  d9="S"  dt="S"  da="S" />
 
         <hand key="A2" d2="H"  d3="H"  d4="Dh" d5="Dh" d6="Dh" d7="H"  d8="H"  d9="H"  dt="H"  da="H" />
         <hand key="A3" d2="H"  d3="H"  d4="Dh" d5="Dh" d6="Dh" d7="H"  d8="H"  d9="H"  dt="H"  da="H" />
@@ -66,6 +69,7 @@
         <hand key="A7" d2="S"  d3="Ds" d4="Ds" d5="Ds" d6="Ds" d7="S"  d8="S"  d9="H"  dt="H"  da="H" />
         <hand key="A8" d2="S"  d3="S"  d4="S"  d5="S"  d6="Ds" d7="S"  d8="S"  d9="S"  dt="S"  da="S" />
         <hand key="A9" d2="S"  d3="S"  d4="S"  d5="S"  d6="S"  d7="S"  d8="S"  d9="S"  dt="S"  da="S" />
+        <hand key="AT" d2="S"  d3="S"  d4="S"  d5="S"  d6="S"  d7="S"  d8="S"  d9="S"  dt="S"  da="S" />
 
         <hand key="22" d2="Ph" d3="P"  d4="P"  d5="P"  d6="P"  d7="P"  d8="H"  d9="H"  dt="H"  da="H" />
         <hand key="33" d2="Ph" d3="Ph" d4="P"  d5="P"  d6="P"  d7="P"  d8="Ph" d9="H"  dt="H"  da="H" />
@@ -96,6 +100,7 @@
         <hand key="18" d2="S"  d3="S"  d4="S"  d5="S"  d6="S"  d7="S"  d8="S"  d9="S"  dt="S"  da="S" />
         <hand key="19" d2="S"  d3="S"  d4="S"  d5="S"  d6="S"  d7="S"  d8="S"  d9="S"  dt="S"  da="S" />
         <hand key="20" d2="S"  d3="S"  d4="S"  d5="S"  d6="S"  d7="S"  d8="S"  d9="S"  dt="S"  da="S" />
+        <hand key="21" d2="S"  d3="S"  d4="S"  d5="S"  d6="S"  d7="S"  d8="S"  d9="S"  dt="S"  da="S" />
 
         <hand key="A2" d2="H"  d3="H"  d4="H"  d5="Dh" d6="Dh" d7="H"  d8="H"  d9="H"  dt="H"  da="H" />
         <hand key="A3" d2="H"  d3="H"  d4="H"  d5="Dh" d6="Dh" d7="H"  d8="H"  d9="H"  dt="H"  da="H" />
@@ -105,6 +110,7 @@
         <hand key="A7" d2="S"  d3="Ds" d4="Ds" d5="Ds" d6="Ds" d7="S"  d8="S"  d9="H"  dt="H"  da="H" />
         <hand key="A8" d2="S"  d3="S"  d4="S"  d5="S"  d6="S"  d7="S"  d8="S"  d9="S"  dt="S"  da="S" />
         <hand key="A9" d2="S"  d3="S"  d4="S"  d5="S"  d6="S"  d7="S"  d8="S"  d9="S"  dt="S"  da="S" />
+        <hand key="AT" d2="S"  d3="S"  d4="S"  d5="S"  d6="S"  d7="S"  d8="S"  d9="S"  dt="S"  da="S" />
 
         <hand key="22" d2="Ph" d3="Ph" d4="P"  d5="P"  d6="P"  d7="P"  d8="H"  d9="H"  dt="H"  da="H" />
         <hand key="33" d2="Ph" d3="Ph" d4="P"  d5="P"  d6="P"  d7="P"  d8="H"  d9="H"  dt="H"  da="H" />
@@ -135,6 +141,7 @@
         <hand key="18" d2="S"  d3="S"  d4="S"  d5="S"  d6="S"  d7="S"  d8="S"  d9="S"  dt="S"  da="S" />
         <hand key="19" d2="S"  d3="S"  d4="S"  d5="S"  d6="S"  d7="S"  d8="S"  d9="S"  dt="S"  da="S" />
         <hand key="20" d2="S"  d3="S"  d4="S"  d5="S"  d6="S"  d7="S"  d8="S"  d9="S"  dt="S"  da="S" />
+        <hand key="21" d2="S"  d3="S"  d4="S"  d5="S"  d6="S"  d7="S"  d8="S"  d9="S"  dt="S"  da="S" />
 
         <hand key="A2" d2="H"  d3="H"  d4="H"  d5="Dh" d6="Dh" d7="H"  d8="H"  d9="H"  dt="H"  da="H" />
         <hand key="A3" d2="H"  d3="H"  d4="H"  d5="Dh" d6="Dh" d7="H"  d8="H"  d9="H"  dt="H"  da="H" />
@@ -144,6 +151,7 @@
         <hand key="A7" d2="Ds" d3="Ds" d4="Ds" d5="Ds" d6="Ds" d7="S"  d8="S"  d9="H"  dt="H"  da="H" />
         <hand key="A8" d2="S"  d3="S"  d4="S"  d5="S"  d6="Ds" d7="S"  d8="S"  d9="S"  dt="S"  da="S" />
         <hand key="A9" d2="S"  d3="S"  d4="S"  d5="S"  d6="S"  d7="S"  d8="S"  d9="S"  dt="S"  da="S" />
+        <hand key="AT" d2="S"  d3="S"  d4="S"  d5="S"  d6="S"  d7="S"  d8="S"  d9="S"  dt="S"  da="S" />
 
         <hand key="22" d2="Ph" d3="Ph" d4="P"  d5="P"  d6="P"  d7="P"  d8="H"  d9="H"  dt="H"  da="H" />
         <hand key="33" d2="Ph" d3="Ph" d4="P"  d5="P"  d6="P"  d7="P"  d8="H"  d9="H"  dt="H"  da="H" />
@@ -174,6 +182,7 @@
         <hand key="18" d2="S"  d3="S"  d4="S"  d5="S"  d6="S"  d7="S"  d8="S"  d9="S"  dt="S"  da="S" />
         <hand key="19" d2="S"  d3="S"  d4="S"  d5="S"  d6="S"  d7="S"  d8="S"  d9="S"  dt="S"  da="S" />
         <hand key="20" d2="S"  d3="S"  d4="S"  d5="S"  d6="S"  d7="S"  d8="S"  d9="S"  dt="S"  da="S" />
+        <hand key="21" d2="S"  d3="S"  d4="S"  d5="S"  d6="S"  d7="S"  d8="S"  d9="S"  dt="S"  da="S" />
 
         <hand key="A2" d2="S"  d3="S"  d4="S"  d5="S"  d6="S"  d7="H"  d8="H"  d9="H"  dt="H"  da="H" />
         <hand key="A3" d2="S"  d3="S"  d4="S"  d5="S"  d6="S"  d7="H"  d8="H"  d9="H"  dt="H"  da="H" />
@@ -183,6 +192,7 @@
         <hand key="A7" d2="S"  d3="S"  d4="S"  d5="S"  d6="S"  d7="S"  d8="S"  d9="S"  dt="S"  da="S" />
         <hand key="A8" d2="S"  d3="S"  d4="S"  d5="S"  d6="S"  d7="S"  d8="S"  d9="S"  dt="S"  da="S" />
         <hand key="A9" d2="S"  d3="S"  d4="S"  d5="S"  d6="S"  d7="S"  d8="S"  d9="S"  dt="S"  da="S" />
+        <hand key="AT" d2="S"  d3="S"  d4="S"  d5="S"  d6="S"  d7="S"  d8="S"  d9="S"  dt="S"  da="S" />
 
         <hand key="22" d2="Ph" d3="Ph" d4="P"  d5="P"  d6="P"  d7="P"  d8="H"  d9="H"  dt="H"  da="H" />
         <hand key="33" d2="Ph" d3="Ph" d4="P"  d5="P"  d6="P"  d7="P"  d8="H"  d9="H"  dt="H"  da="H" />
@@ -213,6 +223,7 @@
         <hand key="18" d2="S"  d3="S"  d4="S"  d5="S"  d6="S"  d7="S"  d8="S"  d9="S"  dt="S"  da="S" />
         <hand key="19" d2="S"  d3="S"  d4="S"  d5="S"  d6="S"  d7="S"  d8="S"  d9="S"  dt="S"  da="S" />
         <hand key="20" d2="S"  d3="S"  d4="S"  d5="S"  d6="S"  d7="S"  d8="S"  d9="S"  dt="S"  da="S" />
+        <hand key="21" d2="S"  d3="S"  d4="S"  d5="S"  d6="S"  d7="S"  d8="S"  d9="S"  dt="S"  da="S" />
 
         <hand key="A2" d2="S"  d3="S"  d4="S"  d5="S"  d6="S"  d7="H"  d8="H"  d9="H"  dt="H"  da="H" />
         <hand key="A3" d2="S"  d3="S"  d4="S"  d5="S"  d6="S"  d7="H"  d8="H"  d9="H"  dt="H"  da="H" />
@@ -222,6 +233,7 @@
         <hand key="A7" d2="S"  d3="S"  d4="S"  d5="S"  d6="S"  d7="S"  d8="S"  d9="S"  dt="S"  da="S" />
         <hand key="A8" d2="S"  d3="S"  d4="S"  d5="S"  d6="S"  d7="S"  d8="S"  d9="S"  dt="S"  da="S" />
         <hand key="A9" d2="S"  d3="S"  d4="S"  d5="S"  d6="S"  d7="S"  d8="S"  d9="S"  dt="S"  da="S" />
+        <hand key="AT" d2="S"  d3="S"  d4="S"  d5="S"  d6="S"  d7="S"  d8="S"  d9="S"  dt="S"  da="S" />
 
         <hand key="22" d2="Ph" d3="Ph" d4="P"  d5="P"  d6="P"  d7="P"  d8="H"  d9="H"  dt="H"  da="H" />
         <hand key="33" d2="Ph" d3="Ph" d4="P"  d5="P"  d6="P"  d7="P"  d8="H"  d9="H"  dt="H"  da="H" />
@@ -252,6 +264,7 @@
         <hand key="18" d2="S"  d3="S"  d4="S"  d5="S"  d6="S"  d7="S"  d8="S"  d9="S"  dt="S"  da="S" />
         <hand key="19" d2="S"  d3="S"  d4="S"  d5="S"  d6="S"  d7="S"  d8="S"  d9="S"  dt="S"  da="S" />
         <hand key="20" d2="S"  d3="S"  d4="S"  d5="S"  d6="S"  d7="S"  d8="S"  d9="S"  dt="S"  da="S" />
+        <hand key="21" d2="S"  d3="S"  d4="S"  d5="S"  d6="S"  d7="S"  d8="S"  d9="S"  dt="S"  da="S" />
 
         <hand key="A2" d2="H"  d3="H"  d4="H"  d5="Dh" d6="Dh" d7="H"  d8="H"  d9="H"  dt="H"  da="H" />
         <hand key="A3" d2="H"  d3="H"  d4="H"  d5="Dh" d6="Dh" d7="H"  d8="H"  d9="H"  dt="H"  da="H" />
@@ -291,6 +304,7 @@
         <hand key="18" d2="S"  d3="S"  d4="S"  d5="S"  d6="S"  d7="S"  d8="S"  d9="S"  dt="S"  da="S" />
         <hand key="19" d2="S"  d3="S"  d4="S"  d5="S"  d6="S"  d7="S"  d8="S"  d9="S"  dt="S"  da="S" />
         <hand key="20" d2="S"  d3="S"  d4="S"  d5="S"  d6="S"  d7="S"  d8="S"  d9="S"  dt="S"  da="S" />
+        <hand key="21" d2="S"  d3="S"  d4="S"  d5="S"  d6="S"  d7="S"  d8="S"  d9="S"  dt="S"  da="S" />
 
         <hand key="A2" d2="H"  d3="H"  d4="H"  d5="Dh" d6="Dh" d7="H"  d8="H"  d9="H"  dt="H"  da="H" />
         <hand key="A3" d2="H"  d3="H"  d4="H"  d5="Dh" d6="Dh" d7="H"  d8="H"  d9="H"  dt="H"  da="H" />
@@ -300,6 +314,7 @@
         <hand key="A7" d2="Ds" d3="Ds" d4="Ds" d5="Ds" d6="Ds" d7="S"  d8="S"  d9="H"  dt="H"  da="H" />
         <hand key="A8" d2="S"  d3="S"  d4="S"  d5="S"  d6="Ds" d7="S"  d8="S"  d9="S"  dt="S"  da="S" />
         <hand key="A9" d2="S"  d3="S"  d4="S"  d5="S"  d6="S"  d7="S"  d8="S"  d9="S"  dt="S"  da="S" />
+        <hand key="AT" d2="S"  d3="S"  d4="S"  d5="S"  d6="S"  d7="S"  d8="S"  d9="S"  dt="S"  da="S" />
 
         <hand key="22" d2="Ph" d3="Ph" d4="P"  d5="P"  d6="P"  d7="P"  d8="H"  d9="H"  dt="H"  da="H" />
         <hand key="33" d2="Ph" d3="Ph" d4="P"  d5="P"  d6="P"  d7="P"  d8="H"  d9="H"  dt="H"  da="H" />
@@ -330,6 +345,7 @@
         <hand key="18" d2="S"  d3="S"  d4="S"  d5="S"  d6="S"  d7="S"  d8="S"  d9="S"  dt="S"  da="S" />
         <hand key="19" d2="S"  d3="S"  d4="S"  d5="S"  d6="S"  d7="S"  d8="S"  d9="S"  dt="S"  da="S" />
         <hand key="20" d2="S"  d3="S"  d4="S"  d5="S"  d6="S"  d7="S"  d8="S"  d9="S"  dt="S"  da="S" />
+        <hand key="21" d2="S"  d3="S"  d4="S"  d5="S"  d6="S"  d7="S"  d8="S"  d9="S"  dt="S"  da="S" />
 
         <hand key="A2" d2="H"  d3="H"  d4="H"  d5="Dh" d6="Dh" d7="H"  d8="H"  d9="H"  dt="H"  da="H" />
         <hand key="A3" d2="H"  d3="H"  d4="H"  d5="Dh" d6="Dh" d7="H"  d8="H"  d9="H"  dt="H"  da="H" />
@@ -339,6 +355,7 @@
         <hand key="A7" d2="S"  d3="Ds" d4="Ds" d5="Ds" d6="Ds" d7="S"  d8="S"  d9="H"  dt="H"  da="H" />
         <hand key="A8" d2="S"  d3="S"  d4="S"  d5="S"  d6="S"  d7="S"  d8="S"  d9="S"  dt="S"  da="S" />
         <hand key="A9" d2="S"  d3="S"  d4="S"  d5="S"  d6="S"  d7="S"  d8="S"  d9="S"  dt="S"  da="S" />
+        <hand key="AT" d2="S"  d3="S"  d4="S"  d5="S"  d6="S"  d7="S"  d8="S"  d9="S"  dt="S"  da="S" />
 
         <hand key="22" d2="Ph" d3="Ph" d4="P"  d5="P"  d6="P"  d7="P"  d8="H"  d9="H"  dt="H"  da="H" />
         <hand key="33" d2="Ph" d3="Ph" d4="P"  d5="P"  d6="P"  d7="P"  d8="H"  d9="H"  dt="H"  da="H" />
@@ -369,6 +386,7 @@
         <hand key="18" d2="S"  d3="S"  d4="S"  d5="S"  d6="S"  d7="S"  d8="S"  d9="S"  dt="S"  da="S" />
         <hand key="19" d2="S"  d3="S"  d4="S"  d5="S"  d6="S"  d7="S"  d8="S"  d9="S"  dt="S"  da="S" />
         <hand key="20" d2="S"  d3="S"  d4="S"  d5="S"  d6="S"  d7="S"  d8="S"  d9="S"  dt="S"  da="S" />
+        <hand key="21" d2="S"  d3="S"  d4="S"  d5="S"  d6="S"  d7="S"  d8="S"  d9="S"  dt="S"  da="S" />
 
         <hand key="A2" d2="H"  d3="H"  d4="H"  d5="Dh" d6="Dh" d7="H"  d8="H"  d9="H"  dt="H"  da="H" />
         <hand key="A3" d2="H"  d3="H"  d4="H"  d5="Dh" d6="Dh" d7="H"  d8="H"  d9="H"  dt="H"  da="H" />
@@ -378,6 +396,7 @@
         <hand key="A7" d2="Ds" d3="Ds" d4="Ds" d5="Ds" d6="Ds" d7="S"  d8="S"  d9="H"  dt="H"  da="H" />
         <hand key="A8" d2="S"  d3="S"  d4="S"  d5="S"  d6="Ds" d7="S"  d8="S"  d9="S"  dt="S"  da="S" />
         <hand key="A9" d2="S"  d3="S"  d4="S"  d5="S"  d6="S"  d7="S"  d8="S"  d9="S"  dt="S"  da="S" />
+        <hand key="AT" d2="S"  d3="S"  d4="S"  d5="S"  d6="S"  d7="S"  d8="S"  d9="S"  dt="S"  da="S" />
 
         <hand key="22" d2="Ph" d3="Ph" d4="P"  d5="P"  d6="P"  d7="P"  d8="H"  d9="H"  dt="H"  da="H" />
         <hand key="33" d2="Ph" d3="Ph" d4="P"  d5="P"  d6="P"  d7="P"  d8="H"  d9="H"  dt="H"  da="H" />
@@ -408,6 +427,7 @@
         <hand key="18" d2="S"  d3="S"  d4="S"  d5="S"  d6="S"  d7="S"  d8="S"  d9="S"  dt="S"  da="S" />
         <hand key="19" d2="S"  d3="S"  d4="S"  d5="S"  d6="S"  d7="S"  d8="S"  d9="S"  dt="S"  da="S" />
         <hand key="20" d2="S"  d3="S"  d4="S"  d5="S"  d6="S"  d7="S"  d8="S"  d9="S"  dt="S"  da="S" />
+        <hand key="21" d2="S"  d3="S"  d4="S"  d5="S"  d6="S"  d7="S"  d8="S"  d9="S"  dt="S"  da="S" />
 
         <hand key="A2" d2="H"  d3="H"  d4="H"  d5="Dh" d6="Dh" d7="H"  d8="H"  d9="H"  dt="H"  da="H" />
         <hand key="A3" d2="H"  d3="H"  d4="H"  d5="Dh" d6="Dh" d7="H"  d8="H"  d9="H"  dt="H"  da="H" />
@@ -417,6 +437,7 @@
         <hand key="A7" d2="S"  d3="Ds" d4="Ds" d5="Ds" d6="Ds" d7="S"  d8="S"  d9="H"  dt="H"  da="H" />
         <hand key="A8" d2="S"  d3="S"  d4="S"  d5="S"  d6="S"  d7="S"  d8="S"  d9="S"  dt="S"  da="S" />
         <hand key="A9" d2="S"  d3="S"  d4="S"  d5="S"  d6="S"  d7="S"  d8="S"  d9="S"  dt="S"  da="S" />
+        <hand key="AT" d2="S"  d3="S"  d4="S"  d5="S"  d6="S"  d7="S"  d8="S"  d9="S"  dt="S"  da="S" />
 
         <hand key="22" d2="Ph" d3="Ph" d4="P"  d5="P"  d6="P"  d7="P"  d8="H"  d9="H"  dt="H"  da="H" />
         <hand key="33" d2="Ph" d3="Ph" d4="P"  d5="P"  d6="P"  d7="P"  d8="H"  d9="H"  dt="H"  da="H" />
@@ -447,6 +468,7 @@
         <hand key="18" d2="S"  d3="S"  d4="S"  d5="S"  d6="S"  d7="S"  d8="S"  d9="S"  dt="S"  da="S" />
         <hand key="19" d2="S"  d3="S"  d4="S"  d5="S"  d6="S"  d7="S"  d8="S"  d9="S"  dt="S"  da="S" />
         <hand key="20" d2="S"  d3="S"  d4="S"  d5="S"  d6="S"  d7="S"  d8="S"  d9="S"  dt="S"  da="S" />
+        <hand key="21" d2="S"  d3="S"  d4="S"  d5="S"  d6="S"  d7="S"  d8="S"  d9="S"  dt="S"  da="S" />
 
         <hand key="A2" d2="H"  d3="H"  d4="H"  d5="Dh" d6="Dh" d7="H"  d8="H"  d9="H"  dt="H"  da="H" />
         <hand key="A3" d2="H"  d3="H"  d4="H"  d5="Dh" d6="Dh" d7="H"  d8="H"  d9="H"  dt="H"  da="H" />
@@ -456,6 +478,7 @@
         <hand key="A7" d2="Ds" d3="Ds" d4="Ds" d5="Ds" d6="Ds" d7="S"  d8="S"  d9="H"  dt="H"  da="H" />
         <hand key="A8" d2="S"  d3="S"  d4="S"  d5="S"  d6="Ds" d7="S"  d8="S"  d9="S"  dt="S"  da="S" />
         <hand key="A9" d2="S"  d3="S"  d4="S"  d5="S"  d6="S"  d7="S"  d8="S"  d9="S"  dt="S"  da="S" />
+        <hand key="AT" d2="S"  d3="S"  d4="S"  d5="S"  d6="S"  d7="S"  d8="S"  d9="S"  dt="S"  da="S" />
 
         <hand key="22" d2="Ph" d3="Ph" d4="P"  d5="P"  d6="P"  d7="P"  d8="H"  d9="H"  dt="H"  da="H" />
         <hand key="33" d2="Ph" d3="Ph" d4="P"  d5="P"  d6="P"  d7="P"  d8="H"  d9="H"  dt="H"  da="H" />
@@ -486,6 +509,7 @@
         <hand key="18" d2="S"  d3="S"  d4="S"  d5="S"  d6="S"  d7="S"  d8="S"  d9="S"  dt="S"  da="S" />
         <hand key="19" d2="S"  d3="S"  d4="S"  d5="S"  d6="S"  d7="S"  d8="S"  d9="S"  dt="S"  da="S" />
         <hand key="20" d2="S"  d3="S"  d4="S"  d5="S"  d6="S"  d7="S"  d8="S"  d9="S"  dt="S"  da="S" />
+        <hand key="21" d2="S"  d3="S"  d4="S"  d5="S"  d6="S"  d7="S"  d8="S"  d9="S"  dt="S"  da="S" />
 
         <hand key="A2" d2="H"  d3="H"  d4="H"  d5="Dh" d6="Dh" d7="H"  d8="H"  d9="H"  dt="H"  da="H" />
         <hand key="A3" d2="H"  d3="H"  d4="H"  d5="Dh" d6="Dh" d7="H"  d8="H"  d9="H"  dt="H"  da="H" />
@@ -495,6 +519,7 @@
         <hand key="A7" d2="S"  d3="Ds" d4="Ds" d5="Ds" d6="Ds" d7="S"  d8="S"  d9="H"  dt="H"  da="H" />
         <hand key="A8" d2="S"  d3="S"  d4="S"  d5="S"  d6="S"  d7="S"  d8="S"  d9="S"  dt="S"  da="S" />
         <hand key="A9" d2="S"  d3="S"  d4="S"  d5="S"  d6="S"  d7="S"  d8="S"  d9="S"  dt="S"  da="S" />
+        <hand key="AT" d2="S"  d3="S"  d4="S"  d5="S"  d6="S"  d7="S"  d8="S"  d9="S"  dt="S"  da="S" />
 
         <hand key="22" d2="Ph" d3="Ph" d4="P"  d5="P"  d6="P"  d7="P"  d8="H"  d9="H"  dt="H"  da="H" />
         <hand key="33" d2="Ph" d3="Ph" d4="P"  d5="P"  d6="P"  d7="P"  d8="H"  d9="H"  dt="H"  da="H" />
@@ -525,6 +550,7 @@
         <hand key="18" d2="S"  d3="S"  d4="S"  d5="S"  d6="S"  d7="S"  d8="S"  d9="S"  dt="S"  da="S" />
         <hand key="19" d2="S"  d3="S"  d4="S"  d5="S"  d6="S"  d7="S"  d8="S"  d9="S"  dt="S"  da="S" />
         <hand key="20" d2="S"  d3="S"  d4="S"  d5="S"  d6="S"  d7="S"  d8="S"  d9="S"  dt="S"  da="S" />
+        <hand key="21" d2="S"  d3="S"  d4="S"  d5="S"  d6="S"  d7="S"  d8="S"  d9="S"  dt="S"  da="S" />
 
         <hand key="A2" d2="H"  d3="H"  d4="H"  d5="Dh" d6="Dh" d7="H"  d8="H"  d9="H"  dt="H"  da="H" />
         <hand key="A3" d2="H"  d3="H"  d4="H"  d5="Dh" d6="Dh" d7="H"  d8="H"  d9="H"  dt="H"  da="H" />
@@ -534,6 +560,7 @@
         <hand key="A7" d2="Ds" d3="Ds" d4="Ds" d5="Ds" d6="Ds" d7="S"  d8="S"  d9="H"  dt="H"  da="H" />
         <hand key="A8" d2="S"  d3="S"  d4="S"  d5="S"  d6="Ds" d7="S"  d8="S"  d9="S"  dt="S"  da="S" />
         <hand key="A9" d2="S"  d3="S"  d4="S"  d5="S"  d6="S"  d7="S"  d8="S"  d9="S"  dt="S"  da="S" />
+        <hand key="AT" d2="S"  d3="S"  d4="S"  d5="S"  d6="S"  d7="S"  d8="S"  d9="S"  dt="S"  da="S" />
 
         <hand key="22" d2="Ph" d3="Ph" d4="P"  d5="P"  d6="P"  d7="P"  d8="H"  d9="H"  dt="H"  da="H" />
         <hand key="33" d2="Ph" d3="Ph" d4="P"  d5="P"  d6="P"  d7="P"  d8="H"  d9="H"  dt="H"  da="H" />
@@ -564,6 +591,7 @@
         <hand key="18" d2="S"  d3="S"  d4="S"  d5="S"  d6="S"  d7="S"  d8="S"  d9="S"  dt="S"  da="S" />
         <hand key="19" d2="S"  d3="S"  d4="S"  d5="S"  d6="S"  d7="S"  d8="S"  d9="S"  dt="S"  da="S" />
         <hand key="20" d2="S"  d3="S"  d4="S"  d5="S"  d6="S"  d7="S"  d8="S"  d9="S"  dt="S"  da="S" />
+        <hand key="21" d2="S"  d3="S"  d4="S"  d5="S"  d6="S"  d7="S"  d8="S"  d9="S"  dt="S"  da="S" />
 
         <hand key="A2" d2="H"  d3="H"  d4="H"  d5="Dh" d6="Dh" d7="H"  d8="H"  d9="H"  dt="H"  da="H" />
         <hand key="A3" d2="H"  d3="H"  d4="H"  d5="Dh" d6="Dh" d7="H"  d8="H"  d9="H"  dt="H"  da="H" />
@@ -573,6 +601,7 @@
         <hand key="A7" d2="S"  d3="Ds" d4="Ds" d5="Ds" d6="Ds" d7="S"  d8="S"  d9="H"  dt="H"  da="H" />
         <hand key="A8" d2="S"  d3="S"  d4="S"  d5="S"  d6="S"  d7="S"  d8="S"  d9="S"  dt="S"  da="S" />
         <hand key="A9" d2="S"  d3="S"  d4="S"  d5="S"  d6="S"  d7="S"  d8="S"  d9="S"  dt="S"  da="S" />
+        <hand key="AT" d2="S"  d3="S"  d4="S"  d5="S"  d6="S"  d7="S"  d8="S"  d9="S"  dt="S"  da="S" />
 
         <hand key="22" d2="Ph" d3="Ph" d4="P"  d5="P"  d6="P"  d7="P"  d8="H"  d9="H"  dt="H"  da="H" />
         <hand key="33" d2="Ph" d3="Ph" d4="P"  d5="P"  d6="P"  d7="P"  d8="H"  d9="H"  dt="H"  da="H" />
@@ -603,6 +632,7 @@
         <hand key="18" d2="S"  d3="S"  d4="S"  d5="S"  d6="S"  d7="S"  d8="S"  d9="S"  dt="S"  da="S" />
         <hand key="19" d2="S"  d3="S"  d4="S"  d5="S"  d6="S"  d7="S"  d8="S"  d9="S"  dt="S"  da="S" />
         <hand key="20" d2="S"  d3="S"  d4="S"  d5="S"  d6="S"  d7="S"  d8="S"  d9="S"  dt="S"  da="S" />
+        <hand key="21" d2="S"  d3="S"  d4="S"  d5="S"  d6="S"  d7="S"  d8="S"  d9="S"  dt="S"  da="S" />
 
         <hand key="A2" d2="H"  d3="H"  d4="H"  d5="Dh" d6="Dh" d7="H"  d8="H"  d9="H"  dt="H"  da="H" />
         <hand key="A3" d2="H"  d3="H"  d4="H"  d5="Dh" d6="Dh" d7="H"  d8="H"  d9="H"  dt="H"  da="H" />
@@ -612,6 +642,7 @@
         <hand key="A7" d2="Ds" d3="Ds" d4="Ds" d5="Ds" d6="Ds" d7="S"  d8="S"  d9="H"  dt="H"  da="H" />
         <hand key="A8" d2="S"  d3="S"  d4="S"  d5="S"  d6="Ds" d7="S"  d8="S"  d9="S"  dt="S"  da="S" />
         <hand key="A9" d2="S"  d3="S"  d4="S"  d5="S"  d6="S"  d7="S"  d8="S"  d9="S"  dt="S"  da="S" />
+        <hand key="AT" d2="S"  d3="S"  d4="S"  d5="S"  d6="S"  d7="S"  d8="S"  d9="S"  dt="S"  da="S" />
 
         <hand key="22" d2="Ph" d3="Ph" d4="P"  d5="P"  d6="P"  d7="P"  d8="H"  d9="H"  dt="H"  da="H" />
         <hand key="33" d2="Ph" d3="Ph" d4="P"  d5="P"  d6="P"  d7="P"  d8="H"  d9="H"  dt="H"  da="H" />
