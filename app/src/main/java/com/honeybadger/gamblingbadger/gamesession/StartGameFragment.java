@@ -42,6 +42,7 @@ public class StartGameFragment extends Fragment {
 
         // Init Interface
         initNumberPickerPickGame();
+        initButtonStartGame();
         initButtonBack();
     }
 
@@ -74,6 +75,10 @@ public class StartGameFragment extends Fragment {
                 actionSetSelectedGame(EGameType.fromIndex(numberPicker.getValue()));
             }
         });
+    }
+
+    private void initButtonStartGame() {
+
     }
 
     private void initButtonBack() {
