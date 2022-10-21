@@ -8,6 +8,8 @@ import com.honeybadger.gamblingbadger.casinosession.CasinoSession;
 import com.honeybadger.gamblingbadger.timer.Timer;
 
 public abstract class GameSession {
+    // CONSTANTS
+
     // Variables:
 
     private CasinoSession casinoSession;

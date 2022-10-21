@@ -13,13 +13,16 @@ import androidx.navigation.fragment.NavHostFragment;
 import com.honeybadger.gamblingbadger.R;
 import com.honeybadger.gamblingbadger.databinding.FragmentStartGameBinding;
 
-import java.util.Objects;
-
 public class StartGameFragment extends Fragment {
+
+    // CONSTANTS:
+
+    // VARIABLES:
 
     private FragmentStartGameBinding binding;
 
     private NumberPicker numberPickerPickGame;
+    private EGameType selectedGameType = EGameType.GT_BLACKJACK;
 
     // Fragment Events:
 
@@ -53,31 +56,42 @@ public class StartGameFragment extends Fragment {
     private void initNumberPickerPickGame() {
         numberPickerPickGame = getActivity().findViewById(R.id.startGameFrag_numberPicker_pickGame);
         numberPickerPickGame.setMinValue(0);
-        numberPickerPickGame.setMaxValue(4);
+        numberPickerPickGame.setMaxValue(EGameType.getNumberOfGames()-1);
         numberPickerPickGame.setWrapSelectorWheel(false);
 
-        String[] pickerVals = new String[5];
-        pickerVals[0] = getResources().getString(R.string.blackjack_title);
-        pickerVals[1] = getResources().getString(R.string.poker_title);
-        pickerVals[2] = getResources().getString(R.string.texasHoldem_title);
-        pickerVals[3] = getResources().getString(R.string.roulette_title);
-        pickerVals[4] = getResources().getString(R.string.americanRoulette_title);
+        String[] pickerVals = new String[EGameType.getNumberOfGames()];
+        pickerVals[EGameType.GT_BLACKJACK.INDEX] = getResources().getString(R.string.blackjack_title);
+        pickerVals[EGameType.GT_POKER.INDEX] = getResources().getString(R.string.poker_title);
+        pickerVals[EGameType.GT_TEXAS_HOLDEM.INDEX] = getResources().getString(R.string.texasHoldem_title);
+        pickerVals[EGameType.GT_ROULETTE.INDEX] = getResources().getString(R.string.roulette_title);
+        pickerVals[EGameType.GT_AMERICAN_ROULETTE.INDEX] = getResources().getString(R.string.americanRoulette_title);
 
         numberPickerPickGame.setDisplayedValues(pickerVals);
+
+        numberPickerPickGame.setOnValueChangedListener(new NumberPicker.OnValueChangeListener() {
+            @Override
+            public void onValueChange(NumberPicker numberPicker, int i, int i1) {
+                actionSetSelectedGame(EGameType.fromIndex(numberPicker.getValue()));
+            }
+        });
     }
 
     private void initButtonBack() {
         binding.startGameFragButtonBack.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                actionGoBack();
+                actionNavigateBackToCasinoSession();
             }
         });
     }
 
     // Actions:
 
-    private void actionGoBack() {
+    private void actionSetSelectedGame(EGameType gameType) {
+        selectedGameType = gameType;
+    }
+
+    private void actionNavigateBackToCasinoSession() {
         // Navigate Home
         NavHostFragment.findNavController(StartGameFragment.this)
                 .navigate(R.id.action_startGameFragment_to_casinoSessionFragment);
