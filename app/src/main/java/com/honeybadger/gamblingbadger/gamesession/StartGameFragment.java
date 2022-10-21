@@ -24,7 +24,7 @@ public class StartGameFragment extends Fragment {
     private NumberPicker numberPickerPickGame;
     private EGameType selectedGameType = EGameType.GT_BLACKJACK;
 
-    // Fragment Events:
+    // FRAGMENT EVENTS:
 
     @Override
     public View onCreateView(
@@ -52,7 +52,7 @@ public class StartGameFragment extends Fragment {
         binding = null;
     }
 
-    // Interface Initializers:
+    // INTERFACE:
 
     private void initNumberPickerPickGame() {
         numberPickerPickGame = getActivity().findViewById(R.id.startGameFrag_numberPicker_pickGame);
@@ -90,10 +90,14 @@ public class StartGameFragment extends Fragment {
         });
     }
 
-    // Actions:
+    // ACTIONS:
 
     private void actionSetSelectedGame(EGameType gameType) {
         selectedGameType = gameType;
+    }
+
+    private void actionStartSelectedGame() {
+
     }
 
     private void actionNavigateBackToCasinoSession() {
