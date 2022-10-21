@@ -21,7 +21,7 @@ public class StartGameFragment extends Fragment {
 
     private FragmentStartGameBinding binding;
 
-    private EGameType selectedGameType = EGameType.GT_BLACKJACK;
+    private EGameType selectedGameType;
 
     // FRAGMENT EVENTS:
 
@@ -54,6 +54,8 @@ public class StartGameFragment extends Fragment {
     // INTERFACE:
 
     private void initNumberPickerPickGame() {
+        selectedGameType = EGameType.GT_BLACKJACK;
+        
         NumberPicker numberPickerPickGame = getActivity().findViewById(R.id.startGameFrag_numberPicker_pickGame);
         numberPickerPickGame.setMinValue(0);
         numberPickerPickGame.setMaxValue(EGameType.getNumberOfGames()-1);
