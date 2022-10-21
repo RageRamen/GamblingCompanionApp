@@ -51,6 +51,18 @@
         <action
             android:id="@+id/action_startGameFragment_to_casinoSessionFragment"
             app:destination="@id/casinoSessionFragment" />
+        <action
+            android:id="@+id/action_startGameFragment_to_blackjackFragment"
+            app:destination="@id/blackjackFragment" />
+        <action
+            android:id="@+id/action_startGameFragment_to_pokerFragment"
+            app:destination="@id/pokerFragment" />
+        <action
+            android:id="@+id/action_startGameFragment_to_rouletteFragment"
+            app:destination="@id/rouletteFragment" />
+        <action
+            android:id="@+id/action_startGameFragment_to_texasHoldemFragment"
+            app:destination="@id/texasHoldemFragment" />
     </fragment>
     <fragment
         android:id="@+id/timerFragment"
@@ -61,4 +73,24 @@
             android:id="@+id/action_timerFragment_to_casinoSessionFragment"
             app:destination="@id/casinoSessionFragment" />
     </fragment>
+    <fragment
+        android:id="@+id/blackjackFragment"
+        android:name="com.honeybadger.gamblingbadger.gamesession.blackjack.BlackjackFragment"
+        android:label="fragment_blackjack"
+        tools:layout="@layout/fragment_blackjack" />
+    <fragment
+        android:id="@+id/pokerFragment"
+        android:name="com.honeybadger.gamblingbadger.gamesession.poker.PokerFragment"
+        android:label="fragment_poker"
+        tools:layout="@layout/fragment_poker" />
+    <fragment
+        android:id="@+id/rouletteFragment"
+        android:name="com.honeybadger.gamblingbadger.gamesession.roulette.RouletteFragment"
+        android:label="fragment_roulette"
+        tools:layout="@layout/fragment_roulette" />
+    <fragment
+        android:id="@+id/texasHoldemFragment"
+        android:name="com.honeybadger.gamblingbadger.gamesession.texasholdem.TexasHoldemFragment"
+        android:label="fragment_texas_holdem"
+        tools:layout="@layout/fragment_texas_holdem" />
 </navigation>

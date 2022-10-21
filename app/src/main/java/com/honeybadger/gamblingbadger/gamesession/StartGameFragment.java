@@ -21,7 +21,6 @@ public class StartGameFragment extends Fragment {
 
     private FragmentStartGameBinding binding;
 
-    private NumberPicker numberPickerPickGame;
     private EGameType selectedGameType = EGameType.GT_BLACKJACK;
 
     // FRAGMENT EVENTS:
@@ -55,7 +54,7 @@ public class StartGameFragment extends Fragment {
     // INTERFACE:
 
     private void initNumberPickerPickGame() {
-        numberPickerPickGame = getActivity().findViewById(R.id.startGameFrag_numberPicker_pickGame);
+        NumberPicker numberPickerPickGame = getActivity().findViewById(R.id.startGameFrag_numberPicker_pickGame);
         numberPickerPickGame.setMinValue(0);
         numberPickerPickGame.setMaxValue(EGameType.getNumberOfGames()-1);
         numberPickerPickGame.setWrapSelectorWheel(false);
@@ -78,7 +77,12 @@ public class StartGameFragment extends Fragment {
     }
 
     private void initButtonStartGame() {
-
+        binding.startGameFragButtonStartGame.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                actionStartSelectedGame();
+            }
+        });
     }
 
     private void initButtonBack() {
@@ -97,7 +101,19 @@ public class StartGameFragment extends Fragment {
     }
 
     private void actionStartSelectedGame() {
+            int navigateTo;
 
+            switch (selectedGameType) {
+                case GT_BLACKJACK: navigateTo = R.id.action_startGameFragment_to_blackjackFragment; break;
+                case GT_POKER: navigateTo = R.id.action_startGameFragment_to_pokerFragment; break;
+                case GT_TEXAS_HOLDEM: navigateTo = R.id.action_startGameFragment_to_texasHoldemFragment; break;
+                case GT_ROULETTE:
+                case GT_AMERICAN_ROULETTE: navigateTo = R.id.action_startGameFragment_to_rouletteFragment; break;
+                default: return;
+            }
+
+            NavHostFragment.findNavController(StartGameFragment.this)
+                    .navigate(navigateTo);
     }
 
     private void actionNavigateBackToCasinoSession() {
