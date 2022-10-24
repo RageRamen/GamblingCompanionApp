@@ -266,32 +266,55 @@ public class BlackjackRound extends CardRound {
     private static int[] getHardSoftScore(List<Card> hand) {
         int[] scores = new int[2];
         int hardScore = 0, softScore = 0;
-        boolean hadAce = false;
+        boolean aceCounted = false;
 
         for (Card card : hand) {
             switch (card.num) {
                 case CN_A:
                     hardScore += 1;
-                    if (hadAce)
-                        softScore += 1;
-                    else {
-                        // There can only be one ace with the value of 11 (two 11s will always bust)
-                        softScore += 11;
-                        hadAce = true;
+                    softScore += 1;
+                    if (!aceCounted) {
+                        // Only 1 ace can have a value of 11 in a hand
+                        softScore += 10;
+                        aceCounted = true;
                     }
                     break;
-                case CN_2: hardScore = softScore += 2; break;
-                case CN_3: hardScore = softScore += 3; break;
-                case CN_4: hardScore = softScore += 4; break;
-                case CN_5: hardScore = softScore += 5; break;
-                case CN_6: hardScore = softScore += 6; break;
-                case CN_7: hardScore = softScore += 7; break;
-                case CN_8: hardScore = softScore += 8; break;
-                case CN_9: hardScore = softScore += 9; break;
+                case CN_2:
+                    hardScore += 2;
+                    softScore += 2;
+                    break;
+                case CN_3:
+                    hardScore += 3;
+                    softScore += 3;
+                    break;
+                case CN_4:
+                    hardScore += 4;
+                    softScore += 4;
+                    break;
+                case CN_5:
+                    hardScore += 5;
+                    softScore += 5;
+                    break;
+                case CN_6:
+                    hardScore += 6;
+                    softScore += 6;
+                    break;
+                case CN_7:
+                    hardScore += 7;
+                    softScore += 7;
+                    break;
+                case CN_8:
+                    hardScore += 8;
+                    softScore += 8;
+                break;
+                case CN_9:
+                    hardScore += 9;
+                    softScore += 9;
+                    break;
                 case CN_10:
                 case CN_J:
                 case CN_Q:
-                case CN_K: hardScore = softScore += 10; break;
+                case CN_K: hardScore += 10; softScore += 10; break;
                 default: break;
             }
         }
