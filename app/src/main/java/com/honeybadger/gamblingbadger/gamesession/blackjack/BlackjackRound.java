@@ -314,8 +314,12 @@ public class BlackjackRound extends CardRound {
                 case CN_10:
                 case CN_J:
                 case CN_Q:
-                case CN_K: hardScore += 10; softScore += 10; break;
-                default: break;
+                case CN_K:
+                    hardScore += 10;
+                    softScore += 10;
+                    break;
+                default:
+                    break;
             }
         }
 
