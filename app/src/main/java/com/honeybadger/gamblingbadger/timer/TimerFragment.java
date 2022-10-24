@@ -11,11 +11,14 @@ import androidx.navigation.fragment.NavHostFragment;
 
 import com.honeybadger.gamblingbadger.HomeFragment;
 import com.honeybadger.gamblingbadger.R;
+import com.honeybadger.gamblingbadger.casinosession.CasinoSessionFragment;
 import com.honeybadger.gamblingbadger.databinding.FragmentTimerBinding;
 
 public class TimerFragment extends Fragment {
 
     private FragmentTimerBinding binding;
+
+    private Timer timer;
 
     @Override
     public View onCreateView(
@@ -32,6 +35,8 @@ public class TimerFragment extends Fragment {
 
     public void onViewCreated(@NonNull View view, Bundle savedInstanceState) {
         super.onViewCreated(view, savedInstanceState);
+
+        timer = CasinoSessionFragment.casinoSession.getTimer();
 
         initButtonBack();
     }
