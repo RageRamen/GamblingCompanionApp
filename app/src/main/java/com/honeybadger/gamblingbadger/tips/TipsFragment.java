@@ -21,8 +21,6 @@ public class TipsFragment extends Fragment {
 
     private FragmentTipsBinding binding;
 
-    private int test = 5;
-
     // FRAGMENT EVENTS:
 
     @Override
