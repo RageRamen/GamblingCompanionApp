@@ -33,5 +33,5 @@ public abstract class CardRound {
 
     public abstract float getHandStrength();
 
-    public abstract BigDecimal getExpectedValue();
+    public abstract float getExpectedValue();
 }

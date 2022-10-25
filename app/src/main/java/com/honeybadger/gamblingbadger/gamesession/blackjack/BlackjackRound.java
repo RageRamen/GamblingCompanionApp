@@ -11,6 +11,8 @@ import org.xmlpull.v1.XmlPullParserException;
 
 import java.io.IOException;
 import java.math.BigDecimal;
+import java.util.ArrayList;
+import java.util.Arrays;
 import java.util.HashMap;
 import java.util.LinkedList;
 import java.util.List;
@@ -75,6 +77,8 @@ public class BlackjackRound extends CardRound {
 
     private static final int NUMBER_OF_TABLE_ENTRIES = 37;
 
+    private static final int SCORE_TABLE_SIZE = 32;
+
     // VARIABLES:
 
     private int numberOfDecks;
@@ -138,12 +142,32 @@ public class BlackjackRound extends CardRound {
     // INFO METHODS:
 
     private List<Integer> getPossibleScores(final List<Card> deck, final List<Card> hand) {
-        List<Integer> possibleScores = new LinkedList<>();
+        ArrayList<Integer> possibleScores = new ArrayList<>();
         recursiveScoreCheck(possibleScores, deck, hand);
         return possibleScores;
     }
 
-    private void recursiveScoreCheck(List<Integer> possibleScores, final List<Card> deck, final List<Card> dealerHand) {
+    private List<Integer> getPossibleScores(final List<Card> deck, final Card card) {
+        List<Card> hand = new LinkedList<>();
+        hand.add(card);
+        return getPossibleScores(deck, hand);
+    }
+
+    private int[] getScoreTable(final List<Card> deck, final List<Card> hand) {
+        int[] scoreTable = new int[SCORE_TABLE_SIZE];  // Guaranteed to be initialized to 0 (by java spec)
+        List<Integer> possibleScores = getPossibleScores(deck, hand);
+        for (Integer score : possibleScores)
+            scoreTable[score]++;
+        return scoreTable;
+    }
+
+    private int[] getScoreTable(final List<Card> deck, final Card card) {
+        List<Card> hand = new LinkedList<>();
+        hand.add(card);
+        return getScoreTable(deck, hand);
+    }
+
+    private void recursiveScoreCheck(ArrayList<Integer> possibleScores, final List<Card> deck, final List<Card> dealerHand) {
         // Assumes dealer stands on soft 17
         int score = getBestScore(getHardSoftScore(dealerHand));
         if (score >= 17)
@@ -164,103 +188,59 @@ public class BlackjackRound extends CardRound {
 
     @Override
     public float getHandStrength() {
-        // Assumes dealer stands on soft 17
-
-        // Get deck remaining
+        // Get remaining deck
         List<Card> deck = Card.getDecks(numberOfDecks);
         deck.remove(dealerCard);
-        for (Card card : userHand)
-            deck.remove(card);
+        for (Card cd : userHand)
+            deck.remove(cd);
 
-        // Declare calculation variables
-        List<Integer> possibleScores;
-        int bustNumber;
-        int validScoreSum;
-        int validScoreCount;
-        double bustPercent;
-        double averageValidScore;
+        // Get user probabilities
+        int[] userScoreTable = getScoreTable(deck, userHand);
+        int userPossibilitySize = Arrays.stream(userScoreTable).sum();
+        double[] userScoreProbabilities = new double[SCORE_TABLE_SIZE];
+        assert userPossibilitySize != 0;
+        for (int i = 0; i < SCORE_TABLE_SIZE; i++)
+            userScoreProbabilities[i] = (double)userScoreTable[i] / (double)userPossibilitySize;
 
-        // Get final user score
-        float finalUserScore;
-        possibleScores = getPossibleScores(deck, userHand);
-        bustNumber = 0;
-        validScoreSum = 0;
-        validScoreCount = 0;
-        bustPercent = 0;
-        averageValidScore = 0;
-        for (Integer i : possibleScores) {
-            if (i <= 21) {
-                validScoreSum += i;
-                validScoreCount += 1;
-            } else {
-                bustNumber += 1;
+        // Get dealer probabilities
+        int[] dealerScoreTable = getScoreTable(deck, dealerCard);
+        int dealerPossibilitySize = Arrays.stream(userScoreTable).sum();
+        double[] dealerScoreProbabilities = new double[SCORE_TABLE_SIZE];
+        assert dealerPossibilitySize != 0;
+        for (int i = 0; i < SCORE_TABLE_SIZE; i++)
+            dealerScoreProbabilities[i] = (double)dealerScoreTable[i] / (double)dealerPossibilitySize;
+
+        // Calculate expected value
+        double expectedValue = 0;
+        double matchProbability;
+        double value;
+        for (int us = 0; us <= SCORE_TABLE_SIZE; us++) {
+            if (us > 21) {
+                // User bust always loses
+                expectedValue += userScoreProbabilities[us] * -1;
+            }
+            else {
+                // User didn't bust
+                for (int ds = 0; ds <= SCORE_TABLE_SIZE; ds++) {
+                    matchProbability = userScoreProbabilities[us] * dealerScoreProbabilities[ds];
+                    if (ds > 21 || ds < us) {
+                        // User wins
+                        value = 1;
+                    }
+                    else if (ds == us) {
+                        // Push
+                        value = 0;
+                    }
+                    else {
+                        // User loses
+                        value = -1;
+                    }
+                    expectedValue += matchProbability * value;
+                }
             }
         }
-        if (possibleScores.size() > 0)
-            bustPercent = (double)bustNumber / (double)possibleScores.size();
-        if (validScoreCount > 0)
-            averageValidScore = (double)validScoreSum / (double)validScoreCount;
-        if (bustPercent >= 1.0f)
-            bustPercent = 1.0f - Float.MIN_VALUE;  // Is a double
-        finalUserScore = (float)averageValidScore / (float)(1.0f - bustPercent);
 
-        // Get final dealer score
-        float finalDealerScore = 0;
-        bustPercent = 0;
-        averageValidScore = 0;
-        switch (numberOfDecks) {
-            case 1:
-            case 2:
-            case 3:
-                List<Card> dealerHand = new LinkedList<>();
-                dealerHand.add(dealerCard);
-                possibleScores = getPossibleScores(deck, dealerHand);
-                bustNumber = 0;
-                validScoreSum = 0;
-                validScoreCount = 0;
-                for (Integer i : possibleScores) {
-                    if (i <= 21) {
-                        validScoreSum += i;
-                        validScoreCount += 1;
-                    }
-                    else{
-                        bustNumber += 1;
-                    }
-                }
-                if (possibleScores.size() > 0)
-                    bustPercent = (double)bustNumber / (double)possibleScores.size();
-                if (validScoreCount > 0)
-                    averageValidScore = (double)validScoreSum / (double)validScoreCount;
-                if (bustPercent >= 1.0f)
-                    bustPercent = 1.0f - Float.MIN_VALUE;  // Is a double
-                finalDealerScore = (float)averageValidScore / (float)(1.0f - bustPercent);
-                break;
-            case 4:
-            case 5:
-            case 6:
-            case 7:
-            case 8:
-                // 4 - 8 practically the same
-                // 17 - 14%
-                // 18 - 14%
-                // 19 - 13%
-                // 20 - 18%
-                // 21 - 12%
-                // 22 - 7%
-                // 23 - 7%
-                // 24 - 6%
-                // 25 - 5%
-                // 26 - 4%
-                // BUST = 29%
-                bustPercent = 0.29f;
-                averageValidScore = 19.3f;
-                finalDealerScore = (float)averageValidScore / (float)(1.0f - bustPercent);
-                break;
-            default:
-                break;
-        }
-
-        return finalUserScore - finalDealerScore;
+        return (float)expectedValue;
     }
 
     private static int[] getHardSoftScore(List<Card> hand) {
@@ -341,9 +321,8 @@ public class BlackjackRound extends CardRound {
     }
 
     @Override
-    public BigDecimal getExpectedValue(){
-        // TODO
-        return BigDecimal.ZERO;
+    public float getExpectedValue(){
+        return getHandStrength() * bet.floatValue();
     }
 
     public String getRecommendedAction(Resources resources) {
