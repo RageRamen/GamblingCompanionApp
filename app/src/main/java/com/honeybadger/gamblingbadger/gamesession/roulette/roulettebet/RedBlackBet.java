@@ -31,6 +31,6 @@ public class RedBlackBet extends RouletteBet {
 
     @Override
     public boolean testResult(int result) {
-        return false;
+        return isRed == RouletteResultHelper.isRed(result);
     }
 }
