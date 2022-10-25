@@ -34,7 +34,7 @@ public abstract class RouletteBet {
     // METHODS:
 
     public float getExpectedValue() {
-        return winChance * (winPayout - 1);
+        return winChance * ((winPayout - 1) * bet.floatValue());
     }
 
     public abstract boolean testResult(int result);
