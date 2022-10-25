@@ -28,11 +28,11 @@ public class ColumnBet extends RouletteBet {
     @Override
     public boolean testResult(int result) {
         if (columnNum == 1)
-            return RouletteResultHelper.isFirstColumn(result);
+            return ResultHelper.isFirstColumn(result);
         if (columnNum == 2)
-            return RouletteResultHelper.isSecondColumn(result);
+            return ResultHelper.isSecondColumn(result);
         if (columnNum == 3)
-            return RouletteResultHelper.isThirdColumn(result);
+            return ResultHelper.isThirdColumn(result);
 
         return false;
     }

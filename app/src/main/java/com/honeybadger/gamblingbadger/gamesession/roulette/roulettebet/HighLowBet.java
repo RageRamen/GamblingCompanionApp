@@ -31,6 +31,6 @@ public class HighLowBet extends RouletteBet {
 
     @Override
     public boolean testResult(int result) {
-        return isHigh == RouletteResultHelper.isGreaterHalf(result);
+        return isHigh == ResultHelper.isGreaterHalf(result);
     }
 }

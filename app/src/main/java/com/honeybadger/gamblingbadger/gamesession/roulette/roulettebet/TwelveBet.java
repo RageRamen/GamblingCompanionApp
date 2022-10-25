@@ -28,11 +28,11 @@ public class TwelveBet extends RouletteBet {
     @Override
     public boolean testResult(int result) {
         if (twelveNum == 1)
-            return RouletteResultHelper.isFirstTwelve(result);
+            return ResultHelper.isFirstTwelve(result);
         if (twelveNum == 2)
-            return RouletteResultHelper.isSecondTwelve(result);
+            return ResultHelper.isSecondTwelve(result);
         if (twelveNum == 3)
-            return RouletteResultHelper.isThirdTwelve(result);
+            return ResultHelper.isThirdTwelve(result);
 
         return false;
     }

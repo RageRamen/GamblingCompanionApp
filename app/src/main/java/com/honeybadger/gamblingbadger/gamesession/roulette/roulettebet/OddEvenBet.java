@@ -31,6 +31,6 @@ public class OddEvenBet extends RouletteBet {
 
     @Override
     public boolean testResult(int result) {
-        return isOdd == RouletteResultHelper.isOdd(result);
+        return isOdd == ResultHelper.isOdd(result);
     }
 }

@@ -1,6 +1,6 @@
 package com.honeybadger.gamblingbadger.gamesession.roulette.roulettebet;
 
-public class RouletteResultHelper {
+public class ResultHelper {
     // CONSTANTS:
 
     public static final int ZERO = 0;
