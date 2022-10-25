@@ -7,7 +7,7 @@ public class SplitBet extends RouletteBet {
 
     // VARIABLES:
 
-    private int[] numbers = new int[2];
+    private final int[] numbers = new int[2];
 
     // CONSTRUCTOR:
 
@@ -26,9 +26,12 @@ public class SplitBet extends RouletteBet {
 
     // METHODS:
 
+    public int[] getNumbers() {
+        return numbers.clone();
+    }
 
     @Override
     public boolean testResult(int result) {
-        return false;
+        return (numbers[0] == result) || (numbers[1] == result);
     }
 }
