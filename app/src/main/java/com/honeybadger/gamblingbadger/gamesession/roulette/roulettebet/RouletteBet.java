@@ -1,4 +1,4 @@
-package com.honeybadger.gamblingbadger.gamesession.roulette;
+package com.honeybadger.gamblingbadger.gamesession.roulette.roulettebet;
 
 import java.math.BigDecimal;
 
