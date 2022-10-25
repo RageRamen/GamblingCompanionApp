@@ -7,7 +7,7 @@ public class StraitUpBet extends RouletteBet {
 
     // VARIABLES:
 
-    private int number;
+    private final int number;
 
     // CONSTRUCTOR:
 
@@ -21,9 +21,12 @@ public class StraitUpBet extends RouletteBet {
 
     // METHODS:
 
+    public int getNumber() {
+        return number;
+    }
 
     @Override
     public boolean testResult(int result) {
-        return false;
+        return number == result;
     }
 }
