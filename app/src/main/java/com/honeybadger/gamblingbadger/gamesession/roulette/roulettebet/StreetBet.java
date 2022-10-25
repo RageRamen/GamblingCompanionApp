@@ -7,7 +7,7 @@ public class StreetBet extends RouletteBet {
 
     // VARIABLES:
 
-    private int firstNum;
+    private final int firstNum;
 
     // CONSTRUCTOR:
 
@@ -21,9 +21,16 @@ public class StreetBet extends RouletteBet {
 
     // METHODS:
 
+    public int getFirstNum() {
+        return firstNum;
+    }
+
+    public int[] getNumbers() {
+        return new int[]{firstNum, firstNum+1, firstNum+2};
+    }
 
     @Override
     public boolean testResult(int result) {
-        return false;
+        return (firstNum == result) || ((firstNum+1) == result) || ((firstNum+2) == result);
     }
 }
