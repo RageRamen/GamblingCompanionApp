@@ -7,7 +7,7 @@ public class LineBet extends RouletteBet {
 
     // VARIABLES:
 
-    private int firstNumber;
+    private final int firstNumber;
 
     // CONSTRUCTOR:
 
