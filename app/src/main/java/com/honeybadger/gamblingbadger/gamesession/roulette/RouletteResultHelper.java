@@ -1,32 +1,22 @@
 package com.honeybadger.gamblingbadger.gamesession.roulette;
 
-public class RouletteResult {
+public class RouletteResultHelper {
     // CONSTANTS:
 
     public static final int ZERO = 0;
     public static final int DOUBLE_ZERO = -1;
 
-    // VARIABLES:
-
-    public int number;
-
-    // CONSTRUCTORS:
-
-    public RouletteResult(int number) {
-        this.number = number;
-    }
-
     // TESTING METHODS:
 
-    public boolean isZero() {
+    public static boolean isZero(int number) {
         return number == ZERO;
     }
 
-    public boolean isDoubleZero() {
+    public static boolean isDoubleZero(int number) {
         return number == DOUBLE_ZERO;
     }
 
-    public boolean isRed() {
+    public static boolean isRed(int number) {
         switch (number) {
             case 1:
             case 3:
@@ -52,7 +42,7 @@ public class RouletteResult {
         }
     }
 
-    public boolean isBlack() {
+    public static boolean isBlack(int number) {
         switch (number) {
             case 2:
             case 4:
@@ -78,35 +68,35 @@ public class RouletteResult {
         }
     }
 
-    public boolean isEven() {
+    public static boolean isEven(int number) {
         return (number % 2) == 0;
     }
 
-    public boolean isOdd() {
+    public static boolean isOdd(int number) {
         return (number % 2) == 1;
     }
 
-    public boolean isLesserHalf() {
+    public static boolean isLesserHalf(int number) {
         return (1 <= number) && (number <= 18);
     }
 
-    public boolean isGreaterHalf() {
+    public static boolean isGreaterHalf(int number) {
         return (19 <= number) && (number <= 36);
     }
 
-    public boolean isFirstTwelve() {
+    public static boolean isFirstTwelve(int number) {
         return (1 <= number) && (number <= 12);
     }
 
-    public boolean isSecondTwelve() {
+    public static boolean isSecondTwelve(int number) {
         return (13 <= number) && (number <= 24);
     }
 
-    public boolean isThirdTwelve() {
+    public static boolean isThirdTwelve(int number) {
         return (25 <= number) && (number <= 36);
     }
 
-    public boolean isFirstColumn() {
+    public static boolean isFirstColumn(int number) {
         switch (number) {
             case 1:
             case 4:
@@ -126,7 +116,7 @@ public class RouletteResult {
         }
     }
 
-    public boolean isSecondColumn() {
+    public static boolean isSecondColumn(int number) {
         switch (number) {
             case 2:
             case 5:
@@ -146,7 +136,7 @@ public class RouletteResult {
         }
     }
 
-    public boolean isThirdColumn() {
+    public static boolean isThirdColumn(int number) {
         switch (number) {
             case 3:
             case 6:
