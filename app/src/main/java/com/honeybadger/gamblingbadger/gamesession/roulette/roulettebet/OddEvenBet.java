@@ -7,7 +7,7 @@ public class OddEvenBet extends RouletteBet {
 
     // VARIABLES:
 
-    private boolean isOdd;
+    private final boolean isOdd;
 
     // CONSTRUCTOR:
 

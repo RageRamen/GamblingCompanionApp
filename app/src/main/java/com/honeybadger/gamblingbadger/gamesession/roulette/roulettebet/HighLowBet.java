@@ -7,7 +7,7 @@ public class HighLowBet extends RouletteBet {
 
     // VARIABLES:
 
-    private boolean isHigh;
+    private final boolean isHigh;
 
     // CONSTRUCTOR:
 

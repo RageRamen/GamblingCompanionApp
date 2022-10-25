@@ -7,7 +7,7 @@ public class ColumnBet extends RouletteBet {
 
     // VARIABLES:
 
-    private int columnNum;
+    private final int columnNum;
 
     // CONSTRUCTOR:
 
@@ -21,9 +21,19 @@ public class ColumnBet extends RouletteBet {
 
     // METHODS:
 
+    public int getColumnNum() {
+        return columnNum;
+    }
 
     @Override
     public boolean testResult(int result) {
+        if (columnNum == 1)
+            return RouletteResultHelper.isFirstColumn(result);
+        if (columnNum == 2)
+            return RouletteResultHelper.isSecondColumn(result);
+        if (columnNum == 3)
+            return RouletteResultHelper.isThirdColumn(result);
+
         return false;
     }
 }
