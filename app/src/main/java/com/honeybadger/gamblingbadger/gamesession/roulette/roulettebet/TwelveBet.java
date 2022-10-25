@@ -7,7 +7,7 @@ public class TwelveBet extends RouletteBet {
 
     // VARIABLES:
 
-    private int twelveNum;
+    private final int twelveNum;
 
     // CONSTRUCTOR:
 
@@ -21,9 +21,19 @@ public class TwelveBet extends RouletteBet {
 
     // METHODS:
 
+    public int getTwelveNum() {
+        return twelveNum;
+    }
 
     @Override
     public boolean testResult(int result) {
+        if (twelveNum == 1)
+            return RouletteResultHelper.isFirstTwelve(result);
+        if (twelveNum == 2)
+            return RouletteResultHelper.isSecondTwelve(result);
+        if (twelveNum == 3)
+            return RouletteResultHelper.isThirdTwelve(result);
+
         return false;
     }
 }
