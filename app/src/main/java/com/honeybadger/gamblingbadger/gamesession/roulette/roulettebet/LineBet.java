@@ -21,9 +21,30 @@ public class LineBet extends RouletteBet {
 
     // METHODS:
 
+    public int getFirstNumber() {
+        return firstNumber;
+    }
+
+    public int[] getNumbers() {
+        return new int[]{
+                firstNumber,
+                firstNumber+1,
+                firstNumber+2,
+                firstNumber+3,
+                firstNumber+4,
+                firstNumber+5
+        };
+    }
 
     @Override
     public boolean testResult(int result) {
+        int[] numbers = getNumbers();
+
+        for (int num : numbers) {
+            if (num == result)
+                return true;
+        }
+
         return false;
     }
 }
