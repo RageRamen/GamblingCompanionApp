@@ -1,4 +1,4 @@
-package com.honeybadger.gamblingbadger.gamesession.roulette;
+package com.honeybadger.gamblingbadger.gamesession.roulette.roulettebet;
 
 public class RouletteResultHelper {
     // CONSTANTS:

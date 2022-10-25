@@ -7,7 +7,7 @@ public class RedBlackBet extends RouletteBet {
 
     // VARIABLES:
 
-    private boolean isRed;
+    private final boolean isRed;
 
     // CONSTRUCTOR:
 
@@ -21,6 +21,13 @@ public class RedBlackBet extends RouletteBet {
 
     // METHODS:
 
+    public boolean isRed() {
+        return isRed;
+    }
+
+    public boolean isBlack() {
+        return !isRed;
+    }
 
     @Override
     public boolean testResult(int result) {
