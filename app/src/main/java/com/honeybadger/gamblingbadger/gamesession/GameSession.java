@@ -28,8 +28,8 @@ public abstract class GameSession {
     protected GameSession(CasinoSession casinoSession, EGameType gameType) {
         this.casinoSession = casinoSession;
         this.gameType = gameType;
-        this.sessionStartTime = Timer.getCurrentTime();
-        this.sessionEndTime = this.sessionStartTime;
+        this.sessionStartTime = LocalDateTime.MIN;
+        this.sessionEndTime = LocalDateTime.MIN;
         this.balanceChange = BigDecimal.ZERO;
         this.timer = new Timer();
     }
@@ -62,7 +62,43 @@ public abstract class GameSession {
 
     // Action Methods:
 
+    public boolean startSession() {
+        boolean success = false;
+
+        if (!hasStarted()){
+            sessionStartTime = Timer.getCurrentTime();
+
+            // TODO: Whatever else we need to do.
+
+            success = true;
+        }
+
+        return success;
+    }
+
+    public boolean stopSession() {
+        boolean success = false;
+
+        if (hasStarted() && !hasFinished()) {
+            sessionEndTime = Timer.getCurrentTime();
+
+            // TODO: Whatever else we need to do.
+
+            success = true;
+        }
+
+        return success;
+    }
+
     // Info Methods:
+
+    public boolean hasStarted() {
+        return sessionStartTime != LocalDateTime.MIN;
+    }
+
+    public boolean hasFinished() {
+        return sessionEndTime != LocalDateTime.MIN;
+    }
 
     public boolean isSessionOpen() {
         return sessionStartTime == sessionEndTime;
