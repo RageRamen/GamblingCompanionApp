@@ -5,6 +5,8 @@ import java.math.BigDecimal;
 public class HighLowBet extends RouletteBet {
     // CONSTANTS:
 
+    private static final float WIN_CHANCE = 18f / 38f;
+
     // VARIABLES:
 
     private final boolean isHigh;
@@ -13,8 +15,8 @@ public class HighLowBet extends RouletteBet {
 
     public HighLowBet(BigDecimal bet, boolean isHigh) {
         super(bet);
-        this.winPayout = 0;
-        this.winChance = 0;
+        this.winPayout = 1;
+        this.winChance = WIN_CHANCE;
 
         this.isHigh = isHigh;
     }

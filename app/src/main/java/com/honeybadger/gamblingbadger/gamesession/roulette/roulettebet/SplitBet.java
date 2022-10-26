@@ -5,6 +5,8 @@ import java.math.BigDecimal;
 public class SplitBet extends RouletteBet {
     // CONSTANTS:
 
+    private static final float WIN_CHANCE = 2f / 38f;
+
     // VARIABLES:
 
     private final int[] numbers = new int[2];
@@ -13,8 +15,8 @@ public class SplitBet extends RouletteBet {
 
     public SplitBet(BigDecimal bet, int num1, int num2) {
         super(bet);
-        this.winPayout = 0;
-        this.winChance = 0;
+        this.winPayout = 17;
+        this.winChance = WIN_CHANCE;
 
         this.numbers[0] = num1;
         this.numbers[1] = num2;

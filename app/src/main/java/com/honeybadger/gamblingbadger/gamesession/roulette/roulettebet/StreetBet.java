@@ -5,6 +5,8 @@ import java.math.BigDecimal;
 public class StreetBet extends RouletteBet {
     // CONSTANTS:
 
+    private static final float WIN_CHANCE = 3f / 38f;
+
     // VARIABLES:
 
     private final int firstNum;
@@ -13,8 +15,8 @@ public class StreetBet extends RouletteBet {
 
     public StreetBet(BigDecimal bet, int firstNum) {
         super(bet);
-        this.winPayout = 0;
-        this.winChance = 0;
+        this.winPayout = 11;
+        this.winChance = WIN_CHANCE;
 
         this.firstNum = firstNum;
     }

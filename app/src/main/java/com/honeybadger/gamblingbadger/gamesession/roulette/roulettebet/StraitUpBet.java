@@ -5,6 +5,8 @@ import java.math.BigDecimal;
 public class StraitUpBet extends RouletteBet {
     // CONSTANTS:
 
+    private static final float WIN_CHANCE = 1f / 38f;
+
     // VARIABLES:
 
     private final int number;
@@ -13,8 +15,8 @@ public class StraitUpBet extends RouletteBet {
 
     public StraitUpBet(BigDecimal bet, int number) {
         super(bet);
-        this.winPayout = 0;
-        this.winChance = 0;
+        this.winPayout = 35;
+        this.winChance = WIN_CHANCE;
 
         this.number = number;
     }

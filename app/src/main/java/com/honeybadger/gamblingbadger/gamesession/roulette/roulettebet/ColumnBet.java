@@ -5,6 +5,8 @@ import java.math.BigDecimal;
 public class ColumnBet extends RouletteBet {
     // CONSTANTS:
 
+    private static final float WIN_CHANCE = 12f / 38f;
+
     // VARIABLES:
 
     private final int columnNum;
@@ -13,8 +15,8 @@ public class ColumnBet extends RouletteBet {
 
     public ColumnBet(BigDecimal bet, int columnNum) {
         super(bet);
-        this.winPayout = 0;
-        this.winChance = 0;
+        this.winPayout = 2;
+        this.winChance = WIN_CHANCE;
 
         this.columnNum = columnNum;
     }

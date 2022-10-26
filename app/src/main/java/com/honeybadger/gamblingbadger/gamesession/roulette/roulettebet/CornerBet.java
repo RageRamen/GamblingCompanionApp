@@ -5,6 +5,8 @@ import java.math.BigDecimal;
 public class CornerBet extends RouletteBet {
     // CONSTANTS:
 
+    private static final float WIN_CHANCE = 4f / 38f;
+
     // VARIABLES:
 
     private final int topLeftNum;
@@ -13,8 +15,8 @@ public class CornerBet extends RouletteBet {
 
     public CornerBet(BigDecimal bet, int topLeftNum) {
         super(bet);
-        this.winPayout = 0;
-        this.winChance = 0;
+        this.winPayout = 8;
+        this.winChance = WIN_CHANCE;
 
         this.topLeftNum = topLeftNum;
     }

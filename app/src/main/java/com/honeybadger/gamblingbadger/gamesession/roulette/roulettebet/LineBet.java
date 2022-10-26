@@ -5,6 +5,8 @@ import java.math.BigDecimal;
 public class LineBet extends RouletteBet {
     // CONSTANTS:
 
+    private static final float WIN_CHANCE = 6f / 38f;
+
     // VARIABLES:
 
     private final int firstNumber;
@@ -14,7 +16,7 @@ public class LineBet extends RouletteBet {
     public LineBet(BigDecimal bet, int firstNumber) {
         super(bet);
         this.winPayout = 0;
-        this.winChance = 0;
+        this.winChance = WIN_CHANCE;
 
         this.firstNumber = firstNumber;
     }

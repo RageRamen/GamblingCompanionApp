@@ -5,6 +5,8 @@ import java.math.BigDecimal;
 public class OddEvenBet extends RouletteBet {
     // CONSTANTS:
 
+    private static final float WIN_CHANCE = 18f / 38f;
+
     // VARIABLES:
 
     private final boolean isOdd;
@@ -13,8 +15,8 @@ public class OddEvenBet extends RouletteBet {
 
     public OddEvenBet(BigDecimal bet, boolean isOdd) {
         super(bet);
-        this.winPayout = 0;
-        this.winChance = 0;
+        this.winPayout = 1;
+        this.winChance = WIN_CHANCE;
 
         this.isOdd = isOdd;
     }
