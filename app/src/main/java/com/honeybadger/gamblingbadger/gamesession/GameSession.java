@@ -12,7 +12,7 @@ public abstract class GameSession {
 
     // Variables:
 
-    private CasinoSession casinoSession;
+    private final CasinoSession casinoSession;
 
     protected EGameType gameType;
 
