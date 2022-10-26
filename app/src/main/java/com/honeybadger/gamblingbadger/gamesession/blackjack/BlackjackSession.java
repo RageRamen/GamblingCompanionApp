@@ -67,23 +67,47 @@ public class BlackjackSession extends GameSession {
     // INFO METHODS:
 
     public int getNumberOfWins() {
-        // TODO
-        return 0;
+        int count = 0;
+
+        for (BlackjackRound round : rounds) {
+            if (round.isWin())
+                count++;
+        }
+
+        return count;
     }
 
     public int getNumberOfLosses() {
-        // TODO
-        return 0;
+        int count = 0;
+
+        for (BlackjackRound round : rounds) {
+            if (!round.isWin())
+                count++;
+        }
+
+        return count;
     }
 
     public List<BlackjackRound> getWinningRounds() {
-        // TODO
-        return new ArrayList<>();
+        List<BlackjackRound> winningRounds = new ArrayList<>();
+
+        for (BlackjackRound round : rounds) {
+            if (round.isWin())
+                winningRounds.add(round);
+        }
+
+        return winningRounds;
     }
 
     public List<BlackjackRound> getLosingRounds() {
-        // TODO
-        return new ArrayList<>();
+        List<BlackjackRound> losingRounds = new ArrayList<>();
+
+        for (BlackjackRound round : rounds) {
+            if (!round.isWin())
+                losingRounds.add(round);
+        }
+
+        return losingRounds;
     }
 
     @Override
