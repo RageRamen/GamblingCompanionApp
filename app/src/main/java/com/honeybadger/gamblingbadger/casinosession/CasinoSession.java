@@ -17,7 +17,6 @@ import com.honeybadger.gamblingbadger.gamesession.blackjack.BlackjackSession;
 import com.honeybadger.gamblingbadger.gamesession.poker.PokerSession;
 import com.honeybadger.gamblingbadger.gamesession.texasholdem.TexasHoldemSession;
 import com.honeybadger.gamblingbadger.gamesession.roulette.RouletteSession;
-import com.honeybadger.gamblingbadger.gamesession.roulette.AmericanRouletteSession;
 
 public class CasinoSession {
     // Variables:
@@ -97,6 +96,7 @@ public class CasinoSession {
         GameSession gameSession;
 
         switch (gameType) {
+            default:
             case GT_BLACKJACK:
                 // TODO
                 gameSession = new BlackjackSession(this);
@@ -115,12 +115,6 @@ public class CasinoSession {
             case GT_ROULETTE:
                 // TODO
                 gameSession = new RouletteSession(this);
-                this.gamesPlayed.add(gameSession);
-                break;
-            default:
-            case GT_AMERICAN_ROULETTE:
-                // TODO
-                gameSession = new AmericanRouletteSession(this);
                 this.gamesPlayed.add(gameSession);
                 break;
         }
