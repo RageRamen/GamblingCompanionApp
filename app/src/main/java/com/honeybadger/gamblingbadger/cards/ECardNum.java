@@ -2,8 +2,8 @@ package com.honeybadger.gamblingbadger.cards;
 
 public enum ECardNum {
     ANY,
-    JOKER,  // Joker (almost never used, but included for completeness)
-    ACE,
+    R,  // Joker (almost never used, but included for completeness)
+    A,
     N_2,
     N_3,
     N_4,
@@ -13,7 +13,7 @@ public enum ECardNum {
     N_8,
     N_9,
     N_10,
-    JACK,
-    QUEEN,
-    KING,
+    J,
+    Q,
+    K,
 }

@@ -250,7 +250,7 @@ public class BlackjackRound extends CardRound {
 
         for (Card card : hand) {
             switch (card.num) {
-                case ACE:
+                case A:
                     hardScore += 1;
                     softScore += 1;
                     if (!aceCounted) {
@@ -292,9 +292,9 @@ public class BlackjackRound extends CardRound {
                     softScore += 9;
                     break;
                 case N_10:
-                case JACK:
-                case QUEEN:
-                case KING:
+                case J:
+                case Q:
+                case K:
                     hardScore += 10;
                     softScore += 10;
                     break;
@@ -408,10 +408,10 @@ public class BlackjackRound extends CardRound {
                     case N_8: action = Objects.requireNonNull(table.get(PAIR_8)).get(dealerCard.num); break;
                     case N_9: action = Objects.requireNonNull(table.get(PAIR_9)).get(dealerCard.num); break;
                     case N_10:
-                    case JACK:
-                    case QUEEN:
-                    case KING: action = Objects.requireNonNull(table.get(PAIR_10)).get(dealerCard.num); break;
-                    case ACE: action = Objects.requireNonNull(table.get(PAIR_A)).get(dealerCard.num); break;
+                    case J:
+                    case Q:
+                    case K: action = Objects.requireNonNull(table.get(PAIR_10)).get(dealerCard.num); break;
+                    case A: action = Objects.requireNonNull(table.get(PAIR_A)).get(dealerCard.num); break;
                     default: action = BUST; break;
                 }
             }
@@ -508,10 +508,10 @@ public class BlackjackRound extends CardRound {
         hand.put(ECardNum.N_8, parser.getAttributeValue(null, "d8"));
         hand.put(ECardNum.N_9, parser.getAttributeValue(null, "d9"));
         hand.put(ECardNum.N_10, parser.getAttributeValue(null, "dt"));
-        hand.put(ECardNum.JACK, parser.getAttributeValue(null, "dt"));
-        hand.put(ECardNum.QUEEN, parser.getAttributeValue(null, "dt"));
-        hand.put(ECardNum.KING, parser.getAttributeValue(null, "dt"));
-        hand.put(ECardNum.ACE, parser.getAttributeValue(null, "da"));
+        hand.put(ECardNum.J, parser.getAttributeValue(null, "dt"));
+        hand.put(ECardNum.Q, parser.getAttributeValue(null, "dt"));
+        hand.put(ECardNum.K, parser.getAttributeValue(null, "dt"));
+        hand.put(ECardNum.A, parser.getAttributeValue(null, "da"));
 
         // Burn to next tag
         while (parser.next() != XmlPullParser.END_TAG);

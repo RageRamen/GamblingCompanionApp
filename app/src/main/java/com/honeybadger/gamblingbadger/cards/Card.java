@@ -52,7 +52,7 @@ public class Card {
     public static List<Card> getDeck() {
         List<Card> deck = new ArrayList<Card>() {
             {
-                add(new Card(ECardSuit.SPADES, ECardNum.ACE));
+                add(new Card(ECardSuit.SPADES, ECardNum.A));
                 add(new Card(ECardSuit.SPADES, ECardNum.N_2));
                 add(new Card(ECardSuit.SPADES, ECardNum.N_3));
                 add(new Card(ECardSuit.SPADES, ECardNum.N_4));
@@ -62,10 +62,10 @@ public class Card {
                 add(new Card(ECardSuit.SPADES, ECardNum.N_8));
                 add(new Card(ECardSuit.SPADES, ECardNum.N_9));
                 add(new Card(ECardSuit.SPADES, ECardNum.N_10));
-                add(new Card(ECardSuit.SPADES, ECardNum.JACK));
-                add(new Card(ECardSuit.SPADES, ECardNum.QUEEN));
-                add(new Card(ECardSuit.SPADES, ECardNum.KING));
-                add(new Card(ECardSuit.HEARTS, ECardNum.ACE));
+                add(new Card(ECardSuit.SPADES, ECardNum.J));
+                add(new Card(ECardSuit.SPADES, ECardNum.Q));
+                add(new Card(ECardSuit.SPADES, ECardNum.K));
+                add(new Card(ECardSuit.HEARTS, ECardNum.A));
                 add(new Card(ECardSuit.HEARTS, ECardNum.N_2));
                 add(new Card(ECardSuit.HEARTS, ECardNum.N_3));
                 add(new Card(ECardSuit.HEARTS, ECardNum.N_4));
@@ -75,10 +75,10 @@ public class Card {
                 add(new Card(ECardSuit.HEARTS, ECardNum.N_8));
                 add(new Card(ECardSuit.HEARTS, ECardNum.N_9));
                 add(new Card(ECardSuit.HEARTS, ECardNum.N_10));
-                add(new Card(ECardSuit.HEARTS, ECardNum.JACK));
-                add(new Card(ECardSuit.HEARTS, ECardNum.QUEEN));
-                add(new Card(ECardSuit.HEARTS, ECardNum.KING));
-                add(new Card(ECardSuit.DIAMONDS, ECardNum.ACE));
+                add(new Card(ECardSuit.HEARTS, ECardNum.J));
+                add(new Card(ECardSuit.HEARTS, ECardNum.Q));
+                add(new Card(ECardSuit.HEARTS, ECardNum.K));
+                add(new Card(ECardSuit.DIAMONDS, ECardNum.A));
                 add(new Card(ECardSuit.DIAMONDS, ECardNum.N_2));
                 add(new Card(ECardSuit.DIAMONDS, ECardNum.N_3));
                 add(new Card(ECardSuit.DIAMONDS, ECardNum.N_4));
@@ -88,10 +88,10 @@ public class Card {
                 add(new Card(ECardSuit.DIAMONDS, ECardNum.N_8));
                 add(new Card(ECardSuit.DIAMONDS, ECardNum.N_9));
                 add(new Card(ECardSuit.DIAMONDS, ECardNum.N_10));
-                add(new Card(ECardSuit.DIAMONDS, ECardNum.JACK));
-                add(new Card(ECardSuit.DIAMONDS, ECardNum.QUEEN));
-                add(new Card(ECardSuit.DIAMONDS, ECardNum.KING));
-                add(new Card(ECardSuit.CLUBS, ECardNum.ACE));
+                add(new Card(ECardSuit.DIAMONDS, ECardNum.J));
+                add(new Card(ECardSuit.DIAMONDS, ECardNum.Q));
+                add(new Card(ECardSuit.DIAMONDS, ECardNum.K));
+                add(new Card(ECardSuit.CLUBS, ECardNum.A));
                 add(new Card(ECardSuit.CLUBS, ECardNum.N_2));
                 add(new Card(ECardSuit.CLUBS, ECardNum.N_3));
                 add(new Card(ECardSuit.CLUBS, ECardNum.N_4));
@@ -101,9 +101,9 @@ public class Card {
                 add(new Card(ECardSuit.CLUBS, ECardNum.N_8));
                 add(new Card(ECardSuit.CLUBS, ECardNum.N_9));
                 add(new Card(ECardSuit.CLUBS, ECardNum.N_10));
-                add(new Card(ECardSuit.CLUBS, ECardNum.JACK));
-                add(new Card(ECardSuit.CLUBS, ECardNum.QUEEN));
-                add(new Card(ECardSuit.CLUBS, ECardNum.KING));
+                add(new Card(ECardSuit.CLUBS, ECardNum.J));
+                add(new Card(ECardSuit.CLUBS, ECardNum.Q));
+                add(new Card(ECardSuit.CLUBS, ECardNum.K));
             }
         };
 
@@ -123,8 +123,8 @@ public class Card {
     public static List<Card> getJokerDeck() {
         List<Card> deck = getDeck();
 
-        deck.add(new Card(ECardSuit.SPADES, ECardNum.JOKER));
-        deck.add(new Card(ECardSuit.HEARTS, ECardNum.JOKER));
+        deck.add(new Card(ECardSuit.SPADES, ECardNum.R));
+        deck.add(new Card(ECardSuit.HEARTS, ECardNum.R));
 
         return deck;
     }

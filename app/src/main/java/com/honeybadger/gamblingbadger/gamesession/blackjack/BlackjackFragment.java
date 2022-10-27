@@ -77,7 +77,7 @@ public class BlackjackFragment extends Fragment {
                 ECardNum number;
                 switch ((int)l) {
                     default: number = ECardNum.ANY; break;
-                    case 0: number = ECardNum.ACE; break;
+                    case 0: number = ECardNum.A; break;
                     case 1: number = ECardNum.N_2; break;
                     case 2: number = ECardNum.N_3; break;
                     case 3: number = ECardNum.N_4; break;
@@ -87,9 +87,9 @@ public class BlackjackFragment extends Fragment {
                     case 7: number = ECardNum.N_8; break;
                     case 8: number = ECardNum.N_9; break;
                     case 9: number = ECardNum.N_10; break;
-                    case 10: number = ECardNum.JACK; break;
-                    case 11: number = ECardNum.QUEEN; break;
-                    case 12: number = ECardNum.KING; break;
+                    case 10: number = ECardNum.J; break;
+                    case 11: number = ECardNum.Q; break;
+                    case 12: number = ECardNum.K; break;
                 }
                 actionDealerCardSelect(new Card(ECardSuit.ANY, number));
             }
@@ -143,7 +143,7 @@ public class BlackjackFragment extends Fragment {
         button_A.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                actionAddCardToUserHand(new Card(ECardSuit.ANY, ECardNum.ACE));
+                actionAddCardToUserHand(new Card(ECardSuit.ANY, ECardNum.A));
                 dialog.dismiss();
             }
         });
@@ -213,21 +213,21 @@ public class BlackjackFragment extends Fragment {
         button_J.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                actionAddCardToUserHand(new Card(ECardSuit.ANY, ECardNum.JACK));
+                actionAddCardToUserHand(new Card(ECardSuit.ANY, ECardNum.J));
                 dialog.dismiss();
             }
         });
         button_Q.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                actionAddCardToUserHand(new Card(ECardSuit.ANY, ECardNum.QUEEN));
+                actionAddCardToUserHand(new Card(ECardSuit.ANY, ECardNum.Q));
                 dialog.dismiss();
             }
         });
         button_K.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                actionAddCardToUserHand(new Card(ECardSuit.ANY, ECardNum.KING));
+                actionAddCardToUserHand(new Card(ECardSuit.ANY, ECardNum.K));
                 dialog.dismiss();
             }
         });
