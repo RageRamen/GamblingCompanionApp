@@ -5,6 +5,7 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.AdapterView;
+import android.widget.ArrayAdapter;
 import android.widget.Spinner;
 
 import androidx.annotation.NonNull;
@@ -62,6 +63,11 @@ public class BlackjackFragment extends Fragment {
 
     private void initSpinnerDealerCard() {
         Spinner spinnerDealerCard = getActivity().findViewById(R.id.blackjackFrag_spinner_dealerCard);
+
+        ArrayAdapter<CharSequence> adapter = ArrayAdapter.createFromResource(getContext(), R.array.blackjackFrag_spinner_dealerCard_content, android.R.layout.simple_spinner_item);
+        adapter.setDropDownViewResource(android.R.layout.simple_spinner_item);
+
+        spinnerDealerCard.setAdapter(adapter);
 
         binding.blackjackFragSpinnerDealerCard.setOnItemClickListener(new AdapterView.OnItemClickListener() {
             @Override

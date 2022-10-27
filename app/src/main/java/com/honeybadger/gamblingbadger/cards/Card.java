@@ -45,6 +45,9 @@ public class Card {
         return suitMatch && cardMatch;
     }
 
+    public boolean isAny() {
+        return suit == ECardSuit.ANY && num == ECardNum.ANY;
+    }
 
     public static List<Card> getDeck() {
         List<Card> deck = new ArrayList<Card>() {
