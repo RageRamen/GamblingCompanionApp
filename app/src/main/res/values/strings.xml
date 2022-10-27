@@ -19,22 +19,6 @@
     <string name="roulette_title">Roulette</string>
     <string name="americanRoulette_title">American Roulette</string>
 
-    <string-array name="card_list">
-        <item>A</item>
-        <item>2</item>
-        <item>3</item>
-        <item>4</item>
-        <item>5</item>
-        <item>6</item>
-        <item>7</item>
-        <item>8</item>
-        <item>9</item>
-        <item>10</item>
-        <item>J</item>
-        <item>Q</item>
-        <item>K</item>
-    </string-array>
-
     <!-- Strings used for fragments for navigation -->
 
     <string name="homeFrag_label">Home</string>
@@ -84,8 +68,9 @@
 
     <!-- BlackjackFragment -->
 
-    <string-array name="blackjackFrag_spinner_dealerCard_content">
-        <item>Ace</item>
+    <string name="blackjackFrag_button_addUserCard">Add User Card</string>
+    <string-array name="blackjack_card_list">
+        <item>A</item>
         <item>2</item>
         <item>3</item>
         <item>4</item>
@@ -95,10 +80,26 @@
         <item>8</item>
         <item>9</item>
         <item>10</item>
-        <item>Jack</item>
-        <item>Queen</item>
-        <item>King</item>
+        <item>J</item>
+        <item>Q</item>
+        <item>K</item>
     </string-array>
+
+    <string name="blackjackAddCardPopup_textView_instructions">What Card?</string>
+    <string name="blackjackAddCardPopup_button_ace">A</string>
+    <string name="blackjackAddCardPopup_button_2">2</string>
+    <string name="blackjackAddCardPopup_button_3">3</string>
+    <string name="blackjackAddCardPopup_button_4">4</string>
+    <string name="blackjackAddCardPopup_button_5">5</string>
+    <string name="blackjackAddCardPopup_button_6">6</string>
+    <string name="blackjackAddCardPopup_button_7">7</string>
+    <string name="blackjackAddCardPopup_button_8">8</string>
+    <string name="blackjackAddCardPopup_button_9">9</string>
+    <string name="blackjackAddCardPopup_button_10">10</string>
+    <string name="blackjackAddCardPopup_button_jack">J</string>
+    <string name="blackjackAddCardPopup_button_queen">Q</string>
+    <string name="blackjackAddCardPopup_button_king">K</string>
+    <string name="blackjackAddCardPopup_button_cancel">Cancel</string>
 
     <!-- Other -->
 

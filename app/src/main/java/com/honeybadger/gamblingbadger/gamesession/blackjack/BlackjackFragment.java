@@ -1,7 +1,6 @@
 package com.honeybadger.gamblingbadger.gamesession.blackjack;
 
 import android.app.AlertDialog;
-import android.content.DialogInterface;
 import android.os.Bundle;
 import android.view.LayoutInflater;
 import android.view.View;
@@ -31,9 +30,7 @@ public class BlackjackFragment extends Fragment {
     private FragmentBlackjackBinding binding;
 
     private Card dealerCard;
-    private List<Card> userCards;
-
-    private AlertDialog.Builder alertAddUserCard;
+    private List<Card> userHand;
 
     // FRAGMENT EVENTS:
 
@@ -43,7 +40,7 @@ public class BlackjackFragment extends Fragment {
             Bundle savedInstanceState
     ) {
         dealerCard = new Card();
-        userCards = new LinkedList<>();
+        userHand = new LinkedList<>();
 
         binding = FragmentBlackjackBinding.inflate(inflater, container, false);
         return binding.getRoot();
@@ -55,7 +52,7 @@ public class BlackjackFragment extends Fragment {
         // Init Interface
 
         initSpinnerDealerCard();
-        initAlertAddUserCard();
+        initButtonAddUserCard();
     }
 
     @Override
@@ -69,7 +66,7 @@ public class BlackjackFragment extends Fragment {
     private void initSpinnerDealerCard() {
         Spinner spinnerDealerCard = getActivity().findViewById(R.id.blackjackFrag_spinner_dealerCard);
 
-        ArrayAdapter<CharSequence> adapter = ArrayAdapter.createFromResource(getContext(), R.array.blackjackFrag_spinner_dealerCard_content, android.R.layout.simple_spinner_item);
+        ArrayAdapter<CharSequence> adapter = ArrayAdapter.createFromResource(getContext(), R.array.blackjack_card_list, android.R.layout.simple_spinner_item);
         adapter.setDropDownViewResource(android.R.layout.simple_spinner_item);
 
         spinnerDealerCard.setAdapter(adapter);
@@ -113,18 +110,6 @@ public class BlackjackFragment extends Fragment {
         });
     }
 
-    private void initAlertAddUserCard() {
-        alertAddUserCard = new AlertDialog.Builder(getContext());
-        alertAddUserCard.setTitle("TEMP");
-        String[] types = {"Test1", "Test2"};
-        alertAddUserCard.setItems(types, new DialogInterface.OnClickListener() {
-           @Override
-           public void onClick(DialogInterface dialog, int id) {
-
-           }
-        });
-    }
-
     // ACTIONS:
 
     private void actionDealerCardSelect(Card card) {
@@ -132,7 +117,131 @@ public class BlackjackFragment extends Fragment {
     }
 
     private void actionShowUserAddCardAlert() {
-        alertAddUserCard.show();
+        AlertDialog.Builder dialogueBuilder = new AlertDialog.Builder(getContext());
+        final View blackjackAddCardPopup = getLayoutInflater().inflate(R.layout.blackjack_add_card_popup, null);
+
+
+        View button_A = blackjackAddCardPopup.findViewById(R.id.blackjackAddCardPopup_button_ace);
+        View button_2 = blackjackAddCardPopup.findViewById(R.id.blackjackAddCardPopup_button_2);
+        View button_3 = blackjackAddCardPopup.findViewById(R.id.blackjackAddCardPopup_button_3);
+        View button_4 = blackjackAddCardPopup.findViewById(R.id.blackjackAddCardPopup_button_4);
+        View button_5 = blackjackAddCardPopup.findViewById(R.id.blackjackAddCardPopup_button_5);
+        View button_6 = blackjackAddCardPopup.findViewById(R.id.blackjackAddCardPopup_button_6);
+        View button_7 = blackjackAddCardPopup.findViewById(R.id.blackjackAddCardPopup_button_7);
+        View button_8 = blackjackAddCardPopup.findViewById(R.id.blackjackAddCardPopup_button_8);
+        View button_9 = blackjackAddCardPopup.findViewById(R.id.blackjackAddCardPopup_button_9);
+        View button_10 = blackjackAddCardPopup.findViewById(R.id.blackjackAddCardPopup_button_10);
+        View button_J = blackjackAddCardPopup.findViewById(R.id.blackjackAddCardPopup_button_jack);
+        View button_Q = blackjackAddCardPopup.findViewById(R.id.blackjackAddCardPopup_button_queen);
+        View button_K = blackjackAddCardPopup.findViewById(R.id.blackjackAddCardPopup_button_king);
+        View button_cancel = blackjackAddCardPopup.findViewById(R.id.blackjackAddCardPopup_button_cancel);
+
+        dialogueBuilder.setView(blackjackAddCardPopup);
+        AlertDialog dialog = dialogueBuilder.create();
+        dialog.show();
+
+        button_A.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                actionAddCardToUserHand(new Card(ECardSuit.ANY, ECardNum.ACE));
+                dialog.dismiss();
+            }
+        });
+        button_2.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                actionAddCardToUserHand(new Card(ECardSuit.ANY, ECardNum.N_2));
+                dialog.dismiss();
+            }
+        });
+        button_3.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                actionAddCardToUserHand(new Card(ECardSuit.ANY, ECardNum.N_3));
+                dialog.dismiss();
+            }
+        });
+        button_4.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                actionAddCardToUserHand(new Card(ECardSuit.ANY, ECardNum.N_4));
+                dialog.dismiss();
+            }
+        });
+        button_5.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                actionAddCardToUserHand(new Card(ECardSuit.ANY, ECardNum.N_5));
+                dialog.dismiss();
+            }
+        });
+        button_6.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                actionAddCardToUserHand(new Card(ECardSuit.ANY, ECardNum.N_6));
+                dialog.dismiss();
+            }
+        });
+        button_7.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                actionAddCardToUserHand(new Card(ECardSuit.ANY, ECardNum.N_7));
+                dialog.dismiss();
+            }
+        });
+        button_8.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                actionAddCardToUserHand(new Card(ECardSuit.ANY, ECardNum.N_8));
+                dialog.dismiss();
+            }
+        });
+        button_9.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                actionAddCardToUserHand(new Card(ECardSuit.ANY, ECardNum.N_9));
+                dialog.dismiss();
+            }
+        });
+        button_10.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                actionAddCardToUserHand(new Card(ECardSuit.ANY, ECardNum.N_10));
+                dialog.dismiss();
+            }
+        });
+        button_J.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                actionAddCardToUserHand(new Card(ECardSuit.ANY, ECardNum.JACK));
+                dialog.dismiss();
+            }
+        });
+        button_Q.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                actionAddCardToUserHand(new Card(ECardSuit.ANY, ECardNum.QUEEN));
+                dialog.dismiss();
+            }
+        });
+        button_K.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                actionAddCardToUserHand(new Card(ECardSuit.ANY, ECardNum.KING));
+                dialog.dismiss();
+            }
+        });
+
+        button_cancel.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                dialog.dismiss();
+            }
+        });
+    }
+
+    private void actionAddCardToUserHand(Card card) {
+        userHand.add(card);
     }
 
 }
