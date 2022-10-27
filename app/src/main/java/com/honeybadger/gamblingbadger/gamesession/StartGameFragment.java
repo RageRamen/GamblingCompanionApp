@@ -66,7 +66,6 @@ public class StartGameFragment extends Fragment {
         pickerVals[EGameType.GT_POKER.INDEX] = getResources().getString(R.string.poker_title);
         pickerVals[EGameType.GT_TEXAS_HOLDEM.INDEX] = getResources().getString(R.string.texasHoldem_title);
         pickerVals[EGameType.GT_ROULETTE.INDEX] = getResources().getString(R.string.roulette_title);
-        pickerVals[EGameType.GT_AMERICAN_ROULETTE.INDEX] = getResources().getString(R.string.americanRoulette_title);
 
         numberPickerPickGame.setDisplayedValues(pickerVals);
 
@@ -106,11 +105,10 @@ public class StartGameFragment extends Fragment {
             int navigateTo;
 
             switch (selectedGameType) {
-                case GT_BLACKJACK: navigateTo = R.id.action_startGameFragment_to_blackjackFragment; break;
-                case GT_POKER: navigateTo = R.id.action_startGameFragment_to_pokerFragment; break;
-                case GT_TEXAS_HOLDEM: navigateTo = R.id.action_startGameFragment_to_texasHoldemFragment; break;
-                case GT_ROULETTE:
-                case GT_AMERICAN_ROULETTE: navigateTo = R.id.action_startGameFragment_to_rouletteFragment; break;
+                case GT_BLACKJACK:      navigateTo = R.id.action_startGameFragment_to_blackjackFragment; break;
+                case GT_POKER:          navigateTo = R.id.action_startGameFragment_to_pokerFragment; break;
+                case GT_TEXAS_HOLDEM:   navigateTo = R.id.action_startGameFragment_to_texasHoldemFragment; break;
+                case GT_ROULETTE:       navigateTo = R.id.action_startGameFragment_to_rouletteFragment; break;
                 default: return;
             }
 

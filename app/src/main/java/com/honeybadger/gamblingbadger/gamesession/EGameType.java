@@ -4,8 +4,7 @@ public enum EGameType {
     GT_BLACKJACK(0),
     GT_POKER(1),
     GT_TEXAS_HOLDEM(2),
-    GT_ROULETTE(3),
-    GT_AMERICAN_ROULETTE(4);
+    GT_ROULETTE(3);
 
     public final int INDEX;
 
