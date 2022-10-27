@@ -8,14 +8,14 @@ import java.util.List;
 public class Card {
     // Variables
 
-    public ECardSuit suit = ECardSuit.CS_NONE;
-    public ECardNum num = ECardNum.CN_NONE;
+    public ECardSuit suit = ECardSuit.CS_ANY;
+    public ECardNum num = ECardNum.CN_ANY;
 
     // Constructors
 
     public Card() {
-        this.suit = ECardSuit.CS_NONE;
-        this.num = ECardNum.CN_NONE;
+        this.suit = ECardSuit.CS_ANY;
+        this.num = ECardNum.CN_ANY;
     }
     public Card(ECardSuit suit, ECardNum num) {
         this.suit = suit;
@@ -31,16 +31,16 @@ public class Card {
     public boolean equals(Card c) {
         boolean suitMatch, cardMatch;
 
-        suitMatch = this.suit == ECardSuit.CS_NONE || c.suit == ECardSuit.CS_NONE || this.suit == c.suit;
-        cardMatch = this.num == ECardNum.CN_NONE || c.num == ECardNum.CN_NONE || this.num == c.num;
+        suitMatch = this.suit == ECardSuit.CS_ANY || c.suit == ECardSuit.CS_ANY || this.suit == c.suit;
+        cardMatch = this.num == ECardNum.CN_ANY || c.num == ECardNum.CN_ANY || this.num == c.num;
 
         return suitMatch && cardMatch;
     }
     public boolean equals(Pair<ECardSuit, ECardNum> pair) {
         boolean suitMatch, cardMatch;
 
-        suitMatch = this.suit == ECardSuit.CS_NONE || pair.first == ECardSuit.CS_NONE || this.suit == pair.first;
-        cardMatch = this.num == ECardNum.CN_NONE || pair.second == ECardNum.CN_NONE || this.num == pair.second;
+        suitMatch = this.suit == ECardSuit.CS_ANY || pair.first == ECardSuit.CS_ANY || this.suit == pair.first;
+        cardMatch = this.num == ECardNum.CN_ANY || pair.second == ECardNum.CN_ANY || this.num == pair.second;
 
         return suitMatch && cardMatch;
     }
@@ -120,8 +120,8 @@ public class Card {
     public static List<Card> getJokerDeck() {
         List<Card> deck = getDeck();
 
-        deck.add(new Card(ECardSuit.CS_R, ECardNum.CN_R));
-        deck.add(new Card(ECardSuit.CS_B, ECardNum.CN_R));
+        deck.add(new Card(ECardSuit.CS_S, ECardNum.CN_R));
+        deck.add(new Card(ECardSuit.CS_H, ECardNum.CN_R));
 
         return deck;
     }

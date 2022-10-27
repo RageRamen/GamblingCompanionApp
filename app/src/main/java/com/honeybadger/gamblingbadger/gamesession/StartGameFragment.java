@@ -54,7 +54,7 @@ public class StartGameFragment extends Fragment {
     // INTERFACE:
 
     private void initNumberPickerPickGame() {
-        selectedGameType = EGameType.GT_BLACKJACK;
+        selectedGameType = EGameType.fromIndex(0);
         
         NumberPicker numberPickerPickGame = getActivity().findViewById(R.id.startGameFrag_numberPicker_pickGame);
         numberPickerPickGame.setMinValue(0);
