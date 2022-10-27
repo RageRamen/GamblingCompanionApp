@@ -250,7 +250,7 @@ public class BlackjackRound extends CardRound {
 
         for (Card card : hand) {
             switch (card.num) {
-                case CN_A:
+                case ACE:
                     hardScore += 1;
                     softScore += 1;
                     if (!aceCounted) {
@@ -259,42 +259,42 @@ public class BlackjackRound extends CardRound {
                         aceCounted = true;
                     }
                     break;
-                case CN_2:
+                case N_2:
                     hardScore += 2;
                     softScore += 2;
                     break;
-                case CN_3:
+                case N_3:
                     hardScore += 3;
                     softScore += 3;
                     break;
-                case CN_4:
+                case N_4:
                     hardScore += 4;
                     softScore += 4;
                     break;
-                case CN_5:
+                case N_5:
                     hardScore += 5;
                     softScore += 5;
                     break;
-                case CN_6:
+                case N_6:
                     hardScore += 6;
                     softScore += 6;
                     break;
-                case CN_7:
+                case N_7:
                     hardScore += 7;
                     softScore += 7;
                     break;
-                case CN_8:
+                case N_8:
                     hardScore += 8;
                     softScore += 8;
                 break;
-                case CN_9:
+                case N_9:
                     hardScore += 9;
                     softScore += 9;
                     break;
-                case CN_10:
-                case CN_J:
-                case CN_Q:
-                case CN_K:
+                case N_10:
+                case JACK:
+                case QUEEN:
+                case KING:
                     hardScore += 10;
                     softScore += 10;
                     break;
@@ -399,19 +399,19 @@ public class BlackjackRound extends CardRound {
             if (userHand.get(0).num == userHand.get(1).num) {
                 // Use split section
                 switch (userHand.get(0).num) {
-                    case CN_2: action = Objects.requireNonNull(table.get(PAIR_2)).get(dealerCard.num); break;
-                    case CN_3: action = Objects.requireNonNull(table.get(PAIR_3)).get(dealerCard.num); break;
-                    case CN_4: action = Objects.requireNonNull(table.get(PAIR_4)).get(dealerCard.num); break;
-                    case CN_5: action = Objects.requireNonNull(table.get(PAIR_5)).get(dealerCard.num); break;
-                    case CN_6: action = Objects.requireNonNull(table.get(PAIR_6)).get(dealerCard.num); break;
-                    case CN_7: action = Objects.requireNonNull(table.get(PAIR_7)).get(dealerCard.num); break;
-                    case CN_8: action = Objects.requireNonNull(table.get(PAIR_8)).get(dealerCard.num); break;
-                    case CN_9: action = Objects.requireNonNull(table.get(PAIR_9)).get(dealerCard.num); break;
-                    case CN_10:
-                    case CN_J:
-                    case CN_Q:
-                    case CN_K: action = Objects.requireNonNull(table.get(PAIR_10)).get(dealerCard.num); break;
-                    case CN_A: action = Objects.requireNonNull(table.get(PAIR_A)).get(dealerCard.num); break;
+                    case N_2: action = Objects.requireNonNull(table.get(PAIR_2)).get(dealerCard.num); break;
+                    case N_3: action = Objects.requireNonNull(table.get(PAIR_3)).get(dealerCard.num); break;
+                    case N_4: action = Objects.requireNonNull(table.get(PAIR_4)).get(dealerCard.num); break;
+                    case N_5: action = Objects.requireNonNull(table.get(PAIR_5)).get(dealerCard.num); break;
+                    case N_6: action = Objects.requireNonNull(table.get(PAIR_6)).get(dealerCard.num); break;
+                    case N_7: action = Objects.requireNonNull(table.get(PAIR_7)).get(dealerCard.num); break;
+                    case N_8: action = Objects.requireNonNull(table.get(PAIR_8)).get(dealerCard.num); break;
+                    case N_9: action = Objects.requireNonNull(table.get(PAIR_9)).get(dealerCard.num); break;
+                    case N_10:
+                    case JACK:
+                    case QUEEN:
+                    case KING: action = Objects.requireNonNull(table.get(PAIR_10)).get(dealerCard.num); break;
+                    case ACE: action = Objects.requireNonNull(table.get(PAIR_A)).get(dealerCard.num); break;
                     default: action = BUST; break;
                 }
             }
@@ -499,19 +499,19 @@ public class BlackjackRound extends CardRound {
 
         // Fill map
         HashMap<ECardNum, String> hand = new HashMap<>();
-        hand.put(ECardNum.CN_2, parser.getAttributeValue(null, "d2"));
-        hand.put(ECardNum.CN_3, parser.getAttributeValue(null, "d3"));
-        hand.put(ECardNum.CN_4, parser.getAttributeValue(null, "d4"));
-        hand.put(ECardNum.CN_5, parser.getAttributeValue(null, "d5"));
-        hand.put(ECardNum.CN_6, parser.getAttributeValue(null, "d6"));
-        hand.put(ECardNum.CN_7, parser.getAttributeValue(null, "d7"));
-        hand.put(ECardNum.CN_8, parser.getAttributeValue(null, "d8"));
-        hand.put(ECardNum.CN_9, parser.getAttributeValue(null, "d9"));
-        hand.put(ECardNum.CN_10, parser.getAttributeValue(null, "dt"));
-        hand.put(ECardNum.CN_J, parser.getAttributeValue(null, "dt"));
-        hand.put(ECardNum.CN_Q, parser.getAttributeValue(null, "dt"));
-        hand.put(ECardNum.CN_K, parser.getAttributeValue(null, "dt"));
-        hand.put(ECardNum.CN_A, parser.getAttributeValue(null, "da"));
+        hand.put(ECardNum.N_2, parser.getAttributeValue(null, "d2"));
+        hand.put(ECardNum.N_3, parser.getAttributeValue(null, "d3"));
+        hand.put(ECardNum.N_4, parser.getAttributeValue(null, "d4"));
+        hand.put(ECardNum.N_5, parser.getAttributeValue(null, "d5"));
+        hand.put(ECardNum.N_6, parser.getAttributeValue(null, "d6"));
+        hand.put(ECardNum.N_7, parser.getAttributeValue(null, "d7"));
+        hand.put(ECardNum.N_8, parser.getAttributeValue(null, "d8"));
+        hand.put(ECardNum.N_9, parser.getAttributeValue(null, "d9"));
+        hand.put(ECardNum.N_10, parser.getAttributeValue(null, "dt"));
+        hand.put(ECardNum.JACK, parser.getAttributeValue(null, "dt"));
+        hand.put(ECardNum.QUEEN, parser.getAttributeValue(null, "dt"));
+        hand.put(ECardNum.KING, parser.getAttributeValue(null, "dt"));
+        hand.put(ECardNum.ACE, parser.getAttributeValue(null, "da"));
 
         // Burn to next tag
         while (parser.next() != XmlPullParser.END_TAG);

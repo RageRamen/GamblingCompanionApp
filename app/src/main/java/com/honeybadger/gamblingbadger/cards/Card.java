@@ -8,14 +8,14 @@ import java.util.List;
 public class Card {
     // Variables
 
-    public ECardSuit suit = ECardSuit.CS_ANY;
-    public ECardNum num = ECardNum.CN_ANY;
+    public ECardSuit suit = ECardSuit.ANY;
+    public ECardNum num = ECardNum.ANY;
 
     // Constructors
 
     public Card() {
-        this.suit = ECardSuit.CS_ANY;
-        this.num = ECardNum.CN_ANY;
+        this.suit = ECardSuit.ANY;
+        this.num = ECardNum.ANY;
     }
     public Card(ECardSuit suit, ECardNum num) {
         this.suit = suit;
@@ -31,16 +31,16 @@ public class Card {
     public boolean equals(Card c) {
         boolean suitMatch, cardMatch;
 
-        suitMatch = this.suit == ECardSuit.CS_ANY || c.suit == ECardSuit.CS_ANY || this.suit == c.suit;
-        cardMatch = this.num == ECardNum.CN_ANY || c.num == ECardNum.CN_ANY || this.num == c.num;
+        suitMatch = this.suit == ECardSuit.ANY || c.suit == ECardSuit.ANY || this.suit == c.suit;
+        cardMatch = this.num == ECardNum.ANY || c.num == ECardNum.ANY || this.num == c.num;
 
         return suitMatch && cardMatch;
     }
     public boolean equals(Pair<ECardSuit, ECardNum> pair) {
         boolean suitMatch, cardMatch;
 
-        suitMatch = this.suit == ECardSuit.CS_ANY || pair.first == ECardSuit.CS_ANY || this.suit == pair.first;
-        cardMatch = this.num == ECardNum.CN_ANY || pair.second == ECardNum.CN_ANY || this.num == pair.second;
+        suitMatch = this.suit == ECardSuit.ANY || pair.first == ECardSuit.ANY || this.suit == pair.first;
+        cardMatch = this.num == ECardNum.ANY || pair.second == ECardNum.ANY || this.num == pair.second;
 
         return suitMatch && cardMatch;
     }
@@ -49,58 +49,58 @@ public class Card {
     public static List<Card> getDeck() {
         List<Card> deck = new ArrayList<Card>() {
             {
-                add(new Card(ECardSuit.CS_S, ECardNum.CN_A));
-                add(new Card(ECardSuit.CS_S, ECardNum.CN_2));
-                add(new Card(ECardSuit.CS_S, ECardNum.CN_3));
-                add(new Card(ECardSuit.CS_S, ECardNum.CN_4));
-                add(new Card(ECardSuit.CS_S, ECardNum.CN_5));
-                add(new Card(ECardSuit.CS_S, ECardNum.CN_6));
-                add(new Card(ECardSuit.CS_S, ECardNum.CN_7));
-                add(new Card(ECardSuit.CS_S, ECardNum.CN_8));
-                add(new Card(ECardSuit.CS_S, ECardNum.CN_9));
-                add(new Card(ECardSuit.CS_S, ECardNum.CN_10));
-                add(new Card(ECardSuit.CS_S, ECardNum.CN_J));
-                add(new Card(ECardSuit.CS_S, ECardNum.CN_Q));
-                add(new Card(ECardSuit.CS_S, ECardNum.CN_K));
-                add(new Card(ECardSuit.CS_H, ECardNum.CN_A));
-                add(new Card(ECardSuit.CS_H, ECardNum.CN_2));
-                add(new Card(ECardSuit.CS_H, ECardNum.CN_3));
-                add(new Card(ECardSuit.CS_H, ECardNum.CN_4));
-                add(new Card(ECardSuit.CS_H, ECardNum.CN_5));
-                add(new Card(ECardSuit.CS_H, ECardNum.CN_6));
-                add(new Card(ECardSuit.CS_H, ECardNum.CN_7));
-                add(new Card(ECardSuit.CS_H, ECardNum.CN_8));
-                add(new Card(ECardSuit.CS_H, ECardNum.CN_9));
-                add(new Card(ECardSuit.CS_H, ECardNum.CN_10));
-                add(new Card(ECardSuit.CS_H, ECardNum.CN_J));
-                add(new Card(ECardSuit.CS_H, ECardNum.CN_Q));
-                add(new Card(ECardSuit.CS_H, ECardNum.CN_K));
-                add(new Card(ECardSuit.CS_D, ECardNum.CN_A));
-                add(new Card(ECardSuit.CS_D, ECardNum.CN_2));
-                add(new Card(ECardSuit.CS_D, ECardNum.CN_3));
-                add(new Card(ECardSuit.CS_D, ECardNum.CN_4));
-                add(new Card(ECardSuit.CS_D, ECardNum.CN_5));
-                add(new Card(ECardSuit.CS_D, ECardNum.CN_6));
-                add(new Card(ECardSuit.CS_D, ECardNum.CN_7));
-                add(new Card(ECardSuit.CS_D, ECardNum.CN_8));
-                add(new Card(ECardSuit.CS_D, ECardNum.CN_9));
-                add(new Card(ECardSuit.CS_D, ECardNum.CN_10));
-                add(new Card(ECardSuit.CS_D, ECardNum.CN_J));
-                add(new Card(ECardSuit.CS_D, ECardNum.CN_Q));
-                add(new Card(ECardSuit.CS_D, ECardNum.CN_K));
-                add(new Card(ECardSuit.CS_C, ECardNum.CN_A));
-                add(new Card(ECardSuit.CS_C, ECardNum.CN_2));
-                add(new Card(ECardSuit.CS_C, ECardNum.CN_3));
-                add(new Card(ECardSuit.CS_C, ECardNum.CN_4));
-                add(new Card(ECardSuit.CS_C, ECardNum.CN_5));
-                add(new Card(ECardSuit.CS_C, ECardNum.CN_6));
-                add(new Card(ECardSuit.CS_C, ECardNum.CN_7));
-                add(new Card(ECardSuit.CS_C, ECardNum.CN_8));
-                add(new Card(ECardSuit.CS_C, ECardNum.CN_9));
-                add(new Card(ECardSuit.CS_C, ECardNum.CN_10));
-                add(new Card(ECardSuit.CS_C, ECardNum.CN_J));
-                add(new Card(ECardSuit.CS_C, ECardNum.CN_Q));
-                add(new Card(ECardSuit.CS_C, ECardNum.CN_K));
+                add(new Card(ECardSuit.SPADES, ECardNum.ACE));
+                add(new Card(ECardSuit.SPADES, ECardNum.N_2));
+                add(new Card(ECardSuit.SPADES, ECardNum.N_3));
+                add(new Card(ECardSuit.SPADES, ECardNum.N_4));
+                add(new Card(ECardSuit.SPADES, ECardNum.N_5));
+                add(new Card(ECardSuit.SPADES, ECardNum.N_6));
+                add(new Card(ECardSuit.SPADES, ECardNum.N_7));
+                add(new Card(ECardSuit.SPADES, ECardNum.N_8));
+                add(new Card(ECardSuit.SPADES, ECardNum.N_9));
+                add(new Card(ECardSuit.SPADES, ECardNum.N_10));
+                add(new Card(ECardSuit.SPADES, ECardNum.JACK));
+                add(new Card(ECardSuit.SPADES, ECardNum.QUEEN));
+                add(new Card(ECardSuit.SPADES, ECardNum.KING));
+                add(new Card(ECardSuit.HEARTS, ECardNum.ACE));
+                add(new Card(ECardSuit.HEARTS, ECardNum.N_2));
+                add(new Card(ECardSuit.HEARTS, ECardNum.N_3));
+                add(new Card(ECardSuit.HEARTS, ECardNum.N_4));
+                add(new Card(ECardSuit.HEARTS, ECardNum.N_5));
+                add(new Card(ECardSuit.HEARTS, ECardNum.N_6));
+                add(new Card(ECardSuit.HEARTS, ECardNum.N_7));
+                add(new Card(ECardSuit.HEARTS, ECardNum.N_8));
+                add(new Card(ECardSuit.HEARTS, ECardNum.N_9));
+                add(new Card(ECardSuit.HEARTS, ECardNum.N_10));
+                add(new Card(ECardSuit.HEARTS, ECardNum.JACK));
+                add(new Card(ECardSuit.HEARTS, ECardNum.QUEEN));
+                add(new Card(ECardSuit.HEARTS, ECardNum.KING));
+                add(new Card(ECardSuit.DIAMONDS, ECardNum.ACE));
+                add(new Card(ECardSuit.DIAMONDS, ECardNum.N_2));
+                add(new Card(ECardSuit.DIAMONDS, ECardNum.N_3));
+                add(new Card(ECardSuit.DIAMONDS, ECardNum.N_4));
+                add(new Card(ECardSuit.DIAMONDS, ECardNum.N_5));
+                add(new Card(ECardSuit.DIAMONDS, ECardNum.N_6));
+                add(new Card(ECardSuit.DIAMONDS, ECardNum.N_7));
+                add(new Card(ECardSuit.DIAMONDS, ECardNum.N_8));
+                add(new Card(ECardSuit.DIAMONDS, ECardNum.N_9));
+                add(new Card(ECardSuit.DIAMONDS, ECardNum.N_10));
+                add(new Card(ECardSuit.DIAMONDS, ECardNum.JACK));
+                add(new Card(ECardSuit.DIAMONDS, ECardNum.QUEEN));
+                add(new Card(ECardSuit.DIAMONDS, ECardNum.KING));
+                add(new Card(ECardSuit.CLUBS, ECardNum.ACE));
+                add(new Card(ECardSuit.CLUBS, ECardNum.N_2));
+                add(new Card(ECardSuit.CLUBS, ECardNum.N_3));
+                add(new Card(ECardSuit.CLUBS, ECardNum.N_4));
+                add(new Card(ECardSuit.CLUBS, ECardNum.N_5));
+                add(new Card(ECardSuit.CLUBS, ECardNum.N_6));
+                add(new Card(ECardSuit.CLUBS, ECardNum.N_7));
+                add(new Card(ECardSuit.CLUBS, ECardNum.N_8));
+                add(new Card(ECardSuit.CLUBS, ECardNum.N_9));
+                add(new Card(ECardSuit.CLUBS, ECardNum.N_10));
+                add(new Card(ECardSuit.CLUBS, ECardNum.JACK));
+                add(new Card(ECardSuit.CLUBS, ECardNum.QUEEN));
+                add(new Card(ECardSuit.CLUBS, ECardNum.KING));
             }
         };
 
@@ -120,8 +120,8 @@ public class Card {
     public static List<Card> getJokerDeck() {
         List<Card> deck = getDeck();
 
-        deck.add(new Card(ECardSuit.CS_S, ECardNum.CN_R));
-        deck.add(new Card(ECardSuit.CS_H, ECardNum.CN_R));
+        deck.add(new Card(ECardSuit.SPADES, ECardNum.JOKER));
+        deck.add(new Card(ECardSuit.HEARTS, ECardNum.JOKER));
 
         return deck;
     }

@@ -68,22 +68,22 @@ public class BlackjackFragment extends Fragment {
             public void onItemClick(AdapterView<?> adapterView, View view, int i, long l) {
                 ECardNum number;
                 switch ((int)l) {
-                    default: number = ECardNum.CN_ANY; break;
-                    case 0: number = ECardNum.CN_A; break;
-                    case 1: number = ECardNum.CN_2; break;
-                    case 2: number = ECardNum.CN_3; break;
-                    case 3: number = ECardNum.CN_4; break;
-                    case 4: number = ECardNum.CN_5; break;
-                    case 5: number = ECardNum.CN_6; break;
-                    case 6: number = ECardNum.CN_7; break;
-                    case 7: number = ECardNum.CN_8; break;
-                    case 8: number = ECardNum.CN_9; break;
-                    case 9: number = ECardNum.CN_10; break;
-                    case 10: number = ECardNum.CN_J; break;
-                    case 11: number = ECardNum.CN_Q; break;
-                    case 12: number = ECardNum.CN_K; break;
+                    default: number = ECardNum.ANY; break;
+                    case 0: number = ECardNum.ACE; break;
+                    case 1: number = ECardNum.N_2; break;
+                    case 2: number = ECardNum.N_3; break;
+                    case 3: number = ECardNum.N_4; break;
+                    case 4: number = ECardNum.N_5; break;
+                    case 5: number = ECardNum.N_6; break;
+                    case 6: number = ECardNum.N_7; break;
+                    case 7: number = ECardNum.N_8; break;
+                    case 8: number = ECardNum.N_9; break;
+                    case 9: number = ECardNum.N_10; break;
+                    case 10: number = ECardNum.JACK; break;
+                    case 11: number = ECardNum.QUEEN; break;
+                    case 12: number = ECardNum.KING; break;
                 }
-                actionDealerCardSelect(new Card(ECardSuit.CS_ANY, number));
+                actionDealerCardSelect(new Card(ECardSuit.ANY, number));
             }
         });
     }
