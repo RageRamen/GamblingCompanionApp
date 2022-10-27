@@ -1,5 +1,7 @@
 package com.honeybadger.gamblingbadger.gamesession.blackjack;
 
+import android.app.AlertDialog;
+import android.content.DialogInterface;
 import android.os.Bundle;
 import android.view.LayoutInflater;
 import android.view.View;
@@ -31,6 +33,8 @@ public class BlackjackFragment extends Fragment {
     private Card dealerCard;
     private List<Card> userCards;
 
+    private AlertDialog.Builder alertAddUserCard;
+
     // FRAGMENT EVENTS:
 
     @Override
@@ -51,6 +55,7 @@ public class BlackjackFragment extends Fragment {
         // Init Interface
 
         initSpinnerDealerCard();
+        initAlertAddUserCard();
     }
 
     @Override
@@ -69,9 +74,9 @@ public class BlackjackFragment extends Fragment {
 
         spinnerDealerCard.setAdapter(adapter);
 
-        binding.blackjackFragSpinnerDealerCard.setOnItemClickListener(new AdapterView.OnItemClickListener() {
+        binding.blackjackFragSpinnerDealerCard.setOnItemSelectedListener(new AdapterView.OnItemSelectedListener() {
             @Override
-            public void onItemClick(AdapterView<?> adapterView, View view, int i, long l) {
+            public void onItemSelected(AdapterView<?> adapterView, View view, int i, long l) {
                 ECardNum number;
                 switch ((int)l) {
                     default: number = ECardNum.ANY; break;
@@ -91,6 +96,32 @@ public class BlackjackFragment extends Fragment {
                 }
                 actionDealerCardSelect(new Card(ECardSuit.ANY, number));
             }
+
+            @Override
+            public void onNothingSelected(AdapterView<?> adapterView) {
+
+            }
+        });
+    }
+
+    private void initButtonAddUserCard() {
+        binding.blackjackFragButtonAddUserCard.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                actionShowUserAddCardAlert();
+            }
+        });
+    }
+
+    private void initAlertAddUserCard() {
+        alertAddUserCard = new AlertDialog.Builder(getContext());
+        alertAddUserCard.setTitle("TEMP");
+        String[] types = {"Test1", "Test2"};
+        alertAddUserCard.setItems(types, new DialogInterface.OnClickListener() {
+           @Override
+           public void onClick(DialogInterface dialog, int id) {
+
+           }
         });
     }
 
@@ -98,6 +129,10 @@ public class BlackjackFragment extends Fragment {
 
     private void actionDealerCardSelect(Card card) {
         dealerCard = card;
+    }
+
+    private void actionShowUserAddCardAlert() {
+        alertAddUserCard.show();
     }
 
 }
