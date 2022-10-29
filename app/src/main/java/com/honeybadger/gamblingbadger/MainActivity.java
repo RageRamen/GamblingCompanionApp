@@ -1,11 +1,14 @@
 package com.honeybadger.gamblingbadger;
 
+import android.app.AlertDialog;
 import android.os.Bundle;
 
 import com.google.android.material.snackbar.Snackbar;
 
 import androidx.appcompat.app.AppCompatActivity;
 
+import android.util.DisplayMetrics;
+import android.view.LayoutInflater;
 import android.view.View;
 
 import androidx.navigation.NavController;
@@ -13,10 +16,16 @@ import androidx.navigation.Navigation;
 import androidx.navigation.ui.AppBarConfiguration;
 import androidx.navigation.ui.NavigationUI;
 
+import com.honeybadger.gamblingbadger.cards.Card;
+import com.honeybadger.gamblingbadger.cards.ECardNum;
+import com.honeybadger.gamblingbadger.cards.ECardSuit;
 import com.honeybadger.gamblingbadger.databinding.ActivityMainBinding;
 
 import android.view.Menu;
 import android.view.MenuItem;
+import android.view.WindowMetrics;
+import android.widget.AbsListView;
+import android.widget.Button;
 
 public class MainActivity extends AppCompatActivity {
 
@@ -75,4 +84,5 @@ public class MainActivity extends AppCompatActivity {
         return NavigationUI.navigateUp(navController, appBarConfiguration)
                 || super.onSupportNavigateUp();
     }
+
 }

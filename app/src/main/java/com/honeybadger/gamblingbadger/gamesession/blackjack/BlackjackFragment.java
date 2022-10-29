@@ -1,12 +1,15 @@
 package com.honeybadger.gamblingbadger.gamesession.blackjack;
 
 import android.app.AlertDialog;
+import android.content.Context;
 import android.os.Bundle;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.AdapterView;
 import android.widget.ArrayAdapter;
+import android.widget.Button;
+import android.widget.PopupWindow;
 import android.widget.Spinner;
 
 import androidx.annotation.NonNull;
@@ -28,6 +31,11 @@ public class BlackjackFragment extends Fragment {
     // VARIABLES:
 
     private FragmentBlackjackBinding binding;
+
+    private AlertDialog.Builder dialogBuilder;
+    private AlertDialog dialog;
+    private Button buttonA, button2, button3, button4, button5, button6, button7, button8, button9, button10, buttonJ, buttonQ, buttonK;
+    private Button buttonCancel;
 
     private Card dealerCard;
     private List<Card> userHand;
@@ -117,114 +125,114 @@ public class BlackjackFragment extends Fragment {
     }
 
     private void actionShowUserAddCardAlert() {
-        AlertDialog.Builder dialogueBuilder = new AlertDialog.Builder(getContext());
-        final View blackjackAddCardPopup = getLayoutInflater().inflate(R.layout.blackjack_add_card_popup, null);
+        dialogBuilder = new AlertDialog.Builder(getContext());
 
+        View blackjackAddCardPopup = getLayoutInflater().inflate(R.layout.blackjack_add_card_popup, null);
 
-        View button_A = blackjackAddCardPopup.findViewById(R.id.blackjackAddCardPopup_button_ace);
-        View button_2 = blackjackAddCardPopup.findViewById(R.id.blackjackAddCardPopup_button_2);
-        View button_3 = blackjackAddCardPopup.findViewById(R.id.blackjackAddCardPopup_button_3);
-        View button_4 = blackjackAddCardPopup.findViewById(R.id.blackjackAddCardPopup_button_4);
-        View button_5 = blackjackAddCardPopup.findViewById(R.id.blackjackAddCardPopup_button_5);
-        View button_6 = blackjackAddCardPopup.findViewById(R.id.blackjackAddCardPopup_button_6);
-        View button_7 = blackjackAddCardPopup.findViewById(R.id.blackjackAddCardPopup_button_7);
-        View button_8 = blackjackAddCardPopup.findViewById(R.id.blackjackAddCardPopup_button_8);
-        View button_9 = blackjackAddCardPopup.findViewById(R.id.blackjackAddCardPopup_button_9);
-        View button_10 = blackjackAddCardPopup.findViewById(R.id.blackjackAddCardPopup_button_10);
-        View button_J = blackjackAddCardPopup.findViewById(R.id.blackjackAddCardPopup_button_jack);
-        View button_Q = blackjackAddCardPopup.findViewById(R.id.blackjackAddCardPopup_button_queen);
-        View button_K = blackjackAddCardPopup.findViewById(R.id.blackjackAddCardPopup_button_king);
-        View button_cancel = blackjackAddCardPopup.findViewById(R.id.blackjackAddCardPopup_button_cancel);
+        buttonA = (Button)blackjackAddCardPopup.findViewById(R.id.blackjackAddCardPopup_button_ace);
+        button2 = (Button)blackjackAddCardPopup.findViewById(R.id.blackjackAddCardPopup_button_2);
+        button3 = (Button)blackjackAddCardPopup.findViewById(R.id.blackjackAddCardPopup_button_3);
+        button4 = (Button)blackjackAddCardPopup.findViewById(R.id.blackjackAddCardPopup_button_4);
+        button5 = (Button)blackjackAddCardPopup.findViewById(R.id.blackjackAddCardPopup_button_5);
+        button6 = (Button)blackjackAddCardPopup.findViewById(R.id.blackjackAddCardPopup_button_6);
+        button7 = (Button)blackjackAddCardPopup.findViewById(R.id.blackjackAddCardPopup_button_7);
+        button8 = (Button)blackjackAddCardPopup.findViewById(R.id.blackjackAddCardPopup_button_8);
+        button9 = (Button)blackjackAddCardPopup.findViewById(R.id.blackjackAddCardPopup_button_9);
+        button10 = (Button)blackjackAddCardPopup.findViewById(R.id.blackjackAddCardPopup_button_10);
+        buttonJ = (Button)blackjackAddCardPopup.findViewById(R.id.blackjackAddCardPopup_button_jack);
+        buttonQ = (Button)blackjackAddCardPopup.findViewById(R.id.blackjackAddCardPopup_button_queen);
+        buttonK = (Button)blackjackAddCardPopup.findViewById(R.id.blackjackAddCardPopup_button_king);
+        buttonCancel = (Button)blackjackAddCardPopup.findViewById(R.id.blackjackAddCardPopup_button_cancel);
 
-        dialogueBuilder.setView(blackjackAddCardPopup);
-        AlertDialog dialog = dialogueBuilder.create();
+        dialogBuilder.setView(blackjackAddCardPopup);
+        dialog = dialogBuilder.create();
         dialog.show();
 
-        button_A.setOnClickListener(new View.OnClickListener() {
+        buttonA.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
                 actionAddCardToUserHand(new Card(ECardSuit.ANY, ECardNum.A));
                 dialog.dismiss();
             }
         });
-        button_2.setOnClickListener(new View.OnClickListener() {
+        button2.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
                 actionAddCardToUserHand(new Card(ECardSuit.ANY, ECardNum.N_2));
                 dialog.dismiss();
             }
         });
-        button_3.setOnClickListener(new View.OnClickListener() {
+        button3.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
                 actionAddCardToUserHand(new Card(ECardSuit.ANY, ECardNum.N_3));
                 dialog.dismiss();
             }
         });
-        button_4.setOnClickListener(new View.OnClickListener() {
+        button4.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
                 actionAddCardToUserHand(new Card(ECardSuit.ANY, ECardNum.N_4));
                 dialog.dismiss();
             }
         });
-        button_5.setOnClickListener(new View.OnClickListener() {
+        button5.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
                 actionAddCardToUserHand(new Card(ECardSuit.ANY, ECardNum.N_5));
                 dialog.dismiss();
             }
         });
-        button_6.setOnClickListener(new View.OnClickListener() {
+        button6.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
                 actionAddCardToUserHand(new Card(ECardSuit.ANY, ECardNum.N_6));
                 dialog.dismiss();
             }
         });
-        button_7.setOnClickListener(new View.OnClickListener() {
+        button7.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
                 actionAddCardToUserHand(new Card(ECardSuit.ANY, ECardNum.N_7));
                 dialog.dismiss();
             }
         });
-        button_8.setOnClickListener(new View.OnClickListener() {
+        button8.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
                 actionAddCardToUserHand(new Card(ECardSuit.ANY, ECardNum.N_8));
                 dialog.dismiss();
             }
         });
-        button_9.setOnClickListener(new View.OnClickListener() {
+        button9.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
                 actionAddCardToUserHand(new Card(ECardSuit.ANY, ECardNum.N_9));
                 dialog.dismiss();
             }
         });
-        button_10.setOnClickListener(new View.OnClickListener() {
+        button10.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
                 actionAddCardToUserHand(new Card(ECardSuit.ANY, ECardNum.N_10));
                 dialog.dismiss();
             }
         });
-        button_J.setOnClickListener(new View.OnClickListener() {
+        buttonJ.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
                 actionAddCardToUserHand(new Card(ECardSuit.ANY, ECardNum.J));
                 dialog.dismiss();
             }
         });
-        button_Q.setOnClickListener(new View.OnClickListener() {
+        buttonQ.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
                 actionAddCardToUserHand(new Card(ECardSuit.ANY, ECardNum.Q));
                 dialog.dismiss();
             }
         });
-        button_K.setOnClickListener(new View.OnClickListener() {
+        buttonK.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
                 actionAddCardToUserHand(new Card(ECardSuit.ANY, ECardNum.K));
@@ -232,7 +240,7 @@ public class BlackjackFragment extends Fragment {
             }
         });
 
-        button_cancel.setOnClickListener(new View.OnClickListener() {
+        buttonCancel.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
                 dialog.dismiss();

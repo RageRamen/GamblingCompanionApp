@@ -12,6 +12,8 @@ public abstract class GameSession {
 
     // Variables:
 
+    public static GameSession activeGameSession;
+
     private final CasinoSession casinoSession;
 
     protected EGameType gameType;
