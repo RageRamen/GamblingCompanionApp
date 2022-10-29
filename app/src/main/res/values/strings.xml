@@ -68,6 +68,8 @@
 
     <!-- BlackjackFragment -->
 
+    <string name="blackjackFrag_textView_dealerCard_label">Dealer Card</string>
+
     <string name="blackjackFrag_button_addUserCard">Add User Card</string>
     <string-array name="blackjack_card_list">
         <item>A</item>
@@ -85,21 +87,21 @@
         <item>K</item>
     </string-array>
 
-    <string name="blackjackAddCardPopup_textView_instructions">What Card?</string>
-    <string name="blackjackAddCardPopup_button_ace">A</string>
-    <string name="blackjackAddCardPopup_button_2">2</string>
-    <string name="blackjackAddCardPopup_button_3">3</string>
-    <string name="blackjackAddCardPopup_button_4">4</string>
-    <string name="blackjackAddCardPopup_button_5">5</string>
-    <string name="blackjackAddCardPopup_button_6">6</string>
-    <string name="blackjackAddCardPopup_button_7">7</string>
-    <string name="blackjackAddCardPopup_button_8">8</string>
-    <string name="blackjackAddCardPopup_button_9">9</string>
-    <string name="blackjackAddCardPopup_button_10">10</string>
-    <string name="blackjackAddCardPopup_button_jack">J</string>
-    <string name="blackjackAddCardPopup_button_queen">Q</string>
-    <string name="blackjackAddCardPopup_button_king">K</string>
-    <string name="blackjackAddCardPopup_button_cancel">Cancel</string>
+    <string name="blackjackAddCardPopup_textView_instructions_text">What Card?</string>
+    <string name="blackjackAddCardPopup_button_ace_label">A</string>
+    <string name="blackjackAddCardPopup_button_2_label">2</string>
+    <string name="blackjackAddCardPopup_button_3_label">3</string>
+    <string name="blackjackAddCardPopup_button_4_label">4</string>
+    <string name="blackjackAddCardPopup_button_5_label">5</string>
+    <string name="blackjackAddCardPopup_button_6_label">6</string>
+    <string name="blackjackAddCardPopup_button_7_label">7</string>
+    <string name="blackjackAddCardPopup_button_8_label">8</string>
+    <string name="blackjackAddCardPopup_button_9_label">9</string>
+    <string name="blackjackAddCardPopup_button_10_label">10</string>
+    <string name="blackjackAddCardPopup_button_jack_label">J</string>
+    <string name="blackjackAddCardPopup_button_queen_label">Q</string>
+    <string name="blackjackAddCardPopup_button_king_label">K</string>
+    <string name="blackjackAddCardPopup_button_cancel_label">Cancel</string>
 
     <!-- Other -->
 
