@@ -32,10 +32,7 @@ public class BlackjackFragment extends Fragment {
 
     private FragmentBlackjackBinding binding;
 
-    private AlertDialog.Builder dialogBuilder;
     private AlertDialog dialog;
-    private Button buttonA, button2, button3, button4, button5, button6, button7, button8, button9, button10, buttonJ, buttonQ, buttonK;
-    private Button buttonCancel;
 
     private Card dealerCard;
     private List<Card> userHand;
@@ -125,24 +122,24 @@ public class BlackjackFragment extends Fragment {
     }
 
     private void actionShowUserAddCardAlert() {
-        dialogBuilder = new AlertDialog.Builder(getContext());
+        AlertDialog.Builder dialogBuilder = new AlertDialog.Builder(getContext());
 
         View blackjackAddCardPopup = getLayoutInflater().inflate(R.layout.blackjack_add_card_popup, null);
 
-        buttonA = (Button)blackjackAddCardPopup.findViewById(R.id.blackjackAddCardPopup_button_ace);
-        button2 = (Button)blackjackAddCardPopup.findViewById(R.id.blackjackAddCardPopup_button_2);
-        button3 = (Button)blackjackAddCardPopup.findViewById(R.id.blackjackAddCardPopup_button_3);
-        button4 = (Button)blackjackAddCardPopup.findViewById(R.id.blackjackAddCardPopup_button_4);
-        button5 = (Button)blackjackAddCardPopup.findViewById(R.id.blackjackAddCardPopup_button_5);
-        button6 = (Button)blackjackAddCardPopup.findViewById(R.id.blackjackAddCardPopup_button_6);
-        button7 = (Button)blackjackAddCardPopup.findViewById(R.id.blackjackAddCardPopup_button_7);
-        button8 = (Button)blackjackAddCardPopup.findViewById(R.id.blackjackAddCardPopup_button_8);
-        button9 = (Button)blackjackAddCardPopup.findViewById(R.id.blackjackAddCardPopup_button_9);
-        button10 = (Button)blackjackAddCardPopup.findViewById(R.id.blackjackAddCardPopup_button_10);
-        buttonJ = (Button)blackjackAddCardPopup.findViewById(R.id.blackjackAddCardPopup_button_jack);
-        buttonQ = (Button)blackjackAddCardPopup.findViewById(R.id.blackjackAddCardPopup_button_queen);
-        buttonK = (Button)blackjackAddCardPopup.findViewById(R.id.blackjackAddCardPopup_button_king);
-        buttonCancel = (Button)blackjackAddCardPopup.findViewById(R.id.blackjackAddCardPopup_button_cancel);
+        Button buttonA = (Button) blackjackAddCardPopup.findViewById(R.id.blackjackAddCardPopup_button_ace);
+        Button button2 = (Button) blackjackAddCardPopup.findViewById(R.id.blackjackAddCardPopup_button_2);
+        Button button3 = (Button) blackjackAddCardPopup.findViewById(R.id.blackjackAddCardPopup_button_3);
+        Button button4 = (Button) blackjackAddCardPopup.findViewById(R.id.blackjackAddCardPopup_button_4);
+        Button button5 = (Button) blackjackAddCardPopup.findViewById(R.id.blackjackAddCardPopup_button_5);
+        Button button6 = (Button) blackjackAddCardPopup.findViewById(R.id.blackjackAddCardPopup_button_6);
+        Button button7 = (Button) blackjackAddCardPopup.findViewById(R.id.blackjackAddCardPopup_button_7);
+        Button button8 = (Button) blackjackAddCardPopup.findViewById(R.id.blackjackAddCardPopup_button_8);
+        Button button9 = (Button) blackjackAddCardPopup.findViewById(R.id.blackjackAddCardPopup_button_9);
+        Button button10 = (Button) blackjackAddCardPopup.findViewById(R.id.blackjackAddCardPopup_button_10);
+        Button buttonJ = (Button) blackjackAddCardPopup.findViewById(R.id.blackjackAddCardPopup_button_jack);
+        Button buttonQ = (Button) blackjackAddCardPopup.findViewById(R.id.blackjackAddCardPopup_button_queen);
+        Button buttonK = (Button) blackjackAddCardPopup.findViewById(R.id.blackjackAddCardPopup_button_king);
+        Button buttonCancel = (Button) blackjackAddCardPopup.findViewById(R.id.blackjackAddCardPopup_button_cancel);
 
         dialogBuilder.setView(blackjackAddCardPopup);
         dialog = dialogBuilder.create();
