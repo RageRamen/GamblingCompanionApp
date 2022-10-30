@@ -105,5 +105,7 @@
 
     <!-- Other -->
 
+    <string name="image">Image</string>
+
     <!-- TODO: Remove or change this placeholder text -->
 </resources>

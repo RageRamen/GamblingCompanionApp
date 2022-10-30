@@ -9,18 +9,21 @@ import android.view.ViewGroup;
 import android.widget.AdapterView;
 import android.widget.ArrayAdapter;
 import android.widget.Button;
+import android.widget.ImageView;
 import android.widget.PopupWindow;
 import android.widget.Spinner;
 
 import androidx.annotation.NonNull;
 import androidx.fragment.app.Fragment;
 
+import com.honeybadger.gamblingbadger.ImageSpinnerAdapter;
 import com.honeybadger.gamblingbadger.R;
 import com.honeybadger.gamblingbadger.cards.Card;
 import com.honeybadger.gamblingbadger.cards.ECardNum;
 import com.honeybadger.gamblingbadger.cards.ECardSuit;
 import com.honeybadger.gamblingbadger.databinding.FragmentBlackjackBinding;
 
+import java.util.HashMap;
 import java.util.LinkedList;
 import java.util.List;
 
@@ -33,6 +36,12 @@ public class BlackjackFragment extends Fragment {
     private FragmentBlackjackBinding binding;
 
     private AlertDialog dialog;
+
+    private static final Integer[] imageIconDatabase = {R.drawable.ace_of_spades,
+            R.drawable._2_of_hearts, R.drawable._3_of_clubs, R.drawable._4_of_diamonds,
+            R.drawable._5_of_spades, R.drawable._6_of_hearts, R.drawable._7_of_clubs,
+            R.drawable._8_of_diamonds, R.drawable._9_of_spades, R.drawable._10_of_hearts,
+            R.drawable.jack_of_clubs2, R.drawable.queen_of_diamonds2, R.drawable.king_of_spades2};
 
     private Card dealerCard;
     private List<Card> userHand;
@@ -71,8 +80,10 @@ public class BlackjackFragment extends Fragment {
     private void initSpinnerDealerCard() {
         Spinner spinnerDealerCard = getActivity().findViewById(R.id.blackjackFrag_spinner_dealerCard);
 
-        ArrayAdapter<CharSequence> adapter = ArrayAdapter.createFromResource(getContext(), R.array.blackjack_card_list, android.R.layout.simple_spinner_item);
-        adapter.setDropDownViewResource(android.R.layout.simple_spinner_item);
+        ImageSpinnerAdapter adapter = new ImageSpinnerAdapter(getActivity(), imageIconDatabase);
+
+        //ArrayAdapter<CharSequence> adapter = ArrayAdapter.createFromResource(getContext(), R.array.blackjack_card_list, android.R.layout.simple_spinner_item);
+        //adapter.setDropDownViewResource(android.R.layout.simple_spinner_item);
 
         spinnerDealerCard.setAdapter(adapter);
 
