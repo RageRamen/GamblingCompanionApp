@@ -14,7 +14,13 @@
         <action
             android:id="@+id/action_homeFragment_to_startSessionFragment"
             app:destination="@id/startSessionFragment" />
+
+        <action
+            android:id="@+id/action_homeFragment_to_tipFragment"
+            app:destination="@id/tipsFragment" />
     </fragment>
+
+
     <fragment
         android:id="@+id/startSessionFragment"
         android:name="com.honeybadger.gamblingbadger.casinosession.StartSessionFragment"
@@ -109,4 +115,9 @@
             android:id="@+id/action_texasHoldemFragment_to_casinoSessionFragment"
             app:destination="@id/casinoSessionFragment" />
     </fragment>
+    <fragment
+        android:id="@+id/tipsFragment"
+        android:name="com.honeybadger.gamblingbadger.tips.TipsFragment"
+        android:label="Tips and Tricks"
+        tools:layout="@layout/fragment_tips" />
 </navigation>
