@@ -8,9 +8,10 @@
 
     <Spinner
         android:id="@+id/blackjackFrag_spinner_dealerCard"
-        android:layout_width="102dp"
-        android:layout_height="137dp"
+        android:layout_width="100dp"
+        android:layout_height="140dp"
         android:contentDescription="@string/temporary"
+        android:dropDownWidth="100dp"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.5"
