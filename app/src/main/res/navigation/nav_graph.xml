@@ -48,6 +48,9 @@
         <action
             android:id="@+id/action_casinoSessionFragment_to_timerFragment"
             app:destination="@id/timerFragment" />
+        <action
+            android:id="@+id/action_casinoSessionFragment_to_tipsFragment"
+            app:destination="@id/tipsFragment" />
     </fragment>
     <fragment
         android:id="@+id/startGameFragment"
