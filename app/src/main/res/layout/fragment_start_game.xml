@@ -19,17 +19,17 @@
         app:layout_constraintVertical_bias="0.822" />
 
     <Button
-        android:id="@+id/startGameFrag_button_startGame"
+        android:id="@+id/startGameFragButtonStartGame"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:text="@string/startGameFrag_button_startGame_label"
         app:layout_constraintBottom_toTopOf="@+id/startGameFrag_button_back"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/startGameFrag_numberPicker_pickGame" />
+        app:layout_constraintTop_toBottomOf="@+id/numpick" />
 
     <NumberPicker
-        android:id="@+id/startGameFrag_numberPicker_pickGame"
+        android:id="@+id/numpick"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         app:layout_constraintBottom_toBottomOf="parent"

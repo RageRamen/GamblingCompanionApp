@@ -115,9 +115,20 @@
             android:id="@+id/action_texasHoldemFragment_to_casinoSessionFragment"
             app:destination="@id/casinoSessionFragment" />
     </fragment>
+
     <fragment
         android:id="@+id/tipsFragment"
         android:name="com.honeybadger.gamblingbadger.tips.TipsFragment"
         android:label="Tips and Tricks"
-        tools:layout="@layout/fragment_tips" />
+        tools:layout="@layout/fragment_tips" >
+        <action
+            android:id="@+id/action_tipsFragment_to_bjtipsFragment"
+            app:destination="@id/bjtipsFragment" />
+    </fragment>
+
+    <fragment
+        android:id="@+id/bjtipsFragment"
+        android:name="com.honeybadger.gamblingbadger.tips.BJTipFrag"
+        android:label="Blackjack Tips"
+        tools:layout = "@layout/fragment_b_j_tip"/>
 </navigation>

@@ -1,6 +1,54 @@
 <?xml version="1.0" encoding="utf-8"?>
 <androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".tips.TipsFragment" />
+    android:contentDescription="bj"
+    tools:context=".tips.TipsFragment">
+
+    <Button
+        android:id="@+id/Button_HelpPoker"
+        android:layout_width="300dp"
+        android:layout_height="100dp"
+        android:text="Poker"
+        app:layout_constraintBottom_toTopOf="@+id/Button_HelpTXHoldEm"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.5"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/Button_HelpRoulette" />
+
+    <Button
+        android:id="@+id/Button_HelpTXHoldEm"
+        android:layout_width="300dp"
+        android:layout_height="100dp"
+        android:text="Texas Hold'em"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.5"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/Button_HelpPoker" />
+
+    <Button
+        android:id="@+id/Button_HelpRoulette"
+        android:layout_width="300dp"
+        android:layout_height="100dp"
+        android:text="Roulette"
+        app:layout_constraintBottom_toTopOf="@+id/Button_HelpPoker"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.5"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/Button_HelpBlackjack" />
+
+    <Button
+        android:id="@+id/Button_HelpBlackjack"
+        android:layout_width="300dp"
+        android:layout_height="100dp"
+        android:text="Blackjack"
+        app:layout_constraintBottom_toTopOf="@+id/Button_HelpRoulette"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.5"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+</androidx.constraintlayout.widget.ConstraintLayout>
+
