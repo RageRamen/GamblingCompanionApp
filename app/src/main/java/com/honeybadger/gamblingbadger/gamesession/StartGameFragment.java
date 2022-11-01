@@ -56,7 +56,7 @@ public class StartGameFragment extends Fragment {
     private void initNumberPickerPickGame() {
         selectedGameType = EGameType.fromIndex(0);
         
-        NumberPicker numberPickerPickGame = getActivity().findViewById(R.id.startGameFrag_numPick_gameSelect);
+        NumberPicker numberPickerPickGame = getActivity().findViewById(R.id.startGameFrag_numberPicker_gameSelect);
         numberPickerPickGame.setMinValue(0);
         numberPickerPickGame.setMaxValue(EGameType.getNumberOfGames()-1);
         numberPickerPickGame.setWrapSelectorWheel(false);

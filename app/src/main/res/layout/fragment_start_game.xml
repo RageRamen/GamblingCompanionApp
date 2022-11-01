@@ -26,10 +26,10 @@
         app:layout_constraintBottom_toTopOf="@+id/startGameFrag_button_back"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/startGameFrag_numPick_gameSelect" />
+        app:layout_constraintTop_toBottomOf="@+id/startGameFrag_numberPicker_gameSelect" />
 
     <NumberPicker
-        android:id="@+id/startGameFrag_numPick_gameSelect"
+        android:id="@+id/startGameFrag_numberPicker_gameSelect"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         app:layout_constraintBottom_toBottomOf="parent"
