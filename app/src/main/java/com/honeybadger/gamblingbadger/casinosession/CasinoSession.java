@@ -62,6 +62,19 @@ public class CasinoSession {
         return this.gamesPlayed;
     }
 
+    public CasinoSession addGameSession(GameSession gameSession) {
+        if (!gamesPlayed.contains(gameSession))
+            gamesPlayed.add(gameSession);
+
+        return this;
+    }
+
+    public CasinoSession removeGameSession(GameSession gameSession) {
+        gamesPlayed.remove(gameSession);
+
+        return this;
+    }
+
     // Active Methods:
 
     public boolean addToBalance(BigDecimal amount) {
