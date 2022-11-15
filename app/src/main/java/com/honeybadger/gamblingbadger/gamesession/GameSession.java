@@ -27,6 +27,8 @@ public abstract class GameSession {
         this.gameType = gameType;
         this.sessionStartTime = Timer.getCurrentTime();
         this.sessionEndTime = LocalDateTime.MIN;
+
+        this.casinoSession.addGameSession(this);  // Hook up with casino session
     }
 
     // Properties:
