@@ -1,7 +1,6 @@
 package com.honeybadger.gamblingbadger.gamesession.blackjack;
 
 import android.app.AlertDialog;
-import android.content.Context;
 import android.os.Bundle;
 import android.view.LayoutInflater;
 import android.view.Menu;
@@ -10,12 +9,8 @@ import android.view.MenuItem;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.AdapterView;
-import android.widget.ArrayAdapter;
 import android.widget.Button;
-import android.widget.ImageView;
-import android.widget.PopupWindow;
 import android.widget.Spinner;
-import android.widget.TextView;
 
 import androidx.annotation.NonNull;
 import androidx.fragment.app.Fragment;
@@ -27,7 +22,6 @@ import com.honeybadger.gamblingbadger.cards.ECardNum;
 import com.honeybadger.gamblingbadger.cards.ECardSuit;
 import com.honeybadger.gamblingbadger.databinding.FragmentBlackjackBinding;
 
-import java.util.HashMap;
 import java.util.LinkedList;
 import java.util.List;
 
@@ -39,7 +33,8 @@ public class BlackjackFragment extends Fragment {
 
     private FragmentBlackjackBinding binding;
 
-    private AlertDialog dialog;
+    private AlertDialog addCardDialog;
+    private AlertDialog changeNumberOfDecksDialog;
 
     private static final Integer[] imageIconDatabase = {R.drawable.ace_of_spades,
             R.drawable._2_of_hearts, R.drawable._3_of_clubs, R.drawable._4_of_diamonds,
@@ -188,107 +183,111 @@ public class BlackjackFragment extends Fragment {
         Button buttonCancel = (Button) blackjackAddCardPopup.findViewById(R.id.blackjackAddCardPopup_button_cancel);
 
         dialogBuilder.setView(blackjackAddCardPopup);
-        dialog = dialogBuilder.create();
-        dialog.show();
+        addCardDialog = dialogBuilder.create();
+        addCardDialog.show();
 
         buttonA.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
                 actionAddCardToUserHand(new Card(ECardSuit.ANY, ECardNum.A));
-                dialog.dismiss();
+                addCardDialog.dismiss();
             }
         });
         button2.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
                 actionAddCardToUserHand(new Card(ECardSuit.ANY, ECardNum.N_2));
-                dialog.dismiss();
+                addCardDialog.dismiss();
             }
         });
         button3.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
                 actionAddCardToUserHand(new Card(ECardSuit.ANY, ECardNum.N_3));
-                dialog.dismiss();
+                addCardDialog.dismiss();
             }
         });
         button4.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
                 actionAddCardToUserHand(new Card(ECardSuit.ANY, ECardNum.N_4));
-                dialog.dismiss();
+                addCardDialog.dismiss();
             }
         });
         button5.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
                 actionAddCardToUserHand(new Card(ECardSuit.ANY, ECardNum.N_5));
-                dialog.dismiss();
+                addCardDialog.dismiss();
             }
         });
         button6.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
                 actionAddCardToUserHand(new Card(ECardSuit.ANY, ECardNum.N_6));
-                dialog.dismiss();
+                addCardDialog.dismiss();
             }
         });
         button7.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
                 actionAddCardToUserHand(new Card(ECardSuit.ANY, ECardNum.N_7));
-                dialog.dismiss();
+                addCardDialog.dismiss();
             }
         });
         button8.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
                 actionAddCardToUserHand(new Card(ECardSuit.ANY, ECardNum.N_8));
-                dialog.dismiss();
+                addCardDialog.dismiss();
             }
         });
         button9.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
                 actionAddCardToUserHand(new Card(ECardSuit.ANY, ECardNum.N_9));
-                dialog.dismiss();
+                addCardDialog.dismiss();
             }
         });
         button10.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
                 actionAddCardToUserHand(new Card(ECardSuit.ANY, ECardNum.N_10));
-                dialog.dismiss();
+                addCardDialog.dismiss();
             }
         });
         buttonJ.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
                 actionAddCardToUserHand(new Card(ECardSuit.ANY, ECardNum.J));
-                dialog.dismiss();
+                addCardDialog.dismiss();
             }
         });
         buttonQ.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
                 actionAddCardToUserHand(new Card(ECardSuit.ANY, ECardNum.Q));
-                dialog.dismiss();
+                addCardDialog.dismiss();
             }
         });
         buttonK.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
                 actionAddCardToUserHand(new Card(ECardSuit.ANY, ECardNum.K));
-                dialog.dismiss();
+                addCardDialog.dismiss();
             }
         });
 
         buttonCancel.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                dialog.dismiss();
+                addCardDialog.dismiss();
             }
         });
+    }
+
+    private void actionShowChangeNumberOfDecksAlert() {
+
     }
 
     private void actionAddCardToUserHand(Card card) {
