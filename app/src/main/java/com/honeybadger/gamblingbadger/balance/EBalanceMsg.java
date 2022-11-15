@@ -7,5 +7,4 @@ public enum EBalanceMsg {
     BM_10_PERCENT,
     BM_25_PERCENT,
     BM_50_PERCENT,
-    BM_NEGATIVE_BALANCE,
 }
