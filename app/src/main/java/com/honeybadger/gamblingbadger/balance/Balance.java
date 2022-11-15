@@ -63,11 +63,11 @@ public class Balance {
         this.currentBalance = result;
 
         if(result.signum() < 0){ //if result after adding amount to curr. bal is negative
-            return EBalanceMsg.BM_FAIL;
+            return EBalanceMsg.BM_NEGATIVE_BALANCE;
         }
         //if result after adding amount to curr bal. is less than 10%
         else if(percentage.compareTo(percent_10) < 0){
-            return EBalanceMsg.BM_NEGATIVE_BALANCE;
+            return EBalanceMsg.BM_10_PERCENT;
         }
         //if result after adding amount to curr bal. is less than 25%
         else if (percentage.compareTo(percent_25) < 0){
