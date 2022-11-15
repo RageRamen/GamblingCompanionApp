@@ -73,6 +73,7 @@
     <!-- BlackjackFragment -->
 
     <string name="blackjackFrag_textView_dealerCard_label">Dealer Card</string>
+    <string name="blackjackFrag_textView_numberOfDecks_title_text">Num. of Decks</string>
 
     <string name="blackjackFrag_button_addUserCard">Add User Card</string>
     <string-array name="blackjack_card_list">
@@ -106,6 +107,9 @@
     <string name="blackjackAddCardPopup_button_queen_label">Q</string>
     <string name="blackjackAddCardPopup_button_king_label">K</string>
     <string name="blackjackAddCardPopup_button_cancel_label">Cancel</string>
+
+    <string name="blackjackChangeNumberOfDecksPopup_textView_instructions_text">Select the number of decks:</string>
+    <string name="blackjackChangeNumberOfDecksPopup_button_apply_label">Apply</string>
 
     <!-- Other -->
 

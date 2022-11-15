@@ -10,7 +10,9 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.widget.AdapterView;
 import android.widget.Button;
+import android.widget.NumberPicker;
 import android.widget.Spinner;
+import android.widget.TextView;
 
 import androidx.annotation.NonNull;
 import androidx.fragment.app.Fragment;
@@ -20,6 +22,7 @@ import com.honeybadger.gamblingbadger.R;
 import com.honeybadger.gamblingbadger.cards.Card;
 import com.honeybadger.gamblingbadger.cards.ECardNum;
 import com.honeybadger.gamblingbadger.cards.ECardSuit;
+import com.honeybadger.gamblingbadger.casinosession.CasinoSessionFragment;
 import com.honeybadger.gamblingbadger.databinding.FragmentBlackjackBinding;
 
 import java.util.LinkedList;
@@ -34,6 +37,7 @@ public class BlackjackFragment extends Fragment {
     private FragmentBlackjackBinding binding;
 
     private AlertDialog addCardDialog;
+
     private AlertDialog changeNumberOfDecksDialog;
 
     private static final Integer[] imageIconDatabase = {R.drawable.ace_of_spades,
@@ -63,6 +67,8 @@ public class BlackjackFragment extends Fragment {
         dealerCard = new Card();
         userHand = new LinkedList<>();
 
+        blackjackSession = new BlackjackSession(CasinoSessionFragment.casinoSession);
+
         binding = FragmentBlackjackBinding.inflate(inflater, container, false);
         return binding.getRoot();
     }
@@ -74,6 +80,7 @@ public class BlackjackFragment extends Fragment {
 
         initSpinnerDealerCard();
         initButtonAddUserCard();
+        initTextViewNumberOfDecks();
     }
 
     @Override
@@ -97,8 +104,7 @@ public class BlackjackFragment extends Fragment {
 
         //noinspection SimplifiableIfStatement
         if (id == R.id.menu_blackjack_item_changeNumberOfDecks) {
-
-
+            actionShowChangeNumberOfDecksAlert();
             return true;
         }
 
@@ -154,6 +160,10 @@ public class BlackjackFragment extends Fragment {
                 actionShowUserAddCardAlert();
             }
         });
+    }
+
+    private void initTextViewNumberOfDecks() {
+        updateNumberOfDecks(BlackjackSession.DEFAULT_NUMBER_OF_DECKS);
     }
 
     // ACTIONS:
@@ -287,7 +297,36 @@ public class BlackjackFragment extends Fragment {
     }
 
     private void actionShowChangeNumberOfDecksAlert() {
+        AlertDialog.Builder dialogBuilder = new AlertDialog.Builder(getContext());
 
+        View popupView = getLayoutInflater().inflate(R.layout.popup_blackjack_change_number_of_decks, null);
+
+        TextView instructionsView = (TextView) popupView.findViewById(R.id.blackjackChangeNumberOfDecksPopup_textView_instructions);
+        NumberPicker numberPicker = (NumberPicker) popupView.findViewById(R.id.blackjackChangeNumberOfDecksPopup_numPicker_number);
+        Button applyButton = (Button) popupView.findViewById(R.id.blackjackChangeNumberOfDecksPopup_button_apply);
+
+        dialogBuilder.setView(popupView);
+        changeNumberOfDecksDialog = dialogBuilder.create();
+        changeNumberOfDecksDialog.show();
+
+        numberPicker.setMinValue(BlackjackSession.MINIMUM_NUMBER_OF_DECKS);
+        numberPicker.setMaxValue(BlackjackSession.MAXIMUM_NUMBER_OF_DECKS);
+        numberPicker.setWrapSelectorWheel(false);
+        numberPicker.setValue(blackjackSession.getNumberOfDecks());
+
+        applyButton.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                updateNumberOfDecks(numberPicker.getValue());
+                changeNumberOfDecksDialog.dismiss();
+            }
+        });
+    }
+
+    private void updateNumberOfDecks(int numberOfDecks) {
+        blackjackSession.setNumberOfDecks(numberOfDecks);
+        TextView numberDisplay = (TextView) getActivity().findViewById(R.id.blackjackFrag_textView_numberOfDecks_display);
+        numberDisplay.setText(String.valueOf(blackjackSession.getNumberOfDecks()));
     }
 
     private void actionAddCardToUserHand(Card card) {

@@ -13,7 +13,9 @@ public class BlackjackSession extends GameSession {
     // CONSTANTS:
 
     private static final BigDecimal DEFAULT_BASE_BET = new BigDecimal(5);
-    private static final int DEFAULT_NUMBER_OF_DECKS = 6;
+    public static final int DEFAULT_NUMBER_OF_DECKS = 6;
+    public static final int MINIMUM_NUMBER_OF_DECKS = 1;
+    public static final int MAXIMUM_NUMBER_OF_DECKS = 8;
 
     // VARIABLES:
 
