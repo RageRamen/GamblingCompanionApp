@@ -25,11 +25,13 @@ public class Balance {
 
     public EBalanceMsg addToBalance(BigDecimal amount) {
         // TODO
+        this.currentBalance.add(amount);
         return EBalanceMsg.BM_NONE;
     }
 
     public EBalanceMsg subFromBalance(BigDecimal amount) {
         // TODO
+        this.currentBalance.subtract(amount);
         return EBalanceMsg.BM_NONE;
     }
 
