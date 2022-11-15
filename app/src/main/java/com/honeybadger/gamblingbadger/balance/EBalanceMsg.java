@@ -3,6 +3,7 @@ package com.honeybadger.gamblingbadger.balance;
 public enum EBalanceMsg {
     BM_NONE,
     BM_FAIL,
+    BM_NEGATIVE_BALANCE,
     BM_10_PERCENT,
     BM_25_PERCENT,
     BM_50_PERCENT,

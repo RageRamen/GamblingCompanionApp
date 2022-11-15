@@ -19,6 +19,10 @@
     <string name="roulette_title">Roulette</string>
     <string name="americanRoulette_title">American Roulette</string>
 
+    <!-- Menu strings -->
+
+    <string name="menu_blackjack_item_changeNumberOfDecks_title">Change Number of Decks</string>
+
     <!-- Strings used for fragments for navigation -->
 
     <string name="homeFrag_label">Home</string>
