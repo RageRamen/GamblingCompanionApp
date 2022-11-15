@@ -72,6 +72,8 @@ public class Statistics {
     }
 
     public static boolean updateStatistics() {
+
+
         // TODO
         return false;
     }
