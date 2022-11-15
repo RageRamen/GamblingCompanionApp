@@ -2,7 +2,9 @@ package com.honeybadger.gamblingbadger.statistics;
 
 import com.honeybadger.gamblingbadger.casinosession.CasinoSession;
 import com.honeybadger.gamblingbadger.gamesession.EGameType;
+import com.honeybadger.gamblingbadger.gamesession.GameSession;
 
+import java.util.LinkedList;
 import java.util.List;
 import java.util.ArrayList;
 
@@ -15,7 +17,7 @@ public class Statistics {
 
     private static boolean initialized = false;
     private static List<CasinoSession> casinoSessions = new ArrayList<>();
-    private static List<LongListOfData> statisticData = new ArrayList<>();
+    private static List<LongListOfData> statisticData = new LinkedList<>();
 
     // INITIALIZER:
 
@@ -72,10 +74,17 @@ public class Statistics {
     }
 
     public static boolean updateStatistics() {
-
-
-        // TODO
-        return false;
+        boolean success = false;
+        if (isInitialized()) {
+            for (CasinoSession casinoSession : casinoSessions) {
+                statisticData.add(casinoSession.getStatistics());
+                for (GameSession gameSession : casinoSession.getGamesPlayed()) {
+                    statisticData.add(gameSession.getStatistics());
+                }
+            }
+            success = true;
+        }
+        return success;
     }
 
     // INFO METHODS:
