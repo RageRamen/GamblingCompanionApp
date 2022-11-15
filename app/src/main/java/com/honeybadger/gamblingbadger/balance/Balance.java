@@ -31,9 +31,11 @@ public class Balance {
         BigDecimal percent_10 = new BigDecimal(10);
         BigDecimal percent_25 = new BigDecimal(25);
         BigDecimal percent_50 = new BigDecimal(50);
+        this.currentBalance = result;
+
 
         if(result.signum() < 0){ //if result after adding amount to curr. bal is negative
-            return EBalanceMsg.BM_FAIL;
+            return EBalanceMsg.BM_NEGATIVE_BALANCE;
         }
         //if result after adding amount to curr bal. is less than 10%
         else if(percentage.compareTo(percent_10) < 0){
@@ -55,17 +57,17 @@ public class Balance {
         BigDecimal ONE_HUNDRED = new BigDecimal(100);
         BigDecimal result = this.currentBalance.subtract(amount);
         BigDecimal percentage = result.multiply(ONE_HUNDRED).divide(this.currentBalance, RoundingMode.CEILING);
-
         BigDecimal percent_10 = new BigDecimal(10);
         BigDecimal percent_25 = new BigDecimal(25);
         BigDecimal percent_50 = new BigDecimal(50);
+        this.currentBalance = result;
 
         if(result.signum() < 0){ //if result after adding amount to curr. bal is negative
             return EBalanceMsg.BM_FAIL;
         }
         //if result after adding amount to curr bal. is less than 10%
         else if(percentage.compareTo(percent_10) < 0){
-            return EBalanceMsg.BM_10_PERCENT;
+            return EBalanceMsg.BM_NEGATIVE_BALANCE;
         }
         //if result after adding amount to curr bal. is less than 25%
         else if (percentage.compareTo(percent_25) < 0){
