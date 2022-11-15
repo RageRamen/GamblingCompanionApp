@@ -24,7 +24,7 @@ public class Balance {
     // Action Methods:
 
     public EBalanceMsg addToBalance(BigDecimal amount) {
-        // TODO
+     
         this.currentBalance.add(amount);
         return EBalanceMsg.BM_NONE;
     }
