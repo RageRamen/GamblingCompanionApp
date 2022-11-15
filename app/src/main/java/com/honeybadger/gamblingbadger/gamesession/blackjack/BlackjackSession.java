@@ -2,6 +2,7 @@ package com.honeybadger.gamblingbadger.gamesession.blackjack;
 
 import com.honeybadger.gamblingbadger.casinosession.CasinoSession;
 import com.honeybadger.gamblingbadger.gamesession.*;
+import com.honeybadger.gamblingbadger.statistics.LongListOfData;
 
 import java.math.BigDecimal;
 import java.util.ArrayList;
@@ -54,65 +55,16 @@ public class BlackjackSession extends GameSession {
 
     // ACTION METHODS:
 
-    // TODO: Review "startSession()" and "endSession()" relevance.
-
-    public boolean startSession() {
-        return true;
-    }
-
-    public boolean endSession() {
-        return true;
+    public boolean closeSession() {
+        // TODO
+        return false;
     }
 
     // INFO METHODS:
 
-    public int getNumberOfWins() {
-        int count = 0;
-
-        for (BlackjackRound round : rounds) {
-            if (round.isWin())
-                count++;
-        }
-
-        return count;
-    }
-
-    public int getNumberOfLosses() {
-        int count = 0;
-
-        for (BlackjackRound round : rounds) {
-            if (!round.isWin())
-                count++;
-        }
-
-        return count;
-    }
-
-    public List<BlackjackRound> getWinningRounds() {
-        List<BlackjackRound> winningRounds = new ArrayList<>();
-
-        for (BlackjackRound round : rounds) {
-            if (round.isWin())
-                winningRounds.add(round);
-        }
-
-        return winningRounds;
-    }
-
-    public List<BlackjackRound> getLosingRounds() {
-        List<BlackjackRound> losingRounds = new ArrayList<>();
-
-        for (BlackjackRound round : rounds) {
-            if (!round.isWin())
-                losingRounds.add(round);
-        }
-
-        return losingRounds;
-    }
-
     @Override
-    public float getAverageLuck() {
+    public LongListOfData getStatistics() {
         // TODO
-        return 0;
+        return new LongListOfData();
     }
 }

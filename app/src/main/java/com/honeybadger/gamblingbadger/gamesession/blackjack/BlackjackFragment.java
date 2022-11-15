@@ -50,6 +50,8 @@ public class BlackjackFragment extends Fragment {
     private Card dealerCard;
     private List<Card> userHand;
 
+    private BlackjackSession blackjackSession;
+
     // FRAGMENT EVENTS:
 
     @Override

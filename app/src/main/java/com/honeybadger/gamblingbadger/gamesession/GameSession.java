@@ -5,14 +5,13 @@ import java.time.Duration;
 import java.time.LocalDateTime;
 
 import com.honeybadger.gamblingbadger.casinosession.CasinoSession;
+import com.honeybadger.gamblingbadger.statistics.LongListOfData;
 import com.honeybadger.gamblingbadger.timer.Timer;
 
 public abstract class GameSession {
     // CONSTANTS
 
     // Variables:
-
-    public static GameSession activeGameSession;
 
     private final CasinoSession casinoSession;
 
@@ -21,19 +20,13 @@ public abstract class GameSession {
     private LocalDateTime sessionStartTime;
     private LocalDateTime sessionEndTime;
 
-    private BigDecimal balanceChange;
-
-    private Timer timer;
-
     // Constructor:
 
     protected GameSession(CasinoSession casinoSession, EGameType gameType) {
         this.casinoSession = casinoSession;
         this.gameType = gameType;
-        this.sessionStartTime = LocalDateTime.MIN;
+        this.sessionStartTime = Timer.getCurrentTime();
         this.sessionEndTime = LocalDateTime.MIN;
-        this.balanceChange = BigDecimal.ZERO;
-        this.timer = new Timer();
     }
 
     // Properties:
@@ -54,37 +47,13 @@ public abstract class GameSession {
         return this.sessionEndTime;
     }
 
-    public BigDecimal getBalanceChange() {
-        return this.balanceChange;
-    }
-
-    public Timer getTimer() {
-        return this.timer;
-    }
-
     // Action Methods:
 
-    public boolean startSession() {
+    public boolean closeSession() {
         boolean success = false;
 
-        if (!hasStarted()){
-            sessionStartTime = Timer.getCurrentTime();
-
-            // TODO: Whatever else we need to do.
-
-            success = true;
-        }
-
-        return success;
-    }
-
-    public boolean stopSession() {
-        boolean success = false;
-
-        if (hasStarted() && !hasFinished()) {
+        if (isSessionOpen()) {
             sessionEndTime = Timer.getCurrentTime();
-
-            // TODO: Whatever else we need to do.
 
             success = true;
         }
@@ -94,19 +63,11 @@ public abstract class GameSession {
 
     // Info Methods:
 
-    public boolean hasStarted() {
-        return sessionStartTime != LocalDateTime.MIN;
-    }
-
-    public boolean hasFinished() {
-        return sessionEndTime != LocalDateTime.MIN;
-    }
-
     public boolean isSessionOpen() {
-        return sessionStartTime == sessionEndTime;
+        return sessionEndTime == LocalDateTime.MIN;
     }
 
-    public Duration getTimeSpentPlaying() {
+    public Duration getSessionDuration() {
         Duration deltaTime;
 
         if (this.isSessionOpen()) {
@@ -119,5 +80,5 @@ public abstract class GameSession {
         return deltaTime;
     }
 
-    public abstract float getAverageLuck();
+    public abstract LongListOfData getStatistics();
 }

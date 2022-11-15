@@ -151,7 +151,7 @@ public class CasinoSession {
         Duration sum = Duration.ZERO;
 
         for (GameSession gameSession : this.gamesPlayed) {
-            sum = sum.plus(gameSession.getTimeSpentPlaying());
+            sum = sum.plus(gameSession.getSessionDuration());
         }
 
         return sum;
@@ -162,7 +162,7 @@ public class CasinoSession {
 
         for (GameSession gameSession : this.gamesPlayed) {
             if (gameSession.getGameType() == gameType)
-                sum = sum.plus(gameSession.getTimeSpentPlaying());
+                sum = sum.plus(gameSession.getSessionDuration());
         }
 
         return sum;
@@ -185,34 +185,5 @@ public class CasinoSession {
         }
 
         return newList;
-    }
-
-    public float getAverageLuck() {
-        float acc = 0;
-
-        if (this.gamesPlayed.size() > 0){
-            for (GameSession gameSession : this.gamesPlayed) {
-                acc += gameSession.getAverageLuck();
-            }
-            acc /= this.gamesPlayed.size();
-        }
-
-        return acc;
-    }
-
-    public float getAverageLuck(EGameType gameType) {
-        float acc = 0;
-        int count = 0;
-
-        for (GameSession gameSession : this.gamesPlayed) {
-            if (gameSession.getGameType() == gameType) {
-                acc += gameSession.getAverageLuck();
-                count++;
-            }
-        }
-        if (count > 0)
-            acc /= count;
-
-        return acc;
     }
 }

@@ -2,6 +2,7 @@ package com.honeybadger.gamblingbadger.gamesession.texasholdem;
 
 import com.honeybadger.gamblingbadger.casinosession.CasinoSession;
 import com.honeybadger.gamblingbadger.gamesession.*;
+import com.honeybadger.gamblingbadger.statistics.LongListOfData;
 
 public class TexasHoldemSession extends GameSession {
 
@@ -14,7 +15,7 @@ public class TexasHoldemSession extends GameSession {
     // Info Methods:
 
     @Override
-    public float getAverageLuck() {
-        return 0;
+    public LongListOfData getStatistics() {
+        return new LongListOfData();
     }
 }
