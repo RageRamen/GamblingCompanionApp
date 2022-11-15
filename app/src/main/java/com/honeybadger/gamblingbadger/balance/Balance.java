@@ -24,14 +24,19 @@ public class Balance {
     // Action Methods:
 
     public EBalanceMsg addToBalance(BigDecimal amount) {
-     
-        this.currentBalance.add(amount);
+        BigDecimal result = this.currentBalance.add(amount);
+        if(result.signum() < 0){ //if result after adding amount to curr. bal is negative
+            return EBalanceMsg.BM_FAIL;
+        }
+
+
         return EBalanceMsg.BM_NONE;
     }
 
     public EBalanceMsg subFromBalance(BigDecimal amount) {
         // TODO
-        this.currentBalance.subtract(amount);
+        BigDecimal result = this.currentBalance.subtract(amount);
+
         return EBalanceMsg.BM_NONE;
     }
 

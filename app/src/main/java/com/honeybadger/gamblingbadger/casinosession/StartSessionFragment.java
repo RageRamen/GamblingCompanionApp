@@ -102,7 +102,7 @@ public class StartSessionFragment extends Fragment {
         }
 
         // Create Casino Session
-        CasinoSessionFragment.casinoSession = new CasinoSession(new Balance(inputBalance));
+        CasinoSessionFragment.casinoSession = new CasinoSession(new Balance(inputBalance)); //links back to balance.java, gets start balance
 
         // Navigate to Casino Session
         NavHostFragment.findNavController(StartSessionFragment.this)
