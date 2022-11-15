@@ -17,7 +17,7 @@ public abstract class GameSession {
 
     protected EGameType gameType;
 
-    private LocalDateTime sessionStartTime;
+    private final LocalDateTime sessionStartTime;
     private LocalDateTime sessionEndTime;
 
     // Constructor:
