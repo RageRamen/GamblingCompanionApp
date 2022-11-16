@@ -9,10 +9,10 @@ import android.view.View;
 import android.view.ViewGroup;
 
 import androidx.annotation.NonNull;
+import androidx.annotation.Nullable;
 import androidx.fragment.app.Fragment;
 import androidx.navigation.fragment.NavHostFragment;
 
-import com.honeybadger.gamblingbadger.HomeFragment;
 import com.honeybadger.gamblingbadger.R;
 import com.honeybadger.gamblingbadger.databinding.FragmentTipsBinding;
 
@@ -23,6 +23,7 @@ public class TipsFragment extends Fragment {
     // VARIABLES:
 
     private FragmentTipsBinding binding;
+    public static @Nullable Integer callingFragmentReturnActionID;
 
     // FRAGMENT EVENTS:
 
@@ -76,6 +77,10 @@ public class TipsFragment extends Fragment {
 
         //noinspection SimplifiableIfStatement
         if (item.getItemId() == android.R.id.home) {
+            if (callingFragmentReturnActionID != null)
+                actionReturnToCallingFrag();
+            else
+                actionGoToHome();
             return true; // must return true to consume it here
         }
 
@@ -85,5 +90,15 @@ public class TipsFragment extends Fragment {
     // INTERFACE:
 
     // ACTIONS:
+
+    private void actionGoToHome() {
+        NavHostFragment.findNavController(this).navigate(R.id.homeFragment);
+    }
+
+    private void actionReturnToCallingFrag() {
+        assert callingFragmentReturnActionID != null;
+        NavHostFragment.findNavController(this).navigate(callingFragmentReturnActionID);
+        callingFragmentReturnActionID = null;
+    }
 
 }

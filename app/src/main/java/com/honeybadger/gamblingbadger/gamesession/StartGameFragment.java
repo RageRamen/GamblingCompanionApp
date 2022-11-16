@@ -14,7 +14,10 @@ import androidx.fragment.app.Fragment;
 import androidx.navigation.fragment.NavHostFragment;
 
 import com.honeybadger.gamblingbadger.R;
+import com.honeybadger.gamblingbadger.casinosession.CasinoSessionFragment;
 import com.honeybadger.gamblingbadger.databinding.FragmentStartGameBinding;
+import com.honeybadger.gamblingbadger.gamesession.blackjack.BlackjackFragment;
+import com.honeybadger.gamblingbadger.gamesession.blackjack.BlackjackSession;
 
 public class StartGameFragment extends Fragment {
 
@@ -108,8 +111,7 @@ public class StartGameFragment extends Fragment {
         });
     }
 
-    private void initButtonStartGame()
-    {
+    private void initButtonStartGame() {
         binding.startGameFragButtonStartGame.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
@@ -137,10 +139,19 @@ public class StartGameFragment extends Fragment {
             int navigateTo;
 
             switch (selectedGameType) {
-                case GT_BLACKJACK:      navigateTo = R.id.action_startGameFragment_to_blackjackFragment; break;
-                case GT_POKER:          navigateTo = R.id.action_startGameFragment_to_pokerFragment; break;
-                case GT_TEXAS_HOLDEM:   navigateTo = R.id.action_startGameFragment_to_texasHoldemFragment; break;
-                case GT_ROULETTE:       navigateTo = R.id.action_startGameFragment_to_rouletteFragment; break;
+                case GT_BLACKJACK:
+                    BlackjackFragment.blackjackSession = new BlackjackSession(CasinoSessionFragment.casinoSession);
+                    navigateTo = R.id.action_startGameFragment_to_blackjackFragment;
+                    break;
+                case GT_POKER:
+                    navigateTo = R.id.action_startGameFragment_to_pokerFragment;
+                    break;
+                case GT_TEXAS_HOLDEM:
+                    navigateTo = R.id.action_startGameFragment_to_texasHoldemFragment;
+                    break;
+                case GT_ROULETTE:
+                    navigateTo = R.id.action_startGameFragment_to_rouletteFragment;
+                    break;
                 default: return;
             }
 

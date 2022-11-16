@@ -11,18 +11,20 @@ import android.view.View;
 import android.view.ViewGroup;
 
 import androidx.annotation.NonNull;
+import androidx.annotation.Nullable;
 import androidx.fragment.app.Fragment;
 import androidx.navigation.fragment.NavHostFragment;
 
 import com.honeybadger.gamblingbadger.R;
 import com.honeybadger.gamblingbadger.databinding.FragmentCasinoSessionBinding;
+import com.honeybadger.gamblingbadger.tips.TipsFragment;
 
 public class CasinoSessionFragment extends Fragment {
 
     private FragmentCasinoSessionBinding binding;
     private AlertDialog.Builder alertEndSession;
 
-    public static CasinoSession casinoSession;
+    public static @Nullable CasinoSession casinoSession = null;
 
     // Fragment Events:
 
@@ -83,6 +85,7 @@ public class CasinoSessionFragment extends Fragment {
 
         //noinspection SimplifiableIfStatement
         if (item.getItemId() == android.R.id.home) {
+            alertEndSession.show();
             return true; // must return true to consume it here
         }
 
@@ -139,6 +142,15 @@ public class CasinoSessionFragment extends Fragment {
         });
     }
 
+    private void initButtonTips() {
+        binding.casinoSessionFragButtonGameTips.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                actionGoToTips();
+            }
+        });
+    }
+
     // Actions:
 
     private void actionGoToStartGame() {
@@ -159,19 +171,8 @@ public class CasinoSessionFragment extends Fragment {
                 .navigate(R.id.action_casinoSessionFragment_to_homeFragment);
     }
 
-    private void initButtonTips()
-    {
-        binding.casinoSessionFragButtonGameTips.setOnClickListener(new View.OnClickListener()
-        {
-            @Override
-            public void onClick(View view)
-            {
-                actionTips();
-            }
-        });
-    }
-    public void actionTips()
-    {
+    public void actionGoToTips() {
+        TipsFragment.callingFragmentReturnActionID = R.id.action_tipsFragment_to_casinoSessionFragment;
         NavHostFragment.findNavController(CasinoSessionFragment.this).navigate(R.id.action_casinoSessionFragment_to_tipsFragment);
     }
 

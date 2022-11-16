@@ -90,6 +90,9 @@
         <action
             android:id="@+id/action_blackjackFragment_to_casinoSessionFragment"
             app:destination="@id/casinoSessionFragment" />
+        <action
+            android:id="@+id/action_blackjackFragment_to_bjtipsFragment"
+            app:destination="@id/bjtipsFragment" />
     </fragment>
     <fragment
         android:id="@+id/pokerFragment"
@@ -127,11 +130,24 @@
         <action
             android:id="@+id/action_tipsFragment_to_bjtipsFragment"
             app:destination="@id/bjtipsFragment" />
+        <action
+            android:id="@+id/action_tipsFragment_to_homeFragment"
+            app:destination="@id/homeFragment" />
+        <action
+            android:id="@+id/action_tipsFragment_to_casinoSessionFragment"
+            app:destination="@id/casinoSessionFragment" />
     </fragment>
 
     <fragment
         android:id="@+id/bjtipsFragment"
         android:name="com.honeybadger.gamblingbadger.tips.BJTipFrag"
         android:label="Blackjack Tips"
-        tools:layout = "@layout/fragment_b_j_tip"/>
+        tools:layout = "@layout/fragment_b_j_tip">
+        <action
+            android:id="@+id/action_bjtipsFragment_to_tipsFragment"
+            app:destination="@id/tipsFragment" />
+        <action
+            android:id="@+id/action_bjtipsFragment_to_blackjackFragment"
+            app:destination="@id/blackjackFragment" />
+    </fragment>
 </navigation>
