@@ -115,6 +115,9 @@
     <!-- Other -->
 
     <string name="image">Image</string>
+    <string name="add">Add</string>
+    <string name="ADD">ADD</string>
+    <string name="add1">add</string>
 
     <!-- TODO: Remove or change this placeholder text -->
 </resources>
