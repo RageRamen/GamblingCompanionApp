@@ -127,11 +127,21 @@
         <action
             android:id="@+id/action_tipsFragment_to_bjtipsFragment"
             app:destination="@id/bjtipsFragment" />
+        <action
+            android:id="@+id/action_tipsFragment_to_homeFragment"
+            app:destination="@id/homeFragment" />
+        <action
+            android:id="@+id/action_tipsFragment_to_casinoSessionFragment"
+            app:destination="@id/casinoSessionFragment" />
     </fragment>
 
     <fragment
         android:id="@+id/bjtipsFragment"
         android:name="com.honeybadger.gamblingbadger.tips.BJTipFrag"
         android:label="Blackjack Tips"
-        tools:layout = "@layout/fragment_b_j_tip"/>
+        tools:layout = "@layout/fragment_b_j_tip">
+        <action
+            android:id="@+id/action_bjtipsFragment_to_tipsFragment"
+            app:destination="@id/tipsFragment" />
+    </fragment>
 </navigation>

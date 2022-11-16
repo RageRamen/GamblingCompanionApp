@@ -4,6 +4,9 @@ import android.app.AlertDialog;
 import android.content.DialogInterface;
 import android.os.Bundle;
 import android.view.LayoutInflater;
+import android.view.Menu;
+import android.view.MenuInflater;
+import android.view.MenuItem;
 import android.view.View;
 import android.view.ViewGroup;
 
@@ -24,6 +27,14 @@ public class StartSessionFragment extends Fragment {
     private AlertDialog.Builder alertInvalidBalance;
 
     // Fragment Events:
+
+    @Override
+    public void onCreate(Bundle savedInstanceState) {
+        super.onCreate(savedInstanceState);
+
+        // Options menu
+        setHasOptionsMenu(true);
+    }
 
     @Override
     public View onCreateView(
@@ -50,6 +61,26 @@ public class StartSessionFragment extends Fragment {
     public void onDestroyView() {
         super.onDestroyView();
         binding = null;
+    }
+
+    @Override
+    public void onCreateOptionsMenu(Menu menu, MenuInflater inflater) {
+        // menu.clear();
+        // inflater.inflate(R.menu.menu_blackjack, menu);
+
+        super.onCreateOptionsMenu(menu, inflater);
+    }
+
+    @Override
+    public boolean onOptionsItemSelected(MenuItem item) {
+        int id = item.getItemId();
+
+        //noinspection SimplifiableIfStatement
+        if (item.getItemId() == android.R.id.home) {
+            return true; // must return true to consume it here
+        }
+
+        return super.onOptionsItemSelected(item);
     }
 
     // Alert Initializers:
