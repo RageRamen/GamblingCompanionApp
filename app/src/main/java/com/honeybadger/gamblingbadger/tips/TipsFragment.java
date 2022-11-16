@@ -2,6 +2,9 @@ package com.honeybadger.gamblingbadger.tips;
 
 import android.os.Bundle;
 import android.view.LayoutInflater;
+import android.view.Menu;
+import android.view.MenuInflater;
+import android.view.MenuItem;
 import android.view.View;
 import android.view.ViewGroup;
 
@@ -22,6 +25,14 @@ public class TipsFragment extends Fragment {
     private FragmentTipsBinding binding;
 
     // FRAGMENT EVENTS:
+
+    @Override
+    public void onCreate(Bundle savedInstanceState) {
+        super.onCreate(savedInstanceState);
+
+        // Options menu
+        setHasOptionsMenu(true);
+    }
 
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState)
@@ -49,6 +60,26 @@ public class TipsFragment extends Fragment {
     {
         super.onDestroyView();
         binding = null;
+    }
+
+    @Override
+    public void onCreateOptionsMenu(Menu menu, MenuInflater inflater) {
+        // menu.clear();
+        // inflater.inflate(R.menu.menu_blackjack, menu);
+
+        super.onCreateOptionsMenu(menu, inflater);
+    }
+
+    @Override
+    public boolean onOptionsItemSelected(MenuItem item) {
+        int id = item.getItemId();
+
+        //noinspection SimplifiableIfStatement
+        if (item.getItemId() == android.R.id.home) {
+            return true; // must return true to consume it here
+        }
+
+        return super.onOptionsItemSelected(item);
     }
 
     // INTERFACE:

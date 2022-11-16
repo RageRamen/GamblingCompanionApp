@@ -65,15 +65,6 @@ public class BlackjackFragment extends Fragment {
 
         // Options menu
         setHasOptionsMenu(true);
-
-        // Back button
-        OnBackPressedCallback callback = new OnBackPressedCallback(true) {
-            @Override
-            public void handleOnBackPressed() {
-                actionEndSession();
-            }
-        };
-        requireActivity().getOnBackPressedDispatcher().addCallback(this, callback);
     }
 
     @Override
