@@ -16,6 +16,7 @@ import android.widget.TextView;
 
 import androidx.activity.OnBackPressedCallback;
 import androidx.annotation.NonNull;
+import androidx.annotation.Nullable;
 import androidx.fragment.app.Fragment;
 import androidx.navigation.NavController;
 import androidx.navigation.Navigation;
@@ -30,6 +31,7 @@ import com.honeybadger.gamblingbadger.cards.ECardSuit;
 import com.honeybadger.gamblingbadger.casinosession.CasinoSessionFragment;
 import com.honeybadger.gamblingbadger.databinding.FragmentBlackjackBinding;
 import com.honeybadger.gamblingbadger.gamesession.StartGameFragment;
+import com.honeybadger.gamblingbadger.tips.BJTipFrag;
 
 import java.util.LinkedList;
 import java.util.List;
@@ -55,7 +57,8 @@ public class BlackjackFragment extends Fragment {
     private Card dealerCard;
     private List<Card> userHand;
 
-    private BlackjackSession blackjackSession;
+    public static @Nullable BlackjackSession blackjackSession;
+    public static int softNumberOfDecks = BlackjackSession.DEFAULT_NUMBER_OF_DECKS;
 
     // FRAGMENT EVENTS:
 
@@ -74,8 +77,6 @@ public class BlackjackFragment extends Fragment {
     ) {
         dealerCard = new Card();
         userHand = new LinkedList<>();
-
-        blackjackSession = new BlackjackSession(CasinoSessionFragment.casinoSession);
 
         binding = FragmentBlackjackBinding.inflate(inflater, container, false);
         return binding.getRoot();
@@ -117,6 +118,10 @@ public class BlackjackFragment extends Fragment {
         }
         if (id == R.id.menu_blackjack_item_changeNumberOfDecks) {
             actionShowChangeNumberOfDecksAlert();
+            return true;
+        }
+        if (id == R.id.menu_blackjack_item_tips) {
+            actionGoToTips();
             return true;
         }
 
@@ -175,7 +180,7 @@ public class BlackjackFragment extends Fragment {
     }
 
     private void initTextViewNumberOfDecks() {
-        updateNumberOfDecks(BlackjackSession.DEFAULT_NUMBER_OF_DECKS);
+        updateNumberOfDecks(softNumberOfDecks);
     }
 
     // ACTIONS:
@@ -336,6 +341,7 @@ public class BlackjackFragment extends Fragment {
     }
 
     private void updateNumberOfDecks(int numberOfDecks) {
+        softNumberOfDecks = numberOfDecks;
         blackjackSession.setNumberOfDecks(numberOfDecks);
         TextView numberDisplay = (TextView) getActivity().findViewById(R.id.blackjackFrag_textView_numberOfDecks_display);
         numberDisplay.setText(String.valueOf(blackjackSession.getNumberOfDecks()));
@@ -346,7 +352,8 @@ public class BlackjackFragment extends Fragment {
     }
 
     private void actionGoToTips() {
-
+        BJTipFrag.callingFragmentReturnActionID = R.id.action_bjtipsFragment_to_blackjackFragment;
+        NavHostFragment.findNavController(this).navigate(R.id.action_blackjackFragment_to_bjtipsFragment);
     }
 
     public void actionEndSession() {

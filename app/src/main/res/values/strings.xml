@@ -21,6 +21,7 @@
 
     <!-- Menu strings -->
 
+    <string name="menu_blackjack_item_tips_title">See Tips</string>
     <string name="menu_blackjack_item_changeNumberOfDecks_title">Change Number of Decks</string>
 
     <!-- Strings used for fragments for navigation -->

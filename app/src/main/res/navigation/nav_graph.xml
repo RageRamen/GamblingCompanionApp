@@ -90,6 +90,9 @@
         <action
             android:id="@+id/action_blackjackFragment_to_casinoSessionFragment"
             app:destination="@id/casinoSessionFragment" />
+        <action
+            android:id="@+id/action_blackjackFragment_to_bjtipsFragment"
+            app:destination="@id/bjtipsFragment" />
     </fragment>
     <fragment
         android:id="@+id/pokerFragment"
@@ -143,5 +146,8 @@
         <action
             android:id="@+id/action_bjtipsFragment_to_tipsFragment"
             app:destination="@id/tipsFragment" />
+        <action
+            android:id="@+id/action_bjtipsFragment_to_blackjackFragment"
+            app:destination="@id/blackjackFragment" />
     </fragment>
 </navigation>
