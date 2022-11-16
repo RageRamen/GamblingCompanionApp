@@ -11,8 +11,10 @@ import android.util.DisplayMetrics;
 import android.view.LayoutInflater;
 import android.view.View;
 
+import androidx.fragment.app.FragmentManager;
 import androidx.navigation.NavController;
 import androidx.navigation.Navigation;
+import androidx.navigation.fragment.NavHostFragment;
 import androidx.navigation.ui.AppBarConfiguration;
 import androidx.navigation.ui.NavigationUI;
 
@@ -20,6 +22,7 @@ import com.honeybadger.gamblingbadger.cards.Card;
 import com.honeybadger.gamblingbadger.cards.ECardNum;
 import com.honeybadger.gamblingbadger.cards.ECardSuit;
 import com.honeybadger.gamblingbadger.databinding.ActivityMainBinding;
+import com.honeybadger.gamblingbadger.gamesession.blackjack.BlackjackFragment;
 
 import android.view.Menu;
 import android.view.MenuItem;
@@ -72,8 +75,13 @@ public class MainActivity extends AppCompatActivity {
     @Override
     public boolean onSupportNavigateUp() {
         NavController navController = Navigation.findNavController(this, R.id.nav_host_fragment_content_main);
-        return NavigationUI.navigateUp(navController, appBarConfiguration)
-                || super.onSupportNavigateUp();
+        boolean success = false;
+
+        if (navController.getCurrentDestination().getId() != R.id.blackjackFragment) {
+            success = NavigationUI.navigateUp(navController, appBarConfiguration) || super.onSupportNavigateUp();
+        }
+
+        return success;
     }
 
 }
