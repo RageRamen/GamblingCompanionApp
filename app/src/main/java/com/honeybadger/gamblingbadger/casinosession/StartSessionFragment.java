@@ -77,6 +77,7 @@ public class StartSessionFragment extends Fragment {
 
         //noinspection SimplifiableIfStatement
         if (item.getItemId() == android.R.id.home) {
+            actionGoBackHome();
             return true; // must return true to consume it here
         }
 
