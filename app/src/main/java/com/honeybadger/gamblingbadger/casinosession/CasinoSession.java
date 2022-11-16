@@ -203,6 +203,6 @@ public class CasinoSession {
 
     public LongListOfData getStatistics() {
         // TODO
-        return new LongListOfData();
+        return new LongListOfData(this);
     }
 }

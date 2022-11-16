@@ -1,5 +1,6 @@
 package com.honeybadger.gamblingbadger.statistics;
 
+import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
 
 import com.honeybadger.gamblingbadger.casinosession.CasinoSession;
@@ -37,4 +38,14 @@ public class LongListOfData {
     public @Nullable BigDecimal totalMoneyDelta = null;
     public @Nullable BigDecimal averageMoneyDelta = null;
     public @Nullable Float averageLuckIndex = null;
+
+    /// CONSTRUCTORS:
+
+    public LongListOfData() {}
+    public LongListOfData(@NonNull CasinoSession casinoSession) {
+        this.casinoSession = casinoSession;
+    }
+    public LongListOfData(@NonNull GameSession gameSession) {
+        this.gameSession = gameSession;
+    }
 }
