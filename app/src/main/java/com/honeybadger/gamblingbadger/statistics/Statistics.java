@@ -155,8 +155,7 @@ public class Statistics {
     }
 
     public static LongListOfData getCasSesStatistics(CasinoSession casinoSession) {
-        // TODO
-        return new LongListOfData();
+        return casinoSession.getStatistics();
     }
 
     public static LongListOfData getGenGameStatistics(EGameType gameType) {
@@ -195,14 +194,53 @@ public class Statistics {
         data.numberOfGames = numberOfGames;
         data.totalTimeSpentPlaying = totalTimePlaying;
         data.totalMoneyDelta = totalMoneyDelta;
-        data.averageMoneyDelta = numberOfGames == 0 ? 0f : totalMoneyDelta.floatValue() / numberOfGames;
-        data.averageLuckIndex = numberOfGames == 0 ? 0f : luckIndexSum / numberOfGames;
+        data.averageMoneyDelta = numberOfGames != 0 ? totalMoneyDelta.floatValue() / numberOfGames : 0f;
+        data.averageLuckIndex = numberOfGames != 0 ? luckIndexSum / numberOfGames : 0f;
 
         return data;
     }
 
     public static LongListOfData getSpecGameStatistics(CasinoSession casinoSession, EGameType gameType) {
-        // TODO
-        return new LongListOfData();
+        int numberOfGames = 0;
+        Duration totalTimePlaying = Duration.ZERO;
+        BigDecimal totalMoneyDelta = BigDecimal.ZERO;
+        float luckIndexSum = 0f;
+
+        for (LongListOfData entry : statisticData) {
+            if (entry.isGameSessionData()) {
+                if (entry.casinoSession == casinoSession) {
+                    assert entry.gameType != null;
+                    if (entry.gameType == gameType) {
+                        assert entry.numberOfGames != null;
+                        assert entry.totalTimeSpentPlaying != null;
+                        assert entry.totalMoneyDelta != null;
+                        assert entry.averageLuckIndex != null;
+
+                        // numberOfGames
+                        numberOfGames += entry.numberOfGames;
+
+                        // totalTimeSpentPlaying
+                        totalTimePlaying = totalTimePlaying.plus(entry.totalTimeSpentPlaying);
+
+                        // totalMoneyDelta
+                        totalMoneyDelta = totalMoneyDelta.add(entry.totalMoneyDelta);
+
+                        // averageLuckIndex
+                        luckIndexSum += entry.averageLuckIndex * entry.numberOfGames;
+                    }
+                }
+            }
+        }
+
+        LongListOfData data = new LongListOfData();
+        data.type = ELLODType.SPECIFIC_GAME;
+        data.gameType = gameType;
+        data.numberOfGames = numberOfGames;
+        data.totalTimeSpentPlaying = totalTimePlaying;
+        data.totalMoneyDelta = totalMoneyDelta;
+        data.averageMoneyDelta = numberOfGames != 0 ? totalMoneyDelta.floatValue() / numberOfGames : 0f;
+        data.averageLuckIndex = numberOfGames != 0 ? luckIndexSum / numberOfGames : 0f;
+
+        return data;
     }
 }
