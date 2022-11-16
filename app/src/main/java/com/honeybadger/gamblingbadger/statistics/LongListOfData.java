@@ -36,7 +36,7 @@ public class LongListOfData {
     public @Nullable Integer numberOfGames = null;
     public @Nullable Duration totalTimeSpentPlaying = null;
     public @Nullable BigDecimal totalMoneyDelta = null;
-    public @Nullable BigDecimal averageMoneyDelta = null;
+    public @Nullable Float averageMoneyDelta = null;
     public @Nullable Float averageLuckIndex = null;
 
     /// CONSTRUCTORS:
@@ -50,5 +50,15 @@ public class LongListOfData {
         this.type = ELLODType.SPECIFIC_GAME;
         this.casinoSession = gameSession.getCasinoSession();
         this.gameSession = gameSession;
+    }
+
+    /// INFO METHODS:
+
+    public boolean isCasinoSessionData() {
+        return casinoSession != null && gameSession == null;
+    }
+
+    public boolean isGameSessionData() {
+        return casinoSession != null && gameSession != null;
     }
 }

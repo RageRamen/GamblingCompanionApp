@@ -1,6 +1,7 @@
 package com.honeybadger.gamblingbadger.statistics;
 
 import androidx.annotation.NonNull;
+import androidx.annotation.Nullable;
 
 import com.honeybadger.gamblingbadger.casinosession.CasinoSession;
 import com.honeybadger.gamblingbadger.gamesession.EGameType;
@@ -106,7 +107,7 @@ public class Statistics {
         Map<EGameType, Integer> luckIndexCount = new HashMap<>();
 
         for (LongListOfData entry : statisticData) {
-            if (entry.type == ELLODType.CASINO_SESSION) {
+            if (entry.isCasinoSessionData()) {
                 assert entry.timeSpentInCasino != null;
                 assert entry.timeSpentPlayingGames != null;
                 assert entry.timePlayingEachGame != null;
@@ -159,8 +160,45 @@ public class Statistics {
     }
 
     public static LongListOfData getGenGameStatistics(EGameType gameType) {
-        // TODO
-        return new LongListOfData();
+        int numberOfGames = 0;
+        Duration totalTimePlaying = Duration.ZERO;
+        BigDecimal totalMoneyDelta = BigDecimal.ZERO;
+        float luckIndexSum = 0f;
+
+        for (LongListOfData entry : statisticData) {
+            if (entry.isGameSessionData()) {
+                assert entry.gameType != null;
+                if (entry.gameType == gameType) {
+                    assert entry.numberOfGames != null;
+                    assert entry.totalTimeSpentPlaying != null;
+                    assert entry.totalMoneyDelta != null;
+                    assert entry.averageLuckIndex != null;
+
+                    // numberOfGames
+                    numberOfGames += entry.numberOfGames;
+
+                    // totalTimeSpentPlaying
+                    totalTimePlaying = totalTimePlaying.plus(entry.totalTimeSpentPlaying);
+
+                    // totalMoneyDelta
+                    totalMoneyDelta = totalMoneyDelta.add(entry.totalMoneyDelta);
+
+                    // averageLuckIndex
+                    luckIndexSum += entry.averageLuckIndex * entry.numberOfGames;
+                }
+            }
+        }
+
+        LongListOfData data = new LongListOfData();
+        data.type = ELLODType.GENERAL_GAME;
+        data.gameType = gameType;
+        data.numberOfGames = numberOfGames;
+        data.totalTimeSpentPlaying = totalTimePlaying;
+        data.totalMoneyDelta = totalMoneyDelta;
+        data.averageMoneyDelta = numberOfGames == 0 ? 0f : totalMoneyDelta.floatValue() / numberOfGames;
+        data.averageLuckIndex = numberOfGames == 0 ? 0f : luckIndexSum / numberOfGames;
+
+        return data;
     }
 
     public static LongListOfData getSpecGameStatistics(CasinoSession casinoSession, EGameType gameType) {
