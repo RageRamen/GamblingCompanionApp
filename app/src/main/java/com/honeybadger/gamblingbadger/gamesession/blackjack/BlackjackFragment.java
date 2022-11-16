@@ -14,8 +14,13 @@ import android.widget.NumberPicker;
 import android.widget.Spinner;
 import android.widget.TextView;
 
+import androidx.activity.OnBackPressedCallback;
 import androidx.annotation.NonNull;
 import androidx.fragment.app.Fragment;
+import androidx.navigation.NavController;
+import androidx.navigation.Navigation;
+import androidx.navigation.fragment.NavHostFragment;
+import androidx.navigation.ui.NavigationUI;
 
 import com.honeybadger.gamblingbadger.ImageSpinnerAdapter;
 import com.honeybadger.gamblingbadger.R;
@@ -24,6 +29,7 @@ import com.honeybadger.gamblingbadger.cards.ECardNum;
 import com.honeybadger.gamblingbadger.cards.ECardSuit;
 import com.honeybadger.gamblingbadger.casinosession.CasinoSessionFragment;
 import com.honeybadger.gamblingbadger.databinding.FragmentBlackjackBinding;
+import com.honeybadger.gamblingbadger.gamesession.StartGameFragment;
 
 import java.util.LinkedList;
 import java.util.List;
@@ -56,6 +62,8 @@ public class BlackjackFragment extends Fragment {
     @Override
     public void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
+
+        // Options menu
         setHasOptionsMenu(true);
     }
 
@@ -103,6 +111,10 @@ public class BlackjackFragment extends Fragment {
         int id = item.getItemId();
 
         //noinspection SimplifiableIfStatement
+        if (item.getItemId() == android.R.id.home) {
+            actionEndSession();
+            return true; // must return true to consume it here
+        }
         if (id == R.id.menu_blackjack_item_changeNumberOfDecks) {
             actionShowChangeNumberOfDecksAlert();
             return true;
@@ -331,6 +343,11 @@ public class BlackjackFragment extends Fragment {
 
     private void actionAddCardToUserHand(Card card) {
         userHand.add(card);
+    }
+
+    public void actionEndSession() {
+        blackjackSession.closeSession();
+        NavHostFragment.findNavController(this).navigate(R.id.action_blackjackFragment_to_casinoSessionFragment);
     }
 
 }

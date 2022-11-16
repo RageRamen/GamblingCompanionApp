@@ -9,6 +9,7 @@ import java.util.LinkedList;
 
 import com.honeybadger.gamblingbadger.balance.Balance;
 
+import com.honeybadger.gamblingbadger.statistics.LongListOfData;
 import com.honeybadger.gamblingbadger.timer.Timer;
 
 import com.honeybadger.gamblingbadger.gamesession.EGameType;
@@ -198,5 +199,15 @@ public class CasinoSession {
         }
 
         return newList;
+    }
+
+    public Duration getSessionDuration() {
+        // TODO
+        return Duration.ZERO;
+    }
+
+    public LongListOfData getStatistics() {
+        // TODO
+        return new LongListOfData(this);
     }
 }
