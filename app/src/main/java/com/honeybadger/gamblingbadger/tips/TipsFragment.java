@@ -23,6 +23,7 @@ public class TipsFragment extends Fragment {
     // VARIABLES:
 
     private FragmentTipsBinding binding;
+    public static int CallingFragmentID;
 
     // FRAGMENT EVENTS:
 
@@ -76,6 +77,10 @@ public class TipsFragment extends Fragment {
 
         //noinspection SimplifiableIfStatement
         if (item.getItemId() == android.R.id.home) {
+            if (CallingFragmentID == R.id.homeFragment)
+                actionGoToHome();
+            else if (CallingFragmentID == R.id.casinoSessionFragment)
+                actionGoToCasinoSession();
             return true; // must return true to consume it here
         }
 
@@ -85,5 +90,13 @@ public class TipsFragment extends Fragment {
     // INTERFACE:
 
     // ACTIONS:
+
+    private void actionGoToHome(){
+        NavHostFragment.findNavController(this).navigate(R.id.action_tipsFragment_to_homeFragment);
+    }
+
+    private void actionGoToCasinoSession() {
+        NavHostFragment.findNavController(this).navigate(R.id.action_tipsFragment_to_casinoSessionFragment);
+    }
 
 }

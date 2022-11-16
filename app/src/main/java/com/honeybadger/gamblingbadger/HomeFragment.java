@@ -11,6 +11,7 @@ import androidx.navigation.fragment.NavHostFragment;
 
 import com.google.android.material.snackbar.Snackbar;
 import com.honeybadger.gamblingbadger.databinding.FragmentHomeBinding;
+import com.honeybadger.gamblingbadger.tips.TipsFragment;
 
 public class HomeFragment extends Fragment
 {
@@ -28,26 +29,8 @@ public class HomeFragment extends Fragment
     {
         super.onViewCreated(view, savedInstanceState);
 
-        binding.homeFragButtonStartSession.setOnClickListener(new View.OnClickListener()
-        {
-            @Override
-            public void onClick(View view)
-            {
-                NavHostFragment.findNavController(HomeFragment.this)
-                        .navigate(R.id.action_homeFragment_to_startSessionFragment);
-            }
-
-
-        });
-
-        binding.homeFragButtonGameTips.setOnClickListener(new View.OnClickListener()
-        {
-            @Override
-            public void onClick(View v)
-            {
-                NavHostFragment.findNavController((HomeFragment.this)).navigate(R.id.action_homeFragment_to_tipFragment);
-            }
-        });
+        initButtonStartSession();
+        initButtonGameTips();
     }
 
 
@@ -56,6 +39,39 @@ public class HomeFragment extends Fragment
     {
         super.onDestroyView();
         binding = null;
+    }
+
+    // INTERFACE:
+
+    private void initButtonStartSession() {
+        binding.homeFragButtonStartSession.setOnClickListener(new View.OnClickListener()
+        {
+            @Override
+            public void onClick(View view)
+            {
+                actionGoToStartSession();
+            }
+        });
+    }
+
+    private void initButtonGameTips() {
+        binding.homeFragButtonGameTips.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                actionGoToTips();
+            }
+        });
+    }
+
+    // ACTIONS:
+
+    private void actionGoToStartSession() {
+        NavHostFragment.findNavController(HomeFragment.this).navigate(R.id.action_homeFragment_to_startSessionFragment);
+    }
+
+    private void actionGoToTips() {
+        TipsFragment.CallingFragmentID = R.id.homeFragment;
+        NavHostFragment.findNavController((HomeFragment.this)).navigate(R.id.action_homeFragment_to_tipFragment);
     }
 
 }

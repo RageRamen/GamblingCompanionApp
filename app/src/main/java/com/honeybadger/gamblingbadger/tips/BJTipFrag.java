@@ -3,6 +3,7 @@ package com.honeybadger.gamblingbadger.tips;
 import android.os.Bundle;
 
 import androidx.fragment.app.Fragment;
+import androidx.navigation.fragment.NavHostFragment;
 
 import android.view.LayoutInflater;
 import android.view.Menu;
@@ -51,9 +52,16 @@ public class BJTipFrag extends Fragment {
 
         //noinspection SimplifiableIfStatement
         if (item.getItemId() == android.R.id.home) {
+            actionGoToTips();
             return true; // must return true to consume it here
         }
 
         return super.onOptionsItemSelected(item);
+    }
+
+    // ACTION METHODS:
+
+    private void actionGoToTips() {
+        NavHostFragment.findNavController(this).navigate(R.id.action_bjtipsFragment_to_tipsFragment);
     }
 }
