@@ -136,24 +136,21 @@ public class Statistics {
                     luckIndexCount.put(e.getKey(), luckIndexCount.get(e.getKey()) + 1);  // count
                 }
             }
-            // aggregateLuckIndexForEachGame (2/2)
-            for (Map.Entry<EGameType, Float> f : luckIndexEachGame.entrySet()) {
-                if (luckIndexCount.get(f.getKey()) != 0)
-                    luckIndexEachGame.put(f.getKey(), f.getValue() / luckIndexCount.get(f.getKey()));  // Average
-            }
-
-            LongListOfData data = new LongListOfData();
-            data.type = ELLODType.GENERAL;
-            data.aggregateTimeSpentInCasinos = timeInCasinos;
-            data.aggregateTimePlayingEachGame = timePlayingEachGame;
-            data.aggregateMoneyDeltaForEachGame = moneyDeltaEachGame;
-            data.aggregateLuckIndexForEachGame = luckIndexEachGame;
-
-            return data;
+        }
+        // aggregateLuckIndexForEachGame (2/2)
+        for (Map.Entry<EGameType, Float> f : luckIndexEachGame.entrySet()) {
+            if (luckIndexCount.get(f.getKey()) != 0)
+                luckIndexEachGame.put(f.getKey(), f.getValue() / luckIndexCount.get(f.getKey()));  // Average
         }
 
-        // TODO
-        return new LongListOfData();
+        LongListOfData data = new LongListOfData();
+        data.type = ELLODType.GENERAL;
+        data.aggregateTimeSpentInCasinos = timeInCasinos;
+        data.aggregateTimePlayingEachGame = timePlayingEachGame;
+        data.aggregateMoneyDeltaForEachGame = moneyDeltaEachGame;
+        data.aggregateLuckIndexForEachGame = luckIndexEachGame;
+
+        return data;
     }
 
     public static LongListOfData getCasSesStatistics(CasinoSession casinoSession) {
