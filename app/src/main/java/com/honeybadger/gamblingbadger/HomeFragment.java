@@ -69,7 +69,7 @@ public class HomeFragment extends Fragment
     }
 
     private void actionGoToTips() {
-        TipsFragment.CallingFragmentReturnActionID = R.id.action_tipsFragment_to_homeFragment;
+        TipsFragment.callingFragmentReturnActionID = R.id.action_tipsFragment_to_homeFragment;
         NavHostFragment.findNavController((HomeFragment.this)).navigate(R.id.action_homeFragment_to_tipFragment);
     }
 

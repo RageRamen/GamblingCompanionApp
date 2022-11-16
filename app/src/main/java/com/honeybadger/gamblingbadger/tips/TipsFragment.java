@@ -9,6 +9,7 @@ import android.view.View;
 import android.view.ViewGroup;
 
 import androidx.annotation.NonNull;
+import androidx.annotation.Nullable;
 import androidx.fragment.app.Fragment;
 import androidx.navigation.fragment.NavHostFragment;
 
@@ -22,7 +23,7 @@ public class TipsFragment extends Fragment {
     // VARIABLES:
 
     private FragmentTipsBinding binding;
-    public static int CallingFragmentReturnActionID;
+    public static @Nullable Integer callingFragmentReturnActionID;
 
     // FRAGMENT EVENTS:
 
@@ -76,7 +77,10 @@ public class TipsFragment extends Fragment {
 
         //noinspection SimplifiableIfStatement
         if (item.getItemId() == android.R.id.home) {
-            actionReturnToCallingFrag();
+            if (callingFragmentReturnActionID != null)
+                actionReturnToCallingFrag();
+            else
+                actionGoToHome();
             return true; // must return true to consume it here
         }
 
@@ -87,8 +91,14 @@ public class TipsFragment extends Fragment {
 
     // ACTIONS:
 
+    private void actionGoToHome() {
+        NavHostFragment.findNavController(this).navigate(R.id.homeFragment);
+    }
+
     private void actionReturnToCallingFrag() {
-        NavHostFragment.findNavController(this).navigate(CallingFragmentReturnActionID);
+        assert callingFragmentReturnActionID != null;
+        NavHostFragment.findNavController(this).navigate(callingFragmentReturnActionID);
+        callingFragmentReturnActionID = null;
     }
 
 }

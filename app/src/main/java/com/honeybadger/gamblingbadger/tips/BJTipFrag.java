@@ -2,6 +2,7 @@ package com.honeybadger.gamblingbadger.tips;
 
 import android.os.Bundle;
 
+import androidx.annotation.Nullable;
 import androidx.fragment.app.Fragment;
 import androidx.navigation.fragment.NavHostFragment;
 
@@ -16,13 +17,17 @@ import com.honeybadger.gamblingbadger.R;
 
 
 public class BJTipFrag extends Fragment {
+    // VARIABLES:
+    public static @Nullable Integer callingFragmentReturnActionID;
 
-
+    // FUNCTIONS:
 
     public BJTipFrag()
     {
 
     }
+
+    // FRAGMENT EVENTS:
 
     @Override
     public void onCreate(Bundle savedInstanceState)
@@ -52,7 +57,10 @@ public class BJTipFrag extends Fragment {
 
         //noinspection SimplifiableIfStatement
         if (item.getItemId() == android.R.id.home) {
-            actionGoToTips();
+            if (callingFragmentReturnActionID != null)
+                actionReturnToCallingFrag();
+            else
+                actionGoToTips();
             return true; // must return true to consume it here
         }
 
@@ -63,5 +71,11 @@ public class BJTipFrag extends Fragment {
 
     private void actionGoToTips() {
         NavHostFragment.findNavController(this).navigate(R.id.action_bjtipsFragment_to_tipsFragment);
+    }
+
+    private void actionReturnToCallingFrag() {
+        assert callingFragmentReturnActionID != null;
+        NavHostFragment.findNavController(this).navigate(callingFragmentReturnActionID);
+        callingFragmentReturnActionID = null;
     }
 }
