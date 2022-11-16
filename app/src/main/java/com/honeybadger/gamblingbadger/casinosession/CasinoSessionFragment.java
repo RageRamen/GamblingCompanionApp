@@ -172,7 +172,7 @@ public class CasinoSessionFragment extends Fragment {
     }
 
     public void actionGoToTips() {
-        TipsFragment.CallingFragmentID = R.id.casinoSessionFragment;
+        TipsFragment.CallingFragmentReturnActionID = R.id.action_tipsFragment_to_casinoSessionFragment;
         NavHostFragment.findNavController(CasinoSessionFragment.this).navigate(R.id.action_casinoSessionFragment_to_tipsFragment);
     }
 

@@ -345,6 +345,10 @@ public class BlackjackFragment extends Fragment {
         userHand.add(card);
     }
 
+    private void actionGoToTips() {
+
+    }
+
     public void actionEndSession() {
         blackjackSession.closeSession();
         NavHostFragment.findNavController(this).navigate(R.id.action_blackjackFragment_to_casinoSessionFragment);

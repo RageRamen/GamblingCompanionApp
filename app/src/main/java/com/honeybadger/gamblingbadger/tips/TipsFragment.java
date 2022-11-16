@@ -12,7 +12,6 @@ import androidx.annotation.NonNull;
 import androidx.fragment.app.Fragment;
 import androidx.navigation.fragment.NavHostFragment;
 
-import com.honeybadger.gamblingbadger.HomeFragment;
 import com.honeybadger.gamblingbadger.R;
 import com.honeybadger.gamblingbadger.databinding.FragmentTipsBinding;
 
@@ -23,7 +22,7 @@ public class TipsFragment extends Fragment {
     // VARIABLES:
 
     private FragmentTipsBinding binding;
-    public static int CallingFragmentID;
+    public static int CallingFragmentReturnActionID;
 
     // FRAGMENT EVENTS:
 
@@ -77,10 +76,7 @@ public class TipsFragment extends Fragment {
 
         //noinspection SimplifiableIfStatement
         if (item.getItemId() == android.R.id.home) {
-            if (CallingFragmentID == R.id.homeFragment)
-                actionGoToHome();
-            else if (CallingFragmentID == R.id.casinoSessionFragment)
-                actionGoToCasinoSession();
+            actionReturnToCallingFrag();
             return true; // must return true to consume it here
         }
 
@@ -91,12 +87,8 @@ public class TipsFragment extends Fragment {
 
     // ACTIONS:
 
-    private void actionGoToHome(){
-        NavHostFragment.findNavController(this).navigate(R.id.action_tipsFragment_to_homeFragment);
-    }
-
-    private void actionGoToCasinoSession() {
-        NavHostFragment.findNavController(this).navigate(R.id.action_tipsFragment_to_casinoSessionFragment);
+    private void actionReturnToCallingFrag() {
+        NavHostFragment.findNavController(this).navigate(CallingFragmentReturnActionID);
     }
 
 }

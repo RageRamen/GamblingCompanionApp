@@ -9,7 +9,6 @@ import androidx.annotation.NonNull;
 import androidx.fragment.app.Fragment;
 import androidx.navigation.fragment.NavHostFragment;
 
-import com.google.android.material.snackbar.Snackbar;
 import com.honeybadger.gamblingbadger.databinding.FragmentHomeBinding;
 import com.honeybadger.gamblingbadger.tips.TipsFragment;
 
@@ -70,7 +69,7 @@ public class HomeFragment extends Fragment
     }
 
     private void actionGoToTips() {
-        TipsFragment.CallingFragmentID = R.id.homeFragment;
+        TipsFragment.CallingFragmentReturnActionID = R.id.action_tipsFragment_to_homeFragment;
         NavHostFragment.findNavController((HomeFragment.this)).navigate(R.id.action_homeFragment_to_tipFragment);
     }
 
