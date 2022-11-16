@@ -1,12 +1,20 @@
 package com.honeybadger.gamblingbadger.statistics;
 
+import androidx.annotation.NonNull;
+
 import com.honeybadger.gamblingbadger.casinosession.CasinoSession;
 import com.honeybadger.gamblingbadger.gamesession.EGameType;
 import com.honeybadger.gamblingbadger.gamesession.GameSession;
 
+import java.math.BigDecimal;
+import java.time.Duration;
+import java.util.Date;
+import java.util.HashMap;
 import java.util.LinkedList;
 import java.util.List;
 import java.util.ArrayList;
+import java.util.Map;
+import java.util.Set;
 
 public class Statistics {
     // CONSTANTS:
@@ -90,6 +98,60 @@ public class Statistics {
     // INFO METHODS:
 
     public static LongListOfData getGeneralStatistics() {
+        Duration timeInCasinos = Duration.ZERO;
+        Map<EGameType, Duration> timePlayingEachGame = new HashMap<>();
+        Map<EGameType, BigDecimal> moneyDeltaEachGame = new HashMap<>();
+        Map<EGameType, Float> luckIndexEachGame = new HashMap<>();
+
+        Map<EGameType, Integer> luckIndexCount = new HashMap<>();
+
+        for (LongListOfData entry : statisticData) {
+            if (entry.type == ELLODType.CASINO_SESSION) {
+                assert entry.timeSpentInCasino != null;
+                assert entry.timeSpentPlayingGames != null;
+                assert entry.timePlayingEachGame != null;
+                assert entry.moneyDeltaForEachGame != null;
+                assert entry.luckIndexForEachGame != null;
+
+                // aggregateTimeSpentInCasinos
+                timeInCasinos = entry.timeSpentInCasino.plus(timeInCasinos);
+
+                // aggregateTimePlayingEachGame
+                for (Map.Entry<EGameType, Duration> e : entry.timePlayingEachGame.entrySet()) {
+                    timePlayingEachGame.putIfAbsent(e.getKey(), Duration.ZERO);
+                    timePlayingEachGame.put(e.getKey(), timePlayingEachGame.get(e.getKey()).plus(e.getValue()));
+                }
+
+                // aggregateMoneyDeltaForEachGame
+                for (Map.Entry<EGameType, BigDecimal> e : entry.moneyDeltaForEachGame.entrySet()) {
+                    moneyDeltaEachGame.putIfAbsent(e.getKey(), BigDecimal.ZERO);
+                    moneyDeltaEachGame.put(e.getKey(), moneyDeltaEachGame.get(e.getKey()).add(e.getValue()));
+                }
+
+                // aggregateLuckIndexForEachGame (1/2)
+                for (Map.Entry<EGameType, Float> e : entry.luckIndexForEachGame.entrySet()) {
+                    luckIndexEachGame.putIfAbsent(e.getKey(), 0f);
+                    luckIndexCount.putIfAbsent(e.getKey(), 0);
+                    luckIndexEachGame.put(e.getKey(), luckIndexEachGame.get(e.getKey()) + e.getValue());  // sum
+                    luckIndexCount.put(e.getKey(), luckIndexCount.get(e.getKey()) + 1);  // count
+                }
+            }
+            // aggregateLuckIndexForEachGame (2/2)
+            for (Map.Entry<EGameType, Float> f : luckIndexEachGame.entrySet()) {
+                if (luckIndexCount.get(f.getKey()) != 0)
+                    luckIndexEachGame.put(f.getKey(), f.getValue() / luckIndexCount.get(f.getKey()));  // Average
+            }
+
+            LongListOfData data = new LongListOfData();
+            data.type = ELLODType.GENERAL;
+            data.aggregateTimeSpentInCasinos = timeInCasinos;
+            data.aggregateTimePlayingEachGame = timePlayingEachGame;
+            data.aggregateMoneyDeltaForEachGame = moneyDeltaEachGame;
+            data.aggregateLuckIndexForEachGame = luckIndexEachGame;
+
+            return data;
+        }
+
         // TODO
         return new LongListOfData();
     }

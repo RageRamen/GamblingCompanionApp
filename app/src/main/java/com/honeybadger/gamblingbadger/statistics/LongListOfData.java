@@ -43,9 +43,12 @@ public class LongListOfData {
 
     public LongListOfData() {}
     public LongListOfData(@NonNull CasinoSession casinoSession) {
+        this.type = ELLODType.CASINO_SESSION;
         this.casinoSession = casinoSession;
     }
     public LongListOfData(@NonNull GameSession gameSession) {
+        this.type = ELLODType.SPECIFIC_GAME;
+        this.casinoSession = gameSession.getCasinoSession();
         this.gameSession = gameSession;
     }
 }

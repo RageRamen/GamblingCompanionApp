@@ -201,6 +201,11 @@ public class CasinoSession {
         return newList;
     }
 
+    public Duration getSessionDuration() {
+        // TODO
+        return Duration.ZERO;
+    }
+
     public LongListOfData getStatistics() {
         // TODO
         return new LongListOfData(this);
