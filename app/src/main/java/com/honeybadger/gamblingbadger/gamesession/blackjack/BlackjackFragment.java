@@ -112,7 +112,7 @@ public class BlackjackFragment extends Fragment {
         int id = item.getItemId();
 
         //noinspection SimplifiableIfStatement
-        if (item.getItemId() == android.R.id.home) {
+        if (id == android.R.id.home) {
             actionEndSession();
             return true; // must return true to consume it here
         }

@@ -1,10 +1,8 @@
 package com.honeybadger.gamblingbadger.statistics;
 
-import android.app.AlertDialog;
 import android.os.Bundle;
 
 import androidx.annotation.NonNull;
-import androidx.annotation.Nullable;
 import androidx.fragment.app.Fragment;
 import androidx.navigation.fragment.NavHostFragment;
 
@@ -24,6 +22,8 @@ public class GeneralStatisticsFragment extends Fragment {
     // VARIABLES:
 
     private FragmentGeneralStatisticsBinding binding;
+
+    public static Integer returnFragmentID = R.id.generalStatisticsFragment;
 
     // FRAGMENT EVENTS:
 
@@ -70,9 +70,21 @@ public class GeneralStatisticsFragment extends Fragment {
         int id = item.getItemId();
 
         //noinspection SimplifiableIfStatement
-        if (item.getItemId() == android.R.id.home) {
-            // TODO
+        if (id == android.R.id.home) {
+            actionReturnToCallingFrag();
             return true; // must return true to consume it here
+        }
+        else if (id == R.id.menu_statistics_item_casinoStatistics) {
+            actionGoToCasinoStatistics();
+            return true;
+        }
+        else if (id == R.id.menu_statistics_item_generalGameStatistics) {
+            actionGoToGeneralGameStatistics();
+            return true;
+        }
+        else if (id == R.id.menu_statistics_item_casinoGameStatistics) {
+            actionGoToSpecificGameStatistics();
+            return true;
         }
 
         return super.onOptionsItemSelected(item);
@@ -81,4 +93,35 @@ public class GeneralStatisticsFragment extends Fragment {
     // INTERFACE:
 
     // ACTIONS:
+
+    private void actionReturnToCallingFrag() {
+
+        if (returnFragmentID == R.id.homeFragment)
+            actionGoToHome();
+        else if (returnFragmentID == R.id.casinoSessionFragment)
+            actionGoToCasinoSession();
+    }
+
+    private void actionGoToHome() {
+        NavHostFragment.findNavController(this).navigate(R.id.action_generalStatisticsFragment_to_homeFragment);
+    }
+
+    private void actionGoToCasinoSession() {
+        NavHostFragment.findNavController(this).navigate(R.id.action_generalStatisticsFragment_to_casinoSessionFragment);
+    }
+
+    private void actionGoToCasinoStatistics() {
+        CasinoStatisticsFragment.returnFragmentID = returnFragmentID;
+        NavHostFragment.findNavController(this).navigate(R.id.action_generalStatisticsFragment_to_casinoStatisticsFragment);
+    }
+
+    private void actionGoToGeneralGameStatistics() {
+        GeneralGameStatisticsFragment.returnFragmentID = returnFragmentID;
+        NavHostFragment.findNavController(this).navigate(R.id.action_generalStatisticsFragment_to_generalGameStatisticsFragment);
+    }
+
+    private void actionGoToSpecificGameStatistics() {
+        SpecificGameStatisticsFragment.returnFragmentID = returnFragmentID;
+        NavHostFragment.findNavController(this).navigate(R.id.action_generalStatisticsFragment_to_specificGameStatisticsFragment);
+    }
 }

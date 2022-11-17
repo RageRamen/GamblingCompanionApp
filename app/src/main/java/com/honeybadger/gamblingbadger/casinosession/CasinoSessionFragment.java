@@ -17,6 +17,7 @@ import androidx.navigation.fragment.NavHostFragment;
 
 import com.honeybadger.gamblingbadger.R;
 import com.honeybadger.gamblingbadger.databinding.FragmentCasinoSessionBinding;
+import com.honeybadger.gamblingbadger.statistics.CasinoStatisticsFragment;
 import com.honeybadger.gamblingbadger.tips.TipsFragment;
 
 public class CasinoSessionFragment extends Fragment {
@@ -62,7 +63,7 @@ public class CasinoSessionFragment extends Fragment {
         initButtonSetTimer();
         initButtonEndSession();
         initButtonTips();
-
+        initButtonStatistics();
     }
 
     @Override
@@ -151,6 +152,15 @@ public class CasinoSessionFragment extends Fragment {
         });
     }
 
+    private void initButtonStatistics() {
+        binding.casinoSessionFragButtonStatistics.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                actionGoToStatistics();
+            }
+        });
+    }
+
     // Actions:
 
     private void actionGoToStartGame() {
@@ -174,6 +184,11 @@ public class CasinoSessionFragment extends Fragment {
     public void actionGoToTips() {
         TipsFragment.callingFragmentReturnActionID = R.id.action_tipsFragment_to_casinoSessionFragment;
         NavHostFragment.findNavController(CasinoSessionFragment.this).navigate(R.id.action_casinoSessionFragment_to_tipsFragment);
+    }
+
+    private void actionGoToStatistics() {
+        CasinoStatisticsFragment.returnFragmentID = R.id.casinoSessionFragment;
+        NavHostFragment.findNavController(this).navigate(R.id.action_casinoSessionFragment_to_casinoStatisticsFragment);
     }
 
 }

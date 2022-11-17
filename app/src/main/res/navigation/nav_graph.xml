@@ -18,6 +18,9 @@
         <action
             android:id="@+id/action_homeFragment_to_tipFragment"
             app:destination="@id/tipsFragment" />
+        <action
+            android:id="@+id/action_homeFragment_to_generalStatisticsFragment"
+            app:destination="@id/generalStatisticsFragment" />
     </fragment>
 
 
@@ -51,6 +54,9 @@
         <action
             android:id="@+id/action_casinoSessionFragment_to_tipsFragment"
             app:destination="@id/tipsFragment" />
+        <action
+            android:id="@+id/action_casinoSessionFragment_to_casinoStatisticsFragment"
+            app:destination="@id/casinoStatisticsFragment" />
     </fragment>
     <fragment
         android:id="@+id/startGameFragment"
@@ -149,5 +155,89 @@
         <action
             android:id="@+id/action_bjtipsFragment_to_blackjackFragment"
             app:destination="@id/blackjackFragment" />
+    </fragment>
+    <fragment
+        android:id="@+id/generalStatisticsFragment"
+        android:name="com.honeybadger.gamblingbadger.statistics.GeneralStatisticsFragment"
+        android:label="fragment_general_statistics"
+        tools:layout="@layout/fragment_general_statistics" >
+        <action
+            android:id="@+id/action_generalStatisticsFragment_to_homeFragment"
+            app:destination="@id/homeFragment" />
+        <action
+            android:id="@+id/action_generalStatisticsFragment_to_generalGameStatisticsFragment"
+            app:destination="@id/generalGameStatisticsFragment" />
+        <action
+            android:id="@+id/action_generalStatisticsFragment_to_specificGameStatisticsFragment"
+            app:destination="@id/specificGameStatisticsFragment" />
+        <action
+            android:id="@+id/action_generalStatisticsFragment_to_casinoStatisticsFragment"
+            app:destination="@id/casinoStatisticsFragment" />
+        <action
+            android:id="@+id/action_generalStatisticsFragment_to_casinoSessionFragment"
+            app:destination="@id/casinoSessionFragment" />
+    </fragment>
+    <fragment
+        android:id="@+id/casinoStatisticsFragment"
+        android:name="com.honeybadger.gamblingbadger.statistics.CasinoStatisticsFragment"
+        android:label="fragment_casino_statistics"
+        tools:layout="@layout/fragment_casino_statistics" >
+        <action
+            android:id="@+id/action_casinoStatisticsFragment_to_casinoSessionFragment"
+            app:destination="@id/casinoSessionFragment" />
+        <action
+            android:id="@+id/action_casinoStatisticsFragment_to_generalStatisticsFragment"
+            app:destination="@id/generalStatisticsFragment" />
+        <action
+            android:id="@+id/action_casinoStatisticsFragment_to_generalGameStatisticsFragment"
+            app:destination="@id/generalGameStatisticsFragment" />
+        <action
+            android:id="@+id/action_casinoStatisticsFragment_to_specificGameStatisticsFragment"
+            app:destination="@id/specificGameStatisticsFragment" />
+        <action
+            android:id="@+id/action_casinoStatisticsFragment_to_homeFragment"
+            app:destination="@id/homeFragment" />
+    </fragment>
+    <fragment
+        android:id="@+id/generalGameStatisticsFragment"
+        android:name="com.honeybadger.gamblingbadger.statistics.GeneralGameStatisticsFragment"
+        android:label="fragment_general_game_statistics"
+        tools:layout="@layout/fragment_general_game_statistics" >
+        <action
+            android:id="@+id/action_generalGameStatisticsFragment_to_generalStatisticsFragment"
+            app:destination="@id/generalStatisticsFragment" />
+        <action
+            android:id="@+id/action_generalGameStatisticsFragment_to_casinoStatisticsFragment"
+            app:destination="@id/casinoStatisticsFragment" />
+        <action
+            android:id="@+id/action_generalGameStatisticsFragment_to_specificGameStatisticsFragment"
+            app:destination="@id/specificGameStatisticsFragment" />
+        <action
+            android:id="@+id/action_generalGameStatisticsFragment_to_homeFragment"
+            app:destination="@id/homeFragment" />
+        <action
+            android:id="@+id/action_generalGameStatisticsFragment_to_casinoSessionFragment"
+            app:destination="@id/casinoSessionFragment" />
+    </fragment>
+    <fragment
+        android:id="@+id/specificGameStatisticsFragment"
+        android:name="com.honeybadger.gamblingbadger.statistics.SpecificGameStatisticsFragment"
+        android:label="fragment_specific_game_statistics"
+        tools:layout="@layout/fragment_specific_game_statistics" >
+        <action
+            android:id="@+id/action_specificGameStatisticsFragment_to_generalGameStatisticsFragment"
+            app:destination="@id/generalGameStatisticsFragment" />
+        <action
+            android:id="@+id/action_specificGameStatisticsFragment_to_generalStatisticsFragment"
+            app:destination="@id/generalStatisticsFragment" />
+        <action
+            android:id="@+id/action_specificGameStatisticsFragment_to_casinoStatisticsFragment"
+            app:destination="@id/casinoStatisticsFragment" />
+        <action
+            android:id="@+id/action_specificGameStatisticsFragment_to_homeFragment"
+            app:destination="@id/homeFragment" />
+        <action
+            android:id="@+id/action_specificGameStatisticsFragment_to_casinoSessionFragment"
+            app:destination="@id/casinoSessionFragment" />
     </fragment>
 </navigation>

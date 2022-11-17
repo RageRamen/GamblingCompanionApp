@@ -10,6 +10,7 @@ import androidx.fragment.app.Fragment;
 import androidx.navigation.fragment.NavHostFragment;
 
 import com.honeybadger.gamblingbadger.databinding.FragmentHomeBinding;
+import com.honeybadger.gamblingbadger.statistics.GeneralStatisticsFragment;
 import com.honeybadger.gamblingbadger.tips.TipsFragment;
 
 public class HomeFragment extends Fragment
@@ -30,6 +31,7 @@ public class HomeFragment extends Fragment
 
         initButtonStartSession();
         initButtonGameTips();
+        initButtonStatistics();
     }
 
 
@@ -62,6 +64,15 @@ public class HomeFragment extends Fragment
         });
     }
 
+    private void initButtonStatistics() {
+        binding.homeFragButtonStatistics.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                actionGoToStatistics();
+            }
+        });
+    }
+
     // ACTIONS:
 
     private void actionGoToStartSession() {
@@ -71,6 +82,11 @@ public class HomeFragment extends Fragment
     private void actionGoToTips() {
         TipsFragment.callingFragmentReturnActionID = R.id.action_tipsFragment_to_homeFragment;
         NavHostFragment.findNavController((HomeFragment.this)).navigate(R.id.action_homeFragment_to_tipFragment);
+    }
+
+    private void actionGoToStatistics() {
+        GeneralStatisticsFragment.returnFragmentID = R.id.homeFragment;
+        NavHostFragment.findNavController(this).navigate(R.id.action_homeFragment_to_generalStatisticsFragment);
     }
 
 }
