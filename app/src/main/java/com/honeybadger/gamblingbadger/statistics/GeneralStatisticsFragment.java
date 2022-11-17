@@ -16,17 +16,17 @@ import android.view.View;
 import android.view.ViewGroup;
 
 import com.honeybadger.gamblingbadger.R;
-import com.honeybadger.gamblingbadger.databinding.FragmentStatisticsBinding;
+import com.honeybadger.gamblingbadger.databinding.FragmentGeneralStatisticsBinding;
 
 import java.util.LinkedList;
 import java.util.List;
 
-public class StatisticsFragment extends Fragment {
+public class GeneralStatisticsFragment extends Fragment {
 // CONSTANTS:
 
     // VARIABLES:
 
-    private FragmentStatisticsBinding binding;
+    private FragmentGeneralStatisticsBinding binding;
 
     // FRAGMENT EVENTS:
 
@@ -43,7 +43,7 @@ public class StatisticsFragment extends Fragment {
             LayoutInflater inflater, ViewGroup container,
             Bundle savedInstanceState
     ) {
-        binding = FragmentStatisticsBinding.inflate(inflater, container, false);
+        binding = FragmentGeneralStatisticsBinding.inflate(inflater, container, false);
         return binding.getRoot();
     }
 
