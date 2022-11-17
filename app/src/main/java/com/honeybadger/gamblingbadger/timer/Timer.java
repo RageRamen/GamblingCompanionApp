@@ -8,13 +8,15 @@ import java.util.Date;
 public class Timer {
     // Constructor
 
-    public Timer(){
+    public Timer()
+    {
 
     }
 
     // Info Methods:
 
-    public static LocalDateTime getCurrentTime() {
+    public static LocalDateTime getCurrentTime()
+    {
         Date date = Calendar.getInstance().getTime();
         return date.toInstant()
                 .atZone(ZoneId.systemDefault())
