@@ -22,6 +22,7 @@
     <!-- Menu strings -->
 
     <string name="menu_blackjack_item_tips_title">See Tips</string>
+    <string name="menu_blackjack_item_setBet_title">Set Bet</string>
     <string name="menu_blackjack_item_changeNumberOfDecks_title">Change Number of Decks</string>
 
     <string name="menu_statistics_item_generalStatistics_title">General Statistics</string>

@@ -120,6 +120,10 @@ public class BlackjackFragment extends Fragment {
             actionShowChangeNumberOfDecksAlert();
             return true;
         }
+        if (id == R.id.menu_blackjack_item_setBet) {
+            actionSetBet();
+            return true;
+        }
         if (id == R.id.menu_blackjack_item_tips) {
             actionGoToTips();
             return true;
@@ -354,6 +358,22 @@ public class BlackjackFragment extends Fragment {
     private void actionGoToTips() {
         BJTipFrag.callingFragmentReturnActionID = R.id.action_bjtipsFragment_to_blackjackFragment;
         NavHostFragment.findNavController(this).navigate(R.id.action_blackjackFragment_to_bjtipsFragment);
+    }
+
+    private void actionSetBet() {
+        // TODO
+    }
+
+    private void actionGetOdds() {
+        // TODO
+    }
+
+    private void actionWinGame() {
+        // TODO
+    }
+
+    private void actionLoseGame() {
+        // TODO
     }
 
     public void actionEndSession() {

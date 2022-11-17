@@ -5,6 +5,9 @@
         android:id="@+id/menu_blackjack_item_changeNumberOfDecks"
         android:title="@string/menu_blackjack_item_changeNumberOfDecks_title" />
     <item
+        android:id="@+id/menu_blackjack_item_setBet"
+        android:title="@string/menu_blackjack_item_setBet_title" />
+    <item
         android:id="@+id/menu_blackjack_item_tips"
         android:title="@string/menu_blackjack_item_tips_title" />
 </menu>

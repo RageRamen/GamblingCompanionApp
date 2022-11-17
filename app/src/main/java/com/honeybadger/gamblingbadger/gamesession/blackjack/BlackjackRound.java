@@ -5,6 +5,7 @@ import android.util.Pair;
 
 import com.honeybadger.gamblingbadger.R;
 import com.honeybadger.gamblingbadger.cards.*;
+import com.honeybadger.gamblingbadger.casinosession.CasinoSession;
 
 import org.xmlpull.v1.XmlPullParser;
 import org.xmlpull.v1.XmlPullParserException;
@@ -92,6 +93,24 @@ public class BlackjackRound extends CardRound {
         this.numberOfDecks = numberOfDecks;
         this.userHand = new LinkedList<>();
     }
+
+    // PROPERTIES:
+
+    // ACTION METHODS:
+
+    // INFO METHODS:
+
+    //public float getOdds();
+
+    //public String getRecomendedAction();
+
+
+
+
+
+
+
+    /// LEGACY:
 
     // PROPERTIES:
 
