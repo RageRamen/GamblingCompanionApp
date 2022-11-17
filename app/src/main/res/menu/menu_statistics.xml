@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="utf-8"?>
+<menu xmlns:android="http://schemas.android.com/apk/res/android">
+
+    <item
+        android:id="@+id/menu_statistics_item_generalStatistics"
+        android:title="@string/menu_statistics_item_generalStatistics_title" />
+    <item
+        android:id="@+id/menu_statistics_item_generalGameStatistics"
+        android:title="@string/menu_statistics_item_generalGameStatistics_title" />
+    <item
+        android:id="@+id/menu_statistics_item_casinoStatistics"
+        android:title="@string/menu_statistics_item_casinoStatistics_title" />
+    <item
+        android:id="@+id/menu_statistics_item_casinoGameStatistics"
+        android:title="@string/menu_statistics_item_casinoGameStatistics_title" />
+</menu>

@@ -24,6 +24,11 @@
     <string name="menu_blackjack_item_tips_title">See Tips</string>
     <string name="menu_blackjack_item_changeNumberOfDecks_title">Change Number of Decks</string>
 
+    <string name="menu_statistics_item_generalStatistics_title">General Statistics</string>
+    <string name="menu_statistics_item_generalGameStatistics_title">General Game Statistics</string>
+    <string name="menu_statistics_item_casinoStatistics_title">Casino Statistics</string>
+    <string name="menu_statistics_item_casinoGameStatistics_title">Casino Game Statistics</string>
+
     <!-- Strings used for fragments for navigation -->
 
     <string name="homeFrag_label">Home</string>
