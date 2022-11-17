@@ -18,9 +18,6 @@ import android.view.ViewGroup;
 import com.honeybadger.gamblingbadger.R;
 import com.honeybadger.gamblingbadger.databinding.FragmentGeneralStatisticsBinding;
 
-import java.util.LinkedList;
-import java.util.List;
-
 public class GeneralStatisticsFragment extends Fragment {
 // CONSTANTS:
 
