@@ -26,9 +26,10 @@
         android:text="@string/blackjackFrag_button_addUserCard"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.494"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.70" />
+        app:layout_constraintVertical_bias="0.628" />
 
     <androidx.constraintlayout.widget.Group
         android:id="@+id/blackjackFrag_group_userCards"
@@ -85,14 +86,16 @@
         app:layout_constraintTop_toBottomOf="@+id/blackjackFrag_textView_numberOfDecks_title" />
 
     <Button
-        android:id="@+id/button4"
+        android:id="@+id/GetOddsButton"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:text="Get Odds"
         app:layout_constraintBottom_toTopOf="@+id/button5"
         app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.498"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/blackjackFrag_button_addUserCard" />
+        app:layout_constraintTop_toBottomOf="@+id/blackjackFrag_button_addUserCard"
+        app:layout_constraintVertical_bias="0.232" />
 
     <Button
         android:id="@+id/button5"
@@ -135,5 +138,16 @@
         app:layout_constraintEnd_toStartOf="@+id/textView"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/textView3" />
+
+    <TextView
+        android:id="@+id/oddstextview"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Odds Percent of Bust"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/GetOddsButton"
+        app:layout_constraintVertical_bias="0.331" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>

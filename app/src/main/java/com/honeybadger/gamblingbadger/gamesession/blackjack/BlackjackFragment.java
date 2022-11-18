@@ -90,6 +90,7 @@ public class BlackjackFragment extends Fragment {
         initSpinnerDealerCard();
         initButtonAddUserCard();
         initTextViewNumberOfDecks();
+        initButtonGetOdds();
     }
 
     @Override
@@ -364,8 +365,19 @@ public class BlackjackFragment extends Fragment {
         // TODO
     }
 
+    private void initButtonGetOdds() {
+        binding.GetOddsButton.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                actionGetOdds();
+            }
+        });
+    }
+
     private void actionGetOdds() {
         // TODO
+        TextView oddsDisplay = (TextView) getActivity().findViewById(R.id.oddstextview);
+        oddsDisplay.setText("HELLO");
     }
 
     private void actionWinGame() {

@@ -93,26 +93,23 @@ public class BlackjackRound extends CardRound {
         this.numberOfDecks = numberOfDecks;
         this.userHand = new LinkedList<>();
     }
-    // GETTERS:
-    public int getnumberOfDecks(){
-        return numberOfDecks;
-    }
 
-    public Card dealerCard(){
-        return dealerCard;
-    }
     // PROPERTIES:
+
+    //GETTERS:
 
     // ACTION METHODS:
 
     // INFO METHODS:
 
     public float getOdds(){
+        int oddsforbust = 0;
+
         numberOfDecks = 1;
         return numberOfDecks;
     }
 
-    public String getRecomendedAction(float odds) {
+    public String getRecomendedAction() {
         //String action = "";
         //if(odds < )
         return "null";
