@@ -56,7 +56,9 @@ public class BlackjackFragment extends Fragment {
 
     private Card dealerCard;
     private List<Card> userHand;
+    private int bet;
 
+    public static BlackjackRound blackjackround;
     public static @Nullable BlackjackSession blackjackSession;
     public static int softNumberOfDecks = BlackjackSession.DEFAULT_NUMBER_OF_DECKS;
 
@@ -378,13 +380,15 @@ public class BlackjackFragment extends Fragment {
 
     private void actionGetOdds() {
         // TODO
+        //blackjackround = new BlackjackRound(bet, )
         TextView oddsDisplay = (TextView) getActivity().findViewById(R.id.oddsTextview);
         oddsDisplay.setText("HELLO"); //test, put getOdds() method here. From BlackjackRound
     }
 
     private void actionWinGame() {
         // TODO
-
+        //blackjackSession.getRounds().setWin(true);
+        //setWin(true);
     }
 
     private void actionLoseGame() {

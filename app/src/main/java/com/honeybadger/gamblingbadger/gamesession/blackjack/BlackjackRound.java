@@ -94,6 +94,12 @@ public class BlackjackRound extends CardRound {
         this.userHand = new LinkedList<>();
     }
 
+    public BlackjackRound(BigDecimal bet, int numberOfDecks, LinkedList userHand) { //made a second constructor for making a new blackjackround including a set userhand since BackjackFragment has both it's own dealerhand and userhand
+        super(bet);
+        this.numberOfDecks = numberOfDecks;
+        this.userHand = userHand;
+    }
+
     // PROPERTIES:
 
     //GETTERS:
