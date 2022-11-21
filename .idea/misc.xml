@@ -4,12 +4,14 @@
     <option name="filePathToZoomLevelMap">
       <map>
         <entry key="..\:/Documents 2/AndroidStudioProjects/GamblingBadger1/app/src/main/res/layout/blackjack_add_card_popup.xml" value="0.25416666666666665" />
+        <entry key="..\:/Documents 2/AndroidStudioProjects/GamblingBadger1/app/src/main/res/layout/blackjack_set_bet_popup.xml" value="0.253125" />
         <entry key="..\:/Documents 2/AndroidStudioProjects/GamblingBadger1/app/src/main/res/layout/fragment_b_j_tip.xml" value="0.25416666666666665" />
         <entry key="..\:/Documents 2/AndroidStudioProjects/GamblingBadger1/app/src/main/res/layout/fragment_balance.xml" value="0.25416666666666665" />
         <entry key="..\:/Documents 2/AndroidStudioProjects/GamblingBadger1/app/src/main/res/layout/fragment_blackjack.xml" value="0.2" />
         <entry key="..\:/Documents 2/AndroidStudioProjects/GamblingBadger1/app/src/main/res/layout/fragment_blank.xml" value="0.25416666666666665" />
         <entry key="..\:/Documents 2/AndroidStudioProjects/GamblingBadger1/app/src/main/res/layout/fragment_casino_session.xml" value="0.25416666666666665" />
         <entry key="..\:/Documents 2/AndroidStudioProjects/GamblingBadger1/app/src/main/res/layout/fragment_home.xml" value="0.25416666666666665" />
+        <entry key="..\:/Documents 2/AndroidStudioProjects/GamblingBadger1/app/src/main/res/layout/fragment_poker.xml" value="0.25416666666666665" />
         <entry key="..\:/Documents 2/AndroidStudioProjects/GamblingBadger1/app/src/main/res/layout/fragment_start_game.xml" value="0.15260416666666668" />
         <entry key="..\:/Documents 2/AndroidStudioProjects/GamblingBadger1/app/src/main/res/layout/fragment_start_session.xml" value="0.25416666666666665" />
         <entry key="..\:/Documents 2/AndroidStudioProjects/GamblingBadger1/app/src/main/res/layout/image_spinner_layout.xml" value="0.25416666666666665" />

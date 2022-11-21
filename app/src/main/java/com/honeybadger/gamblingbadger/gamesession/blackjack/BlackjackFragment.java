@@ -365,6 +365,12 @@ public class BlackjackFragment extends Fragment {
 
     private void actionSetBet() {
         // TODO
+        AlertDialog.Builder dialogBuilder = new AlertDialog.Builder(getContext());
+
+        View blackjackSetBetPopup = getLayoutInflater().inflate(R.layout.blackjack_set_bet_popup, null);
+
+
+
         TextView betDisplay = (TextView) getActivity().findViewById(R.id.betTextview);
         betDisplay.setText("HELLO"); //temporary test in place of setBet method
     }
