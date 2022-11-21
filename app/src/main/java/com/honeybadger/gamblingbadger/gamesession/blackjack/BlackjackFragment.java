@@ -10,6 +10,7 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.widget.AdapterView;
 import android.widget.Button;
+import android.widget.EditText;
 import android.widget.NumberPicker;
 import android.widget.Spinner;
 import android.widget.TextView;
@@ -23,6 +24,7 @@ import androidx.navigation.Navigation;
 import androidx.navigation.fragment.NavHostFragment;
 import androidx.navigation.ui.NavigationUI;
 
+import com.google.android.material.textfield.TextInputLayout;
 import com.honeybadger.gamblingbadger.ImageSpinnerAdapter;
 import com.honeybadger.gamblingbadger.R;
 import com.honeybadger.gamblingbadger.cards.Card;
@@ -33,6 +35,7 @@ import com.honeybadger.gamblingbadger.databinding.FragmentBlackjackBinding;
 import com.honeybadger.gamblingbadger.gamesession.StartGameFragment;
 import com.honeybadger.gamblingbadger.tips.BJTipFrag;
 
+import java.math.BigDecimal;
 import java.util.LinkedList;
 import java.util.List;
 
@@ -46,6 +49,8 @@ public class BlackjackFragment extends Fragment {
 
     private AlertDialog addCardDialog;
 
+    private AlertDialog setBetDialog; //added this for setting bets
+
     private AlertDialog changeNumberOfDecksDialog;
 
     private static final Integer[] imageIconDatabase = {R.drawable.ace_of_spades,
@@ -56,7 +61,7 @@ public class BlackjackFragment extends Fragment {
 
     private Card dealerCard;
     private List<Card> userHand;
-    private int bet;
+    private BigDecimal bet;
 
     public static BlackjackRound blackjackround;
     public static @Nullable BlackjackSession blackjackSession;
@@ -369,6 +374,29 @@ public class BlackjackFragment extends Fragment {
 
         View blackjackSetBetPopup = getLayoutInflater().inflate(R.layout.blackjack_set_bet_popup, null);
 
+        Button ConfirmButton = (Button) blackjackSetBetPopup.findViewById(R.id.ConfirmButton);
+        Button CancelButton = (Button) blackjackSetBetPopup.findViewById(R.id.CancelButton);
+        EditText SetBetInput = (EditText) blackjackSetBetPopup.findViewById(R.id.TextInputSetBet);
+
+        dialogBuilder.setView(blackjackSetBetPopup);
+        setBetDialog = dialogBuilder.create();
+        setBetDialog.show();
+
+        bet = new BigDecimal(SetBetInput.getText().toString());
+
+        ConfirmButton.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                setBetDialog.dismiss();
+            }
+        });
+
+        CancelButton.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                setBetDialog.dismiss();
+            }
+        });
 
 
         TextView betDisplay = (TextView) getActivity().findViewById(R.id.betTextview);

@@ -6,7 +6,7 @@
     android:layout_height="match_parent">
 
     <Button
-        android:id="@+id/Confirm"
+        android:id="@+id/ConfirmButton"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:text="Confirm"
@@ -29,13 +29,15 @@
         app:layout_constraintTop_toTopOf="parent"
         app:layout_constraintVertical_bias="0.612" />
 
-    <com.google.android.material.textfield.TextInputEditText
-        android:layout_width="259dp"
+    <EditText
+        android:id="@+id/TextInputSetBet"
+        android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:hint="Set Bet Amount"
+        android:ems="10"
+        android:inputType="textPersonName"
+        android:text="Set Bet Amount"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.447"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
 </androidx.constraintlayout.widget.ConstraintLayout>
