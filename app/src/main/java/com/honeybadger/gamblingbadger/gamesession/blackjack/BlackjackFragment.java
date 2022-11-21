@@ -382,7 +382,7 @@ public class BlackjackFragment extends Fragment {
         setBetDialog = dialogBuilder.create();
         setBetDialog.show();
 
-        bet = new BigDecimal(SetBetInput.getText().toString());
+        //bet = new BigDecimal(SetBetInput.getText().toString()); //DONT USE THIS, CRASHES APP. Keeping this here just for now
 
         ConfirmButton.setOnClickListener(new View.OnClickListener() {
             @Override
