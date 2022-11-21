@@ -104,24 +104,15 @@ public class BlackjackRound extends CardRound {
 
     public float getOdds(){
         //TODO
-        int oddsforbust = 0;
 
-        numberOfDecks = 1;
-        return numberOfDecks;
+        return 1; //placeholder
     }
 
     public String getRecomendedAction() {
         //TODO
-        //String action = "";
-        //if(odds < )
-        return "null";
+
+        return "null"; //placeholder
     }
-
-
-
-
-
-
 
     /// LEGACY:
 

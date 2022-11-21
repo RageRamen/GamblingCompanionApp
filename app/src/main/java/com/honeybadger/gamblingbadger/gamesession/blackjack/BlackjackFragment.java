@@ -364,7 +364,7 @@ public class BlackjackFragment extends Fragment {
     private void actionSetBet() {
         // TODO
         TextView betDisplay = (TextView) getActivity().findViewById(R.id.betTextview);
-        betDisplay.setText("HELLO"); //test for setting bet method
+        betDisplay.setText("HELLO"); //temporary test in place of setBet method
     }
 
     private void initButtonGetOdds() {
@@ -378,7 +378,7 @@ public class BlackjackFragment extends Fragment {
 
     private void actionGetOdds() {
         // TODO
-        TextView oddsDisplay = (TextView) getActivity().findViewById(R.id.oddstextview);
+        TextView oddsDisplay = (TextView) getActivity().findViewById(R.id.oddsTextview);
         oddsDisplay.setText("HELLO"); //test, put getOdds() method here. From BlackjackRound
     }
 

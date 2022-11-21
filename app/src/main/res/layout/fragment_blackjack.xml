@@ -140,7 +140,7 @@
         app:layout_constraintTop_toBottomOf="@+id/textView3" />
 
     <TextView
-        android:id="@+id/oddstextview"
+        android:id="@+id/oddsTextview"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:text="Odds Percent of Bust"
