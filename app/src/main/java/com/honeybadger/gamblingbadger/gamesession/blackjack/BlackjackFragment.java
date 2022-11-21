@@ -387,6 +387,14 @@ public class BlackjackFragment extends Fragment {
         ConfirmButton.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
+                try {
+                    bet = new BigDecimal(SetBetInput.getText().toString());
+                    TextView betDisplay = (TextView) getActivity().findViewById(R.id.betTextview);
+                    betDisplay.setText(SetBetInput.getText().toString()); //displays the bet input
+                }
+                catch (NumberFormatException e) {
+                    //catch prevents bet from getting an invalid number. Also prevent crash if bet is an invalid value
+                }
                 setBetDialog.dismiss();
             }
         });
@@ -399,8 +407,8 @@ public class BlackjackFragment extends Fragment {
         });
 
 
-        TextView betDisplay = (TextView) getActivity().findViewById(R.id.betTextview);
-        betDisplay.setText("HELLO"); //temporary test in place of setBet method
+        //TextView betDisplay = (TextView) getActivity().findViewById(R.id.betTextview);
+        //betDisplay.setText("HELLO"); //temporary test in place of setBet method
     }
 
     private void initButtonGetOdds() {
