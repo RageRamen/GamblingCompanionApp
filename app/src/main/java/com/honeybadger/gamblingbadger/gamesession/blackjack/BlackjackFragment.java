@@ -430,7 +430,7 @@ public class BlackjackFragment extends Fragment {
     }
 
     private void initButtonWinGame() {
-        binding.GetOddsButton.setOnClickListener(new View.OnClickListener() {
+        binding.WinButton.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
                 actionWinGame();
@@ -439,7 +439,7 @@ public class BlackjackFragment extends Fragment {
     }
 
     private void initButtonLoseGame() {
-        binding.GetOddsButton.setOnClickListener(new View.OnClickListener() {
+        binding.LoseButton.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
                 actionLoseGame();
@@ -450,13 +450,14 @@ public class BlackjackFragment extends Fragment {
 
     private void actionWinGame() {
         // TODO
-        blackjackround.setWin(true);
+
+        //blackjackround.setWin(true);
         blackjackSession.applyRound(blackjackround); //adds the round info into sesssion even if you win or lose since winning or losing means you're done with that single round
     }
 
     private void actionLoseGame() {
         // TODO
-        blackjackround.setWin(false);
+        //blackjackround.setWin(false);
         blackjackSession.applyRound(blackjackround);
     }
 
