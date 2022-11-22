@@ -98,6 +98,8 @@ public class BlackjackFragment extends Fragment {
         initButtonAddUserCard();
         initTextViewNumberOfDecks();
         initButtonGetOdds();
+        initButtonWinGame();
+        initButtonLoseGame();
     }
 
     @Override
@@ -427,15 +429,35 @@ public class BlackjackFragment extends Fragment {
         oddsDisplay.setText("HELLO"); //test, put getOdds() method here. From BlackjackRound
     }
 
+    private void initButtonWinGame() {
+        binding.GetOddsButton.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                actionWinGame();
+            }
+        });
+    }
+
+    private void initButtonLoseGame() {
+        binding.GetOddsButton.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                actionLoseGame();
+            }
+        });
+    }
+
+
     private void actionWinGame() {
         // TODO
-        //blackjackSession.getRounds().setWin(true);
-        //setWin(true);
+        blackjackround.setWin(true);
+        blackjackSession.applyRound(blackjackround); //adds the round info into sesssion even if you win or lose since winning or losing means you're done with that single round
     }
 
     private void actionLoseGame() {
         // TODO
-
+        blackjackround.setWin(false);
+        blackjackSession.applyRound(blackjackround);
     }
 
     public void actionEndSession() {
