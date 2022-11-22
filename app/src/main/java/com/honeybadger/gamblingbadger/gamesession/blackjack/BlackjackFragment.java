@@ -232,6 +232,7 @@ public class BlackjackFragment extends Fragment {
             public void onClick(View view) {
                 actionAddCardToUserHand(new Card(ECardSuit.ANY, ECardNum.A));
                 addCardDialog.dismiss();
+                updateUserCardAmountText();
             }
         });
         button2.setOnClickListener(new View.OnClickListener() {
@@ -239,6 +240,7 @@ public class BlackjackFragment extends Fragment {
             public void onClick(View view) {
                 actionAddCardToUserHand(new Card(ECardSuit.ANY, ECardNum.N_2));
                 addCardDialog.dismiss();
+                updateUserCardAmountText();
             }
         });
         button3.setOnClickListener(new View.OnClickListener() {
@@ -246,6 +248,7 @@ public class BlackjackFragment extends Fragment {
             public void onClick(View view) {
                 actionAddCardToUserHand(new Card(ECardSuit.ANY, ECardNum.N_3));
                 addCardDialog.dismiss();
+                updateUserCardAmountText();
             }
         });
         button4.setOnClickListener(new View.OnClickListener() {
@@ -253,6 +256,7 @@ public class BlackjackFragment extends Fragment {
             public void onClick(View view) {
                 actionAddCardToUserHand(new Card(ECardSuit.ANY, ECardNum.N_4));
                 addCardDialog.dismiss();
+                updateUserCardAmountText();
             }
         });
         button5.setOnClickListener(new View.OnClickListener() {
@@ -260,6 +264,7 @@ public class BlackjackFragment extends Fragment {
             public void onClick(View view) {
                 actionAddCardToUserHand(new Card(ECardSuit.ANY, ECardNum.N_5));
                 addCardDialog.dismiss();
+                updateUserCardAmountText();
             }
         });
         button6.setOnClickListener(new View.OnClickListener() {
@@ -267,6 +272,7 @@ public class BlackjackFragment extends Fragment {
             public void onClick(View view) {
                 actionAddCardToUserHand(new Card(ECardSuit.ANY, ECardNum.N_6));
                 addCardDialog.dismiss();
+                updateUserCardAmountText();
             }
         });
         button7.setOnClickListener(new View.OnClickListener() {
@@ -274,6 +280,7 @@ public class BlackjackFragment extends Fragment {
             public void onClick(View view) {
                 actionAddCardToUserHand(new Card(ECardSuit.ANY, ECardNum.N_7));
                 addCardDialog.dismiss();
+                updateUserCardAmountText();
             }
         });
         button8.setOnClickListener(new View.OnClickListener() {
@@ -281,6 +288,7 @@ public class BlackjackFragment extends Fragment {
             public void onClick(View view) {
                 actionAddCardToUserHand(new Card(ECardSuit.ANY, ECardNum.N_8));
                 addCardDialog.dismiss();
+                updateUserCardAmountText();
             }
         });
         button9.setOnClickListener(new View.OnClickListener() {
@@ -288,6 +296,7 @@ public class BlackjackFragment extends Fragment {
             public void onClick(View view) {
                 actionAddCardToUserHand(new Card(ECardSuit.ANY, ECardNum.N_9));
                 addCardDialog.dismiss();
+                updateUserCardAmountText();
             }
         });
         button10.setOnClickListener(new View.OnClickListener() {
@@ -295,6 +304,7 @@ public class BlackjackFragment extends Fragment {
             public void onClick(View view) {
                 actionAddCardToUserHand(new Card(ECardSuit.ANY, ECardNum.N_10));
                 addCardDialog.dismiss();
+                updateUserCardAmountText();
             }
         });
         buttonJ.setOnClickListener(new View.OnClickListener() {
@@ -302,6 +312,7 @@ public class BlackjackFragment extends Fragment {
             public void onClick(View view) {
                 actionAddCardToUserHand(new Card(ECardSuit.ANY, ECardNum.J));
                 addCardDialog.dismiss();
+                updateUserCardAmountText();
             }
         });
         buttonQ.setOnClickListener(new View.OnClickListener() {
@@ -309,6 +320,7 @@ public class BlackjackFragment extends Fragment {
             public void onClick(View view) {
                 actionAddCardToUserHand(new Card(ECardSuit.ANY, ECardNum.Q));
                 addCardDialog.dismiss();
+                updateUserCardAmountText();
             }
         });
         buttonK.setOnClickListener(new View.OnClickListener() {
@@ -316,6 +328,7 @@ public class BlackjackFragment extends Fragment {
             public void onClick(View view) {
                 actionAddCardToUserHand(new Card(ECardSuit.ANY, ECardNum.K));
                 addCardDialog.dismiss();
+                updateUserCardAmountText();
             }
         });
 
@@ -325,6 +338,16 @@ public class BlackjackFragment extends Fragment {
                 addCardDialog.dismiss();
             }
         });
+
+    }
+
+    private void updateUserCardAmountText(){
+        TextView UserCardAmountTextView = (TextView) getActivity().findViewById(R.id.UserCardAmount);
+        String tempcardview = "";
+        for(int x = 0; x<userHand.size(); x++){
+            tempcardview += userHand.get(x).getECardNum() + ", ";
+        }
+        UserCardAmountTextView.setText(tempcardview);
     }
 
     private void actionShowChangeNumberOfDecksAlert() {
@@ -451,7 +474,7 @@ public class BlackjackFragment extends Fragment {
     private void actionWinGame() {
         // TODO
 
-        //blackjackround.setWin(true);
+        //blackjackround.setWin(true); //Currently this line crashes, needs a method to set the win value. setBet(boolean win) in Card.java isn't good for this since it returns CardRound, I need a void method.
         blackjackSession.applyRound(blackjackround); //adds the round info into sesssion even if you win or lose since winning or losing means you're done with that single round
     }
 

@@ -138,4 +138,8 @@ public class Card {
 
         return deck;
     }
+
+    public ECardNum getECardNum(){
+        return this.num;
+    }
 }
