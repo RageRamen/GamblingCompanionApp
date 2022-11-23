@@ -126,6 +126,20 @@
     <string name="add1">add</string>
     <string name="hello">Hello</string>
     <string name="subtract">SUBTRACT</string>
+    <string name="addbalancefrag_addamt">addBalanceFrag_addAmt</string>
+    <string name="addbalancefrag_addAmt">addbalancefrag_addamt</string>
+    <string name="enter_amount_to_add">Enter Amount to Add</string>
+    <string name="button">Button</string>
+    <string name="back">Back</string>
+    <string name="Add">ADD</string>
+    <string name="Enter_amount_to_add">Enter Amount to Add</string>
+    <string name="enterAmountToAdd">Enter Amount to Add</string>
+    <string name="addbalancefrag_hint">addBalancefrag_hint</string>
+    <string name="subbalancefrag_subamt">subBalanceFrag_subAmt</string>
+    <string name="enter_amount_to_subtract">Enter Amount to Subtract</string>
+    <string name="BACK">BACK</string>
+    <string name="SUBTRACT">Button</string>
+    <string name="SUB">SUBTRACT</string>
 
     <!-- TODO: Remove or change this placeholder text -->
 </resources>

@@ -57,6 +57,9 @@
         <action
             android:id="@+id/action_casinoSessionFragment_to_casinoStatisticsFragment"
             app:destination="@id/casinoStatisticsFragment" />
+        <action
+            android:id="@+id/action_casinoSessionFragment_to_changeBalanceFragment"
+            app:destination="@id/changeBalanceFragment" />
     </fragment>
     <fragment
         android:id="@+id/startGameFragment"
@@ -238,6 +241,36 @@
             app:destination="@id/homeFragment" />
         <action
             android:id="@+id/action_specificGameStatisticsFragment_to_casinoSessionFragment"
+            app:destination="@id/casinoSessionFragment" />
+    </fragment>
+    <fragment
+        android:id="@+id/changeBalanceFragment"
+        android:name="com.honeybadger.gamblingbadger.balance.ChangeBalanceFragment"
+        android:label="fragment_change_balance"
+        tools:layout="@layout/fragment_change_balance" >
+        <action
+            android:id="@+id/action_changeBalanceFragment_to_addBalanceFragment"
+            app:destination="@id/addBalanceFragment" />
+        <action
+            android:id="@+id/action_changeBalanceFragment_to_subBalanceFragment"
+            app:destination="@id/subBalanceFragment" />
+    </fragment>
+    <fragment
+        android:id="@+id/addBalanceFragment"
+        android:name="com.honeybadger.gamblingbadger.balance.AddBalanceFragment"
+        android:label="fragment_add_balance"
+        tools:layout="@layout/fragment_add_balance" >
+        <action
+            android:id="@+id/action_addBalanceFragment_to_casinoSessionFragment"
+            app:destination="@id/casinoSessionFragment" />
+    </fragment>
+    <fragment
+        android:id="@+id/subBalanceFragment"
+        android:name="com.honeybadger.gamblingbadger.balance.SubBalanceFragment"
+        android:label="fragment_sub_balance"
+        tools:layout="@layout/fragment_sub_balance" >
+        <action
+            android:id="@+id/action_subBalanceFragment_to_casinoSessionFragment"
             app:destination="@id/casinoSessionFragment" />
     </fragment>
 </navigation>

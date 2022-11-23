@@ -50,6 +50,7 @@ public class StartSessionFragment extends Fragment {
 
     }
 
+
     public void onViewCreated(@NonNull View view, Bundle savedInstanceState) {
         super.onViewCreated(view, savedInstanceState);
 
@@ -126,12 +127,15 @@ public class StartSessionFragment extends Fragment {
         // TODO: vv Make sure valid input vv
         BigDecimal inputBalance;
         try {
+            //startSessionFrag_editTextNumberDecimal_balance
             inputBalance = new BigDecimal(binding.startSessionFragEditTextNumberDecimalBalance.getText().toString());
         }
         catch (NumberFormatException e) {
             alertInvalidBalance.show();
             return;
         }
+
+        //create another action Function
 
         // Create Casino Session
         CasinoSessionFragment.casinoSession = new CasinoSession(new Balance(inputBalance)); //links back to balance.java, gets start balance
