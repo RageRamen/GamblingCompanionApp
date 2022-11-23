@@ -56,7 +56,7 @@ public class CasinoSessionFragment extends Fragment {
         super.onViewCreated(view, savedInstanceState);
 
         // Visual
-        binding.casinoSessionFragTextviewText.setText(casinoSession.getBalance().getCurrentBalance().toString());
+        binding.casinoSessionFragTextviewText.setText("DEBUG Balance: " + casinoSession.getBalance().getCurrentBalance().toString());
 
         // Button bindings
         initButtonStartGame();

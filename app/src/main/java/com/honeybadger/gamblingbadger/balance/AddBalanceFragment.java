@@ -44,7 +44,7 @@ public class AddBalanceFragment extends Fragment {
     ) {
 
         // Alert Builder
-        initAlertBuildersEndSession();
+        initAlertBuilderEndSession();
 
         binding = FragmentAddBalanceBinding.inflate(inflater, container, false);
         return binding.getRoot();
@@ -88,7 +88,7 @@ public class AddBalanceFragment extends Fragment {
 
     // Alert Initializers:
 
-    private void initAlertBuildersEndSession() {
+    private void initAlertBuilderEndSession() {
         alertInvalidBalance = new AlertDialog.Builder(this.getActivity());
         alertInvalidBalance.setCancelable(true);
         alertInvalidBalance.setTitle(R.string.startSessionFrag_alert_invalidBalance_title);
