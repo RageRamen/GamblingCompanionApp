@@ -140,6 +140,8 @@
     <string name="BACK">BACK</string>
     <string name="SUBTRACT">Button</string>
     <string name="SUB">SUBTRACT</string>
+    <string name="enter_amount_to_ad">Enter Amount to Add</string>
+    <string name="enter_amount_t_subtract">Enter Amount to Subtract</string>
 
     <!-- TODO: Remove or change this placeholder text -->
 </resources>

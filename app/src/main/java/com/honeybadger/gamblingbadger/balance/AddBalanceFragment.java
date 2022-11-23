@@ -15,6 +15,8 @@ import androidx.fragment.app.Fragment;
 import androidx.navigation.fragment.NavHostFragment;
 
 import com.honeybadger.gamblingbadger.R;
+import com.honeybadger.gamblingbadger.casinosession.CasinoSession;
+import com.honeybadger.gamblingbadger.casinosession.CasinoSessionFragment;
 import com.honeybadger.gamblingbadger.databinding.FragmentAddBalanceBinding;
 
 import java.math.BigDecimal;
@@ -124,20 +126,20 @@ public class AddBalanceFragment extends Fragment {
     private void actionAddToBalance() {
         // Get input
         // TODO: vv Make sure valid input vv
-        BigDecimal inputBalance;
+        BigDecimal addAmount;
         try {
-            //startSessionFrag_editTextNumberDecimal_balance
-            inputBalance = new BigDecimal(binding.addBalanceFragButtonAdd.getText().toString()); //needs to be redone - not working as intended
+            addAmount = new BigDecimal(binding.addBalanceFragButtonAdd.getText().toString());
+            // Add addAmount to balance on running Casino Session
+            assert CasinoSessionFragment.casinoSession != null;
+            //Get the existing balance in a casino session by calling getBalance()
+            // the Balance returned by getBalance() is the balance of the casino session itself
+            Balance casinoSessionBalance = CasinoSessionFragment.casinoSession.getBalance();
+            casinoSessionBalance.addToBalance(addAmount);
         }
         catch (NumberFormatException e) {
             alertInvalidBalance.show();
             return;
         }
-
-        //create another action Function
-
-        // Create Casino Session
-        //CasinoSessionFragment.casinoSession = new CasinoSession(new Balance(inputBalance)); //links back to balance.java, gets start balance
 
         // Navigate to Casino Session
         NavHostFragment.findNavController(AddBalanceFragment.this)

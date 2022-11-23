@@ -135,8 +135,6 @@ public class StartSessionFragment extends Fragment {
             return;
         }
 
-        //create another action Function
-
         // Create Casino Session
         CasinoSessionFragment.casinoSession = new CasinoSession(new Balance(inputBalance)); //links back to balance.java, gets start balance
 
