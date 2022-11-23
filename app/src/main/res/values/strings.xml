@@ -118,7 +118,7 @@
     <string name="blackjackChangeNumberOfDecksPopup_textView_instructions_text">Select the number of decks:</string>
     <string name="blackjackChangeNumberOfDecksPopup_button_apply_label">Apply</string>
 
-    <!-- Other -->
+    <!-- AddBalanceFragment -->
 
     <string name="image">Image</string>
     <string name="add">Add</string>
@@ -136,6 +136,8 @@
     <string name="enterAmountToAdd">Enter Amount to Add</string>
     <string name="addbalancefrag_hint">addBalancefrag_hint</string>
     <string name="subbalancefrag_subamt">subBalanceFrag_subAmt</string>
+
+    <!-- SubBalanceFragment -->
     <string name="enter_amount_to_subtract">Enter Amount to Subtract</string>
     <string name="BACK">BACK</string>
     <string name="SUBTRACT">Button</string>

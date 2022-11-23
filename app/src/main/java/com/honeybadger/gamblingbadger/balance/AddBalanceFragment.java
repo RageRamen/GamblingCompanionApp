@@ -128,18 +128,20 @@ public class AddBalanceFragment extends Fragment {
         // TODO: vv Make sure valid input vv
         BigDecimal addAmount;
         try {
-            addAmount = new BigDecimal(binding.addBalanceFragButtonAdd.getText().toString());
-            // Add addAmount to balance on running Casino Session
-            assert CasinoSessionFragment.casinoSession != null;
-            //Get the existing balance in a casino session by calling getBalance()
-            // the Balance returned by getBalance() is the balance of the casino session itself
-            Balance casinoSessionBalance = CasinoSessionFragment.casinoSession.getBalance();
-            casinoSessionBalance.addToBalance(addAmount); //test
+            addAmount = new BigDecimal(binding.addBalanceFragAddAmt.getText().toString());
+
         }
         catch (NumberFormatException e) {
             alertInvalidBalance.show();
             return;
         }
+
+        // Add addAmount to balance on running Casino Session
+        assert CasinoSessionFragment.casinoSession != null;
+        //Get the existing balance in a casino session by calling getBalance()
+        // the Balance returned by getBalance() is the balance of the casino session itself
+        Balance casinoSessionBalance = CasinoSessionFragment.casinoSession.getBalance();
+        casinoSessionBalance.addToBalance(addAmount); //test
 
         // Navigate to Casino Session
         NavHostFragment.findNavController(AddBalanceFragment.this)
