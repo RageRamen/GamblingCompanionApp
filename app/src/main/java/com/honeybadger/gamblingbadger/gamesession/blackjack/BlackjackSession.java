@@ -1,5 +1,6 @@
 package com.honeybadger.gamblingbadger.gamesession.blackjack;
 
+import com.honeybadger.gamblingbadger.cards.Card;
 import com.honeybadger.gamblingbadger.casinosession.CasinoSession;
 import com.honeybadger.gamblingbadger.gamesession.*;
 import com.honeybadger.gamblingbadger.statistics.LongListOfData;
@@ -56,6 +57,14 @@ public class BlackjackSession extends GameSession {
     }
 
     // ACTION METHODS:
+
+    public void applyRound(BlackjackRound blackjackround){ //adds the blackjack round played into the backjack session
+        this.rounds.add(blackjackround);
+    }
+
+    public void getRoundPrediction(Card[] card, Card car1){
+
+    }
 
     public boolean closeSession() {
         // TODO
