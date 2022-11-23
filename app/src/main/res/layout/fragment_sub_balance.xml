@@ -10,7 +10,7 @@
     <!-- TODO: Update blank fragment layout -->
 
     <Button
-        android:id="@+id/startSessionFrag_button_SUBTRACT"
+        android:id="@+id/subBalanceFrag_button_SUBTRACT"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:text="@string/SUB"

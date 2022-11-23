@@ -1,66 +1,157 @@
 package com.honeybadger.gamblingbadger.balance;
 
+import android.app.AlertDialog;
+import android.content.DialogInterface;
 import android.os.Bundle;
-
-import androidx.fragment.app.Fragment;
-
 import android.view.LayoutInflater;
+import android.view.Menu;
+import android.view.MenuInflater;
+import android.view.MenuItem;
 import android.view.View;
 import android.view.ViewGroup;
 
-import com.honeybadger.gamblingbadger.R;
+import androidx.annotation.NonNull;
+import androidx.fragment.app.Fragment;
+import androidx.navigation.fragment.NavHostFragment;
 
-/**
- * A simple {@link Fragment} subclass.
- * Use the {@link SubBalanceFragment#newInstance} factory method to
- * create an instance of this fragment.
- */
+import com.honeybadger.gamblingbadger.R;
+import com.honeybadger.gamblingbadger.casinosession.CasinoSessionFragment;
+import com.honeybadger.gamblingbadger.databinding.FragmentSubBalanceBinding;
+
+import java.math.BigDecimal;
+
 public class SubBalanceFragment extends Fragment {
 
-    // TODO: Rename parameter arguments, choose names that match
-    // the fragment initialization parameters, e.g. ARG_ITEM_NUMBER
-    private static final String ARG_PARAM1 = "param1";
-    private static final String ARG_PARAM2 = "param2";
+    private FragmentSubBalanceBinding binding;
 
-    // TODO: Rename and change types of parameters
-    private String mParam1;
-    private String mParam2;
+    private AlertDialog.Builder alertInvalidBalance;
 
-    public SubBalanceFragment() {
-        // Required empty public constructor
-    }
-
-    /**
-     * Use this factory method to create a new instance of
-     * this fragment using the provided parameters.
-     *
-     * @param param1 Parameter 1.
-     * @param param2 Parameter 2.
-     * @return A new instance of fragment SubBalanceFragment.
-     */
-    // TODO: Rename and change types and number of parameters
-    public static SubBalanceFragment newInstance(String param1, String param2) {
-        SubBalanceFragment fragment = new SubBalanceFragment();
-        Bundle args = new Bundle();
-        args.putString(ARG_PARAM1, param1);
-        args.putString(ARG_PARAM2, param2);
-        fragment.setArguments(args);
-        return fragment;
-    }
+    // Fragment Events:
 
     @Override
     public void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        if (getArguments() != null) {
-            mParam1 = getArguments().getString(ARG_PARAM1);
-            mParam2 = getArguments().getString(ARG_PARAM2);
-        }
+
+        // Options menu
+        setHasOptionsMenu(true);
     }
 
     @Override
-    public View onCreateView(LayoutInflater inflater, ViewGroup container,
-                             Bundle savedInstanceState) {
-        // Inflate the layout for this fragment
-        return inflater.inflate(R.layout.fragment_sub_balance, container, false);
+    public View onCreateView(
+            LayoutInflater inflater, ViewGroup container,
+            Bundle savedInstanceState
+    ) {
+
+        // Alert Builder
+        initAlertBuilderEndSession();
+
+        binding = FragmentSubBalanceBinding.inflate(inflater, container, false);
+        return binding.getRoot();
+
     }
+
+
+    public void onViewCreated(@NonNull View view, Bundle savedInstanceState) {
+        super.onViewCreated(view, savedInstanceState);
+
+        initSubButton();
+        initBackButton();
+    }
+
+    @Override
+    public void onDestroyView() {
+        super.onDestroyView();
+        binding = null;
+    }
+
+    @Override
+    public void onCreateOptionsMenu(Menu menu, MenuInflater inflater) {
+        // menu.clear();
+        // inflater.inflate(R.menu.menu_blackjack, menu);
+
+        super.onCreateOptionsMenu(menu, inflater);
+    }
+
+    @Override
+    public boolean onOptionsItemSelected(MenuItem item) {
+        int id = item.getItemId();
+
+        //noinspection SimplifiableIfStatement
+        if (item.getItemId() == android.R.id.home) {
+            actionGoBackHome();
+            return true; // must return true to consume it here
+        }
+
+        return super.onOptionsItemSelected(item);
+    }
+
+    // Alert Initializers:
+
+    // TODO
+    //Change the texts in errors thrown
+    private void initAlertBuilderEndSession() {
+        alertInvalidBalance = new AlertDialog.Builder(this.getActivity());
+        alertInvalidBalance.setCancelable(true);
+        alertInvalidBalance.setTitle(R.string.startSessionFrag_alert_invalidBalance_title);
+        alertInvalidBalance.setMessage(R.string.startSessionFrag_alert_invalidBalance_message);
+        alertInvalidBalance.setNeutralButton(R.string.startSessionFrag_alert_invalidBalance_neutral,
+                new DialogInterface.OnClickListener() {
+                    @Override
+                    public void onClick(DialogInterface dialogInterface, int i) {
+                    }
+                });
+    }
+
+    // Interface Initializers:
+
+    private void initSubButton() {
+        binding.subBalanceFragSubAmt.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                actionSubFromBalance();
+            }
+        });
+    }
+
+    private void initBackButton() {
+        binding.subBalanceFragButtonBack.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                actionGoBackHome();
+            }
+        });
+    }
+
+    // Actions:
+
+    private void actionSubFromBalance() {
+        // Get input
+        // TODO: vv Make sure valid input vv
+        BigDecimal subAmount;
+        try {
+            subAmount = new BigDecimal(binding.subBalanceFragButtonSUBTRACT.getText().toString());
+        }
+        catch (NumberFormatException e) {
+            alertInvalidBalance.show();
+            return;
+        }
+
+        // Add addAmount to balance on running Casino Session
+        assert CasinoSessionFragment.casinoSession != null;
+        //Get the existing balance in a casino session by calling getBalance()
+        // the Balance returned by getBalance() is the balance of the casino session itself
+        Balance casinoSessionBalance = CasinoSessionFragment.casinoSession.getBalance();
+        casinoSessionBalance.addToBalance(subAmount); //test
+
+        // Navigate to Casino Session
+        NavHostFragment.findNavController(SubBalanceFragment.this)
+                .navigate(R.id.action_subBalanceFragment_to_casinoSessionFragment);
+    }
+
+    private void actionGoBackHome() {
+        // Navigate Home
+        NavHostFragment.findNavController(SubBalanceFragment.this)
+                .navigate(R.id.action_subBalanceFragment_to_casinoSessionFragment);
+    }
+
 }
