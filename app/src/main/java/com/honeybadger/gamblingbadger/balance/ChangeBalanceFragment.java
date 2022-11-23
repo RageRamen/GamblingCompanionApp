@@ -10,6 +10,7 @@ import androidx.fragment.app.Fragment;
 import androidx.navigation.fragment.NavHostFragment;
 
 import com.honeybadger.gamblingbadger.R;
+import com.honeybadger.gamblingbadger.casinosession.StartSessionFragment;
 import com.honeybadger.gamblingbadger.databinding.FragmentChangeBalanceBinding;
 
 public class ChangeBalanceFragment extends Fragment
@@ -30,6 +31,7 @@ public class ChangeBalanceFragment extends Fragment
 
         initButtonAdd();
         initButtonSub();
+        initBackButton();
 
     }
 
@@ -62,15 +64,32 @@ public class ChangeBalanceFragment extends Fragment
         });
     }
 
+    private void initBackButton() {
+        binding.changBalFragButtonBack.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                actionGoBackHome();
+            }
+        });
+    }
+
 
     // ACTIONS:
 
     private void actionGoToAdd() {
-        NavHostFragment.findNavController(ChangeBalanceFragment.this).navigate(R.id.action_changeBalanceFragment_to_addBalanceFragment);
+        NavHostFragment.findNavController(ChangeBalanceFragment.this)
+                .navigate(R.id.action_changeBalanceFragment_to_addBalanceFragment);
     }
 
     private void actionGoToSub() {
-        NavHostFragment.findNavController((ChangeBalanceFragment.this)).navigate(R.id.action_changeBalanceFragment_to_subBalanceFragment);
+        NavHostFragment.findNavController((ChangeBalanceFragment.this))
+                .navigate(R.id.action_changeBalanceFragment_to_subBalanceFragment);
+    }
+
+    private void actionGoBackHome() {
+        // Navigate Home
+        NavHostFragment.findNavController(ChangeBalanceFragment.this)
+                .navigate(R.id.action_changeBalanceFragment_to_subBalanceFragment);
     }
 
 }

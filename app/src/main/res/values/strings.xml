@@ -144,6 +144,7 @@
     <string name="SUB">SUBTRACT</string>
     <string name="enter_amount_to_ad">Enter Amount to Add</string>
     <string name="enter_amount_t_subtract">Enter Amount to Subtract</string>
+    <string name="Back">Back</string>
 
     <!-- TODO: Remove or change this placeholder text -->
 </resources>
