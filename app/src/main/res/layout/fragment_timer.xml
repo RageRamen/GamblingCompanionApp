@@ -6,18 +6,6 @@
     android:layout_height="match_parent"
     tools:context=".timer.TimerFragment" >
 
-    <Button
-        android:id="@+id/timerFrag_button_back"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="@string/timerFrag_button_back_label"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.003"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.0" />
-
     <NumberPicker
         android:id="@+id/npH"
         android:layout_width="wrap_content"
@@ -80,16 +68,13 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginBottom="152dp"
-        android:text="TextView"
         android:textColor="@color/black"
-        android:textSize="20dp"
-        android:visibility="invisible"
+        android:textSize="20sp"
+        android:visibility="visible"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.498"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/changBalFrag_button_Subtract"
-        app:layout_constraintVertical_bias="0.237" />
+        app:layout_constraintStart_toStartOf="parent" />
 
     <Button
         android:id="@+id/conbutton"

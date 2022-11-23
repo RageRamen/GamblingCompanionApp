@@ -1,13 +1,18 @@
 package com.honeybadger.gamblingbadger.timer;
 
+import android.os.CountDownTimer;
 import java.time.LocalDateTime;
 import java.time.ZoneId;
 import java.util.Calendar;
 import java.util.Date;
 
-public class Timer {
-    // Constructor
+public class Timer
+{
+    public boolean isRunning;
+    public long msRemaining;
+    public CountDownTimer attachedCDT;
 
+    // Constructor
     public Timer()
     {
 

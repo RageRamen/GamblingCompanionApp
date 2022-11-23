@@ -1,5 +1,7 @@
 package com.honeybadger.gamblingbadger.casinosession;
 
+import android.util.Log;
+
 import java.math.BigDecimal;
 import java.time.LocalDateTime;
 import java.time.Duration;
@@ -139,6 +141,12 @@ public class CasinoSession {
     public boolean closeSession() {
         // TODO: Other stuff
         this.sessionEndTime = Timer.getCurrentTime();
+
+        try // attempts to cancel any running timers associated with that session
+        {
+            this.timer.attachedCDT.cancel();
+        }
+        catch(NullPointerException npe) {Log.w("BEN","Attempted to cancel a nonexistent timer");}
         return false;
     }
 
