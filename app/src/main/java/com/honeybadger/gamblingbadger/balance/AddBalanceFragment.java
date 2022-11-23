@@ -44,7 +44,7 @@ public class AddBalanceFragment extends Fragment {
     ) {
 
         // Alert Builder
-        initAlertBuilderEndSession();
+        initAlertBuildersEndSession();
 
         binding = FragmentAddBalanceBinding.inflate(inflater, container, false);
         return binding.getRoot();
@@ -88,7 +88,7 @@ public class AddBalanceFragment extends Fragment {
 
     // Alert Initializers:
 
-    private void initAlertBuilderEndSession() {
+    private void initAlertBuildersEndSession() {
         alertInvalidBalance = new AlertDialog.Builder(this.getActivity());
         alertInvalidBalance.setCancelable(true);
         alertInvalidBalance.setTitle(R.string.startSessionFrag_alert_invalidBalance_title);
@@ -134,7 +134,7 @@ public class AddBalanceFragment extends Fragment {
             //Get the existing balance in a casino session by calling getBalance()
             // the Balance returned by getBalance() is the balance of the casino session itself
             Balance casinoSessionBalance = CasinoSessionFragment.casinoSession.getBalance();
-            casinoSessionBalance.addToBalance(addAmount);
+            casinoSessionBalance.addToBalance(addAmount); //test
         }
         catch (NumberFormatException e) {
             alertInvalidBalance.show();
