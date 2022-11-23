@@ -149,7 +149,7 @@ public class AddBalanceFragment extends Fragment {
     }
 
     private void actionGoBackHome() {
-        // Navigate Home
+        // Navigate to casino session
         NavHostFragment.findNavController(AddBalanceFragment.this)
                 .navigate(R.id.action_addBalanceFragment_to_casinoSessionFragment);
     }

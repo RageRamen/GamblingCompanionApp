@@ -254,6 +254,9 @@
         <action
             android:id="@+id/action_changeBalanceFragment_to_subBalanceFragment"
             app:destination="@id/subBalanceFragment" />
+        <action
+            android:id="@+id/action_changeBalanceFragment_to_casinoSessionFragment"
+            app:destination="@id/casinoSessionFragment" />
     </fragment>
     <fragment
         android:id="@+id/addBalanceFragment"

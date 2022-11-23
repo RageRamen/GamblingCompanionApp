@@ -87,9 +87,9 @@ public class ChangeBalanceFragment extends Fragment
     }
 
     private void actionGoBackHome() {
-        // Navigate Home
+        // Navigate to casino session
         NavHostFragment.findNavController(ChangeBalanceFragment.this)
-                .navigate(R.id.action_changeBalanceFragment_to_subBalanceFragment);
+                .navigate(R.id.action_changeBalanceFragment_to_casinoSessionFragment);
     }
 
 }
