@@ -56,7 +56,8 @@ public class AddBalanceFragment extends Fragment {
         super.onViewCreated(view, savedInstanceState);
 
         initAddButton();
-        initBackButton();
+        //Removing back button
+        //initBackButton();
     }
 
     @Override
@@ -112,14 +113,16 @@ public class AddBalanceFragment extends Fragment {
         });
     }
 
-    private void initBackButton() {
+
+    //Remove back button
+   /* private void initBackButton() {
         binding.addBalanceFragButtonBack.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
                 actionGoBackHome();
             }
         });
-    }
+    }*/
 
     // Actions:
 
