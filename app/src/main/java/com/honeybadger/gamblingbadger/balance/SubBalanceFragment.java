@@ -105,7 +105,7 @@ public class SubBalanceFragment extends Fragment {
     // Interface Initializers:
 
     private void initSubButton() {
-        binding.subBalanceFragSubAmt.setOnClickListener(new View.OnClickListener() {
+        binding.subBalanceFragButtonSUBTRACT.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
                 actionSubFromBalance();
@@ -129,7 +129,7 @@ public class SubBalanceFragment extends Fragment {
         // TODO: vv Make sure valid input vv
         BigDecimal subAmount;
         try {
-            subAmount = new BigDecimal(binding.subBalanceFragButtonSUBTRACT.getText().toString());
+            subAmount = new BigDecimal(binding.subBalanceFragSubAmt.getText().toString());
         }
         catch (NumberFormatException e) {
             alertInvalidBalance.show();
@@ -141,7 +141,7 @@ public class SubBalanceFragment extends Fragment {
         //Get the existing balance in a casino session by calling getBalance()
         // the Balance returned by getBalance() is the balance of the casino session itself
         Balance casinoSessionBalance = CasinoSessionFragment.casinoSession.getBalance();
-        casinoSessionBalance.addToBalance(subAmount); //test
+        casinoSessionBalance.subFromBalance(subAmount); //test
 
         // Navigate to Casino Session
         NavHostFragment.findNavController(SubBalanceFragment.this)
