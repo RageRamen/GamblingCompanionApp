@@ -145,13 +145,13 @@ public class SubBalanceFragment extends Fragment {
 
         // Navigate to Casino Session
         NavHostFragment.findNavController(SubBalanceFragment.this)
-                .navigate(R.id.action_subBalanceFragment_to_casinoSessionFragment);
+                .navigate(R.id.action_subBalanceFragment_to_casinoSessionFragment2);
     }
 
     private void actionGoBackHome() {
         // Navigate Home
         NavHostFragment.findNavController(SubBalanceFragment.this)
-                .navigate(R.id.action_subBalanceFragment_to_casinoSessionFragment);
+                .navigate(R.id.action_subBalanceFragment_to_changeBalanceFragment);
     }
 
 }

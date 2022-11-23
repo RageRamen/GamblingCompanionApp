@@ -145,13 +145,13 @@ public class AddBalanceFragment extends Fragment {
 
         // Navigate to Casino Session
         NavHostFragment.findNavController(AddBalanceFragment.this)
-                .navigate(R.id.action_addBalanceFragment_to_casinoSessionFragment);
+                .navigate(R.id.action_addBalanceFragment_to_casinoSessionFragment2);
     }
 
     private void actionGoBackHome() {
         // Navigate to casino session
         NavHostFragment.findNavController(AddBalanceFragment.this)
-                .navigate(R.id.action_addBalanceFragment_to_casinoSessionFragment);
+                .navigate(R.id.action_addBalanceFragment_to_changeBalanceFragment);
     }
 
 }

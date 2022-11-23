@@ -264,7 +264,10 @@
         android:label="fragment_add_balance"
         tools:layout="@layout/fragment_add_balance" >
         <action
-            android:id="@+id/action_addBalanceFragment_to_casinoSessionFragment"
+            android:id="@+id/action_addBalanceFragment_to_changeBalanceFragment"
+            app:destination="@id/changeBalanceFragment" />
+        <action
+            android:id="@+id/action_addBalanceFragment_to_casinoSessionFragment2"
             app:destination="@id/casinoSessionFragment" />
     </fragment>
     <fragment
@@ -273,7 +276,10 @@
         android:label="fragment_sub_balance"
         tools:layout="@layout/fragment_sub_balance" >
         <action
-            android:id="@+id/action_subBalanceFragment_to_casinoSessionFragment"
+            android:id="@+id/action_subBalanceFragment_to_changeBalanceFragment"
+            app:destination="@id/changeBalanceFragment" />
+        <action
+            android:id="@+id/action_subBalanceFragment_to_casinoSessionFragment2"
             app:destination="@id/casinoSessionFragment" />
     </fragment>
 </navigation>
