@@ -18,7 +18,7 @@ public class Balance {
 
     // Properties:
 
-    public BigDecimal getBalance() {
+    public BigDecimal getCurrentBalance() {
         return this.currentBalance;
     }
 
