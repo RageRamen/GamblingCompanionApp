@@ -45,7 +45,7 @@ public class TipsFragment extends Fragment {
     public void onViewCreated(@NonNull View view, Bundle savedInstanceState)
     {
         super.onViewCreated(view, savedInstanceState);
-        binding.ButtonHelpBlackjack.setOnClickListener(new View.OnClickListener()
+        binding.buttonHelpBlackjack.setOnClickListener(new View.OnClickListener()
         {
             @Override
             public void onClick(View v)

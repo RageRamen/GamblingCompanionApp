@@ -146,5 +146,20 @@
     <string name="enter_amount_t_subtract">Enter Amount to Subtract</string>
     <string name="Back">Back</string>
 
+    <!-- Tips Strings -->
+    <string name="howToPlay">How to Play</string>
+    <string name="quickTips">Quick Tips</string>
+
+    <string name="bjTipsTitle">Blackjack Tips</string>
+    <string name="bjObjective">Objective: beat the dealer`s hand without going over 21.</string>
+    <string name="bjBasics">You will be dealt two cards at the beginning of each round. After everyone gets their cards, the dealer draws and reveals one of his cards. You then have the option to get another card or stay with your hand`s value.</string>
+    <string name="bjTip1">1. Avoid playing too passively. It is highly recommended to hit if your value is 13&#8211;15.</string>
+    <string name="bjTip2">2. Avoid playing too aggressively. Avoid doubling down if your hand is not at least worth 20.</string>
+    <string name="bjTip3">3. Play tables that pay 3 to 2 (150%). Otherwise, the house will have a larger advantage.</string>
+    <string name="bjTip4">4.Consider studying up on &quot;basic strategy&quot; and card counting.</string>
+    <string name="bjImageDescription">This hand has the value of 21, and is an automatic win unless the dealer also has a similar hand.</string>
+    <string name="tenCard">Card with value of ten</string>
+    <string name="aceCard">Card with the value of one or ten</string>
+
     <!-- TODO: Remove or change this placeholder text -->
 </resources>

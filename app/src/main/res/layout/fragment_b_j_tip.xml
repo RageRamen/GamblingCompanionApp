@@ -1,163 +1,180 @@
 <?xml version="1.0" encoding="utf-8"?>
-<FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     tools:context=".tips.BJTipFrag">
 
-    <androidx.constraintlayout.widget.ConstraintLayout
+    <ScrollView
         android:layout_width="match_parent"
-        android:layout_height="match_parent">
+        android:layout_height="match_parent"
+        android:layout_marginTop="100dp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.5"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/titleBJ">
 
-        <TextView
-            android:id="@+id/tipBJ4"
-            android:layout_width="350dp"
-            android:layout_height="50dp"
-            android:text="4. Don't play too agressively. Avoid doubling down if your hand is not at least worth 20."
-            android:textAlignment="textStart"
-            android:textColor="#000000"
-            android:textSize="14sp"
-            app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintHorizontal_bias="0.491"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/tipBJ3" />
+        <androidx.constraintlayout.widget.ConstraintLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content">
 
-        <TextView
-            android:id="@+id/tipBJ3"
-            android:layout_width="350dp"
-            android:layout_height="50dp"
-            android:text="3.Consider studying up on &quot;basic strategy&quot; and card counting."
-            android:textAlignment="textStart"
-            android:textColor="#000000"
-            android:textSize="14sp"
-            app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintHorizontal_bias="0.483"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/tipBJ2" />
+            <TextView
+                android:id="@+id/tipBJ4"
+                android:layout_width="350dp"
+                android:layout_height="50dp"
+                android:text="@string/bjTip4"
+                android:textAlignment="textStart"
+                android:textColor="#000000"
+                android:textSize="14sp"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintHorizontal_bias="0.491"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/tipBJ3" />
 
-        <TextView
-            android:id="@+id/tipBJ2"
-            android:layout_width="350dp"
-            android:layout_height="50dp"
-            android:text="2. Play tables that pay 3 to 2 (150%). Otherwise, the house will have a larger advantage."
-            android:textAlignment="textStart"
-            android:textColor="#000000"
-            android:textSize="14sp"
-            app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintHorizontal_bias="0.483"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/tipBJ1" />
+            <TextView
+                android:id="@+id/tipBJ3"
+                android:layout_width="350dp"
+                android:layout_height="50dp"
+                android:text="@string/bjTip3"
+                android:textAlignment="textStart"
+                android:textColor="#000000"
+                android:textSize="14sp"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintHorizontal_bias="0.483"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/tipBJ2" />
 
-        <TextView
-            android:id="@+id/tipBJ1"
-            android:layout_width="350dp"
-            android:layout_height="50dp"
-            android:layout_marginTop="16dp"
-            android:text="1. Don't play too passively. It is highly reccomended to hit if your value is 13-15."
-            android:textAlignment="textStart"
-            android:textColor="#000000"
-            android:textSize="14sp"
-            app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintHorizontal_bias="0.483"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/tipsBJ" />
+            <TextView
+                android:id="@+id/tipBJ2"
+                android:layout_width="350dp"
+                android:layout_height="50dp"
+                android:text="@string/bjTip2"
+                android:textAlignment="textStart"
+                android:textColor="#000000"
+                android:textSize="14sp"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintHorizontal_bias="0.483"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/tipBJ1" />
 
-        <TextView
-            android:id="@+id/tipsBJ"
-            android:layout_width="190dp"
-            android:layout_height="25dp"
-            android:layout_marginTop="30dp"
-            android:text="Quick Tips"
-            android:textAlignment="center"
-            android:textColor="#000000"
-            android:textSize="20sp"
-            app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/bottomTextBJ" />
+            <TextView
+                android:id="@+id/tipBJ1"
+                android:layout_width="350dp"
+                android:layout_height="50dp"
+                android:layout_marginTop="16dp"
+                android:text="@string/bjTip1"
+                android:textAlignment="textStart"
+                android:textColor="#000000"
+                android:textSize="14sp"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintHorizontal_bias="0.491"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/tipsBJ" />
 
-        <TextView
-            android:id="@+id/subTextBJ"
-            android:layout_width="172dp"
-            android:layout_height="60dp"
-            android:layout_marginEnd="16dp"
-            android:text="This hand has the value of 21, and is an automatic win unless the dealer also has a similar hand"
-            android:textAlignment="center"
-            android:textColor="#000000"
-            android:textSize="12sp"
-            android:textStyle="italic"
-            app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/imageView2" />
+            <TextView
+                android:id="@+id/tipsBJ"
+                android:layout_width="190dp"
+                android:layout_height="25dp"
+                android:layout_marginTop="15dp"
+                android:text="@string/quickTips"
+                android:textAlignment="center"
+                android:textColor="#000000"
+                android:textSize="20sp"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/bottomTextBJ" />
 
-        <TextView
-            android:id="@+id/bottomTextBJ"
-            android:layout_width="190dp"
-            android:layout_height="145dp"
-            android:layout_marginStart="20dp"
-            android:text="You will be dealt two cards at the beginning of each round. After everyone gets their cards, the dealer draws and reveals one of his cards. You then have the option to get another card or stay with your hand's value."
-            android:textAlignment="textStart"
-            android:textColor="#000000"
-            android:textSize="14sp"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/topTextBJ" />
+            <TextView
+                android:id="@+id/subTextBJ"
+                android:layout_width="149dp"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="148dp"
+                android:text="@string/bjImageDescription"
+                android:textAlignment="center"
+                android:textColor="#000000"
+                android:textSize="12sp"
+                android:textStyle="italic"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintHorizontal_bias="0.519"
+                app:layout_constraintStart_toEndOf="@+id/bottomTextBJ"
+                app:layout_constraintTop_toTopOf="parent" />
 
-        <TextView
-            android:id="@+id/topTextBJ"
-            android:layout_width="190dp"
-            android:layout_height="50dp"
-            android:layout_marginStart="20dp"
-            android:layout_marginTop="16dp"
-            android:text="Objective: beat the dealer's hand without going over 21."
-            android:textAlignment="textStart"
-            android:textColor="#000000"
-            android:textSize="14sp"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/howToPlayBJ" />
+            <TextView
+                android:id="@+id/bottomTextBJ"
+                android:layout_width="190dp"
+                android:layout_height="145dp"
+                android:layout_marginStart="20dp"
+                android:text="@string/bjBasics"
+                android:textAlignment="textStart"
+                android:textColor="#000000"
+                android:textSize="14sp"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/topTextBJ" />
 
-        <TextView
-            android:id="@+id/titleBJ"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_marginTop="40dp"
-            android:text="Blackjack Tips"
-            android:textColor="#000000"
-            android:textSize="30sp"
-            android:textStyle="bold"
-            app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toTopOf="parent" />
+            <TextView
+                android:id="@+id/topTextBJ"
+                android:layout_width="190dp"
+                android:layout_height="50dp"
+                android:layout_marginStart="20dp"
+                android:layout_marginTop="16dp"
+                android:text="@string/bjObjective"
+                android:textAlignment="textStart"
+                android:textColor="#000000"
+                android:textSize="14sp"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/howToPlayBJ" />
 
-        <TextView
-            android:id="@+id/howToPlayBJ"
-            android:layout_width="190dp"
-            android:layout_height="25dp"
-            android:layout_marginStart="16dp"
-            android:layout_marginTop="40dp"
-            android:text="How to Play"
-            android:textAlignment="center"
-            android:textColor="#000000"
-            android:textSize="20sp"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/titleBJ" />
+            <TextView
+                android:id="@+id/howToPlayBJ"
+                android:layout_width="190dp"
+                android:layout_height="25dp"
+                android:layout_marginStart="16dp"
+                android:layout_marginTop="10dp"
+                android:text="@string/howToPlay"
+                android:textAlignment="center"
+                android:textColor="#000000"
+                android:textSize="20sp"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toTopOf="parent" />
 
-        <ImageView
-            android:id="@+id/imageView"
-            android:layout_width="61dp"
-            android:layout_height="81dp"
-            android:layout_marginStart="36dp"
-            android:layout_marginTop="96dp"
-            app:layout_constraintStart_toEndOf="@+id/topTextBJ"
-            app:layout_constraintTop_toBottomOf="@+id/titleBJ"
-            app:srcCompat="@drawable/_10_of_clubs" />
+            <ImageView
+                android:id="@+id/imageView2"
+                android:layout_width="61dp"
+                android:layout_height="81dp"
+                android:contentDescription="@string/aceCard"
+                app:layout_constraintBottom_toTopOf="@+id/subTextBJ"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintHorizontal_bias="0.5"
+                app:layout_constraintStart_toEndOf="@+id/imageView"
+                app:srcCompat="@drawable/ace_of_diamonds" />
 
-        <ImageView
-            android:id="@+id/imageView2"
-            android:layout_width="61dp"
-            android:layout_height="81dp"
-            android:layout_marginStart="4dp"
-            app:layout_constraintStart_toEndOf="@+id/imageView"
-            app:layout_constraintTop_toTopOf="@+id/imageView"
-            app:srcCompat="@drawable/ace_of_diamonds" />
+            <ImageView
+                android:id="@+id/imageView"
+                android:layout_width="61dp"
+                android:layout_height="81dp"
+                android:contentDescription="@string/aceCard"
+                app:layout_constraintBottom_toTopOf="@+id/subTextBJ"
+                app:layout_constraintEnd_toStartOf="@+id/imageView2"
+                app:layout_constraintHorizontal_bias="0.5"
+                app:layout_constraintStart_toEndOf="@+id/bottomTextBJ"
+                app:srcCompat="@drawable/_10_of_clubs" />
 
-    </androidx.constraintlayout.widget.ConstraintLayout>
-</FrameLayout>
+        </androidx.constraintlayout.widget.ConstraintLayout>
+    </ScrollView>
+
+    <TextView
+        android:id="@+id/titleBJ"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="25dp"
+        android:text="@string/bjTipsTitle"
+        android:textColor="#000000"
+        android:textSize="30sp"
+        android:textStyle="bold"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.5"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+</androidx.constraintlayout.widget.ConstraintLayout>
