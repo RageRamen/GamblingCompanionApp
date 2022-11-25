@@ -1,5 +1,6 @@
 package com.honeybadger.gamblingbadger.gamesession.blackjack;
 
+import android.content.Context;
 import android.content.res.Resources;
 import android.util.Pair;
 
@@ -114,10 +115,8 @@ public class BlackjackRound extends CardRound {
         return 1; //placeholder
     }
 
-    public String getRecomendedAction() {
-        //TODO
-
-        return "null"; //placeholder
+    public String getRecommendedAction(Context context) {
+        return getRecommendedAction(context.getResources());
     }
 
     /// LEGACY:
