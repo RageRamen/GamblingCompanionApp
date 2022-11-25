@@ -64,7 +64,7 @@ public class BlackjackSession extends GameSession {
         this.rounds.add(blackjackround);
     }
 
-    public Pair<Float, String> getRoundPrediction(Card[] card, Card car1){
+    public Pair<Float, String> getRoundPrediction(Card[] userHand, Card dealerCard){
         return new Pair<Float, String>(0f, "");
     }
 
