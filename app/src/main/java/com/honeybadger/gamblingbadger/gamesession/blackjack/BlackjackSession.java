@@ -1,5 +1,7 @@
 package com.honeybadger.gamblingbadger.gamesession.blackjack;
 
+import android.util.Pair;
+
 import com.honeybadger.gamblingbadger.cards.Card;
 import com.honeybadger.gamblingbadger.casinosession.CasinoSession;
 import com.honeybadger.gamblingbadger.gamesession.*;
@@ -62,8 +64,8 @@ public class BlackjackSession extends GameSession {
         this.rounds.add(blackjackround);
     }
 
-    public void getRoundPrediction(Card[] card, Card car1){
-
+    public Pair<Float, String> getRoundPrediction(Card[] card, Card car1){
+        return new Pair<Float, String>(0f, "");
     }
 
     public boolean closeSession() {
