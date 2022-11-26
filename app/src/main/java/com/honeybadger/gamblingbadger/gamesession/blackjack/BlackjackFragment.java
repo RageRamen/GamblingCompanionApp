@@ -63,7 +63,7 @@ public class BlackjackFragment extends Fragment {
     private List<Card> userHand;
     private BigDecimal bet;
 
-    public static BlackjackRound blackjackround;
+    //public static BlackjackRound blackjackround;
     public static @Nullable BlackjackSession blackjackSession;
     public static int softNumberOfDecks = BlackjackSession.DEFAULT_NUMBER_OF_DECKS;
 
@@ -473,15 +473,21 @@ public class BlackjackFragment extends Fragment {
 
     private void actionWinGame() {
         // TODO
-
-        //blackjackround.setWin(true); //Currently this line crashes, needs a method to set the win value. setBet(boolean win) in Card.java isn't good for this since it returns CardRound, I need a void method.
+        BlackjackRound blackjackround = new BlackjackRound(bet, softNumberOfDecks, userHand, dealerCard);
+        blackjackround.setWin(true); //Currently this line crashes, needs a method to set the win value. setBet(boolean win) in Card.java isn't good for this since it returns CardRound, I need a void method.
         blackjackSession.applyRound(blackjackround); //adds the round info into sesssion even if you win or lose since winning or losing means you're done with that single round
+        userHand.clear();
+        updateUserCardAmountText();
     }
 
     private void actionLoseGame() {
         // TODO
+        BlackjackRound blackjackround = new BlackjackRound(bet, softNumberOfDecks, userHand, dealerCard);
+        blackjackround.setWin(true);
         //blackjackround.setWin(false);
         blackjackSession.applyRound(blackjackround);
+        userHand.clear();
+        updateUserCardAmountText();
     }
 
     public void actionEndSession() {
