@@ -21,6 +21,8 @@
 
     <!-- Menu strings -->
 
+    <string name="actionBar_balance_text">Balance</string>
+
     <string name="gameTipsMenuItem_title">Game Tips</string>
 
     <string name="menu_blackjack_item_tips_title">@string/gameTipsMenuItem_title</string>
