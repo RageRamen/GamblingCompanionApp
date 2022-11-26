@@ -32,16 +32,32 @@
     <string name="menu_texasHoldem_item_tips_title">@string/gameTipsMenuItem_title</string>
 
     <string name="menu_statistics_item_generalStatistics_title">General Statistics</string>
-    <string name="menu_statistics_item_generalGameStatistics_title">General Game Statistics</string>
+    <string name="menu_statistics_item_generalGameStatistics_title">Game Statistics</string>
     <string name="menu_statistics_item_casinoStatistics_title">Casino Statistics</string>
     <string name="menu_statistics_item_casinoGameStatistics_title">Casino Game Statistics</string>
 
-    <!-- Strings used for fragments for navigation -->
+    <!-- Strings used for fragment titles -->
 
-    <string name="homeFrag_label">Home</string>
-    <string name="startSessionFrag_label">Start Session</string>
-    <string name="casinoSessionFrag_label">Casino Session</string>
-    <string name="startGameFrag_label">Start Game</string>
+    <string name="homeFrag_title">Gambling Badger</string>
+    <string name="startSessionFrag_title">Begin Casino Session</string>
+    <string name="casinoSessionFrag_title">Casino Home</string>
+    <string name="timerFrag_title">Timer</string>
+    <string name="changeBalanceFrag_title">Change Balance</string>
+    <string name="addBalanceFrag_title">Add To Balance</string>
+    <string name="subBalanceFrag_title">Subtract From Balance</string>
+    <string name="startGameFrag_title">Begin Game Session</string>
+    <string name="blackjackFrag_title">Blackjack</string>
+    <string name="pokerFrag_title">Poker</string>
+    <string name="texasHoldemFrag_title">Texas Hold\'em</string>
+    <string name="rouletteFrag_title">Roulette</string>
+    <string name="tipsFrag_title">Game Tips</string>
+    <string name="bjtipsFrag_title">Tips for Blackjack</string>
+    <string name="pokerTipsFrag_title">Tips for Poker</string>
+    <string name="txTipsFrag_title">Tips for Texas Hold\'em</string>
+    <string name="generalStatisticsFrag_title">General Statistics</string>
+    <string name="generalGameStatisticsFrag_title">Game Statistics</string>
+    <string name="casinoStatisticsFrag_title">Casino Statistics</string>
+    <string name="specificGameStatisticsFrag_title">Casino Game Statistics</string>
 
     <!-- HomeFragment strings -->
 

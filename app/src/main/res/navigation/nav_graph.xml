@@ -8,7 +8,7 @@
     <fragment
         android:id="@+id/homeFragment"
         android:name="com.honeybadger.gamblingbadger.HomeFragment"
-        android:label="@string/homeFrag_label"
+        android:label="@string/homeFrag_title"
         tools:layout="@layout/fragment_home">
 
         <action
@@ -27,7 +27,7 @@
     <fragment
         android:id="@+id/startSessionFragment"
         android:name="com.honeybadger.gamblingbadger.casinosession.StartSessionFragment"
-        android:label="@string/startSessionFrag_label"
+        android:label="@string/startSessionFrag_title"
         tools:layout="@layout/fragment_start_session">
 
         <action
@@ -40,8 +40,8 @@
     <fragment
         android:id="@+id/casinoSessionFragment"
         android:name="com.honeybadger.gamblingbadger.casinosession.CasinoSessionFragment"
-        android:label="@string/casinoSessionFrag_label"
-        tools:layout="@layout/fragment_casino_session" >
+        android:label="@string/casinoSessionFrag_title"
+        tools:layout="@layout/fragment_casino_session">
         <action
             android:id="@+id/action_casinoSessionFragment_to_homeFragment"
             app:destination="@id/homeFragment" />
@@ -64,8 +64,8 @@
     <fragment
         android:id="@+id/startGameFragment"
         android:name="com.honeybadger.gamblingbadger.gamesession.StartGameFragment"
-        android:label="@string/startGameFrag_label"
-        tools:layout="@layout/fragment_start_game" >
+        android:label="@string/startGameFrag_title"
+        tools:layout="@layout/fragment_start_game">
         <action
             android:id="@+id/action_startGameFragment_to_casinoSessionFragment"
             app:destination="@id/casinoSessionFragment" />
@@ -85,8 +85,8 @@
     <fragment
         android:id="@+id/timerFragment"
         android:name="com.honeybadger.gamblingbadger.timer.TimerFragment"
-        android:label="fragment_timer"
-        tools:layout="@layout/fragment_timer" >
+        android:label="@string/timerFrag_title"
+        tools:layout="@layout/fragment_timer">
         <action
             android:id="@+id/action_timerFragment_to_casinoSessionFragment"
             app:destination="@id/casinoSessionFragment" />
@@ -94,8 +94,8 @@
     <fragment
         android:id="@+id/blackjackFragment"
         android:name="com.honeybadger.gamblingbadger.gamesession.blackjack.BlackjackFragment"
-        android:label="fragment_blackjack"
-        tools:layout="@layout/fragment_blackjack" >
+        android:label="@string/blackjackFrag_title"
+        tools:layout="@layout/fragment_blackjack">
         <action
             android:id="@+id/action_blackjackFragment_to_casinoSessionFragment"
             app:destination="@id/casinoSessionFragment" />
@@ -106,8 +106,8 @@
     <fragment
         android:id="@+id/pokerFragment"
         android:name="com.honeybadger.gamblingbadger.gamesession.poker.PokerFragment"
-        android:label="fragment_poker"
-        tools:layout="@layout/fragment_poker" >
+        android:label="@string/pokerFrag_title"
+        tools:layout="@layout/fragment_poker">
         <action
             android:id="@+id/action_pokerFragment_to_casinoSessionFragment"
             app:destination="@id/casinoSessionFragment" />
@@ -118,8 +118,8 @@
     <fragment
         android:id="@+id/rouletteFragment"
         android:name="com.honeybadger.gamblingbadger.gamesession.roulette.RouletteFragment"
-        android:label="fragment_roulette"
-        tools:layout="@layout/fragment_roulette" >
+        android:label="@string/rouletteFrag_title"
+        tools:layout="@layout/fragment_roulette">
         <action
             android:id="@+id/action_rouletteFragment_to_casinoSessionFragment"
             app:destination="@id/casinoSessionFragment" />
@@ -127,8 +127,8 @@
     <fragment
         android:id="@+id/texasHoldemFragment"
         android:name="com.honeybadger.gamblingbadger.gamesession.texasholdem.TexasHoldemFragment"
-        android:label="fragment_texas_holdem"
-        tools:layout="@layout/fragment_texas_holdem" >
+        android:label="@string/texasHoldemFrag_title"
+        tools:layout="@layout/fragment_texas_holdem">
         <action
             android:id="@+id/action_texasHoldemFragment_to_casinoSessionFragment"
             app:destination="@id/casinoSessionFragment" />
@@ -140,8 +140,8 @@
     <fragment
         android:id="@+id/tipsFragment"
         android:name="com.honeybadger.gamblingbadger.tips.TipsFragment"
-        android:label="Tips and Tricks"
-        tools:layout="@layout/fragment_tips" >
+        android:label="@string/tipsFrag_title"
+        tools:layout="@layout/fragment_tips">
         <action
             android:id="@+id/action_tipsFragment_to_bjtipsFragment"
             app:destination="@id/bjtipsFragment" />
@@ -162,8 +162,8 @@
     <fragment
         android:id="@+id/bjtipsFragment"
         android:name="com.honeybadger.gamblingbadger.tips.BJTipFrag"
-        android:label="Blackjack Tips"
-        tools:layout = "@layout/fragment_b_j_tip">
+        android:label="@string/bjtipsFrag_title"
+        tools:layout="@layout/fragment_b_j_tip">
         <action
             android:id="@+id/action_bjtipsFragment_to_tipsFragment"
             app:destination="@id/tipsFragment" />
@@ -174,8 +174,8 @@
     <fragment
         android:id="@+id/generalStatisticsFragment"
         android:name="com.honeybadger.gamblingbadger.statistics.GeneralStatisticsFragment"
-        android:label="fragment_general_statistics"
-        tools:layout="@layout/fragment_general_statistics" >
+        android:label="@string/generalStatisticsFrag_title"
+        tools:layout="@layout/fragment_general_statistics">
         <action
             android:id="@+id/action_generalStatisticsFragment_to_homeFragment"
             app:destination="@id/homeFragment" />
@@ -195,8 +195,8 @@
     <fragment
         android:id="@+id/casinoStatisticsFragment"
         android:name="com.honeybadger.gamblingbadger.statistics.CasinoStatisticsFragment"
-        android:label="fragment_casino_statistics"
-        tools:layout="@layout/fragment_casino_statistics" >
+        android:label="@string/casinoStatisticsFrag_title"
+        tools:layout="@layout/fragment_casino_statistics">
         <action
             android:id="@+id/action_casinoStatisticsFragment_to_casinoSessionFragment"
             app:destination="@id/casinoSessionFragment" />
@@ -216,8 +216,8 @@
     <fragment
         android:id="@+id/generalGameStatisticsFragment"
         android:name="com.honeybadger.gamblingbadger.statistics.GeneralGameStatisticsFragment"
-        android:label="fragment_general_game_statistics"
-        tools:layout="@layout/fragment_general_game_statistics" >
+        android:label="@string/generalGameStatisticsFrag_title"
+        tools:layout="@layout/fragment_general_game_statistics">
         <action
             android:id="@+id/action_generalGameStatisticsFragment_to_generalStatisticsFragment"
             app:destination="@id/generalStatisticsFragment" />
@@ -237,8 +237,8 @@
     <fragment
         android:id="@+id/specificGameStatisticsFragment"
         android:name="com.honeybadger.gamblingbadger.statistics.SpecificGameStatisticsFragment"
-        android:label="fragment_specific_game_statistics"
-        tools:layout="@layout/fragment_specific_game_statistics" >
+        android:label="@string/specificGameStatisticsFrag_title"
+        tools:layout="@layout/fragment_specific_game_statistics">
         <action
             android:id="@+id/action_specificGameStatisticsFragment_to_generalGameStatisticsFragment"
             app:destination="@id/generalGameStatisticsFragment" />
@@ -258,8 +258,8 @@
     <fragment
         android:id="@+id/changeBalanceFragment"
         android:name="com.honeybadger.gamblingbadger.balance.ChangeBalanceFragment"
-        android:label="fragment_change_balance"
-        tools:layout="@layout/fragment_change_balance" >
+        android:label="@string/changeBalanceFrag_title"
+        tools:layout="@layout/fragment_change_balance">
         <action
             android:id="@+id/action_changeBalanceFragment_to_addBalanceFragment"
             app:destination="@id/addBalanceFragment" />
@@ -273,8 +273,8 @@
     <fragment
         android:id="@+id/addBalanceFragment"
         android:name="com.honeybadger.gamblingbadger.balance.AddBalanceFragment"
-        android:label="fragment_add_balance"
-        tools:layout="@layout/fragment_add_balance" >
+        android:label="@string/addBalanceFrag_title"
+        tools:layout="@layout/fragment_add_balance">
         <action
             android:id="@+id/action_addBalanceFragment_to_changeBalanceFragment"
             app:destination="@id/changeBalanceFragment" />
@@ -285,8 +285,8 @@
     <fragment
         android:id="@+id/subBalanceFragment"
         android:name="com.honeybadger.gamblingbadger.balance.SubBalanceFragment"
-        android:label="fragment_sub_balance"
-        tools:layout="@layout/fragment_sub_balance" >
+        android:label="@string/subBalanceFrag_title"
+        tools:layout="@layout/fragment_sub_balance">
         <action
             android:id="@+id/action_subBalanceFragment_to_changeBalanceFragment"
             app:destination="@id/changeBalanceFragment" />
@@ -297,8 +297,8 @@
     <fragment
         android:id="@+id/pokerTipFrag"
         android:name="com.honeybadger.gamblingbadger.tips.PokerTipFrag"
-        android:label="fragment_poker_tip"
-        tools:layout="@layout/fragment_poker_tip" >
+        android:label="@string/pokerTipsFrag_title"
+        tools:layout="@layout/fragment_poker_tip">
         <action
             android:id="@+id/action_pokerTipFrag_to_tipsFragment"
             app:destination="@id/tipsFragment" />
@@ -309,8 +309,8 @@
     <fragment
         android:id="@+id/TXTipFrag"
         android:name="com.honeybadger.gamblingbadger.tips.TXTipFrag"
-        android:label="fragment_t_x_tip"
-        tools:layout="@layout/fragment_t_x_tip" >
+        android:label="@string/txTipsFrag_title"
+        tools:layout="@layout/fragment_t_x_tip">
         <action
             android:id="@+id/action_TXTipFrag_to_tipsFragment"
             app:destination="@id/tipsFragment" />
