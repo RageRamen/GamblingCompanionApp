@@ -13,10 +13,10 @@
         android:text="Recommened Action:"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.99"
+        app:layout_constraintHorizontal_bias="0.907"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.873" />
+        app:layout_constraintVertical_bias="0.692" />
 
     <TextView
         android:id="@+id/recommendedAction_textview"
@@ -25,36 +25,10 @@
         android:text="Unknown"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.99"
+        app:layout_constraintHorizontal_bias="0.907"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/RecommendedAction_Label"
-        app:layout_constraintVertical_bias="0.2" />
-
-    <Spinner
-        android:id="@+id/poker_spinner_userCard2"
-        android:layout_width="120dp"
-        android:layout_height="150dp"
-        android:contentDescription="@string/temporary"
-        android:dropDownWidth="100dp"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.738"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.745" />
-
-    <Spinner
-        android:id="@+id/poker_spinner_userCard1"
-        android:layout_width="120dp"
-        android:layout_height="150dp"
-        android:contentDescription="@string/temporary"
-        android:dropDownWidth="100dp"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.274"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.745" />
+        app:layout_constraintVertical_bias="0.051" />
 
     <Spinner
         android:id="@+id/poker_spinner_dealerCard5"
@@ -122,7 +96,7 @@
         app:layout_constraintVertical_bias="0.141" />
 
     <TextView
-        android:id="@+id/Poker_Title"
+        android:id="@+id/TexasHoldem_Title"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:text="Poker"
@@ -133,27 +107,16 @@
         app:layout_constraintVertical_bias="0.022" />
 
     <TextView
-        android:id="@+id/Dealer_Label"
+        android:id="@+id/UserHand_Label"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="Dealer's Cards"
+        android:text="User Cards"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.498"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
         app:layout_constraintVertical_bias="0.074" />
-
-    <TextView
-        android:id="@+id/User_Hand_Label"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="User Hand:"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.57" />
 
     <TextView
         android:id="@+id/Bet_Label"
@@ -174,10 +137,9 @@
         android:text="Calculate"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.496"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="@+id/Poker_Title"
-        app:layout_constraintVertical_bias="0.883" />
+        app:layout_constraintTop_toTopOf="@+id/TexasHoldem_Title"
+        app:layout_constraintVertical_bias="0.598" />
 
     <TextView
         android:id="@+id/Bet_amount_textview"
@@ -198,10 +160,10 @@
         android:text="Win"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.346"
+        app:layout_constraintHorizontal_bias="0.247"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.976" />
+        app:layout_constraintVertical_bias="0.916" />
 
     <Button
         android:id="@+id/Lose_button"
@@ -210,10 +172,10 @@
         android:text="Lose"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.643"
+        app:layout_constraintHorizontal_bias="0.764"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.976" />
+        app:layout_constraintVertical_bias="0.916" />
 
     <TextView
         android:id="@+id/Odds_Label"
@@ -222,10 +184,10 @@
         android:text="Odds:"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.045"
+        app:layout_constraintHorizontal_bias="0.042"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.849" />
+        app:layout_constraintVertical_bias="0.686" />
 
     <TextView
         android:id="@+id/Odds_textview"
@@ -234,9 +196,9 @@
         android:text="Unknown"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.042"
+        app:layout_constraintHorizontal_bias="0.045"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/Odds_Label"
-        app:layout_constraintVertical_bias="0.193" />
+        app:layout_constraintVertical_bias="0.0" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>

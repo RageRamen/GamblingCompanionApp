@@ -77,7 +77,6 @@ public class PokerFragment extends Fragment {
 
         // Init Interface
         initSpinnerDealerCard();
-        initSpinnerUserHand();
         initCalculateButton();
         initWinButtion();
         initLoseButtion();
@@ -259,70 +258,6 @@ public class PokerFragment extends Fragment {
         });
 
         binding.pokerSpinnerDealerCard5.setOnItemSelectedListener(new AdapterView.OnItemSelectedListener() {
-            @Override
-            public void onItemSelected(AdapterView<?> adapterView, View view, int i, long l) {
-                ECardNum number;
-                switch ((int)l) {
-                    default: number = ECardNum.ANY; break;
-                    case 0: number = ECardNum.A; break;
-                    case 1: number = ECardNum.N_2; break;
-                    case 2: number = ECardNum.N_3; break;
-                    case 3: number = ECardNum.N_4; break;
-                    case 4: number = ECardNum.N_5; break;
-                    case 5: number = ECardNum.N_6; break;
-                    case 6: number = ECardNum.N_7; break;
-                    case 7: number = ECardNum.N_8; break;
-                    case 8: number = ECardNum.N_9; break;
-                    case 9: number = ECardNum.N_10; break;
-                    case 10: number = ECardNum.J; break;
-                    case 11: number = ECardNum.Q; break;
-                    case 12: number = ECardNum.K; break;
-                }
-            }
-            @Override
-            public void onNothingSelected(AdapterView<?> adapterView) {
-
-            }
-        });
-    }
-
-    private void initSpinnerUserHand() {
-        Spinner spinnerUserCard1 = getActivity().findViewById(R.id.poker_spinner_userCard1);
-        Spinner spinnerUserCard2 = getActivity().findViewById(R.id.poker_spinner_userCard2);
-
-        ImageSpinnerAdapter adapter = new ImageSpinnerAdapter(getActivity(), imageIconDatabase);
-
-        spinnerUserCard1.setAdapter(adapter);
-        spinnerUserCard2.setAdapter(adapter);
-
-        binding.pokerSpinnerUserCard1.setOnItemSelectedListener(new AdapterView.OnItemSelectedListener() {
-            @Override
-            public void onItemSelected(AdapterView<?> adapterView, View view, int i, long l) {
-                ECardNum number;
-                switch ((int)l) {
-                    default: number = ECardNum.ANY; break;
-                    case 0: number = ECardNum.A; break;
-                    case 1: number = ECardNum.N_2; break;
-                    case 2: number = ECardNum.N_3; break;
-                    case 3: number = ECardNum.N_4; break;
-                    case 4: number = ECardNum.N_5; break;
-                    case 5: number = ECardNum.N_6; break;
-                    case 6: number = ECardNum.N_7; break;
-                    case 7: number = ECardNum.N_8; break;
-                    case 8: number = ECardNum.N_9; break;
-                    case 9: number = ECardNum.N_10; break;
-                    case 10: number = ECardNum.J; break;
-                    case 11: number = ECardNum.Q; break;
-                    case 12: number = ECardNum.K; break;
-                }
-            }
-            @Override
-            public void onNothingSelected(AdapterView<?> adapterView) {
-
-            }
-        });
-
-        binding.pokerSpinnerUserCard2.setOnItemSelectedListener(new AdapterView.OnItemSelectedListener() {
             @Override
             public void onItemSelected(AdapterView<?> adapterView, View view, int i, long l) {
                 ECardNum number;
