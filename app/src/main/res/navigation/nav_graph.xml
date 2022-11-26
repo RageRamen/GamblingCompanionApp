@@ -145,6 +145,12 @@
         <action
             android:id="@+id/action_tipsFragment_to_casinoSessionFragment"
             app:destination="@id/casinoSessionFragment" />
+        <action
+            android:id="@+id/action_tipsFragment_to_pokerTipFrag"
+            app:destination="@id/pokerTipFrag" />
+        <action
+            android:id="@+id/action_tipsFragment_to_TXTipFrag"
+            app:destination="@id/TXTipFrag" />
     </fragment>
 
     <fragment
@@ -281,5 +287,29 @@
         <action
             android:id="@+id/action_subBalanceFragment_to_casinoSessionFragment2"
             app:destination="@id/casinoSessionFragment" />
+    </fragment>
+    <fragment
+        android:id="@+id/pokerTipFrag"
+        android:name="com.honeybadger.gamblingbadger.tips.PokerTipFrag"
+        android:label="fragment_poker_tip"
+        tools:layout="@layout/fragment_poker_tip" >
+        <action
+            android:id="@+id/action_pokerTipFrag_to_tipsFragment"
+            app:destination="@id/tipsFragment" />
+        <action
+            android:id="@+id/action_pokerTipFrag_to_pokerFragment"
+            app:destination="@id/pokerFragment" />
+    </fragment>
+    <fragment
+        android:id="@+id/TXTipFrag"
+        android:name="com.honeybadger.gamblingbadger.tips.TXTipFrag"
+        android:label="fragment_t_x_tip"
+        tools:layout="@layout/fragment_t_x_tip" >
+        <action
+            android:id="@+id/action_TXTipFrag_to_tipsFragment"
+            app:destination="@id/tipsFragment" />
+        <action
+            android:id="@+id/action_TXTipFrag_to_texasHoldemFragment"
+            app:destination="@id/texasHoldemFragment" />
     </fragment>
 </navigation>
