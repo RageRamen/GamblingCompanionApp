@@ -28,7 +28,7 @@
             tools:layout_editor_absoluteY="114dp">
 
             <TextView
-                android:id="@+id/tipBJ4"
+                android:id="@+id/t4"
                 android:layout_width="350dp"
                 android:layout_height="50dp"
                 android:text="@string/bjTip4"
@@ -38,10 +38,10 @@
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintHorizontal_bias="0.491"
                 app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toBottomOf="@+id/tipBJ3" />
+                app:layout_constraintTop_toBottomOf="@+id/t3" />
 
             <TextView
-                android:id="@+id/tipBJ3"
+                android:id="@+id/t3"
                 android:layout_width="350dp"
                 android:layout_height="50dp"
                 android:text="@string/bjTip3"
@@ -51,10 +51,10 @@
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintHorizontal_bias="0.483"
                 app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toBottomOf="@+id/tipBJ2" />
+                app:layout_constraintTop_toBottomOf="@+id/t2" />
 
             <TextView
-                android:id="@+id/tipBJ2"
+                android:id="@+id/t2"
                 android:layout_width="350dp"
                 android:layout_height="50dp"
                 android:text="@string/bjTip2"
@@ -64,10 +64,10 @@
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintHorizontal_bias="0.483"
                 app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toBottomOf="@+id/tipBJ1" />
+                app:layout_constraintTop_toBottomOf="@+id/t1" />
 
             <TextView
-                android:id="@+id/tipBJ1"
+                android:id="@+id/t1"
                 android:layout_width="350dp"
                 android:layout_height="50dp"
                 android:layout_marginTop="16dp"
@@ -78,10 +78,10 @@
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintHorizontal_bias="0.491"
                 app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toBottomOf="@+id/tipsBJ" />
+                app:layout_constraintTop_toBottomOf="@+id/qt" />
 
             <TextView
-                android:id="@+id/tipsBJ"
+                android:id="@+id/qt"
                 android:layout_width="190dp"
                 android:layout_height="25dp"
                 android:layout_marginTop="15dp"
@@ -91,10 +91,10 @@
                 android:textSize="20sp"
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toBottomOf="@+id/bottomTextBJ" />
+                app:layout_constraintTop_toBottomOf="@+id/bt" />
 
             <TextView
-                android:id="@+id/subTextBJ"
+                android:id="@+id/st"
                 android:layout_width="149dp"
                 android:layout_height="wrap_content"
                 android:layout_marginTop="148dp"
@@ -104,11 +104,11 @@
                 android:textSize="12sp"
                 android:textStyle="italic"
                 app:layout_constraintEnd_toEndOf="parent"
-                app:layout_constraintStart_toEndOf="@+id/bottomTextBJ"
+                app:layout_constraintStart_toEndOf="@+id/bt"
                 app:layout_constraintTop_toTopOf="parent" />
 
             <TextView
-                android:id="@+id/bottomTextBJ"
+                android:id="@+id/bt"
                 android:layout_width="190dp"
                 android:layout_height="145dp"
                 android:layout_marginStart="20dp"
@@ -117,10 +117,10 @@
                 android:textColor="#000000"
                 android:textSize="14sp"
                 app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toBottomOf="@+id/topTextBJ" />
+                app:layout_constraintTop_toBottomOf="@+id/obt" />
 
             <TextView
-                android:id="@+id/topTextBJ"
+                android:id="@+id/obt"
                 android:layout_width="190dp"
                 android:layout_height="50dp"
                 android:layout_marginStart="20dp"
@@ -130,10 +130,10 @@
                 android:textColor="#000000"
                 android:textSize="14sp"
                 app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toBottomOf="@+id/howToPlayBJ" />
+                app:layout_constraintTop_toBottomOf="@+id/htp" />
 
             <TextView
-                android:id="@+id/howToPlayBJ"
+                android:id="@+id/htp"
                 android:layout_width="190dp"
                 android:layout_height="25dp"
                 android:layout_marginStart="16dp"
@@ -150,7 +150,7 @@
                 android:layout_width="61dp"
                 android:layout_height="81dp"
                 android:contentDescription="@string/aceCard"
-                app:layout_constraintBottom_toTopOf="@+id/subTextBJ"
+                app:layout_constraintBottom_toTopOf="@+id/st"
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintHorizontal_bias="0.5"
                 app:layout_constraintStart_toEndOf="@+id/imageView"
@@ -161,10 +161,10 @@
                 android:layout_width="61dp"
                 android:layout_height="81dp"
                 android:contentDescription="@string/aceCard"
-                app:layout_constraintBottom_toTopOf="@+id/subTextBJ"
+                app:layout_constraintBottom_toTopOf="@+id/st"
                 app:layout_constraintEnd_toStartOf="@+id/imageView2"
                 app:layout_constraintHorizontal_bias="0.5"
-                app:layout_constraintStart_toEndOf="@+id/bottomTextBJ"
+                app:layout_constraintStart_toEndOf="@+id/bt"
                 app:srcCompat="@drawable/_10_of_clubs" />
 
         </androidx.constraintlayout.widget.ConstraintLayout>

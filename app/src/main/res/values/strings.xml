@@ -169,12 +169,8 @@
     <string name="pokerImageDescription">a</string>
 
     <string name="txHoldemObjective">Objective: Place wagers on your 5 card hand.  </string>
-    <string name="txHoldemBasics">All players a dealt 2 cards. The betting process begins in which a player may  call, raise, or fold.
-        call meaning to match the previous bet, raise meaning to exceed the previous bet, or fold meaning to drop out of the game and forfeit.
-        After that, 3 community cards are revealed which the player can use to construct their best hand. The term for this the initial three
-        card reveal is a "flop" Another round of betting takes place
-        followed by a revealing of a 4th community card. Again, another round of betting takes place before the 5th and final community card is revealed.
-        A round of betting follows and then finally all players reveal their hand. Players that did not fold and have the best hand win the pot.</string>
+    <string name="txHoldemBasics">All players a dealt 2 cards. The betting process begins in which a player may  call, raise, or fold. Call meaning to match the previous bet, raise meaning to exceed the previous bet, or fold meaning to drop out of the game and forfeit.
+        After that, 3 community cards are revealed which the player can use to construct their best hand. The term for this the initial three card reveal is a "flop" Another round of betting takes place followed by a revealing of a 4th community card. Again, another round of betting takes place before the 5th and final community card is revealed. A round of betting follows and then finally all players reveal their hand. Players that did not fold and have the best hand win the pot.</string>
     <string name="txHoldemTip1">1. Do not reveal anything about your cards. Unless you are trying to do some mind manipulation or something.</string>
     <string name="txHoldemTip2">2. Strategy is based on the two cards in your hand.</string>
     <string name="txHoldemTip3">3. Do not be afraid to cut losses after seeing the flop.</string>
