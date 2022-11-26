@@ -96,7 +96,7 @@
         app:layout_constraintVertical_bias="0.141" />
 
     <TextView
-        android:id="@+id/TexasHoldem_Title"
+        android:id="@+id/poker_Title"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:text="Poker"
@@ -131,15 +131,15 @@
         app:layout_constraintVertical_bias="0.022" />
 
     <Button
-        android:id="@+id/Calculate_button"
+        android:id="@+id/Calculate_button_poker"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:text="Calculate"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="@+id/TexasHoldem_Title"
-        app:layout_constraintVertical_bias="0.598" />
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.986" />
 
     <TextView
         android:id="@+id/Bet_amount_textview"
@@ -154,7 +154,7 @@
         app:layout_constraintVertical_bias="0.022" />
 
     <Button
-        android:id="@+id/Win_button"
+        android:id="@+id/Win_button_poker"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:text="Win"
@@ -166,7 +166,7 @@
         app:layout_constraintVertical_bias="0.916" />
 
     <Button
-        android:id="@+id/Lose_button"
+        android:id="@+id/Lose_button_poker"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:text="Lose"
