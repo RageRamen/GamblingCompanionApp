@@ -71,6 +71,7 @@ public class RouletteFragment extends Fragment {
 
         //noinspection SimplifiableIfStatement
         if (item.getItemId() == android.R.id.home) {
+            actionEndSession();
             return true; // must return true to consume it here
         }
 
@@ -80,5 +81,10 @@ public class RouletteFragment extends Fragment {
     // INTERFACE:
 
     // ACTIONS:
+
+    private void actionEndSession() {
+        // TODO
+        NavHostFragment.findNavController(this).navigate(R.id.action_rouletteFragment_to_casinoSessionFragment);
+    }
 
 }

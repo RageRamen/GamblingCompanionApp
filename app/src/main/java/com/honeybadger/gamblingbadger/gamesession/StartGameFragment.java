@@ -79,6 +79,7 @@ public class StartGameFragment extends Fragment {
 
         //noinspection SimplifiableIfStatement
         if (item.getItemId() == android.R.id.home) {
+            actionGoToCasinoSession();
             return true; // must return true to consume it here
         }
 
@@ -124,7 +125,7 @@ public class StartGameFragment extends Fragment {
         binding.startGameFragButtonBack.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                actionNavigateBackToCasinoSession();
+                actionGoToCasinoSession();
             }
         });
     }
@@ -159,7 +160,7 @@ public class StartGameFragment extends Fragment {
                     .navigate(navigateTo);
     }
 
-    private void actionNavigateBackToCasinoSession() {
+    private void actionGoToCasinoSession() {
         // Navigate Home
         NavHostFragment.findNavController(StartGameFragment.this)
                 .navigate(R.id.action_startGameFragment_to_casinoSessionFragment);

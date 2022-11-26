@@ -108,12 +108,18 @@ public class TimerFragment extends Fragment
         //noinspection SimplifiableIfStatement
         if (item.getItemId() == android.R.id.home)
         {
-            NavHostFragment.findNavController(TimerFragment.this)
-                    .navigate(R.id.action_timerFragment_to_casinoSessionFragment);
+            actionGoToCasinoSession();
             return true; // must return true to consume it here
         }
 
         return super.onOptionsItemSelected(item);
+    }
+
+    @Override
+    public void onDestroyView()
+    {
+        super.onDestroyView();
+        binding = null;
     }
 
     // Initialize Interface
@@ -215,10 +221,10 @@ public class TimerFragment extends Fragment
         });
     }
 
-    @Override
-    public void onDestroyView()
-    {
-        super.onDestroyView();
-        binding = null;
+    // ACTION METHODS:
+
+    private void actionGoToCasinoSession() {
+        NavHostFragment.findNavController(TimerFragment.this)
+                .navigate(R.id.action_timerFragment_to_casinoSessionFragment);
     }
 }
