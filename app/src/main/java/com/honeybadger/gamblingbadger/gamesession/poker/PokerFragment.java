@@ -8,7 +8,6 @@ import android.view.MenuItem;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.AdapterView;
-import android.widget.NumberPicker;
 import android.widget.Spinner;
 
 import androidx.annotation.NonNull;
@@ -22,7 +21,8 @@ import com.honeybadger.gamblingbadger.cards.Card;
 import com.honeybadger.gamblingbadger.cards.ECardNum;
 import com.honeybadger.gamblingbadger.cards.ECardSuit;
 import com.honeybadger.gamblingbadger.databinding.FragmentPokerBinding;
-import com.honeybadger.gamblingbadger.gamesession.blackjack.BlackjackSession;
+import com.honeybadger.gamblingbadger.tips.BJTipFrag;
+import com.honeybadger.gamblingbadger.tips.PokerTipFrag;
 
 import java.util.LinkedList;
 import java.util.List;
@@ -92,7 +92,8 @@ public class PokerFragment extends Fragment {
     @Override
     public void onCreateOptionsMenu(Menu menu, MenuInflater inflater) {
         menu.clear();
-        inflater.inflate(R.menu.menu_blackjack, menu);
+
+        inflater.inflate(R.menu.menu_poker, menu);
 
         super.onCreateOptionsMenu(menu, inflater);
     }
@@ -106,16 +107,12 @@ public class PokerFragment extends Fragment {
             actionEndSession();
             return true; // must return true to consume it here
         }
-        if (id == R.id.menu_blackjack_item_tips) {
-            actionGoToTips();
+        if (id == R.id.menu_poker_item_tips) {
+            actionGoToPokerTips();
             return true;
         }
 
         return super.onOptionsItemSelected(item);
-    }
-
-    private void actionGoToTips() {
-        //NavHostFragment.findNavController(this).navigate(R.id.action_p);
     }
 
     private void actionEndSession() {
@@ -381,5 +378,10 @@ public class PokerFragment extends Fragment {
     }
 
     // ACTIONS:
+
+    private void actionGoToPokerTips() {
+        PokerTipFrag.callingFragmentReturnActionID = R.id.action_pokerTipFrag_to_pokerFragment;
+        NavHostFragment.findNavController(this).navigate(R.id.action_pokerFragment_to_pokerTipFrag);
+    }
 
 }

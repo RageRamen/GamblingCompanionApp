@@ -15,6 +15,9 @@ import androidx.navigation.fragment.NavHostFragment;
 
 import com.honeybadger.gamblingbadger.R;
 import com.honeybadger.gamblingbadger.databinding.FragmentTexasHoldemBinding;
+import com.honeybadger.gamblingbadger.tips.BJTipFrag;
+import com.honeybadger.gamblingbadger.tips.PokerTipFrag;
+import com.honeybadger.gamblingbadger.tips.TXTipFrag;
 
 public class TexasHoldemFragment extends Fragment {
 
@@ -59,8 +62,9 @@ public class TexasHoldemFragment extends Fragment {
 
     @Override
     public void onCreateOptionsMenu(Menu menu, MenuInflater inflater) {
-        // menu.clear();
-        // inflater.inflate(R.menu.menu_blackjack, menu);
+        menu.clear();
+
+        inflater.inflate(R.menu.menu_texas_holdem, menu);
 
         super.onCreateOptionsMenu(menu, inflater);
     }
@@ -74,6 +78,10 @@ public class TexasHoldemFragment extends Fragment {
             actionEndSession();
             return true; // must return true to consume it here
         }
+        if (id == R.id.menu_poker_item_tips) {
+            actionGoToTexasHoldemTips();
+            return true;
+        }
 
         return super.onOptionsItemSelected(item);
     }
@@ -81,6 +89,11 @@ public class TexasHoldemFragment extends Fragment {
     // INTERFACE:
 
     // ACTIONS:
+
+    private void actionGoToTexasHoldemTips() {
+        TXTipFrag.callingFragmentReturnActionID = R.id.action_TXTipFrag_to_texasHoldemFragment;
+        NavHostFragment.findNavController(this).navigate(R.id.action_texasHoldemFragment_to_TXTipFrag);
+    }
 
     private void actionEndSession() {
         // TODO

@@ -15,24 +15,17 @@ import android.widget.NumberPicker;
 import android.widget.Spinner;
 import android.widget.TextView;
 
-import androidx.activity.OnBackPressedCallback;
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
 import androidx.fragment.app.Fragment;
-import androidx.navigation.NavController;
-import androidx.navigation.Navigation;
 import androidx.navigation.fragment.NavHostFragment;
-import androidx.navigation.ui.NavigationUI;
 
-import com.google.android.material.textfield.TextInputLayout;
 import com.honeybadger.gamblingbadger.ImageSpinnerAdapter;
 import com.honeybadger.gamblingbadger.R;
 import com.honeybadger.gamblingbadger.cards.Card;
 import com.honeybadger.gamblingbadger.cards.ECardNum;
 import com.honeybadger.gamblingbadger.cards.ECardSuit;
-import com.honeybadger.gamblingbadger.casinosession.CasinoSessionFragment;
 import com.honeybadger.gamblingbadger.databinding.FragmentBlackjackBinding;
-import com.honeybadger.gamblingbadger.gamesession.StartGameFragment;
 import com.honeybadger.gamblingbadger.tips.BJTipFrag;
 
 import java.math.BigDecimal;
@@ -135,7 +128,7 @@ public class BlackjackFragment extends Fragment {
             return true;
         }
         if (id == R.id.menu_blackjack_item_tips) {
-            actionGoToTips();
+            actionGoToBlackjackTips();
             return true;
         }
 
@@ -388,7 +381,7 @@ public class BlackjackFragment extends Fragment {
         userHand.add(card);
     }
 
-    private void actionGoToTips() {
+    private void actionGoToBlackjackTips() {
         BJTipFrag.callingFragmentReturnActionID = R.id.action_bjtipsFragment_to_blackjackFragment;
         NavHostFragment.findNavController(this).navigate(R.id.action_blackjackFragment_to_bjtipsFragment);
     }
