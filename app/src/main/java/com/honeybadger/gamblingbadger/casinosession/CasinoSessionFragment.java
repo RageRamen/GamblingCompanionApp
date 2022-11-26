@@ -187,7 +187,6 @@ public class CasinoSessionFragment extends Fragment {
     }
 
     private void actionEndSession() {
-        // TODO: Ask to confirm
         casinoSession.closeSession();
 
         NavHostFragment.findNavController(CasinoSessionFragment.this)

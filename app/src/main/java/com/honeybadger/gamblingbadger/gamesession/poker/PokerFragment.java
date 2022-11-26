@@ -119,6 +119,7 @@ public class PokerFragment extends Fragment {
     }
 
     private void actionEndSession() {
+        // TODO
         //pokerSession.closeSession();
         NavHostFragment.findNavController(this).navigate(R.id.action_pokerFragment_to_casinoSessionFragment);
     }
