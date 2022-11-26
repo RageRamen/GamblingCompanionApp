@@ -1,6 +1,8 @@
 package com.honeybadger.gamblingbadger.casinosession;
 
+import android.app.Activity;
 import android.app.AlertDialog;
+import android.content.Context;
 import android.content.DialogInterface;
 import android.os.Bundle;
 import android.view.LayoutInflater;
@@ -106,7 +108,7 @@ public class CasinoSessionFragment extends Fragment {
         TextView balanceText = getActivity().findViewById(R.id.activityMain_appBar_textView_balance_text);
         balanceText.setText(R.string.actionBar_balance_text);
 
-        updateActionBarBalance();
+        updateActionBarBalance(getActivity());
     }
 
     private void initAlertBuilderEndSession() {
@@ -216,11 +218,11 @@ public class CasinoSessionFragment extends Fragment {
         NavHostFragment.findNavController(this).navigate(R.id.action_casinoSessionFragment_to_casinoStatisticsFragment);
     }
 
-    public void updateActionBarBalance() {
+    public static void updateActionBarBalance(Activity activity) {
         NumberFormat formatter = NumberFormat.getCurrencyInstance();
         float number = casinoSession.getBalance().getCurrentBalance().floatValue();
 
-        TextView textViewBalance = getActivity().findViewById(R.id.activityMain_appBar_textView_balance);
+        TextView textViewBalance = activity.findViewById(R.id.activityMain_appBar_textView_balance);
         textViewBalance.setText(formatter.format(number));
     }
 

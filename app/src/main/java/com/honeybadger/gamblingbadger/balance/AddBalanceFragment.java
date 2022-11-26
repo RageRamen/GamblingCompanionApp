@@ -15,7 +15,6 @@ import androidx.fragment.app.Fragment;
 import androidx.navigation.fragment.NavHostFragment;
 
 import com.honeybadger.gamblingbadger.R;
-import com.honeybadger.gamblingbadger.casinosession.CasinoSession;
 import com.honeybadger.gamblingbadger.casinosession.CasinoSessionFragment;
 import com.honeybadger.gamblingbadger.databinding.FragmentAddBalanceBinding;
 
@@ -144,7 +143,7 @@ public class AddBalanceFragment extends Fragment {
         //Get the existing balance in a casino session by calling getBalance()
         // the Balance returned by getBalance() is the balance of the casino session itself
         Balance casinoSessionBalance = CasinoSessionFragment.casinoSession.getBalance();
-        casinoSessionBalance.addToBalance(addAmount); //test
+        casinoSessionBalance.addToBalance(addAmount, getActivity()); //test
 
         // Navigate to Casino Session
         NavHostFragment.findNavController(AddBalanceFragment.this)

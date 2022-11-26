@@ -144,7 +144,7 @@ public class SubBalanceFragment extends Fragment {
         //Get the existing balance in a casino session by calling getBalance()
         // the Balance returned by getBalance() is the balance of the casino session itself
         Balance casinoSessionBalance = CasinoSessionFragment.casinoSession.getBalance();
-        casinoSessionBalance.subFromBalance(subAmount); //test
+        casinoSessionBalance.subFromBalance(subAmount, getActivity()); //test
 
         // Navigate to Casino Session
         NavHostFragment.findNavController(SubBalanceFragment.this)
