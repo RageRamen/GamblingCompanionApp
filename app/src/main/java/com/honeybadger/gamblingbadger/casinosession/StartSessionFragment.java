@@ -124,13 +124,15 @@ public class StartSessionFragment extends Fragment {
 
     private void actionStartCasinoSession() {
         // Get input
-        // TODO: vv Make sure valid input vv
         BigDecimal inputBalance;
         try {
-            //startSessionFrag_editTextNumberDecimal_balance
             inputBalance = new BigDecimal(binding.startSessionFragEditTextNumberDecimalBalance.getText().toString());
         }
         catch (NumberFormatException e) {
+            alertInvalidBalance.show();
+            return;
+        }
+        if (inputBalance.compareTo(BigDecimal.ZERO) <= 0) {
             alertInvalidBalance.show();
             return;
         }

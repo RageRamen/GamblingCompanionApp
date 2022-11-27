@@ -69,6 +69,6 @@ public class PokerSession extends GameSession {
         else
             data.averageLuckIndex = 0f;
 
-        return new LongListOfData();
+        return data;
     }
 }

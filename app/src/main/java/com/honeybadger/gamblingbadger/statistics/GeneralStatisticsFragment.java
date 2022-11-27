@@ -17,12 +17,16 @@ import android.widget.TextView;
 
 import com.github.mikephil.charting.charts.BarChart;
 import com.github.mikephil.charting.charts.PieChart;
+import com.github.mikephil.charting.components.XAxis;
+import com.github.mikephil.charting.components.YAxis;
 import com.github.mikephil.charting.data.BarData;
 import com.github.mikephil.charting.data.BarDataSet;
 import com.github.mikephil.charting.data.BarEntry;
 import com.github.mikephil.charting.data.PieData;
 import com.github.mikephil.charting.data.PieDataSet;
 import com.github.mikephil.charting.data.PieEntry;
+import com.github.mikephil.charting.formatter.IndexAxisValueFormatter;
+import com.github.mikephil.charting.formatter.ValueFormatter;
 import com.honeybadger.gamblingbadger.R;
 import com.honeybadger.gamblingbadger.databinding.FragmentGeneralStatisticsBinding;
 import com.honeybadger.gamblingbadger.gamesession.EGameType;
@@ -169,7 +173,7 @@ public class GeneralStatisticsFragment extends Fragment {
     private void initAggregateTimePlayingEachGame() {
         PieChart pieChart = getActivity().findViewById(R.id.generalStatisticsFrag_pieChart_aggregateTimePlayingEachGame);
         ArrayList<PieEntry> pieEntries = new ArrayList<>();
-        String label = "Game Type";
+        String label = "";
 
         // Input data
         PieEntry pe;
@@ -192,7 +196,7 @@ public class GeneralStatisticsFragment extends Fragment {
     private void initAggregateMoneyDeltaForEachGame() {
         PieChart pieChart = getActivity().findViewById(R.id.generalStatisticsFrag_pieChart_aggregateMoneyDeltaEachGame);
         ArrayList<PieEntry> pieEntries = new ArrayList<>();
-        String label = "Game Type";
+        String label = "";
 
         // Input data
         NumberFormat formatter = NumberFormat.getCurrencyInstance();
@@ -216,27 +220,49 @@ public class GeneralStatisticsFragment extends Fragment {
     private void initAggregateLuckIndexForEachGame() {
         BarChart barChart = getActivity().findViewById(R.id.generalStatisticsFrag_barChart_aggregateLuckIndexEachGame);
         ArrayList<BarEntry> barEntries = new ArrayList<>();
-        String label  ="Game Type";
+        ArrayList<String> labels = new ArrayList<>();
+        String label = "WORK IN PROGRESS";
 
         // Input Data
-        Map<String, Float> valueList = new HashMap<>();
+        BarEntry be;
+        int count = 0;
+        // TODO: Remove show luck
+        ArrayList<Float> presentationLuck = new ArrayList<Float>() { {add(0.25f); add(-0.35f); add(0.4f); }};
         for (Map.Entry<EGameType, Float> entry : statistics.aggregateLuckIndexForEachGame.entrySet()) {
-            valueList.put(entry.getKey().NAME, entry.getValue());
-        }
-
-        // Data
-        for (int i = 0; i < valueList.size(); i++) {
-            barEntries.add(new BarEntry(i, 0f));
+            //be = new BarEntry(count++, entry.getValue());
+            labels.add(entry.getKey().NAME);
+            be = new BarEntry(count, presentationLuck.get(count));
+            count++;
+            barEntries.add(be);
         }
 
         // Bar Stuff:
         BarDataSet barDataSet = new BarDataSet(barEntries, label);
         barDataSet.setValueTextSize(12f);
         barDataSet.setColors(COLORS);
+
         BarData barData = new BarData(barDataSet);
         barData.setDrawValues(true);
 
         barChart.setData(barData);
+
+        YAxis rightAxis = barChart.getAxisRight();
+        rightAxis.setDrawAxisLine(false);
+        rightAxis.setDrawTopYLabelEntry(false);
+        rightAxis.setDrawZeroLine(false);
+        rightAxis.setDrawGridLines(false);
+        rightAxis.setDrawGridLinesBehindData(false);
+        rightAxis.setDrawLabels(false);
+        rightAxis.setDrawLimitLinesBehindData(false);
+
+        YAxis leftAxis = barChart.getAxisLeft();
+        leftAxis.setAxisMaximum(1.0f);
+        leftAxis.setAxisMinimum(-1.0f);
+
+        XAxis xAxis = barChart.getXAxis();
+        xAxis.setValueFormatter(new IndexAxisValueFormatter(labels));
+
+
         barChart.invalidate();
     }
 
