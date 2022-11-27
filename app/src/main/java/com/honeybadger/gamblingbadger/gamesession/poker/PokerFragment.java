@@ -9,6 +9,7 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.widget.AdapterView;
 import android.widget.Spinner;
+import android.widget.TextView;
 
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
@@ -78,8 +79,8 @@ public class PokerFragment extends Fragment {
         // Init Interface
         initSpinnerDealerCard();
         initCalculateButton();
-        initWinButtion();
-        initLoseButtion();
+        initWinButton();
+        initLoseButton();
     }
 
     @Override
@@ -289,25 +290,28 @@ public class PokerFragment extends Fragment {
         binding.CalculateButtonPoker.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                //TODO link the method in PokerSession that does this
+                actionUpdateOddsTextview();
+                actionUpdateRecommendedActionTextview();
             }
         });
     }
 
-    private void initWinButtion() {
+    private void initWinButton() {
         binding.WinButtonPoker.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
                 //TODO link the method in PokerSession that does this
+                actionWinGame();
             }
         });
     }
 
-    private void initLoseButtion() {
+    private void initLoseButton() {
         binding.LoseButtonPoker.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
                 //TODO link the method in PokerSession that does this
+                actionLoseGame();
             }
         });
     }
@@ -317,6 +321,27 @@ public class PokerFragment extends Fragment {
     private void actionGoToPokerTips() {
         PokerTipFrag.callingFragmentReturnActionID = R.id.action_pokerTipFrag_to_pokerFragment;
         NavHostFragment.findNavController(this).navigate(R.id.action_pokerFragment_to_pokerTipFrag);
+    }
+
+
+    private void actionUpdateOddsTextview(){
+        //TODO link whatever method used when calculate button is pressed. Should calculate the odds value
+        TextView oddsDisplay = (TextView) getActivity().findViewById(R.id.Odds_textview);
+        oddsDisplay.setText("HELLO TEST"); //placeholder test output
+    }
+
+    private void actionUpdateRecommendedActionTextview(){
+        //TODO link whatever method used when calculate button is pressed. Should use odds values to return a string for recommended action
+        TextView RecommendedActionDisplay = (TextView) getActivity().findViewById(R.id.recommendedAction_textview);
+        RecommendedActionDisplay.setText("HELLO TEST"); //placeholder test output
+    }
+
+    private void actionWinGame(){
+        //TODO link to when the win button is pressed. Record the round into the PokerSession as a win
+    }
+
+    private void actionLoseGame(){
+        //TODO link to when the lose button is pressed. Record the round into the PokerSession as a lose
     }
 
 }
