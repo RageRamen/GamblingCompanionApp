@@ -194,8 +194,8 @@
                 app:layout_constraintStart_toStartOf="parent"
                 app:layout_constraintTop_toTopOf="parent" />
 
-            <com.github.mikephil.charting.charts.PieChart
-                android:id="@+id/generalStatisticsFrag_pieChart_aggregateLuckIndexEachGame"
+            <com.github.mikephil.charting.charts.BarChart
+                android:id="@+id/generalStatisticsFrag_barChart_aggregateLuckIndexEachGame"
                 android:layout_width="match_parent"
                 android:layout_height="match_parent"
                 android:layout_marginStart="8dp"
