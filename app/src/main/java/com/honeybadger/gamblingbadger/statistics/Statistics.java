@@ -133,8 +133,8 @@ public class Statistics {
                 for (Map.Entry<EGameType, Float> e : entry.luckIndexForEachGame.entrySet()) {
                     luckIndexEachGame.putIfAbsent(e.getKey(), 0f);
                     luckIndexCount.putIfAbsent(e.getKey(), 0);
-                    luckIndexEachGame.put(e.getKey(), luckIndexEachGame.get(e.getKey()) + e.getValue());  // sum
-                    luckIndexCount.put(e.getKey(), luckIndexCount.get(e.getKey()) + 1);  // count
+                    luckIndexEachGame.put(e.getKey(), luckIndexEachGame.get(e.getKey()) + (e.getValue() * entry.numberOfGames));  // sum
+                    luckIndexCount.put(e.getKey(), luckIndexCount.get(e.getKey()) + entry.numberOfGames);  // count
                 }
             }
         }
