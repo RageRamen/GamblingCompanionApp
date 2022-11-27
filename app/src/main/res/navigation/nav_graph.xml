@@ -305,6 +305,9 @@
         <action
             android:id="@+id/action_pokerTipFrag_to_pokerFragment"
             app:destination="@id/pokerFragment" />
+        <action
+            android:id="@+id/action_pokerTipFrag_to_pokerHandsFrag"
+            app:destination="@id/pokerHandsFrag" />
     </fragment>
     <fragment
         android:id="@+id/TXTipFrag"
@@ -325,7 +328,7 @@
     <fragment
         android:id="@+id/pokerHandsFrag"
         android:name="com.honeybadger.gamblingbadger.tips.pokerHands"
-        android:label="What is a good poker hand?"
+        android:label="What is a Good Poker Hand?"
         tools:layout="@layout/fragment_poker_hands">
         <action
             android:id="@+id/action_pokerHandsFrag_pop"

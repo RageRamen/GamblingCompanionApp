@@ -184,12 +184,10 @@
     <string name="tenCard">Card with value of ten</string>
     <string name="aceCard">Card with the value of one or ten</string>
 
-    <string name="pokerObjective">Objective: </string>
-    <string name="pokerBasics">a</string>
-    <string name="pokerTip1">1. </string>
-    <string name="pokerTip2">2. </string>
-    <string name="pokerTip3">3.</string>
-    <string name="pokerTip4">a</string>
+    <string name="pokerBasics">All players are dealt 5 cards. In this version of poker, generic poker, players may discard however many cards they want to get a new hand. A round of betting takes place after each player decides to replace or not. Then players reveal their cards and the best hand wins.</string>
+    <string name="pokerTip1">1. Poker face, bluff. </string>
+    <string name="pokerTip2">2. Analyze other\'s expressions and call their bluffs. </string>
+    <string name="pokerTip3">3. Be patient.</string>
     <string name="pokerImageDescription">a</string>
 
     <string name="txHoldemObjective">Objective: Place wagers on your 5 card hand.  </string>

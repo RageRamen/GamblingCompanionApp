@@ -2,6 +2,7 @@ package com.honeybadger.gamblingbadger.tips;
 
 import android.os.Bundle;
 
+import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
 import androidx.fragment.app.Fragment;
 import androidx.navigation.fragment.NavHostFragment;
@@ -14,12 +15,16 @@ import android.view.View;
 import android.view.ViewGroup;
 
 import com.honeybadger.gamblingbadger.R;
+import com.honeybadger.gamblingbadger.databinding.FragmentPokerTipBinding;
+import com.honeybadger.gamblingbadger.databinding.FragmentTXTipBinding;
 
 public class PokerTipFrag extends Fragment {
     // VARIABLES:
 
     @Nullable
     public static Integer callingFragmentReturnActionID;
+    private FragmentPokerTipBinding binding;
+
 
     @Override
     public void onCreate(Bundle savedInstanceState)
@@ -29,11 +34,31 @@ public class PokerTipFrag extends Fragment {
         setHasOptionsMenu(true);
     }
 
+    public void onViewCreated(@NonNull View view, Bundle savedInstanceState)
+    {
+        initGoodHandsButton();
+    }
+
+    private void initGoodHandsButton()
+    {
+        binding.whatisagoodhandbutton2.setOnClickListener(new View.OnClickListener()
+        {
+            @Override
+            public void onClick(View view)
+            {
+                NavHostFragment.findNavController(PokerTipFrag.this)
+                        .navigate(R.id.action_pokerTipFrag_to_pokerHandsFrag);
+            }
+        });
+    }
+
+
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
         // Inflate the layout for this fragment
-        return inflater.inflate(R.layout.fragment_poker_tip, container, false);
+        binding = FragmentPokerTipBinding.inflate(inflater, container, false);
+        return binding.getRoot();
     }
 
     @Override

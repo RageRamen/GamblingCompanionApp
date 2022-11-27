@@ -38,7 +38,7 @@ public class TXTipFrag extends Fragment {
 
     private void initGoodHandsButton()
     {
-        binding.whatisagoodhandbutton.setOnClickListener(new View.OnClickListener()
+        binding.whatisagoodhandbutton2.setOnClickListener(new View.OnClickListener()
         {
             @Override
             public void onClick(View view)
