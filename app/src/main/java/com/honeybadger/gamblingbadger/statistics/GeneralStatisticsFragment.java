@@ -13,6 +13,7 @@ import android.view.MenuInflater;
 import android.view.MenuItem;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.TextView;
 
 import com.github.mikephil.charting.charts.BarChart;
 import com.github.mikephil.charting.charts.PieChart;
@@ -93,14 +94,16 @@ public class GeneralStatisticsFragment extends Fragment {
     public void onViewCreated(@NonNull View view, Bundle savedInstanceState) {
         super.onViewCreated(view, savedInstanceState);
 
-        // Update statistics:
-        Statistics.updateStatistics();
-
         // Get statistics
+        Statistics.updateStatistics();
         statistics = Statistics.getGeneralStatistics();
 
         // Init Interface
+        initAggregateTimeSpentInCasinos();
+        initAggregateTimePlayingGames();
         initAggregateTimePlayingEachGame();
+        initAggregateMoneyDeltaForEachGame();
+        initAggregateLuckIndexForEachGame();
     }
 
     @Override
@@ -147,6 +150,10 @@ public class GeneralStatisticsFragment extends Fragment {
 
     private void initAggregateTimeSpentInCasinos() {
         // TODO
+        TextView view = getActivity().findViewById(R.id.generalStatisticsFrag_textView_aggregateTimeSpentInCasinos);
+        long seconds = statistics.aggregateTimeSpentInCasinos.getSeconds();
+        String time = String.format("%d:%02d:%02d", seconds / 3600, (seconds % 3600) / 60, (seconds % 60));
+        view.setText(Long.toString(seconds));
     }
 
     private void initAggregateTimePlayingGames() {
@@ -208,7 +215,6 @@ public class GeneralStatisticsFragment extends Fragment {
     }
 
     private void initAggregateLuckIndexForEachGame() {
-        // TODO: Bar Chart
         BarChart barChart = getActivity().findViewById(R.id.generalStatisticsFrag_barChart_aggregateLuckIndexEachGame);
         ArrayList<BarEntry> barEntries = new ArrayList<>();
         String label  ="Game Type";

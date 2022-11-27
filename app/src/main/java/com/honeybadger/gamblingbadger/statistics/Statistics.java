@@ -74,7 +74,7 @@ public class Statistics {
 
     public static boolean loadCasSesFromFile(String fileName) {
         // TODO
-        return false;
+        return true;
     }
 
     public static boolean saveCasSesToFile(String fileName) {
@@ -93,6 +93,17 @@ public class Statistics {
             }
             success = true;
         }
+        return success;
+    }
+
+    public static boolean addCasSesToList(CasinoSession casinoSession) {
+        boolean success = false;
+
+        if (!casinoSessions.contains(casinoSession)) {
+            casinoSessions.add(casinoSession);
+            success = true;
+        }
+
         return success;
     }
 

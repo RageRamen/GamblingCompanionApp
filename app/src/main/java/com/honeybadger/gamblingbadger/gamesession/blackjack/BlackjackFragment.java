@@ -97,6 +97,7 @@ public class BlackjackFragment extends Fragment {
         initButtonGetOdds();
         initButtonWinGame();
         initButtonLoseGame();
+        actionSetBet();
     }
 
     @Override
@@ -402,9 +403,8 @@ public class BlackjackFragment extends Fragment {
 
         dialogBuilder.setView(blackjackSetBetPopup);
         setBetDialog = dialogBuilder.create();
-        setBetDialog.show();
 
-        //bet = new BigDecimal(SetBetInput.getText().toString()); //DONT USE THIS, CRASHES APP. Keeping this here just for now
+        //bet = new BigDecimal(SetBetInput.getText().toString());
 
         ConfirmButton.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -428,9 +428,7 @@ public class BlackjackFragment extends Fragment {
             }
         });
 
-
-        //TextView betDisplay = (TextView) getActivity().findViewById(R.id.betTextview);
-        //betDisplay.setText("HELLO"); //temporary test in place of setBet method
+        setBetDialog.show();
     }
 
     private void initButtonGetOdds() {

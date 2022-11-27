@@ -23,6 +23,7 @@ import com.honeybadger.gamblingbadger.cards.ECardNum;
 import com.honeybadger.gamblingbadger.cards.ECardSuit;
 import com.honeybadger.gamblingbadger.databinding.ActivityMainBinding;
 import com.honeybadger.gamblingbadger.gamesession.blackjack.BlackjackFragment;
+import com.honeybadger.gamblingbadger.statistics.Statistics;
 
 import android.view.Menu;
 import android.view.MenuItem;
@@ -48,6 +49,7 @@ public class MainActivity extends AppCompatActivity {
         appBarConfiguration = new AppBarConfiguration.Builder(navController.getGraph()).build();
         NavigationUI.setupActionBarWithNavController(this, navController, appBarConfiguration);
 
+        Statistics.init();
     }
 
     @Override
