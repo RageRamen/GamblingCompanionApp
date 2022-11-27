@@ -1,6 +1,8 @@
 package com.honeybadger.gamblingbadger.casinosession;
 
+import android.app.Activity;
 import android.app.AlertDialog;
+import android.content.Context;
 import android.content.DialogInterface;
 import android.os.Bundle;
 import android.view.LayoutInflater;
@@ -9,9 +11,11 @@ import android.view.MenuInflater;
 import android.view.MenuItem;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.TextView;
 
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
+import androidx.appcompat.app.AppCompatActivity;
 import androidx.fragment.app.Fragment;
 import androidx.navigation.fragment.NavHostFragment;
 
@@ -20,8 +24,9 @@ import com.honeybadger.gamblingbadger.databinding.FragmentCasinoSessionBinding;
 import com.honeybadger.gamblingbadger.statistics.CasinoStatisticsFragment;
 import com.honeybadger.gamblingbadger.tips.TipsFragment;
 
-public class CasinoSessionFragment extends Fragment {
+import java.text.NumberFormat;
 
+public class CasinoSessionFragment extends Fragment {
     private FragmentCasinoSessionBinding binding;
     private AlertDialog.Builder alertEndSession;
 
@@ -54,6 +59,9 @@ public class CasinoSessionFragment extends Fragment {
 
     public void onViewCreated(@NonNull View view, Bundle savedInstanceState) {
         super.onViewCreated(view, savedInstanceState);
+
+        // ActionBar
+        initActionBarBalance();
 
         // Visual
         binding.casinoSessionFragTextviewText.setText("DEBUG Balance: " + casinoSession.getBalance().getCurrentBalance().toString());
@@ -94,7 +102,14 @@ public class CasinoSessionFragment extends Fragment {
         return super.onOptionsItemSelected(item);
     }
 
-    // Alert Initializers:
+    // INITIALIZERS:
+
+    private void initActionBarBalance() {
+        TextView balanceText = getActivity().findViewById(R.id.activityMain_appBar_textView_balance_text);
+        balanceText.setText(R.string.actionBar_balance_text);
+
+        updateActionBarBalance(getActivity());
+    }
 
     private void initAlertBuilderEndSession() {
         alertEndSession = new AlertDialog.Builder(this.getActivity());
@@ -114,8 +129,6 @@ public class CasinoSessionFragment extends Fragment {
                     public void onClick(DialogInterface dialogInterface, int i) {}
                 });
     }
-
-    // Interface Initializers:
 
     private void initButtonStartGame() {
         binding.casinoSessionFragButtonStartGame.setOnClickListener(new View.OnClickListener() {
@@ -189,6 +202,8 @@ public class CasinoSessionFragment extends Fragment {
     private void actionEndSession() {
         casinoSession.closeSession();
 
+        actionClearActionBarBalance();
+
         NavHostFragment.findNavController(CasinoSessionFragment.this)
                 .navigate(R.id.action_casinoSessionFragment_to_homeFragment);
     }
@@ -201,6 +216,22 @@ public class CasinoSessionFragment extends Fragment {
     private void actionGoToStatistics() {
         CasinoStatisticsFragment.returnFragmentID = R.id.casinoSessionFragment;
         NavHostFragment.findNavController(this).navigate(R.id.action_casinoSessionFragment_to_casinoStatisticsFragment);
+    }
+
+    public static void updateActionBarBalance(Activity activity) {
+        NumberFormat formatter = NumberFormat.getCurrencyInstance();
+        float number = casinoSession.getBalance().getCurrentBalance().floatValue();
+
+        TextView textViewBalance = activity.findViewById(R.id.activityMain_appBar_textView_balance);
+        textViewBalance.setText(formatter.format(number));
+    }
+
+    private void actionClearActionBarBalance() {
+        TextView textViewBalanceText = getActivity().findViewById(R.id.activityMain_appBar_textView_balance_text);
+        TextView textViewBalance = getActivity().findViewById(R.id.activityMain_appBar_textView_balance);
+
+        textViewBalanceText.setText("");
+        textViewBalance.setText("");
     }
 
 }

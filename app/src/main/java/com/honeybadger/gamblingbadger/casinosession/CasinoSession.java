@@ -65,77 +65,13 @@ public class CasinoSession {
         return this.gamesPlayed;
     }
 
+    // Active Methods:
+
     public CasinoSession addGameSession(GameSession gameSession) {
         if (!gamesPlayed.contains(gameSession))
             gamesPlayed.add(gameSession);
 
         return this;
-    }
-
-    public CasinoSession removeGameSession(GameSession gameSession) {
-        gamesPlayed.remove(gameSession);
-
-        return this;
-    }
-
-    // Active Methods:
-
-    public boolean addToBalance(BigDecimal amount) {
-        boolean success = true;
-
-        switch (this.balance.addToBalance(amount)) {
-            case BM_NONE:
-                break;
-            case BM_FAIL:
-                // TODO: Fail message
-                success = false;
-                break;
-            case BM_10_PERCENT:
-                // TODO: 10% warning to user
-                break;
-            case BM_25_PERCENT:
-                // TODO: 25% warning to user
-                break;
-            case BM_50_PERCENT:
-                // TODO: 50% warning to user
-                break;
-        }
-
-        return success;
-    }
-
-    public boolean subFromBalance(BigDecimal amount) {
-        return this.addToBalance(amount.negate());
-    }
-
-    public GameSession addGameSession(EGameType gameType) {
-        GameSession gameSession;
-
-        switch (gameType) {
-            default:
-            case GT_BLACKJACK:
-                // TODO
-                gameSession = new BlackjackSession(this);
-                this.gamesPlayed.add(gameSession);
-                break;
-            case GT_POKER:
-                // TODO
-                gameSession = new PokerSession(this);
-                this.gamesPlayed.add(gameSession);
-                break;
-            case GT_TEXAS_HOLDEM:
-                // TODO
-                gameSession = new TexasHoldemSession(this);
-                this.gamesPlayed.add(gameSession);
-                break;
-            case GT_ROULETTE:
-                // TODO
-                gameSession = new RouletteSession(this);
-                this.gamesPlayed.add(gameSession);
-                break;
-        }
-
-        return gameSession;
     }
 
     public boolean closeSession() {
@@ -156,7 +92,7 @@ public class CasinoSession {
         return this.sessionStartTime == this.sessionEndTime;
     }
 
-    public Duration getTimeSpentInCasino() {
+    /*public Duration getTimeSpentInCasino() {
         Duration deltaTime;
 
         if (this.isSessionOpen()) {
@@ -212,7 +148,7 @@ public class CasinoSession {
     public Duration getSessionDuration() {
         // TODO
         return Duration.ZERO;
-    }
+    }*/
 
     public LongListOfData getStatistics() {
         // TODO

@@ -286,7 +286,7 @@ public class PokerFragment extends Fragment {
     }
 
     private void initCalculateButton() {
-        binding.CalculateButton.setOnClickListener(new View.OnClickListener() {
+        binding.CalculateButtonPoker.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
                 //TODO link the method in PokerSession that does this
@@ -295,7 +295,7 @@ public class PokerFragment extends Fragment {
     }
 
     private void initWinButtion() {
-        binding.WinButton.setOnClickListener(new View.OnClickListener() {
+        binding.WinButtonPoker.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
                 //TODO link the method in PokerSession that does this
@@ -304,7 +304,7 @@ public class PokerFragment extends Fragment {
     }
 
     private void initLoseButtion() {
-        binding.LoseButton.setOnClickListener(new View.OnClickListener() {
+        binding.LoseButtonPoker.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
                 //TODO link the method in PokerSession that does this
