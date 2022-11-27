@@ -30,8 +30,33 @@ import java.util.Map;
 public class GeneralStatisticsFragment extends Fragment {
     // CONSTANTS:
 
-    private static final int SOFT_COLOR_CAP = 23;
-    private static final int COLOR_STEP = 360 / SOFT_COLOR_CAP;
+    private static final ArrayList<Integer> COLORS = new ArrayList<Integer>() {
+        {
+            add(Color.parseColor("#E62E2E"));
+            add(Color.parseColor("#2EE63D"));
+            add(Color.parseColor("#4D2EE6"));
+            add(Color.parseColor("#E6622E"));
+            add(Color.parseColor("#2EE66E"));
+            add(Color.parseColor("#7D2EE6"));
+            add(Color.parseColor("#E68D2E"));
+            add(Color.parseColor("#2EE69F"));
+            add(Color.parseColor("#AE2EE6"));
+            add(Color.parseColor("#E6BE2E"));
+            add(Color.parseColor("#2EE6CD"));
+            add(Color.parseColor("#DC2EE6"));
+            add(Color.parseColor("#DCE62E"));
+            add(Color.parseColor("#2ECDE6"));
+            add(Color.parseColor("#E62EBE"));
+            add(Color.parseColor("#AEE62E"));
+            add(Color.parseColor("#2E9FE6"));
+            add(Color.parseColor("#E62E8D"));
+            add(Color.parseColor("#7DE62E"));
+            add(Color.parseColor("#2E6EE6"));
+            add(Color.parseColor("#E62E5F"));
+            add(Color.parseColor("#4DE62E"));
+            add(Color.parseColor("#2E3DE6"));
+        }
+    };
 
     // VARIABLES:
 
@@ -134,63 +159,15 @@ public class GeneralStatisticsFragment extends Fragment {
             typeMap.put(entry.getKey().NAME, entry.getValue());
         }
 
-        // Get colors
-        ArrayList<Integer> colors = new ArrayList<>();
-        int H;
-        float S, V, C, X, m, Rp, Gp, Bp;
-        int R, G, B;
-        for (int i = 0; i < statistics.aggregateTimePlayingEachGame.size(); i++) {
-            H = (i * (int)COLOR_STEP) % 360;
-            S = 1.0f;
-            V = 1.0f;
-            C = V * S;
-            X = C * (1 - Math.abs((H / 60) % 2 - 1));
-            m = V - C;
-            if (0 <= H && H < 60) {
-                Rp = C;
-                Gp = X;
-                Bp = 0;
-            }
-            else if (60 <= H && H < 120) {
-                Rp = X;
-                Gp = C;
-                Bp = 0;
-            }
-            else if (120 <= H && H < 180) {
-                Rp = 0;
-                Gp = C;
-                Bp = X;
-            }
-            else if (180 <= H && H < 240) {
-                Rp = 0;
-                Gp = X;
-                Bp = C;
-            }
-            else if (240 <= H && H < 300) {
-                Rp = X;
-                Gp = 0;
-                Bp = C;
-            }
-            else {
-                Rp = C;
-                Gp = 0;
-                Bp = X;
-            }
-            R = (int)((Rp + m) * 255);
-            G = (int)((Gp + m) * 255);
-            B = (int)((Bp + m) * 255);
-            int color = (R << 16) + (G << 8) + B;
-        }
-
         // Input data
         for (String type : typeMap.keySet()) {
-            pieEntries.add(new PieEntry(typeMap.get(type).toMinutes(), type));
+            pieEntries.add(new PieEntry((float)typeMap.get(type).toMinutes(), type));
         }
 
         // Pie stuff
         PieDataSet pieDataSet = new PieDataSet(pieEntries, label);
         pieDataSet.setValueTextSize(12f);
-        pieDataSet.setColors(colors);
+        pieDataSet.setColors(COLORS);
         PieData pieData = new PieData(pieDataSet);
         pieData.setDrawValues(true);
 
