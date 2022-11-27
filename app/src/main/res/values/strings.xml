@@ -179,7 +179,7 @@
     <string name="bjTip1">1. Avoid playing too passively. It is highly recommended to hit if your value is 13&#8211;15.</string>
     <string name="bjTip2">2. Avoid playing too aggressively. Avoid doubling down if your hand is not at least worth 20.</string>
     <string name="bjTip3">3. Play tables that pay 3 to 2 (150%). Otherwise, the house will have a larger advantage.</string>
-    <string name="bjTip4">4.Consider studying up on &quot;basic strategy&quot; and card counting.</string>
+    <string name="bjTip4">4.Consider studying up on \"basic strategy\" and card counting.</string>
     <string name="bjImageDescription">This hand has the value of 21, and is an automatic win unless the dealer also has a similar hand.</string>
     <string name="tenCard">Card with value of ten</string>
     <string name="aceCard">Card with the value of one or ten</string>
@@ -193,13 +193,39 @@
     <string name="pokerImageDescription">a</string>
 
     <string name="txHoldemObjective">Objective: Place wagers on your 5 card hand.  </string>
-    <string name="txHoldemBasics">All players a dealt 2 cards. The betting process begins in which a player may  call, raise, or fold. Call meaning to match the previous bet, raise meaning to exceed the previous bet, or fold meaning to drop out of the game and forfeit.
-        After that, 3 community cards are revealed which the player can use to construct their best hand. The term for this the initial three card reveal is a "flop" Another round of betting takes place followed by a revealing of a 4th community card. Again, another round of betting takes place before the 5th and final community card is revealed. A round of betting follows and then finally all players reveal their hand. Players that did not fold and have the best hand win the pot.</string>
+    <string name="txHoldemBasics">All players are dealt 2 cards. The betting process begins in which a player may  call, raise, or fold. Call meaning to match the previous bet, raise meaning to exceed the previous bet, or fold meaning to drop out of the game and forfeit. After that, 3 community cards are revealed which the player can use to construct their best hand. The term for this the initial three card reveal is a \"flop\".</string>
+    <string name="txHoldemBasicspt2">Another round of betting takes place followed by a revealing of a 4th community card. Next,another round of betting before the 5th and final community card is revealed. Finally a round of betting before all players reveal their hand. Players that did not fold and have the best hand win the pot.</string>
     <string name="txHoldemTip1">1. Do not reveal anything about your cards. Unless you are trying to do some mind manipulation or something.</string>
     <string name="txHoldemTip2">2. Strategy is based on the two cards in your hand.</string>
     <string name="txHoldemTip3">3. Do not be afraid to cut losses after seeing the flop.</string>
     <string name="txHoldemTip4">4. As the number of players decrease, the probability of a strong hand increases.</string>
     <string name="txHoldemImageDescription">a</string>
+
+
+    <string name="goodHandTitle">Poker hands are ranked as follows (high to low):</string>
+    <string name="fiveOaK">Five of a Kind</string>
+        <string name="fiveOaKD">Five cards of the same value, not possible without wild cards.</string>
+    <string name="strFlu">Straight Flush</string>
+        <string name="strFluD">Five cards of same suit AND sequential rank.</string>
+    <string name="fourOaK">Four of a Kind</string>
+        <string name="fourOaKD">Four cards of the same value</string>
+    <string name="fullHouse">Full House</string>
+        <string name="fullHouseD">Three cards of same value AND two cards of a different value.</string>
+    <string name="flush">Flush</string>
+        <string name="flushD">Five cards of the same suit.</string>
+    <string name="straight">Straight</string>
+        <string name="straightD">Five cards of sequential rank.</string>
+    <string name="threeOaK">Three of a Kind</string>
+        <string name="threeOaKD">Three cards of the same value. Also known as trips or a set.</string>
+    <string name="twoPair">Two Pair</string>
+        <string name="twoPairD">Two pairs. If there is a tie, then the 3rd ranked card (the kicker) is used to break it.</string>
+    <string name="pair">Pair</string>
+        <string name="pairD">Two cards of the same value.</string>
+    <string name="highCard">High Card</string>
+        <string name="highCardD">A hand that falls into none of the above categories. Nothing.</string>
+    <string name="finalNote">Generally, if there are multiple hands of the same type, the tie is broken by the value of the hand. Higher cards such as the king, queen and jacks beat lower numbers like 2.</string>
+
+
 
     <!-- TODO: Remove or change this placeholder text -->
 </resources>

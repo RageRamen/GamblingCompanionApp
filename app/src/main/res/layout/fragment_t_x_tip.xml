@@ -4,7 +4,7 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".tips.TXTipFrag" >
+    tools:context=".tips.TXTipFrag">
 
     <ScrollView
         android:layout_width="match_parent"
@@ -28,9 +28,29 @@
             tools:layout_editor_absoluteY="114dp">
 
             <TextView
+                android:id="@+id/bt2"
+                android:layout_width="370dp"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="20dp"
+                android:layout_marginTop="12dp"
+                android:layout_marginEnd="20dp"
+                android:paddingHorizontal="10dp"
+                android:text="@string/txHoldemBasicspt2"
+                android:textAlignment="textStart"
+                android:textColor="#000000"
+                android:textSize="14sp"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/imageView3" />
+
+            <TextView
                 android:id="@+id/t4"
                 android:layout_width="350dp"
-                android:layout_height="50dp"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="20dp"
+                android:layout_marginTop="5dp"
+                android:layout_marginEnd="20dp"
+                android:paddingHorizontal="10dp"
                 android:text="@string/txHoldemTip4"
                 android:textAlignment="textStart"
                 android:textColor="#000000"
@@ -43,7 +63,11 @@
             <TextView
                 android:id="@+id/t3"
                 android:layout_width="350dp"
-                android:layout_height="50dp"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="20dp"
+                android:layout_marginTop="5dp"
+                android:layout_marginEnd="20dp"
+                android:paddingHorizontal="10dp"
                 android:text="@string/txHoldemTip3"
                 android:textAlignment="textStart"
                 android:textColor="#000000"
@@ -56,7 +80,11 @@
             <TextView
                 android:id="@+id/t2"
                 android:layout_width="350dp"
-                android:layout_height="50dp"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="20dp"
+                android:layout_marginTop="5dp"
+                android:layout_marginEnd="20dp"
+                android:paddingHorizontal="10dp"
                 android:text="@string/txHoldemTip2"
                 android:textAlignment="textStart"
                 android:textColor="#000000"
@@ -69,8 +97,11 @@
             <TextView
                 android:id="@+id/t1"
                 android:layout_width="350dp"
-                android:layout_height="50dp"
-                android:layout_marginTop="16dp"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="20dp"
+                android:layout_marginTop="5dp"
+                android:layout_marginEnd="20dp"
+                android:paddingHorizontal="10dp"
                 android:text="@string/txHoldemTip1"
                 android:textAlignment="textStart"
                 android:textColor="#000000"
@@ -84,66 +115,87 @@
                 android:id="@+id/qt"
                 android:layout_width="190dp"
                 android:layout_height="25dp"
-                android:layout_marginTop="15dp"
+                android:layout_marginTop="20dp"
+                android:paddingHorizontal="10dp"
                 android:text="@string/quickTips"
                 android:textAlignment="center"
                 android:textColor="#000000"
                 android:textSize="20sp"
+                android:textStyle="bold"
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toBottomOf="@+id/bt" />
-
-            <TextView
-                android:id="@+id/st"
-                android:layout_width="149dp"
-                android:layout_height="wrap_content"
-                android:layout_marginTop="148dp"
-                android:text="temp"
-                android:textAlignment="center"
-                android:textColor="#000000"
-                android:textSize="12sp"
-                android:textStyle="italic"
-                app:layout_constraintEnd_toEndOf="parent"
-                app:layout_constraintStart_toEndOf="@+id/bt"
-                app:layout_constraintTop_toTopOf="parent" />
+                app:layout_constraintTop_toBottomOf="@+id/whatisagoodhandbutton" />
 
             <TextView
                 android:id="@+id/bt"
-                android:layout_width="190dp"
+                android:layout_width="370dp"
                 android:layout_height="wrap_content"
-                android:layout_marginStart="20dp"
+                android:layout_marginTop="5dp"
+                android:paddingHorizontal="10dp"
                 android:text="@string/txHoldemBasics"
                 android:textAlignment="textStart"
                 android:textColor="#000000"
                 android:textSize="14sp"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintHorizontal_bias="0.5"
                 app:layout_constraintStart_toStartOf="parent"
                 app:layout_constraintTop_toBottomOf="@+id/obt" />
 
             <TextView
                 android:id="@+id/obt"
-                android:layout_width="190dp"
-                android:layout_height="50dp"
-                android:layout_marginStart="20dp"
+                android:layout_width="370dp"
+                android:layout_height="wrap_content"
                 android:layout_marginTop="16dp"
+                android:paddingHorizontal="10dp"
                 android:text="@string/txHoldemObjective"
                 android:textAlignment="textStart"
                 android:textColor="#000000"
                 android:textSize="14sp"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintHorizontal_bias="0.5"
                 app:layout_constraintStart_toStartOf="parent"
                 app:layout_constraintTop_toBottomOf="@+id/htp" />
 
             <TextView
                 android:id="@+id/htp"
-                android:layout_width="190dp"
+                android:layout_width="370dp"
                 android:layout_height="25dp"
-                android:layout_marginStart="16dp"
                 android:layout_marginTop="10dp"
+                android:paddingHorizontal="10dp"
                 android:text="@string/howToPlay"
                 android:textAlignment="center"
                 android:textColor="#000000"
                 android:textSize="20sp"
+                android:textStyle="bold"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintHorizontal_bias="0.5"
                 app:layout_constraintStart_toStartOf="parent"
                 app:layout_constraintTop_toTopOf="parent" />
+
+            <ImageView
+                android:id="@+id/imageView3"
+                android:layout_width="262dp"
+                android:layout_height="131dp"
+                android:layout_marginTop="15dp"
+                android:contentDescription="@string/txHoldemBasics"
+                android:paddingHorizontal="10dp"
+                android:src="@drawable/flop_turn_river"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintHorizontal_bias="0.5"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/bt" />
+
+            <Button
+                android:id="@+id/whatisagoodhandbutton"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="15dp"
+                android:text="What is a good hand?"
+                android:textAllCaps="false"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintHorizontal_bias="0.5"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/bt2" />
 
         </androidx.constraintlayout.widget.ConstraintLayout>
     </ScrollView>

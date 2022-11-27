@@ -45,15 +45,14 @@ public class PokerTipFrag extends Fragment {
     }
 
     @Override
-    public boolean onOptionsItemSelected(MenuItem item) {
+    public boolean onOptionsItemSelected(MenuItem item)
+    {
         int id = item.getItemId();
 
         //noinspection SimplifiableIfStatement
-        if (item.getItemId() == android.R.id.home) {
-            if (callingFragmentReturnActionID != null)
-                actionReturnToCallingFrag();
-            else
-                actionGoToTips();
+        if (item.getItemId() == android.R.id.home)
+        {
+            actionGoToTips();
             return true; // must return true to consume it here
         }
 
@@ -62,7 +61,8 @@ public class PokerTipFrag extends Fragment {
 
     // ACTIONS:
 
-    private void actionGoToTips() {
+    private void actionGoToTips()
+    {
         NavHostFragment.findNavController(this).navigate(R.id.action_pokerTipFrag_to_tipsFragment);
     }
 

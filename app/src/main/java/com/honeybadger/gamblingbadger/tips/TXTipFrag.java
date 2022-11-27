@@ -2,6 +2,7 @@ package com.honeybadger.gamblingbadger.tips;
 
 import android.os.Bundle;
 
+import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
 import androidx.fragment.app.Fragment;
 import androidx.navigation.fragment.NavHostFragment;
@@ -14,26 +15,46 @@ import android.view.View;
 import android.view.ViewGroup;
 
 import com.honeybadger.gamblingbadger.R;
+import com.honeybadger.gamblingbadger.databinding.FragmentTXTipBinding;
 
 public class TXTipFrag extends Fragment {
     // VARIABLES:
 
     @Nullable
     public static Integer callingFragmentReturnActionID;
+    private FragmentTXTipBinding binding;
 
     @Override
     public void onCreate(Bundle savedInstanceState)
     {
         super.onCreate(savedInstanceState);
-
         setHasOptionsMenu(true);
+
+    }
+    public void onViewCreated(@NonNull View view, Bundle savedInstanceState)
+    {
+        initGoodHandsButton();
+    }
+
+    private void initGoodHandsButton()
+    {
+        binding.whatisagoodhandbutton.setOnClickListener(new View.OnClickListener()
+        {
+            @Override
+            public void onClick(View view)
+            {
+                NavHostFragment.findNavController(TXTipFrag.this)
+                        .navigate(R.id.action_TXTipFrag_to_pokerHandsFrag);
+            }
+        });
     }
 
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
         // Inflate the layout for this fragment
-        return inflater.inflate(R.layout.fragment_t_x_tip, container, false);
+        binding = FragmentTXTipBinding.inflate(inflater, container, false);
+        return binding.getRoot();
     }
 
     @Override

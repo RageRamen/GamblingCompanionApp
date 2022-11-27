@@ -317,5 +317,19 @@
         <action
             android:id="@+id/action_TXTipFrag_to_texasHoldemFragment"
             app:destination="@id/texasHoldemFragment" />
+        <action
+            android:id="@+id/action_TXTipFrag_to_pokerHandsFrag"
+            app:destination="@id/pokerHandsFrag" />
+    </fragment>
+
+    <fragment
+        android:id="@+id/pokerHandsFrag"
+        android:name="com.honeybadger.gamblingbadger.tips.pokerHands"
+        android:label="What is a good poker hand?"
+        tools:layout="@layout/fragment_poker_hands">
+        <action
+            android:id="@+id/action_pokerHandsFrag_pop"
+            app:popUpTo="@id/pokerHandsFrag"
+            app:popUpToInclusive="true" />
     </fragment>
 </navigation>
