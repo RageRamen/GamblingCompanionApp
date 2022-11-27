@@ -58,7 +58,7 @@ public class BlackjackFragment extends Fragment {
 
     private Card dealerCard;
     private List<Card> userHand;
-    private BigDecimal bet;
+    private BigDecimal bet = BigDecimal.ZERO;
 
     //public static BlackjackRound blackjackround;
     public static @Nullable BlackjackSession blackjackSession = null;
@@ -482,8 +482,7 @@ public class BlackjackFragment extends Fragment {
     private void actionLoseGame() {
         // TODO
         BlackjackRound blackjackround = new BlackjackRound(bet, softNumberOfDecks, userHand, dealerCard);
-        blackjackround.setWin(true);
-        //blackjackround.setWin(false);
+        blackjackround.setWin(false);
         blackjackSession.applyRound(blackjackround);
         userHand.clear();
         updateUserCardAmountText();
