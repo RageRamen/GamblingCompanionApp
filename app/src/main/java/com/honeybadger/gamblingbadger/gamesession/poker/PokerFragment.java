@@ -93,7 +93,6 @@ public class PokerFragment extends Fragment {
         initCalculateButton();
         initWinButton();
         initLoseButton();
-        actionSetBet();
     }
 
     @Override

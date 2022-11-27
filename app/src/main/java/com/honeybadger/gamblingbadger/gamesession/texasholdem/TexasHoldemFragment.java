@@ -82,7 +82,6 @@ public class TexasHoldemFragment extends Fragment {
         initLoseButton();
         initCalculateButton();
         initUserHandCards();
-        actionSetBet();
     }
 
     @Override
