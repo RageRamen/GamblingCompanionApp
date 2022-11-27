@@ -1,5 +1,6 @@
 package com.honeybadger.gamblingbadger.statistics;
 
+import android.graphics.Color;
 import android.os.Bundle;
 
 import androidx.annotation.NonNull;
@@ -13,17 +14,62 @@ import android.view.MenuItem;
 import android.view.View;
 import android.view.ViewGroup;
 
+import com.github.mikephil.charting.charts.BarChart;
+import com.github.mikephil.charting.charts.PieChart;
+import com.github.mikephil.charting.data.BarData;
+import com.github.mikephil.charting.data.BarDataSet;
+import com.github.mikephil.charting.data.BarEntry;
+import com.github.mikephil.charting.data.PieData;
+import com.github.mikephil.charting.data.PieDataSet;
+import com.github.mikephil.charting.data.PieEntry;
 import com.honeybadger.gamblingbadger.R;
 import com.honeybadger.gamblingbadger.databinding.FragmentGeneralStatisticsBinding;
+import com.honeybadger.gamblingbadger.gamesession.EGameType;
+
+import java.math.BigDecimal;
+import java.time.Duration;
+import java.util.ArrayList;
+import java.util.HashMap;
+import java.util.Map;
 
 public class GeneralStatisticsFragment extends Fragment {
-// CONSTANTS:
+    // CONSTANTS:
+
+    private static final ArrayList<Integer> COLORS = new ArrayList<Integer>() {
+        {
+            add(Color.parseColor("#E62E2E"));
+            add(Color.parseColor("#2EE63D"));
+            add(Color.parseColor("#4D2EE6"));
+            add(Color.parseColor("#E6622E"));
+            add(Color.parseColor("#2EE66E"));
+            add(Color.parseColor("#7D2EE6"));
+            add(Color.parseColor("#E68D2E"));
+            add(Color.parseColor("#2EE69F"));
+            add(Color.parseColor("#AE2EE6"));
+            add(Color.parseColor("#E6BE2E"));
+            add(Color.parseColor("#2EE6CD"));
+            add(Color.parseColor("#DC2EE6"));
+            add(Color.parseColor("#DCE62E"));
+            add(Color.parseColor("#2ECDE6"));
+            add(Color.parseColor("#E62EBE"));
+            add(Color.parseColor("#AEE62E"));
+            add(Color.parseColor("#2E9FE6"));
+            add(Color.parseColor("#E62E8D"));
+            add(Color.parseColor("#7DE62E"));
+            add(Color.parseColor("#2E6EE6"));
+            add(Color.parseColor("#E62E5F"));
+            add(Color.parseColor("#4DE62E"));
+            add(Color.parseColor("#2E3DE6"));
+        }
+    };
 
     // VARIABLES:
 
     private FragmentGeneralStatisticsBinding binding;
 
     public static Integer returnFragmentID = R.id.generalStatisticsFragment;
+
+    private LongListOfData statistics;
 
     // FRAGMENT EVENTS:
 
@@ -47,7 +93,14 @@ public class GeneralStatisticsFragment extends Fragment {
     public void onViewCreated(@NonNull View view, Bundle savedInstanceState) {
         super.onViewCreated(view, savedInstanceState);
 
+        // Update statistics:
+        Statistics.updateStatistics();
+
+        // Get statistics
+        statistics = Statistics.getGeneralStatistics();
+
         // Init Interface
+        initAggregateTimePlayingEachGame();
     }
 
     @Override
@@ -91,6 +144,96 @@ public class GeneralStatisticsFragment extends Fragment {
     }
 
     // INTERFACE:
+
+    private void initAggregateTimeSpentInCasinos() {
+        // TODO
+    }
+
+    private void initAggregateTimePlayingGames() {
+        // TODO
+    }
+
+    private void initAggregateTimePlayingEachGame() {
+        PieChart pieChart = getActivity().findViewById(R.id.generalStatisticsFrag_pieChart_aggregateTimePlayingEachGame);
+        ArrayList<PieEntry> pieEntries = new ArrayList<>();
+        String label = "Game Type";
+
+        // Initialize data
+        Map<String, Duration> valueList = new HashMap<>();
+        for (Map.Entry<EGameType, Duration> entry : statistics.aggregateTimePlayingEachGame.entrySet()) {
+            valueList.put(entry.getKey().NAME, entry.getValue());
+        }
+
+        // Input data
+        for (String type : valueList.keySet()) {
+            pieEntries.add(new PieEntry((float)valueList.get(type).toMinutes(), type));
+        }
+
+        // Pie stuff
+        PieDataSet pieDataSet = new PieDataSet(pieEntries, label);
+        pieDataSet.setValueTextSize(12f);
+        pieDataSet.setColors(COLORS);
+        PieData pieData = new PieData(pieDataSet);
+        pieData.setDrawValues(true);
+
+        pieChart.setData(pieData);
+        pieChart.invalidate();
+    }
+
+    private void initAggregateMoneyDeltaForEachGame() {
+        PieChart pieChart = getActivity().findViewById(R.id.generalStatisticsFrag_pieChart_aggregateMoneyDeltaEachGame);
+        ArrayList<PieEntry> pieEntries = new ArrayList<>();
+        String label = "Game Type";
+
+        // Initialize data
+        Map<String, BigDecimal> valueList = new HashMap<>();
+        for (Map.Entry<EGameType, BigDecimal> entry : statistics.aggregateMoneyDeltaForEachGame.entrySet()) {
+            valueList.put(entry.getKey().NAME, entry.getValue());
+        }
+
+        // Input data
+        for (String type : valueList.keySet()) {
+            pieEntries.add(new PieEntry((float)valueList.get(type).floatValue(), type));
+        }
+
+        // Pie stuff
+        PieDataSet pieDataSet = new PieDataSet(pieEntries, label);
+        pieDataSet.setValueTextSize(12f);
+        pieDataSet.setColors(COLORS);
+        PieData pieData = new PieData(pieDataSet);
+        pieData.setDrawValues(true);
+
+        pieChart.setData(pieData);
+        pieChart.invalidate();
+    }
+
+    private void initAggregateLuckIndexForEachGame() {
+        // TODO: Bar Chart
+        BarChart barChart = getActivity().findViewById(R.id.generalStatisticsFrag_barChart_aggregateLuckIndexEachGame);
+        ArrayList<BarEntry> barEntries = new ArrayList<>();
+        String label  ="Game Type";
+
+        // Input Data
+        Map<String, Float> valueList = new HashMap<>();
+        for (Map.Entry<EGameType, Float> entry : statistics.aggregateLuckIndexForEachGame.entrySet()) {
+            valueList.put(entry.getKey().NAME, entry.getValue());
+        }
+
+        // Data
+        for (int i = 0; i < valueList.size(); i++) {
+            barEntries.add(new BarEntry(i, 0f));
+        }
+
+        // Bar Stuff:
+        BarDataSet barDataSet = new BarDataSet(barEntries, label);
+        barDataSet.setValueTextSize(12f);
+        barDataSet.setColors(COLORS);
+        BarData barData = new BarData(barDataSet);
+        barData.setDrawValues(true);
+
+        barChart.setData(barData);
+        barChart.invalidate();
+    }
 
     // ACTIONS:
 

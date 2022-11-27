@@ -3,11 +3,13 @@ package com.honeybadger.gamblingbadger.casinosession;
 import android.util.Log;
 
 import java.math.BigDecimal;
-import java.time.LocalDateTime;
 import java.time.Duration;
+import java.time.LocalDateTime;
 
+import java.util.HashMap;
 import java.util.List;
 import java.util.LinkedList;
+import java.util.Map;
 
 import com.honeybadger.gamblingbadger.balance.Balance;
 
@@ -143,15 +145,67 @@ public class CasinoSession {
         }
 
         return newList;
-    }
-
-    public Duration getSessionDuration() {
-        // TODO
-        return Duration.ZERO;
     }*/
 
+    public Duration getSessionDuration() {
+        Duration duration = Duration.ZERO;
+
+        if (isSessionOpen())
+            duration = Duration.between(sessionStartTime, LocalDateTime.now());
+        else
+            duration = Duration.between(sessionStartTime, sessionEndTime);
+
+        return duration;
+    }
+
     public LongListOfData getStatistics() {
-        // TODO
-        return new LongListOfData(this);
+        Duration timeInCasino = Duration.ZERO;
+        Duration timePlayingGames = Duration.ZERO;
+        Map<EGameType, Duration> timePlayingEachGame = new HashMap<>();
+        Map<EGameType, BigDecimal> moneyDeltaEachGame = new HashMap<>();
+        Map<EGameType, Float> luckIndexEachGame = new HashMap<>();
+
+        Map<EGameType, Integer> luckIndexCount = new HashMap<>();
+
+        // Time spent in casino
+        timeInCasino = getSessionDuration();
+
+        // Game Sessions
+        LongListOfData gameSessionData;
+        for (GameSession gs : gamesPlayed) {
+            gameSessionData = gs.getStatistics();
+
+            // Time playing games
+            timePlayingGames = timePlayingGames.plus(gameSessionData.totalTimeSpentPlaying);
+
+            // Time playing each game
+            timePlayingEachGame.putIfAbsent(gs.getGameType(), Duration.ZERO);
+            timePlayingEachGame.put(gs.getGameType(), timePlayingEachGame.get(gs.getGameType()).plus(gameSessionData.totalTimeSpentPlaying));
+
+            // Money delta each game
+            moneyDeltaEachGame.putIfAbsent(gs.getGameType(), BigDecimal.ZERO);
+            moneyDeltaEachGame.put(gs.getGameType(), moneyDeltaEachGame.get(gs.getGameType()).add(gameSessionData.totalMoneyDelta));
+
+            // luck index each game (1/2)
+            luckIndexEachGame.putIfAbsent(gs.getGameType(), 0f);
+            luckIndexCount.putIfAbsent(gs.getGameType(), 0);
+            luckIndexEachGame.put(gs.getGameType(), luckIndexEachGame.get(gs.getGameType()) + gameSessionData.averageLuckIndex);  // sum
+            luckIndexCount.put(gs.getGameType(), luckIndexCount.get(gs.getGameType()) + 1);  // count
+        }
+        // Luck index each game (2/2)
+        for (Map.Entry<EGameType, Float> f : luckIndexEachGame.entrySet()) {
+            if (luckIndexCount.get(f.getKey()) != 0)
+                luckIndexEachGame.put(f.getKey(), f.getValue() / luckIndexCount.get(f.getKey()));  // Average
+        }
+
+        // Aggregate
+        LongListOfData casinoData = new LongListOfData(this);
+        casinoData.timeSpentInCasino = timeInCasino;
+        casinoData.timeSpentPlayingGames = timePlayingGames;
+        casinoData.timePlayingEachGame = timePlayingEachGame;
+        casinoData.moneyDeltaForEachGame = moneyDeltaEachGame;
+        casinoData.luckIndexForEachGame = luckIndexEachGame;
+
+        return casinoData;
     }
 }

@@ -6,6 +6,17 @@
     android:layout_height="match_parent"
     tools:context=".gamesession.StartGameFragment" >
 
+    <TextView
+        android:id="@+id/startGameFrag_textView_instructions"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginBottom="20dp"
+        android:text="Select game to play:"
+        android:textSize="16sp"
+        app:layout_constraintBottom_toTopOf="@+id/startGameFrag_numberPicker_gameSelect"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent" />
+
     <Button
         android:id="@+id/startGameFrag_button_back"
         android:layout_width="wrap_content"
@@ -38,11 +49,5 @@
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
         app:layout_constraintVertical_bias="0.29" />
-
-    <androidx.constraintlayout.widget.ConstraintLayout
-        android:layout_width="match_parent"
-        android:layout_height="match_parent">
-
-    </androidx.constraintlayout.widget.ConstraintLayout>
 
 </androidx.constraintlayout.widget.ConstraintLayout>
