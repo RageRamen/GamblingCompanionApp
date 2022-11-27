@@ -37,7 +37,7 @@ public class Balance {
 
         EBalanceMsg msg = EBalanceMsg.BM_NONE;
 
-        this.currentBalance = this.currentBalance.add(amount);;
+        this.currentBalance = this.currentBalance.add(amount);
 
         try {
             CasinoSessionFragment.updateActionBarBalance(activity);
@@ -79,9 +79,15 @@ public class Balance {
             show25PAlert(activity);
             msg = EBalanceMsg.BM_25_PERCENT;
         }
-        //if result after adding amount to curr bal. is less than 50%
-        else if(percentage.compareTo(percent_50) < 0){
+
+        else if(percentage.compareTo(percent_50) == 0) {
             show50PAlert(activity);
+            msg = EBalanceMsg.BM_50_PERCENT;
+        }
+
+        //if result after adding amount to curr bal. is less than 50%
+        else if (percentage.compareTo(percent_50) < 0){
+            showless50PAlert(activity);
             msg = EBalanceMsg.BM_50_PERCENT;
         }
 
@@ -116,7 +122,7 @@ public class Balance {
     private void showNegativeAlert(Activity activity) {
         AlertDialog.Builder alert = new AlertDialog.Builder(activity);
         alert.setTitle("Balance has Gone Into the Negatives");
-        alert.setMessage("It is advised to trust you past self and stop playing.");
+        alert.setMessage("It is advised to trust your past self and stop playing.");
         alert.setNeutralButton("Ok", null);
         alert.show();
     }
@@ -138,6 +144,14 @@ public class Balance {
     }
 
     private void show50PAlert(Activity activity) {
+        AlertDialog.Builder alert = new AlertDialog.Builder(activity);
+        alert.setTitle("Balance Warning");
+        alert.setMessage("Your balance is now 50% of your starting balance.");
+        alert.setNeutralButton("Ok", null);
+        alert.show();
+    }
+
+    private void showless50PAlert(Activity activity) {
         AlertDialog.Builder alert = new AlertDialog.Builder(activity);
         alert.setTitle("Balance Warning");
         alert.setMessage("Your balance is now < 50% of your starting balance.");
