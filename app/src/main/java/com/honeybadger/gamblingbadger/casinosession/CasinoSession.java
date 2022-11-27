@@ -14,6 +14,7 @@ import java.util.Map;
 import com.honeybadger.gamblingbadger.balance.Balance;
 
 import com.honeybadger.gamblingbadger.statistics.LongListOfData;
+import com.honeybadger.gamblingbadger.statistics.Statistics;
 import com.honeybadger.gamblingbadger.timer.Timer;
 
 import com.honeybadger.gamblingbadger.gamesession.EGameType;
@@ -43,6 +44,8 @@ public class CasinoSession {
         this.balance = balance;
         this.timer = new Timer();
         this.gamesPlayed = new LinkedList<GameSession>();
+
+        Statistics.addCasSesToList(this);
     }
 
     // Properties:
@@ -77,7 +80,6 @@ public class CasinoSession {
     }
 
     public boolean closeSession() {
-        // TODO: Other stuff
         this.sessionEndTime = Timer.getCurrentTime();
 
         try // attempts to cancel any running timers associated with that session
@@ -85,6 +87,8 @@ public class CasinoSession {
             this.timer.attachedCDT.cancel();
         }
         catch(NullPointerException npe) {Log.w("BEN","Attempted to cancel a nonexistent timer");}
+
+
         return false;
     }
 
@@ -94,64 +98,11 @@ public class CasinoSession {
         return this.sessionStartTime == this.sessionEndTime;
     }
 
-    /*public Duration getTimeSpentInCasino() {
-        Duration deltaTime;
-
-        if (this.isSessionOpen()) {
-            deltaTime = Duration.between(this.sessionStartTime, Timer.getCurrentTime());
-        }
-        else {
-            deltaTime = Duration.between(this.sessionStartTime, this.sessionEndTime);
-        }
-
-        return deltaTime;
-    }
-
-    public Duration getTimePlayingGames() {
-        Duration sum = Duration.ZERO;
-
-        for (GameSession gameSession : this.gamesPlayed) {
-            sum = sum.plus(gameSession.getSessionDuration());
-        }
-
-        return sum;
-    }
-
-    public Duration getTimePlayingGames(EGameType gameType) {
-        Duration sum = Duration.ZERO;
-
-        for (GameSession gameSession : this.gamesPlayed) {
-            if (gameSession.getGameType() == gameType)
-                sum = sum.plus(gameSession.getSessionDuration());
-        }
-
-        return sum;
-    }
-
-    public Duration getTimeNotPlayingGames() {
-        return this.getTimeSpentInCasino().minus(this.getTimePlayingGames());
-    }
-
-    public BigDecimal getChangeInBalance() {
-        return this.balance.getChangeInBalance();
-    }
-
-    public List<GameSession> getGamesPlayed(EGameType gameType) {
-        List<GameSession> newList = new LinkedList<GameSession>();
-
-        for (GameSession gameSession : this.gamesPlayed) {
-            if (gameSession.getGameType() == gameType)
-                newList.add(gameSession);
-        }
-
-        return newList;
-    }*/
-
     public Duration getSessionDuration() {
         Duration duration = Duration.ZERO;
 
         if (isSessionOpen())
-            duration = Duration.between(sessionStartTime, LocalDateTime.now());
+            duration = Duration.between(sessionStartTime, Timer.getCurrentTime());
         else
             duration = Duration.between(sessionStartTime, sessionEndTime);
 

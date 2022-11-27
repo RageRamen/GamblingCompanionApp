@@ -72,11 +72,6 @@ public class BlackjackSession extends GameSession {
         return new Pair<Float, String>(0f, "");
     }
 
-    public boolean closeSession() {
-        // TODO
-        return false;
-    }
-
     // INFO METHODS:
 
     @Override
@@ -125,6 +120,6 @@ public class BlackjackSession extends GameSession {
         else
             data.averageLuckIndex = 0f;
 
-        return new LongListOfData();
+        return data;
     }
 }

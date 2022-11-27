@@ -61,7 +61,7 @@ public class BlackjackFragment extends Fragment {
     private BigDecimal bet;
 
     //public static BlackjackRound blackjackround;
-    public static @Nullable BlackjackSession blackjackSession;
+    public static @Nullable BlackjackSession blackjackSession = null;
     public static int softNumberOfDecks = BlackjackSession.DEFAULT_NUMBER_OF_DECKS;
 
     // FRAGMENT EVENTS:
@@ -82,6 +82,9 @@ public class BlackjackFragment extends Fragment {
         dealerCard = new Card();
         userHand = new LinkedList<>();
 
+        if (blackjackSession == null)
+            blackjackSession = new BlackjackSession(CasinoSessionFragment.casinoSession);
+
         binding = FragmentBlackjackBinding.inflate(inflater, container, false);
         return binding.getRoot();
     }
@@ -97,6 +100,7 @@ public class BlackjackFragment extends Fragment {
         initButtonGetOdds();
         initButtonWinGame();
         initButtonLoseGame();
+        actionSetBet();
     }
 
     @Override
@@ -402,9 +406,8 @@ public class BlackjackFragment extends Fragment {
 
         dialogBuilder.setView(blackjackSetBetPopup);
         setBetDialog = dialogBuilder.create();
-        setBetDialog.show();
 
-        //bet = new BigDecimal(SetBetInput.getText().toString()); //DONT USE THIS, CRASHES APP. Keeping this here just for now
+        //bet = new BigDecimal(SetBetInput.getText().toString());
 
         ConfirmButton.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -428,9 +431,7 @@ public class BlackjackFragment extends Fragment {
             }
         });
 
-
-        //TextView betDisplay = (TextView) getActivity().findViewById(R.id.betTextview);
-        //betDisplay.setText("HELLO"); //temporary test in place of setBet method
+        setBetDialog.show();
     }
 
     private void initButtonGetOdds() {

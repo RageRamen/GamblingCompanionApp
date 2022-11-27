@@ -13,6 +13,7 @@ import android.view.MenuInflater;
 import android.view.MenuItem;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.TextView;
 
 import com.github.mikephil.charting.charts.BarChart;
 import com.github.mikephil.charting.charts.PieChart;
@@ -27,6 +28,7 @@ import com.honeybadger.gamblingbadger.databinding.FragmentGeneralStatisticsBindi
 import com.honeybadger.gamblingbadger.gamesession.EGameType;
 
 import java.math.BigDecimal;
+import java.text.NumberFormat;
 import java.time.Duration;
 import java.util.ArrayList;
 import java.util.HashMap;
@@ -71,6 +73,13 @@ public class GeneralStatisticsFragment extends Fragment {
 
     private LongListOfData statistics;
 
+    // UTILITY:
+
+    private static String getString(Duration duration) {
+        long seconds = duration.getSeconds();
+        return String.format("%d:%02d:%02d", seconds / 3600, (seconds % 3600) / 60, (seconds % 60));
+    }
+
     // FRAGMENT EVENTS:
 
     @Override
@@ -93,14 +102,16 @@ public class GeneralStatisticsFragment extends Fragment {
     public void onViewCreated(@NonNull View view, Bundle savedInstanceState) {
         super.onViewCreated(view, savedInstanceState);
 
-        // Update statistics:
-        Statistics.updateStatistics();
-
         // Get statistics
+        Statistics.updateStatistics();
         statistics = Statistics.getGeneralStatistics();
 
         // Init Interface
+        initAggregateTimeSpentInCasinos();
+        initAggregateTimePlayingGames();
         initAggregateTimePlayingEachGame();
+        initAggregateMoneyDeltaForEachGame();
+        initAggregateLuckIndexForEachGame();
     }
 
     @Override
@@ -146,11 +157,13 @@ public class GeneralStatisticsFragment extends Fragment {
     // INTERFACE:
 
     private void initAggregateTimeSpentInCasinos() {
-        // TODO
+        TextView view = getActivity().findViewById(R.id.generalStatisticsFrag_textView_aggregateTimeSpentInCasinos);
+        view.setText(getString(statistics.aggregateTimeSpentInCasinos) + " (H:M:S)");
     }
 
     private void initAggregateTimePlayingGames() {
-        // TODO
+        TextView view = getActivity().findViewById(R.id.generalStatisticsFrag_textView_aggregateTimePlayingGames);
+        view.setText(getString(statistics.aggregateTimePlayingGames) + " (H:M:S)");
     }
 
     private void initAggregateTimePlayingEachGame() {
@@ -158,15 +171,11 @@ public class GeneralStatisticsFragment extends Fragment {
         ArrayList<PieEntry> pieEntries = new ArrayList<>();
         String label = "Game Type";
 
-        // Initialize data
-        Map<String, Duration> valueList = new HashMap<>();
-        for (Map.Entry<EGameType, Duration> entry : statistics.aggregateTimePlayingEachGame.entrySet()) {
-            valueList.put(entry.getKey().NAME, entry.getValue());
-        }
-
         // Input data
-        for (String type : valueList.keySet()) {
-            pieEntries.add(new PieEntry((float)valueList.get(type).toMinutes(), type));
+        PieEntry pe;
+        for (Map.Entry<EGameType, Duration> entry : statistics.aggregateTimePlayingEachGame.entrySet()) {
+            pe = new PieEntry(entry.getValue().getSeconds(), entry.getKey().NAME + ": " + getString(entry.getValue()));
+            pieEntries.add(pe);
         }
 
         // Pie stuff
@@ -174,7 +183,7 @@ public class GeneralStatisticsFragment extends Fragment {
         pieDataSet.setValueTextSize(12f);
         pieDataSet.setColors(COLORS);
         PieData pieData = new PieData(pieDataSet);
-        pieData.setDrawValues(true);
+        pieData.setDrawValues(false);
 
         pieChart.setData(pieData);
         pieChart.invalidate();
@@ -185,15 +194,12 @@ public class GeneralStatisticsFragment extends Fragment {
         ArrayList<PieEntry> pieEntries = new ArrayList<>();
         String label = "Game Type";
 
-        // Initialize data
-        Map<String, BigDecimal> valueList = new HashMap<>();
-        for (Map.Entry<EGameType, BigDecimal> entry : statistics.aggregateMoneyDeltaForEachGame.entrySet()) {
-            valueList.put(entry.getKey().NAME, entry.getValue());
-        }
-
         // Input data
-        for (String type : valueList.keySet()) {
-            pieEntries.add(new PieEntry((float)valueList.get(type).floatValue(), type));
+        NumberFormat formatter = NumberFormat.getCurrencyInstance();
+        PieEntry pe;
+        for (Map.Entry<EGameType, BigDecimal> entry : statistics.aggregateMoneyDeltaForEachGame.entrySet()) {
+            pe = new PieEntry(entry.getValue().floatValue(), entry.getKey().NAME + ": " + formatter.format(entry.getValue()));
+            pieEntries.add(pe);
         }
 
         // Pie stuff
@@ -201,14 +207,13 @@ public class GeneralStatisticsFragment extends Fragment {
         pieDataSet.setValueTextSize(12f);
         pieDataSet.setColors(COLORS);
         PieData pieData = new PieData(pieDataSet);
-        pieData.setDrawValues(true);
+        pieData.setDrawValues(false);
 
         pieChart.setData(pieData);
         pieChart.invalidate();
     }
 
     private void initAggregateLuckIndexForEachGame() {
-        // TODO: Bar Chart
         BarChart barChart = getActivity().findViewById(R.id.generalStatisticsFrag_barChart_aggregateLuckIndexEachGame);
         ArrayList<BarEntry> barEntries = new ArrayList<>();
         String label  ="Game Type";

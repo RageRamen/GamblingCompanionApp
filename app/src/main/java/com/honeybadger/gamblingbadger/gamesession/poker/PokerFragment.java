@@ -24,7 +24,9 @@ import com.honeybadger.gamblingbadger.R;
 import com.honeybadger.gamblingbadger.cards.Card;
 import com.honeybadger.gamblingbadger.cards.ECardNum;
 import com.honeybadger.gamblingbadger.cards.ECardSuit;
+import com.honeybadger.gamblingbadger.casinosession.CasinoSessionFragment;
 import com.honeybadger.gamblingbadger.databinding.FragmentPokerBinding;
+import com.honeybadger.gamblingbadger.gamesession.blackjack.BlackjackSession;
 import com.honeybadger.gamblingbadger.tips.BJTipFrag;
 import com.honeybadger.gamblingbadger.tips.PokerTipFrag;
 
@@ -46,7 +48,7 @@ public class PokerFragment extends Fragment {
     private List<Card> userHand;
     private BigDecimal bet;
 
-    public static @Nullable PokerSession pokerSession;
+    public static @Nullable PokerSession pokerSession = null;
 
 
     private static final Integer[] imageIconDatabase = {R.drawable.ace_of_spades,
@@ -75,6 +77,9 @@ public class PokerFragment extends Fragment {
         //default dealer cards is all aces, just as a default card setup
         setDefaultDealerCard();
 
+        if (pokerSession == null)
+            pokerSession = new PokerSession(CasinoSessionFragment.casinoSession);
+
         binding = FragmentPokerBinding.inflate(inflater, container, false);
         return binding.getRoot();
 
@@ -88,6 +93,7 @@ public class PokerFragment extends Fragment {
         initCalculateButton();
         initWinButton();
         initLoseButton();
+        actionSetBet();
     }
 
     @Override
@@ -127,8 +133,9 @@ public class PokerFragment extends Fragment {
     }
 
     private void actionEndSession() {
-        // TODO
-        //pokerSession.closeSession();
+        if (pokerSession != null)
+            pokerSession.closeSession();
+        pokerSession = null;
         NavHostFragment.findNavController(this).navigate(R.id.action_pokerFragment_to_casinoSessionFragment);
     }
 

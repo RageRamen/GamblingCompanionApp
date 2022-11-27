@@ -73,7 +73,7 @@ public abstract class GameSession {
         Duration duration = Duration.ZERO;
 
         if (isSessionOpen())
-            duration = Duration.between(sessionStartTime, LocalDateTime.now());
+            duration = Duration.between(sessionStartTime, Timer.getCurrentTime());
         else
             duration = Duration.between(sessionStartTime, sessionEndTime);
 
