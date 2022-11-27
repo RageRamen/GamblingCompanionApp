@@ -27,7 +27,8 @@
 
                 <androidx.constraintlayout.widget.ConstraintLayout
                     android:layout_width="match_parent"
-                    android:layout_height="match_parent">
+                    android:layout_height="match_parent"
+                    android:background="?attr/colorPrimary">
 
                     <TextView
                         android:id="@+id/generalStatisticsFrag_textView_aggregateTimeSpentInCasinosCardTitle"
@@ -37,6 +38,7 @@
                         android:layout_marginTop="8dp"
                         android:layout_marginBottom="8dp"
                         android:text="Time Spent In Casinos:"
+                        android:textColor="@color/white"
                         app:layout_constraintBottom_toBottomOf="parent"
                         app:layout_constraintStart_toStartOf="parent"
                         app:layout_constraintTop_toTopOf="parent" />
@@ -47,6 +49,7 @@
                         android:layout_height="wrap_content"
                         android:layout_marginStart="16dp"
                         android:text="NULL"
+                        android:textColor="@color/white"
                         app:layout_constraintBottom_toBottomOf="@+id/generalStatisticsFrag_textView_aggregateTimeSpentInCasinosCardTitle"
                         app:layout_constraintStart_toEndOf="@+id/generalStatisticsFrag_textView_aggregateTimeSpentInCasinosCardTitle"
                         app:layout_constraintTop_toTopOf="@+id/generalStatisticsFrag_textView_aggregateTimeSpentInCasinosCardTitle" />
@@ -67,7 +70,8 @@
 
                 <androidx.constraintlayout.widget.ConstraintLayout
                     android:layout_width="match_parent"
-                    android:layout_height="match_parent">
+                    android:layout_height="match_parent"
+                    android:background="?attr/colorPrimary">
 
                     <TextView
                         android:id="@+id/generalStatisticsFrag_textView_aggregateTimePlayingGamesCardTitle"
@@ -77,6 +81,7 @@
                         android:layout_marginTop="8dp"
                         android:layout_marginBottom="8dp"
                         android:text="Time Playing Games:"
+                        android:textColor="@color/white"
                         app:layout_constraintBottom_toBottomOf="parent"
                         app:layout_constraintStart_toStartOf="parent"
                         app:layout_constraintTop_toTopOf="parent" />
@@ -87,6 +92,7 @@
                         android:layout_height="wrap_content"
                         android:layout_marginStart="16dp"
                         android:text="NULL"
+                        android:textColor="@color/white"
                         app:layout_constraintBottom_toBottomOf="@+id/generalStatisticsFrag_textView_aggregateTimePlayingGamesCardTitle"
                         app:layout_constraintStart_toEndOf="@+id/generalStatisticsFrag_textView_aggregateTimePlayingGamesCardTitle"
                         app:layout_constraintTop_toTopOf="@+id/generalStatisticsFrag_textView_aggregateTimePlayingGamesCardTitle" />
@@ -107,7 +113,8 @@
 
                 <androidx.constraintlayout.widget.ConstraintLayout
                     android:layout_width="match_parent"
-                    android:layout_height="match_parent">
+                    android:layout_height="match_parent"
+                    android:background="?attr/colorPrimary">
 
                     <TextView
                         android:id="@+id/generalStatisticsFrag_textView_aggregateTimePlayingEachGameCardTitle"
@@ -116,12 +123,13 @@
                         android:layout_marginStart="8dp"
                         android:layout_marginTop="8dp"
                         android:text="Time Playing Each Game Type:"
+                        android:textColor="@color/white"
                         app:layout_constraintStart_toStartOf="parent"
                         app:layout_constraintTop_toTopOf="parent" />
 
                     <com.github.mikephil.charting.charts.PieChart
                         android:id="@+id/generalStatisticsFrag_pieChart_aggregateTimePlayingEachGame"
-                        android:layout_width="250dp"
+                        android:layout_width="0dp"
                         android:layout_height="250dp"
                         android:layout_marginStart="8dp"
                         android:layout_marginTop="8dp"
@@ -149,7 +157,8 @@
 
                 <androidx.constraintlayout.widget.ConstraintLayout
                     android:layout_width="match_parent"
-                    android:layout_height="match_parent">
+                    android:layout_height="match_parent"
+                    android:background="?attr/colorPrimary">
 
                     <TextView
                         android:id="@+id/generalStatisticsFrag_textView_aggregateMoneyDeltaForEachGameCardTitle"
@@ -158,12 +167,13 @@
                         android:layout_marginStart="8dp"
                         android:layout_marginTop="8dp"
                         android:text="Money Delta for Each Game Type:"
+                        android:textColor="@color/white"
                         app:layout_constraintStart_toStartOf="parent"
                         app:layout_constraintTop_toTopOf="parent" />
 
                     <com.github.mikephil.charting.charts.PieChart
                         android:id="@+id/generalStatisticsFrag_pieChart_aggregateMoneyDeltaEachGame"
-                        android:layout_width="250dp"
+                        android:layout_width="0dp"
                         android:layout_height="250dp"
                         android:layout_marginStart="8dp"
                         android:layout_marginTop="8dp"
@@ -190,7 +200,8 @@
 
                 <androidx.constraintlayout.widget.ConstraintLayout
                     android:layout_width="match_parent"
-                    android:layout_height="match_parent">
+                    android:layout_height="match_parent"
+                    android:background="?attr/colorPrimary">
 
                     <TextView
                         android:id="@+id/generalStatisticsFrag_textView_aggregateLuckIndexForEachGameCardTitle"
@@ -199,12 +210,13 @@
                         android:layout_marginStart="8dp"
                         android:layout_marginTop="8dp"
                         android:text="Luck Index for Each Game Type:"
+                        android:textColor="@color/white"
                         app:layout_constraintStart_toStartOf="parent"
                         app:layout_constraintTop_toTopOf="parent" />
 
                     <com.github.mikephil.charting.charts.BarChart
                         android:id="@+id/generalStatisticsFrag_barChart_aggregateLuckIndexEachGame"
-                        android:layout_width="250dp"
+                        android:layout_width="0dp"
                         android:layout_height="250dp"
                         android:layout_marginStart="8dp"
                         android:layout_marginTop="8dp"

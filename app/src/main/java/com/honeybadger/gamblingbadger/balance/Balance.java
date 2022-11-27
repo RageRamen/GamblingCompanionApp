@@ -122,7 +122,7 @@ public class Balance {
     private void showNegativeAlert(Activity activity) {
         AlertDialog.Builder alert = new AlertDialog.Builder(activity);
         alert.setTitle("Balance has Gone Into the Negatives");
-        alert.setMessage("It is advised to trust your past self and stop playing.");
+        alert.setMessage("Please trust your past self. Future you will appreciate it.");
         alert.setNeutralButton("Ok", null);
         alert.show();
     }
