@@ -4,77 +4,98 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".timer.TimerFragment" >
+    tools:context=".timer.TimerFragment">
 
     <NumberPicker
         android:id="@+id/npH"
-        android:layout_width="wrap_content"
+        android:layout_width="80dp"
         android:layout_height="wrap_content"
-        android:layout_marginBottom="360dp"
+        android:clipToOutline="false"
+        android:solidColor="#490F9C"
         android:textColor="@color/black"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toStartOf="@+id/timerFrag_button_SetTimer"
-        app:layout_constraintHorizontal_bias="1.0"
-        app:layout_constraintStart_toStartOf="parent" />
+        app:layout_constraintBottom_toTopOf="@+id/timerFrag_button_SetTimer"
+        app:layout_constraintEnd_toStartOf="@+id/npM"
+        app:layout_constraintHorizontal_bias="0.5"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/textView2"
+        app:layout_constraintVertical_bias="0.5" />
 
     <NumberPicker
         android:id="@+id/npM"
-        android:layout_width="wrap_content"
+        android:layout_width="80dp"
         android:layout_height="wrap_content"
-        android:layout_marginBottom="360dp"
+        android:divider="@color/purple_700"
+        android:forceDarkAllowed="false"
+        android:orientation="vertical"
+        android:outlineAmbientShadowColor="#F80000"
         android:scrollbarSize="4dp"
+        android:selectionDividerHeight="2dp"
+        android:solidColor="#490F9C"
         android:textColor="@color/black"
-        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintBottom_toTopOf="@+id/timerFrag_button_SetTimer"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.0"
-        app:layout_constraintStart_toEndOf="@+id/timerFrag_button_SetTimer" />
+        app:layout_constraintHorizontal_bias="0.5"
+        app:layout_constraintStart_toEndOf="@+id/npH"
+        app:layout_constraintTop_toBottomOf="@+id/textView"
+        app:layout_constraintVertical_bias="0.5" />
 
     <TextView
         android:id="@+id/textView2"
-        android:layout_width="wrap_content"
+        android:layout_width="80dp"
         android:layout_height="wrap_content"
         android:text="Hours"
+        android:textAlignment="center"
         android:textColor="@color/black"
-        android:textSize="20dp"
+        android:textSize="20sp"
         app:layout_constraintBottom_toTopOf="@+id/npH"
-        app:layout_constraintEnd_toEndOf="@+id/npH"
-        app:layout_constraintStart_toStartOf="@+id/npH" />
+        app:layout_constraintEnd_toStartOf="@+id/textView"
+        app:layout_constraintHorizontal_bias="0.5"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.5" />
 
     <TextView
         android:id="@+id/textView"
-        android:layout_width="wrap_content"
+        android:layout_width="80dp"
         android:layout_height="wrap_content"
+        android:outlineAmbientShadowColor="#000000"
+        android:outlineProvider="background"
         android:text="Mins"
+        android:textAlignment="center"
         android:textColor="@color/black"
         android:textSize="20sp"
         app:layout_constraintBottom_toTopOf="@+id/npM"
-        app:layout_constraintEnd_toEndOf="@+id/npM"
-        app:layout_constraintStart_toStartOf="@+id/npM" />
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.5"
+        app:layout_constraintStart_toEndOf="@+id/textView2"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.5" />
 
     <Button
         android:id="@+id/timerFrag_button_SetTimer"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="Set Timer"
-        app:layout_constraintBottom_toBottomOf="parent"
+        android:text="cancel(Temp)"
+        android:visibility="invisible"
+        app:layout_constraintBottom_toTopOf="@+id/conbutton"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.498"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/npM"
-        app:layout_constraintVertical_bias="0.211" />
+        app:layout_constraintTop_toBottomOf="@+id/npH"
+        app:layout_constraintVertical_bias="0.5" />
 
     <TextView
         android:id="@+id/tv3"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginBottom="152dp"
         android:textColor="@color/black"
         android:textSize="20sp"
         android:visibility="visible"
-        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintBottom_toTopOf="@+id/conbutton"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.498"
-        app:layout_constraintStart_toStartOf="parent" />
+        app:layout_constraintHorizontal_bias="0.5"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/timerFrag_button_SetTimer" />
 
     <Button
         android:id="@+id/conbutton"
@@ -84,10 +105,10 @@
         android:visibility="invisible"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.498"
+        app:layout_constraintHorizontal_bias="0.5"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/timerFrag_button_SetTimer"
-        app:layout_constraintVertical_bias="0.772" />
+        app:layout_constraintVertical_bias="0.5" />
 
 
 </androidx.constraintlayout.widget.ConstraintLayout>

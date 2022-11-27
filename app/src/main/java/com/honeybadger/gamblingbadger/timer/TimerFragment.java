@@ -32,7 +32,6 @@ public class TimerFragment extends Fragment
 
     NumberPicker hours, mins;
     TextView msg;
-    Button setB; // first button
     Button confB; // second button
     int hr, min;
 
@@ -64,20 +63,18 @@ public class TimerFragment extends Fragment
         hours = binding.npH; //initializing global gui elements to be used in onclick functions
         mins = binding.npM;
         msg = binding.tv3;
-        setB = binding.timerFragButtonSetTimer;
         confB = binding.conbutton;
 
         hours.setMinValue(0);  //setting values for number pickers
-        hours.setMaxValue(23); hours.setValue(4); // default is 4:00
+        hours.setMaxValue(23); hours.setValue(1); // default is 1:30
+
         mins.setMinValue(0); // valid range is [0:01,23:59]
-        mins.setMaxValue(59); mins.setValue(0);
+        mins.setMaxValue(59); mins.setValue(30);
 
-        initButtonSetTimer(); // setting onclick functions for buttons
         initButtonConfirm();
-
+        initNpReset(); //hides confirm button and text if number picker is changed (forces user to press set timer again which overall helps with user comprehension)
         if(timer.isRunning) // used to prevent user from setting multiple timers even if they exit the fragment
         {
-            setB.setEnabled(false);
             confB.setEnabled(false);
             String timerRunningMsg = "Timer running.. come back in ";
             if(timer.msRemaining < 60000)
@@ -86,9 +83,22 @@ public class TimerFragment extends Fragment
             }
             else
             {
-                timerRunningMsg += ((timer.msRemaining / 60000) + " mins");
+                long imrunningoutofvariablenamesformins = (timer.msRemaining / 60000);
+                timerRunningMsg += (imrunningoutofvariablenamesformins);
+                if(imrunningoutofvariablenamesformins != 1)
+                {
+                    timerRunningMsg += " mins";
+                }
+                else
+                {
+                    timerRunningMsg += " min";
+                }
             }
             msg.setText(timerRunningMsg);
+        }
+        else
+        {
+            set();
         }
     }
 
@@ -124,46 +134,6 @@ public class TimerFragment extends Fragment
 
     // Initialize Interface
 
-    private void initButtonSetTimer() // if hour and min are valid, show confirmation message in text view and allow for confirmation button
-    {
-        binding.timerFragButtonSetTimer.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                hr = hours.getValue(); //converting and saving user input into integers for later use
-                min = mins.getValue();
-                String toBeSent = "Trying to break the program?"; // default error message if user inputs 0:0
-                confB.setVisibility(View.INVISIBLE);
-                if (min != 0 || hr != 0)
-                {
-                    toBeSent = "Set timer for ";
-                    if (hr == 1)
-                    {
-                        toBeSent += ("1 hour");
-                    } else if (hr > 1)
-                    {
-                        toBeSent += (hr + " hours");
-                    }
-
-                    if (hr > 0 && min > 0)   // string building so that it is grammatically correct
-                    {
-                        toBeSent += (" and ");
-                    }
-
-                    if (min == 1)
-                    {
-                        toBeSent += ("1 min");
-                    } else if (min > 1)
-                    {
-                        toBeSent += (min + " mins");
-                    }
-                    toBeSent += "?";
-                    confB.setVisibility(View.VISIBLE);
-                }
-                msg.setText(toBeSent);
-            }
-        });
-    }
-
     private void initButtonConfirm()
     {
         binding.conbutton.setOnClickListener(new View.OnClickListener()
@@ -171,12 +141,11 @@ public class TimerFragment extends Fragment
             @Override
             public void onClick(View view)
             {
-                setB.setEnabled(false);
                 confB.setVisibility(View.INVISIBLE);
                 timer.isRunning = true;
-                long millis  = ((hr*60)+min)*60000;  // calculating how much time (in ms) to put on the countdown timer
+                long millis  = ((hr* 60L)+min)*60000;  // calculating how much time (in ms) to put on the countdown timer
                 Log.d("BEN","Timer started @ " + System.currentTimeMillis() + " for " + millis/60000 + " mins");
-                CountDownTimer cdt = new CountDownTimer(millis,60000) //saving countdowntimer object to casino session
+                timer.attachedCDT = new CountDownTimer(millis,60000) //saving countdowntimer object to casino session
                 {
                     long m;
                     @Override
@@ -199,8 +168,7 @@ public class TimerFragment extends Fragment
                     @Override
                     public void onFinish()
                     {
-                        msg.setText("TIMER DONE!!"); //note: user most likely wont see this message as they will probably leave the timer fragment by the time the timer goes off
-                        setB.setEnabled(true);
+                        msg.setText("Timer finished"); //note: user most likely wont see this message as they will probably leave the timer fragment by the time the timer goes off
                         timer.isRunning = false; // user can now set a new timer
                         Log.d("BEN","Timer finished @ " + System.currentTimeMillis());
                         try
@@ -216,14 +184,66 @@ public class TimerFragment extends Fragment
                         }
                     }
                 }.start();
-                timer.attachedCDT = cdt;
             }
         });
     }
 
+    private void set() // function that was the set timer button
+    {
+        hr = hours.getValue(); //converting and saving user input into integers for later use
+        min = mins.getValue();
+        String toBeSent = "Trying to break the program?"; // default error message if user inputs 0:0
+        confB.setVisibility(View.INVISIBLE);
+        if (min != 0 || hr != 0)
+        {
+            toBeSent = "Set timer for ";
+            if (hr == 1)
+            {
+                toBeSent += ("1 hour");
+            } else if (hr > 1)
+            {
+                toBeSent += (hr + " hours");
+            }
+
+            if (hr > 0 && min > 0)   // string building so that it is grammatically correct
+            {
+                toBeSent += (" and ");
+            }
+
+            if (min == 1)
+            {
+                toBeSent += ("1 min");
+            } else if (min > 1)
+            {
+                toBeSent += (min + " mins");
+            }
+            toBeSent += "?";
+            confB.setVisibility(View.VISIBLE);
+        }
+        msg.setText(toBeSent);
+    }
+
+    private void initNpReset()
+    {
+        NumberPicker.OnValueChangeListener nnpovcl = new NumberPicker.OnValueChangeListener() {
+            @Override
+            public void onValueChange(NumberPicker numberPicker, int i, int i1)
+            {
+                if(!timer.isRunning) //bc if the timer is running then the msg will display how much time left in the fragment itself, we dont want to hide that.
+                {
+                    set();
+                }
+
+            }
+        };
+        binding.npH.setOnValueChangedListener(nnpovcl);
+        binding.npM.setOnValueChangedListener(nnpovcl);
+    }
+
     // ACTION METHODS:
 
-    private void actionGoToCasinoSession() {
+    private void actionGoToCasinoSession()
+    {
         NavHostFragment.findNavController(TimerFragment.this)
                 .navigate(R.id.action_timerFragment_to_casinoSessionFragment);
     }

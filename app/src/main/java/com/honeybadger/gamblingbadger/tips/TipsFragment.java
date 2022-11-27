@@ -54,6 +54,26 @@ public class TipsFragment extends Fragment {
                         .navigate(R.id.action_tipsFragment_to_bjtipsFragment);
             }
         });
+
+        binding.buttonHelpPoker.setOnClickListener(new View.OnClickListener()
+        {
+            @Override
+            public void onClick(View v)
+            {
+                NavHostFragment.findNavController(TipsFragment.this)
+                        .navigate(R.id.action_tipsFragment_to_pokerTipFrag);
+            }
+        });
+
+        binding.buttonHelpTXHoldEm.setOnClickListener(new View.OnClickListener()
+        {
+            @Override
+            public void onClick(View v)
+            {
+                NavHostFragment.findNavController(TipsFragment.this)
+                        .navigate(R.id.action_tipsFragment_to_TXTipFrag);
+            }
+        });
     }
 
     @Override

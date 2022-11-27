@@ -85,8 +85,8 @@
     <fragment
         android:id="@+id/timerFragment"
         android:name="com.honeybadger.gamblingbadger.timer.TimerFragment"
-        android:label="fragment_timer"
-        tools:layout="@layout/fragment_timer" >
+        android:label="Timer"
+        tools:layout="@layout/fragment_timer">
         <action
             android:id="@+id/action_timerFragment_to_casinoSessionFragment"
             app:destination="@id/casinoSessionFragment" />
@@ -297,8 +297,8 @@
     <fragment
         android:id="@+id/pokerTipFrag"
         android:name="com.honeybadger.gamblingbadger.tips.PokerTipFrag"
-        android:label="fragment_poker_tip"
-        tools:layout="@layout/fragment_poker_tip" >
+        android:label="Poker Tips"
+        tools:layout="@layout/fragment_poker_tip">
         <action
             android:id="@+id/action_pokerTipFrag_to_tipsFragment"
             app:destination="@id/tipsFragment" />
@@ -309,8 +309,8 @@
     <fragment
         android:id="@+id/TXTipFrag"
         android:name="com.honeybadger.gamblingbadger.tips.TXTipFrag"
-        android:label="fragment_t_x_tip"
-        tools:layout="@layout/fragment_t_x_tip" >
+        android:label="TX Hold'em Tips"
+        tools:layout="@layout/fragment_t_x_tip">
         <action
             android:id="@+id/action_TXTipFrag_to_tipsFragment"
             app:destination="@id/tipsFragment" />
