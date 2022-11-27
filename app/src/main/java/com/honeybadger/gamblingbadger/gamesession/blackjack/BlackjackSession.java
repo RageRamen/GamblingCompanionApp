@@ -3,7 +3,6 @@ package com.honeybadger.gamblingbadger.gamesession.blackjack;
 import android.util.Pair;
 
 import com.honeybadger.gamblingbadger.cards.Card;
-import com.honeybadger.gamblingbadger.cards.CardRound;
 import com.honeybadger.gamblingbadger.casinosession.CasinoSession;
 import com.honeybadger.gamblingbadger.gamesession.*;
 import com.honeybadger.gamblingbadger.statistics.LongListOfData;
@@ -66,7 +65,16 @@ public class BlackjackSession extends GameSession {
     }
 
     public Pair<Float, String> getRoundPrediction(Card[] userHand, Card dealerCard){
+        //TODO
+        //Take args from getRoundPrediction, put them in a round - what round??
+        //call getOdds() & getRecommendedAction() from the round - return the results in a pair
+
         return new Pair<Float, String>(0f, "");
+    }
+
+    public boolean closeSession() {
+        // TODO
+        return false;
     }
 
     // INFO METHODS:
