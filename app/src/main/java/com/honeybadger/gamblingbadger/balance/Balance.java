@@ -59,7 +59,7 @@ public class Balance {
         BigDecimal result = this.currentBalance.subtract(amount);
 
         BigDecimal ONE_HUNDRED = new BigDecimal(100);
-        BigDecimal percentage = result.multiply(ONE_HUNDRED).divide(this.currentBalance, RoundingMode.CEILING);
+        BigDecimal percentage = result.multiply(ONE_HUNDRED).divide(this.startingBalance, RoundingMode.CEILING);
         BigDecimal percent_10 = new BigDecimal(10);
         BigDecimal percent_25 = new BigDecimal(25);
         BigDecimal percent_50 = new BigDecimal(50);
