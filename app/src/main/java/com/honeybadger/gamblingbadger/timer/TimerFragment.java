@@ -32,7 +32,8 @@ public class TimerFragment extends Fragment
 
     NumberPicker hours, mins;
     TextView msg;
-    Button confB; // second button
+    Button canclB; // cancel button
+    Button confB; // confirm button
     int hr, min;
 
     // FRAGMENT EVENTS:
@@ -63,6 +64,7 @@ public class TimerFragment extends Fragment
         hours = binding.npH; //initializing global gui elements to be used in onclick functions
         mins = binding.npM;
         msg = binding.tv3;
+        canclB = binding.cancelTimerButton;
         confB = binding.conbutton;
 
         hours.setMinValue(0);  //setting values for number pickers
@@ -71,21 +73,22 @@ public class TimerFragment extends Fragment
         mins.setMinValue(0); // valid range is [0:01,23:59]
         mins.setMaxValue(59); mins.setValue(30);
 
+        initButtonCancel();
         initButtonConfirm();
         initNpReset(); //hides confirm button and text if number picker is changed (forces user to press set timer again which overall helps with user comprehension)
         if(timer.isRunning) // used to prevent user from setting multiple timers even if they exit the fragment
         {
-            confB.setEnabled(false);
-            String timerRunningMsg = "Timer running.. come back in ";
+            canclB.setVisibility(View.VISIBLE);
+            String timerRunningMsg = "Time remaining: ";
             if(timer.msRemaining < 60000)
             {
                 timerRunningMsg += "<1 min";
             }
             else
             {
-                long imrunningoutofvariablenamesformins = (timer.msRemaining / 60000);
-                timerRunningMsg += (imrunningoutofvariablenamesformins);
-                if(imrunningoutofvariablenamesformins != 1)
+                long augh = (timer.msRemaining / 60000);
+                timerRunningMsg += (augh);
+                if(augh != 1)
                 {
                     timerRunningMsg += " mins";
                 }
@@ -98,6 +101,7 @@ public class TimerFragment extends Fragment
         }
         else
         {
+            canclB.setVisibility(View.INVISIBLE);
             set();
         }
     }
@@ -134,6 +138,22 @@ public class TimerFragment extends Fragment
 
     // Initialize Interface
 
+
+    private void initButtonCancel()
+    {
+        binding.cancelTimerButton.setOnClickListener(new View.OnClickListener()
+        {
+            @Override
+            public void onClick(View view)
+            {
+                timer.attachedCDT.cancel();
+                timer.isRunning = false;
+                canclB.setVisibility(View.INVISIBLE);
+                set();
+            }
+        });
+    }
+
     private void initButtonConfirm()
     {
         binding.conbutton.setOnClickListener(new View.OnClickListener()
@@ -142,6 +162,7 @@ public class TimerFragment extends Fragment
             public void onClick(View view)
             {
                 confB.setVisibility(View.INVISIBLE);
+                canclB.setVisibility(View.VISIBLE);
                 timer.isRunning = true;
                 long millis  = ((hr* 60L)+min)*60000;  // calculating how much time (in ms) to put on the countdown timer
                 Log.d("BEN","Timer started @ " + System.currentTimeMillis() + " for " + millis/60000 + " mins");

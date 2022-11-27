@@ -13,7 +13,7 @@
         android:clipToOutline="false"
         android:solidColor="#490F9C"
         android:textColor="@color/black"
-        app:layout_constraintBottom_toTopOf="@+id/timerFrag_button_SetTimer"
+        app:layout_constraintBottom_toTopOf="@+id/cancelTimerButton"
         app:layout_constraintEnd_toStartOf="@+id/npM"
         app:layout_constraintHorizontal_bias="0.5"
         app:layout_constraintStart_toStartOf="parent"
@@ -32,7 +32,7 @@
         android:selectionDividerHeight="2dp"
         android:solidColor="#490F9C"
         android:textColor="@color/black"
-        app:layout_constraintBottom_toTopOf="@+id/timerFrag_button_SetTimer"
+        app:layout_constraintBottom_toTopOf="@+id/cancelTimerButton"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.5"
         app:layout_constraintStart_toEndOf="@+id/npH"
@@ -72,10 +72,10 @@
         app:layout_constraintVertical_bias="0.5" />
 
     <Button
-        android:id="@+id/timerFrag_button_SetTimer"
+        android:id="@+id/cancelTimerButton"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="cancel(Temp)"
+        android:text="Cancel Timer"
         android:visibility="invisible"
         app:layout_constraintBottom_toTopOf="@+id/conbutton"
         app:layout_constraintEnd_toEndOf="parent"
@@ -95,7 +95,7 @@
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.5"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/timerFrag_button_SetTimer" />
+        app:layout_constraintTop_toBottomOf="@+id/cancelTimerButton" />
 
     <Button
         android:id="@+id/conbutton"
@@ -107,7 +107,7 @@
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.5"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/timerFrag_button_SetTimer"
+        app:layout_constraintTop_toBottomOf="@+id/cancelTimerButton"
         app:layout_constraintVertical_bias="0.5" />
 
 

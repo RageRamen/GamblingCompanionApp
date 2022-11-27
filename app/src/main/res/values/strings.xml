@@ -53,9 +53,9 @@
     <string name="texasHoldemFrag_title">Texas Hold\'em</string>
     <string name="rouletteFrag_title">Roulette</string>
     <string name="tipsFrag_title">Game Tips</string>
-    <string name="bjtipsFrag_title">Tips for Blackjack</string>
-    <string name="pokerTipsFrag_title">Tips for Poker</string>
-    <string name="txTipsFrag_title">Tips for Texas Hold\'em</string>
+    <string name="bjtipsFrag_title">Blackjack Tips</string>
+    <string name="pokerTipsFrag_title">Poker Tips</string>
+    <string name="txTipsFrag_title">Hold\'em tips</string>
     <string name="generalStatisticsFrag_title">General Statistics</string>
     <string name="generalGameStatisticsFrag_title">Game Statistics</string>
     <string name="casinoStatisticsFrag_title">Casino Statistics</string>
