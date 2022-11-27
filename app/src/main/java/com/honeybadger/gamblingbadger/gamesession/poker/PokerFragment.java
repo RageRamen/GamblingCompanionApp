@@ -1,5 +1,6 @@
 package com.honeybadger.gamblingbadger.gamesession.poker;
 
+import android.app.AlertDialog;
 import android.os.Bundle;
 import android.view.LayoutInflater;
 import android.view.Menu;
@@ -8,6 +9,8 @@ import android.view.MenuItem;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.AdapterView;
+import android.widget.Button;
+import android.widget.EditText;
 import android.widget.Spinner;
 import android.widget.TextView;
 
@@ -25,6 +28,7 @@ import com.honeybadger.gamblingbadger.databinding.FragmentPokerBinding;
 import com.honeybadger.gamblingbadger.tips.BJTipFrag;
 import com.honeybadger.gamblingbadger.tips.PokerTipFrag;
 
+import java.math.BigDecimal;
 import java.util.LinkedList;
 import java.util.List;
 
@@ -36,8 +40,11 @@ public class PokerFragment extends Fragment {
 
     private FragmentPokerBinding binding;
 
+    private AlertDialog setBetDialog;
+
     private List<Card> dealerCards;
     private List<Card> userHand;
+    private BigDecimal bet;
 
     public static @Nullable PokerSession pokerSession;
 
@@ -107,6 +114,10 @@ public class PokerFragment extends Fragment {
             actionEndSession();
             return true; // must return true to consume it here
         }
+        if (id == R.id.menu_poker_item_setBet) {
+            actionSetBet();
+            return true;
+        }
         if (id == R.id.menu_poker_item_tips) {
             actionGoToPokerTips();
             return true;
@@ -154,6 +165,7 @@ public class PokerFragment extends Fragment {
             @Override
             public void onItemSelected(AdapterView<?> adapterView, View view, int i, long l) {
                 ECardNum number;
+                ECardSuit suit;
                 switch ((int)l) {
                     default: number = ECardNum.ANY; break;
                     case 0: number = ECardNum.A; break;
@@ -328,6 +340,49 @@ public class PokerFragment extends Fragment {
         //TODO link whatever method used when calculate button is pressed. Should calculate the odds value
         TextView oddsDisplay = (TextView) getActivity().findViewById(R.id.Odds_textview);
         oddsDisplay.setText("HELLO TEST"); //placeholder test output
+    }
+
+    private void actionSetBet() { //NOTE: Ignore the naming that 'blackjack_set_bet_popup' is here. Realized the popup is the same for all.
+        // TODO
+        AlertDialog.Builder dialogBuilder = new AlertDialog.Builder(getContext());
+
+        View blackjackSetBetPopup = getLayoutInflater().inflate(R.layout.blackjack_set_bet_popup, null);
+
+        Button ConfirmButton = (Button) blackjackSetBetPopup.findViewById(R.id.ConfirmButton);
+        Button CancelButton = (Button) blackjackSetBetPopup.findViewById(R.id.CancelButton);
+        EditText SetBetInput = (EditText) blackjackSetBetPopup.findViewById(R.id.TextInputSetBet);
+
+        dialogBuilder.setView(blackjackSetBetPopup);
+        setBetDialog = dialogBuilder.create();
+        setBetDialog.show();
+
+        //bet = new BigDecimal(SetBetInput.getText().toString()); //DONT USE THIS, CRASHES APP. Keeping this here just for now
+
+        ConfirmButton.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                try {
+                    bet = new BigDecimal(SetBetInput.getText().toString());
+                    TextView betDisplay = (TextView) getActivity().findViewById(R.id.Bet_textview_Poker);
+                    betDisplay.setText(SetBetInput.getText().toString()); //displays the bet input
+                }
+                catch (NumberFormatException e) {
+                    //catch prevents bet from getting an invalid number. Also prevent crash if bet is an invalid value
+                }
+                setBetDialog.dismiss();
+            }
+        });
+
+        CancelButton.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                setBetDialog.dismiss();
+            }
+        });
+
+
+        //TextView betDisplay = (TextView) getActivity().findViewById(R.id.betTextview);
+        //betDisplay.setText("HELLO"); //temporary test in place of setBet method
     }
 
     private void actionUpdateRecommendedActionTextview(){

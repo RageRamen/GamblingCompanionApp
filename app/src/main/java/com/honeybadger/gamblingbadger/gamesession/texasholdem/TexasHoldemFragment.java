@@ -1,5 +1,6 @@
 package com.honeybadger.gamblingbadger.gamesession.texasholdem;
 
+import android.app.AlertDialog;
 import android.os.Bundle;
 import android.view.LayoutInflater;
 import android.view.Menu;
@@ -8,8 +9,10 @@ import android.view.MenuItem;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.AdapterView;
-import android.widget.NumberPicker;
+import android.widget.Button;
+import android.widget.EditText;
 import android.widget.Spinner;
+import android.widget.TextView;
 
 import androidx.annotation.NonNull;
 import androidx.fragment.app.Fragment;
@@ -19,9 +22,9 @@ import com.honeybadger.gamblingbadger.ImageSpinnerAdapter;
 import com.honeybadger.gamblingbadger.R;
 import com.honeybadger.gamblingbadger.cards.ECardNum;
 import com.honeybadger.gamblingbadger.databinding.FragmentTexasHoldemBinding;
-import com.honeybadger.gamblingbadger.tips.BJTipFrag;
-import com.honeybadger.gamblingbadger.tips.PokerTipFrag;
 import com.honeybadger.gamblingbadger.tips.TXTipFrag;
+
+import java.math.BigDecimal;
 
 public class TexasHoldemFragment extends Fragment {
 
@@ -30,6 +33,10 @@ public class TexasHoldemFragment extends Fragment {
     // VARIABLES:
 
     private FragmentTexasHoldemBinding binding;
+
+    private AlertDialog setBetDialog;
+
+    private BigDecimal bet;
 
     private static final Integer[] imageIconDatabase = {R.drawable.ace_of_spades,
             R.drawable._2_of_hearts, R.drawable._3_of_clubs, R.drawable._4_of_diamonds,
@@ -63,8 +70,10 @@ public class TexasHoldemFragment extends Fragment {
 
         // Init Interface
         initSpinnerDealerCard();
-        initWinButtion();
-        initLoseButtion();
+        initWinButton();
+        initLoseButton();
+        initCalculateButton();
+        initUserHandCards();
     }
 
     @Override
@@ -91,7 +100,11 @@ public class TexasHoldemFragment extends Fragment {
             actionEndSession();
             return true; // must return true to consume it here
         }
-        if (id == R.id.menu_poker_item_tips) {
+        if (id == R.id.menu_texasHoldem_item_setBet) {
+            actionSetBet();
+            return true;
+        }
+        if (id == R.id.menu_texasHoldem_item_tips) {
             actionGoToTexasHoldemTips();
             return true;
         }
@@ -319,20 +332,30 @@ public class TexasHoldemFragment extends Fragment {
         });
     }
 
-    private void initWinButtion() {
-        binding.WinButtonTexasholdem.setOnClickListener(new View.OnClickListener() {
+    private void initCalculateButton() {
+        binding.CalculateButtonTexasholdem.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                //TODO link the method in PokerSession that does this
+                actionUpdateOddsTextview();
+                actionUpdateRecommendedActionTextview();
             }
         });
     }
 
-    private void initLoseButtion() {
+    private void initWinButton() {
+        binding.WinButtonTexasholdem.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                actionWinGame();
+            }
+        });
+    }
+
+    private void initLoseButton() {
         binding.LoseButtonTexasholdem.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                //TODO link the method in PokerSession that does this
+                actionLoseGame();
             }
         });
     }
@@ -349,4 +372,66 @@ public class TexasHoldemFragment extends Fragment {
         NavHostFragment.findNavController(this).navigate(R.id.action_texasHoldemFragment_to_casinoSessionFragment);
     }
 
+    private void actionSetBet() { //NOTE: Ignore the naming that 'blackjack_set_bet_popup' is here. Realized the popup is the same for all.
+        // TODO
+        AlertDialog.Builder dialogBuilder = new AlertDialog.Builder(getContext());
+
+        View blackjackSetBetPopup = getLayoutInflater().inflate(R.layout.blackjack_set_bet_popup, null);
+
+        Button ConfirmButton = (Button) blackjackSetBetPopup.findViewById(R.id.ConfirmButton);
+        Button CancelButton = (Button) blackjackSetBetPopup.findViewById(R.id.CancelButton);
+        EditText SetBetInput = (EditText) blackjackSetBetPopup.findViewById(R.id.TextInputSetBet);
+
+        dialogBuilder.setView(blackjackSetBetPopup);
+        setBetDialog = dialogBuilder.create();
+        setBetDialog.show();
+
+        //bet = new BigDecimal(SetBetInput.getText().toString()); //DONT USE THIS, CRASHES APP. Keeping this here just for now
+
+        ConfirmButton.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                try {
+                    bet = new BigDecimal(SetBetInput.getText().toString());
+                    TextView betDisplay = (TextView) getActivity().findViewById(R.id.bet_textview_Texasholdem);
+                    betDisplay.setText(SetBetInput.getText().toString()); //displays the bet input
+                }
+                catch (NumberFormatException e) {
+                    //catch prevents bet from getting an invalid number. Also prevent crash if bet is an invalid value
+                }
+                setBetDialog.dismiss();
+            }
+        });
+
+        CancelButton.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                setBetDialog.dismiss();
+            }
+        });
+
+
+        //TextView betDisplay = (TextView) getActivity().findViewById(R.id.betTextview);
+        //betDisplay.setText("HELLO"); //temporary test in place of setBet method
+    }
+
+    private void actionUpdateOddsTextview(){
+        //TODO link whatever method used when calculate button is pressed. Should calculate the odds value
+        TextView oddsDisplay = (TextView) getActivity().findViewById(R.id.Odds_textview_TexasHoldem);
+        oddsDisplay.setText("HELLO TEST"); //placeholder test output
+    }
+
+    private void actionUpdateRecommendedActionTextview(){
+        //TODO link whatever method used when calculate button is pressed. Should use odds values to return a string for recommended action
+        TextView RecommendedActionDisplay = (TextView) getActivity().findViewById(R.id.RecommendedAction_textview_TexasHoldem);
+        RecommendedActionDisplay.setText("HELLO TEST"); //placeholder test output
+    }
+
+    private void actionWinGame() {
+        //TODO link to when the win button is pressed. Record the round into the TexasHoldemSession as a win
+    }
+
+    private void actionLoseGame() {
+        //TODO link to when the lose button is pressed. Record the round into the TexasHoldemSession as a lose
+    }
 }
