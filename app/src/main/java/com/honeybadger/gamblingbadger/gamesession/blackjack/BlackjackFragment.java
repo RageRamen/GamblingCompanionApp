@@ -1,6 +1,7 @@
 package com.honeybadger.gamblingbadger.gamesession.blackjack;
 
 import android.app.AlertDialog;
+import android.content.Context;
 import android.os.Bundle;
 import android.view.LayoutInflater;
 import android.view.Menu;
@@ -22,9 +23,12 @@ import androidx.navigation.fragment.NavHostFragment;
 
 import com.honeybadger.gamblingbadger.ImageSpinnerAdapter;
 import com.honeybadger.gamblingbadger.R;
+import com.honeybadger.gamblingbadger.balance.AddBalanceFragment;
+import com.honeybadger.gamblingbadger.balance.Balance;
 import com.honeybadger.gamblingbadger.cards.Card;
 import com.honeybadger.gamblingbadger.cards.ECardNum;
 import com.honeybadger.gamblingbadger.cards.ECardSuit;
+import com.honeybadger.gamblingbadger.casinosession.CasinoSessionFragment;
 import com.honeybadger.gamblingbadger.databinding.FragmentBlackjackBinding;
 import com.honeybadger.gamblingbadger.tips.BJTipFrag;
 
@@ -439,10 +443,10 @@ public class BlackjackFragment extends Fragment {
     }
 
     private void actionGetOdds() {
-        // TODO
-        //blackjackround = new BlackjackRound(bet, )
+        // TODO Need getOdds method to be complete and called. Also needs recommended action.
         TextView oddsDisplay = (TextView) getActivity().findViewById(R.id.oddsTextview);
         oddsDisplay.setText("HELLO"); //test, put getOdds() method here. From BlackjackRound
+
     }
 
     private void initButtonWinGame() {
@@ -471,6 +475,7 @@ public class BlackjackFragment extends Fragment {
         blackjackSession.applyRound(blackjackround); //adds the round info into sesssion even if you win or lose since winning or losing means you're done with that single round
         userHand.clear();
         updateUserCardAmountText();
+        actionAddToBalance();
     }
 
     private void actionLoseGame() {
@@ -481,6 +486,29 @@ public class BlackjackFragment extends Fragment {
         blackjackSession.applyRound(blackjackround);
         userHand.clear();
         updateUserCardAmountText();
+        actionSubToBalance();
+    }
+
+    private void actionAddToBalance() {
+
+        if(bet != null){
+            assert CasinoSessionFragment.casinoSession != null;
+            //Get the existing balance in a casino session by calling getBalance()
+            // the Balance returned by getBalance() is the balance of the casino session itself
+            Balance casinoSessionBalance = CasinoSessionFragment.casinoSession.getBalance();
+            casinoSessionBalance.addToBalance(bet, getActivity()); //test
+        }
+    }
+
+    private void actionSubToBalance() {
+        if(bet != null){
+            assert CasinoSessionFragment.casinoSession != null;
+            //Get the existing balance in a casino session by calling getBalance()
+            // the Balance returned by getBalance() is the balance of the casino session itself
+            Balance casinoSessionBalance = CasinoSessionFragment.casinoSession.getBalance();
+            casinoSessionBalance.subFromBalance(bet, getActivity()); //test
+        }
+
     }
 
     public void actionEndSession() {
