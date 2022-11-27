@@ -70,16 +70,14 @@ public abstract class GameSession {
     }
 
     public Duration getSessionDuration() {
-        Duration deltaTime;
+        Duration duration = Duration.ZERO;
 
-        if (this.isSessionOpen()) {
-            deltaTime = Duration.between(this.sessionStartTime, Timer.getCurrentTime());
-        }
-        else {
-            deltaTime = Duration.between(this.sessionStartTime, this.sessionEndTime);
-        }
+        if (isSessionOpen())
+            duration = Duration.between(sessionStartTime, LocalDateTime.now());
+        else
+            duration = Duration.between(sessionStartTime, sessionEndTime);
 
-        return deltaTime;
+        return duration;
     }
 
     public abstract LongListOfData getStatistics();
