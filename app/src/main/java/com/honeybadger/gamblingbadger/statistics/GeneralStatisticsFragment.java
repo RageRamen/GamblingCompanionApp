@@ -28,6 +28,7 @@ import com.honeybadger.gamblingbadger.databinding.FragmentGeneralStatisticsBindi
 import com.honeybadger.gamblingbadger.gamesession.EGameType;
 
 import java.math.BigDecimal;
+import java.text.NumberFormat;
 import java.time.Duration;
 import java.util.ArrayList;
 import java.util.HashMap;
@@ -71,6 +72,13 @@ public class GeneralStatisticsFragment extends Fragment {
     public static Integer returnFragmentID = R.id.generalStatisticsFragment;
 
     private LongListOfData statistics;
+
+    // UTILITY:
+
+    private static String getString(Duration duration) {
+        long seconds = duration.getSeconds();
+        return String.format("%d:%02d:%02d", seconds / 3600, (seconds % 3600) / 60, (seconds % 60));
+    }
 
     // FRAGMENT EVENTS:
 
@@ -149,15 +157,13 @@ public class GeneralStatisticsFragment extends Fragment {
     // INTERFACE:
 
     private void initAggregateTimeSpentInCasinos() {
-        // TODO
         TextView view = getActivity().findViewById(R.id.generalStatisticsFrag_textView_aggregateTimeSpentInCasinos);
-        long seconds = statistics.aggregateTimeSpentInCasinos.getSeconds();
-        String time = String.format("%d:%02d:%02d", seconds / 3600, (seconds % 3600) / 60, (seconds % 60));
-        view.setText(Long.toString(seconds));
+        view.setText(getString(statistics.aggregateTimeSpentInCasinos) + " (H:M:S)");
     }
 
     private void initAggregateTimePlayingGames() {
-        // TODO
+        TextView view = getActivity().findViewById(R.id.generalStatisticsFrag_textView_aggregateTimePlayingGames);
+        view.setText(getString(statistics.aggregateTimePlayingGames) + " (H:M:S)");
     }
 
     private void initAggregateTimePlayingEachGame() {
@@ -165,15 +171,11 @@ public class GeneralStatisticsFragment extends Fragment {
         ArrayList<PieEntry> pieEntries = new ArrayList<>();
         String label = "Game Type";
 
-        // Initialize data
-        Map<String, Duration> valueList = new HashMap<>();
-        for (Map.Entry<EGameType, Duration> entry : statistics.aggregateTimePlayingEachGame.entrySet()) {
-            valueList.put(entry.getKey().NAME, entry.getValue());
-        }
-
         // Input data
-        for (String type : valueList.keySet()) {
-            pieEntries.add(new PieEntry((float)valueList.get(type).toMinutes(), type));
+        PieEntry pe;
+        for (Map.Entry<EGameType, Duration> entry : statistics.aggregateTimePlayingEachGame.entrySet()) {
+            pe = new PieEntry(entry.getValue().getSeconds(), entry.getKey().NAME + ": " + getString(entry.getValue()));
+            pieEntries.add(pe);
         }
 
         // Pie stuff
@@ -181,7 +183,7 @@ public class GeneralStatisticsFragment extends Fragment {
         pieDataSet.setValueTextSize(12f);
         pieDataSet.setColors(COLORS);
         PieData pieData = new PieData(pieDataSet);
-        pieData.setDrawValues(true);
+        pieData.setDrawValues(false);
 
         pieChart.setData(pieData);
         pieChart.invalidate();
@@ -192,15 +194,12 @@ public class GeneralStatisticsFragment extends Fragment {
         ArrayList<PieEntry> pieEntries = new ArrayList<>();
         String label = "Game Type";
 
-        // Initialize data
-        Map<String, BigDecimal> valueList = new HashMap<>();
-        for (Map.Entry<EGameType, BigDecimal> entry : statistics.aggregateMoneyDeltaForEachGame.entrySet()) {
-            valueList.put(entry.getKey().NAME, entry.getValue());
-        }
-
         // Input data
-        for (String type : valueList.keySet()) {
-            pieEntries.add(new PieEntry((float)valueList.get(type).floatValue(), type));
+        NumberFormat formatter = NumberFormat.getCurrencyInstance();
+        PieEntry pe;
+        for (Map.Entry<EGameType, BigDecimal> entry : statistics.aggregateMoneyDeltaForEachGame.entrySet()) {
+            pe = new PieEntry(entry.getValue().floatValue(), entry.getKey().NAME + ": " + formatter.format(entry.getValue()));
+            pieEntries.add(pe);
         }
 
         // Pie stuff
@@ -208,7 +207,7 @@ public class GeneralStatisticsFragment extends Fragment {
         pieDataSet.setValueTextSize(12f);
         pieDataSet.setColors(COLORS);
         PieData pieData = new PieData(pieDataSet);
-        pieData.setDrawValues(true);
+        pieData.setDrawValues(false);
 
         pieChart.setData(pieData);
         pieChart.invalidate();

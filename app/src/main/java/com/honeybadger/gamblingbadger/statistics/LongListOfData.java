@@ -20,6 +20,7 @@ public class LongListOfData {
 
     // FOR GENERAL:
     public @Nullable Duration aggregateTimeSpentInCasinos = null;
+    public @Nullable Duration aggregateTimePlayingGames = null;
     public @Nullable Map<EGameType, Duration> aggregateTimePlayingEachGame = null;
     public @Nullable Map<EGameType, BigDecimal> aggregateMoneyDeltaForEachGame = null;
     public @Nullable Map<EGameType, Float> aggregateLuckIndexForEachGame = null;

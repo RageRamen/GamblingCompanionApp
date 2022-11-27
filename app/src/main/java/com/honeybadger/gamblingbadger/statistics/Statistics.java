@@ -111,6 +111,7 @@ public class Statistics {
 
     public static LongListOfData getGeneralStatistics() {
         Duration timeInCasinos = Duration.ZERO;
+        Duration timePlayingGames = Duration.ZERO;
         Map<EGameType, Duration> timePlayingEachGame = new HashMap<>();
         Map<EGameType, BigDecimal> moneyDeltaEachGame = new HashMap<>();
         Map<EGameType, Float> luckIndexEachGame = new HashMap<>();
@@ -126,7 +127,10 @@ public class Statistics {
                 assert entry.luckIndexForEachGame != null;
 
                 // aggregateTimeSpentInCasinos
-                timeInCasinos = entry.timeSpentInCasino.plus(timeInCasinos);
+                timeInCasinos = timeInCasinos.plus(entry.timeSpentInCasino);
+
+                // aggregateTimePlayingGames
+                timePlayingGames = timePlayingGames.plus(entry.timeSpentPlayingGames);
 
                 // aggregateTimePlayingEachGame
                 for (Map.Entry<EGameType, Duration> e : entry.timePlayingEachGame.entrySet()) {
@@ -144,8 +148,8 @@ public class Statistics {
                 for (Map.Entry<EGameType, Float> e : entry.luckIndexForEachGame.entrySet()) {
                     luckIndexEachGame.putIfAbsent(e.getKey(), 0f);
                     luckIndexCount.putIfAbsent(e.getKey(), 0);
-                    luckIndexEachGame.put(e.getKey(), luckIndexEachGame.get(e.getKey()) + (e.getValue() * entry.numberOfGames));  // sum
-                    luckIndexCount.put(e.getKey(), luckIndexCount.get(e.getKey()) + entry.numberOfGames);  // count
+                    luckIndexEachGame.put(e.getKey(), luckIndexEachGame.get(e.getKey()) + e.getValue());  // sum
+                    luckIndexCount.put(e.getKey(), luckIndexCount.get(e.getKey()) + 1);  // count
                 }
             }
         }
@@ -157,6 +161,7 @@ public class Statistics {
 
         LongListOfData data = new LongListOfData();
         data.type = ELLODType.GENERAL;
+        data.aggregateTimePlayingGames = timePlayingGames;
         data.aggregateTimeSpentInCasinos = timeInCasinos;
         data.aggregateTimePlayingEachGame = timePlayingEachGame;
         data.aggregateMoneyDeltaForEachGame = moneyDeltaEachGame;

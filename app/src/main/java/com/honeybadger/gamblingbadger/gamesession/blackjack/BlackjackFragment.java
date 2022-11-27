@@ -61,7 +61,7 @@ public class BlackjackFragment extends Fragment {
     private BigDecimal bet;
 
     //public static BlackjackRound blackjackround;
-    public static @Nullable BlackjackSession blackjackSession;
+    public static @Nullable BlackjackSession blackjackSession = null;
     public static int softNumberOfDecks = BlackjackSession.DEFAULT_NUMBER_OF_DECKS;
 
     // FRAGMENT EVENTS:
@@ -81,6 +81,9 @@ public class BlackjackFragment extends Fragment {
     ) {
         dealerCard = new Card();
         userHand = new LinkedList<>();
+
+        if (blackjackSession == null)
+            blackjackSession = new BlackjackSession(CasinoSessionFragment.casinoSession);
 
         binding = FragmentBlackjackBinding.inflate(inflater, container, false);
         return binding.getRoot();

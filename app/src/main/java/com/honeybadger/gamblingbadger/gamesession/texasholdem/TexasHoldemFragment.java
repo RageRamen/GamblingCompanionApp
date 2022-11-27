@@ -15,13 +15,16 @@ import android.widget.Spinner;
 import android.widget.TextView;
 
 import androidx.annotation.NonNull;
+import androidx.annotation.Nullable;
 import androidx.fragment.app.Fragment;
 import androidx.navigation.fragment.NavHostFragment;
 
 import com.honeybadger.gamblingbadger.ImageSpinnerAdapter;
 import com.honeybadger.gamblingbadger.R;
 import com.honeybadger.gamblingbadger.cards.ECardNum;
+import com.honeybadger.gamblingbadger.casinosession.CasinoSessionFragment;
 import com.honeybadger.gamblingbadger.databinding.FragmentTexasHoldemBinding;
+import com.honeybadger.gamblingbadger.gamesession.poker.PokerSession;
 import com.honeybadger.gamblingbadger.tips.TXTipFrag;
 
 import java.math.BigDecimal;
@@ -44,6 +47,8 @@ public class TexasHoldemFragment extends Fragment {
             R.drawable._8_of_diamonds, R.drawable._9_of_spades, R.drawable._10_of_hearts,
             R.drawable.jack_of_clubs2, R.drawable.queen_of_diamonds2, R.drawable.king_of_spades2};
 
+    public static @Nullable TexasHoldemSession texasHoldemSession = null;
+
     // FRAGMENT EVENTS:
 
     @Override
@@ -60,6 +65,9 @@ public class TexasHoldemFragment extends Fragment {
             Bundle savedInstanceState
     ) {
 
+        if (texasHoldemSession == null)
+            texasHoldemSession = new TexasHoldemSession(CasinoSessionFragment.casinoSession);
+
         binding = FragmentTexasHoldemBinding.inflate(inflater, container, false);
         return binding.getRoot();
 
@@ -74,6 +82,7 @@ public class TexasHoldemFragment extends Fragment {
         initLoseButton();
         initCalculateButton();
         initUserHandCards();
+        actionSetBet();
     }
 
     @Override
@@ -368,7 +377,9 @@ public class TexasHoldemFragment extends Fragment {
     }
 
     private void actionEndSession() {
-        // TODO
+        if (texasHoldemSession != null)
+            texasHoldemSession.closeSession();
+        texasHoldemSession = null;
         NavHostFragment.findNavController(this).navigate(R.id.action_texasHoldemFragment_to_casinoSessionFragment);
     }
 

@@ -141,7 +141,6 @@ public class StartGameFragment extends Fragment {
 
             switch (selectedGameType) {
                 case GT_BLACKJACK:
-                    BlackjackFragment.blackjackSession = new BlackjackSession(CasinoSessionFragment.casinoSession);
                     navigateTo = R.id.action_startGameFragment_to_blackjackFragment;
                     break;
                 case GT_POKER:
