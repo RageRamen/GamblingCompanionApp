@@ -426,6 +426,7 @@ public class PokerFragment extends Fragment {
         //TODO link to when the win button is pressed. Record the round into the PokerSession as a win
         PokerRound pokerRound = new PokerRound(bet);
         pokerRound.setWin(true);
+        pokerSession.applyRound(pokerRound);
         actionAddToBalance();
     }
 
@@ -433,6 +434,7 @@ public class PokerFragment extends Fragment {
         //TODO link to when the lose button is pressed. Record the round into the PokerSession as a lose
         PokerRound pokerRound = new PokerRound(bet);
         pokerRound.setWin(false);
+        pokerSession.applyRound(pokerRound);
         actionSubToBalance();
     }
 

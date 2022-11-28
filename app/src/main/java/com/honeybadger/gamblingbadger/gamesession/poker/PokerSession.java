@@ -21,6 +21,12 @@ public class PokerSession extends GameSession {
         super(casinoSession, EGameType.GT_POKER);
     }
 
+    // ACTION METHODS:
+
+    public void applyRound(PokerRound round) {
+        rounds.add(round);
+    }
+
     // Info Methods
 
     @Override
