@@ -1,7 +1,6 @@
 package com.honeybadger.gamblingbadger.gamesession.blackjack;
 
 import android.app.AlertDialog;
-import android.content.Context;
 import android.os.Bundle;
 import android.view.LayoutInflater;
 import android.view.Menu;
@@ -23,7 +22,6 @@ import androidx.navigation.fragment.NavHostFragment;
 
 import com.honeybadger.gamblingbadger.ImageSpinnerAdapter;
 import com.honeybadger.gamblingbadger.R;
-import com.honeybadger.gamblingbadger.balance.AddBalanceFragment;
 import com.honeybadger.gamblingbadger.balance.Balance;
 import com.honeybadger.gamblingbadger.cards.Card;
 import com.honeybadger.gamblingbadger.cards.ECardNum;
@@ -33,6 +31,7 @@ import com.honeybadger.gamblingbadger.databinding.FragmentBlackjackBinding;
 import com.honeybadger.gamblingbadger.tips.BJTipFrag;
 
 import java.math.BigDecimal;
+import java.text.NumberFormat;
 import java.util.LinkedList;
 import java.util.List;
 
@@ -56,9 +55,9 @@ public class BlackjackFragment extends Fragment {
             R.drawable._8_of_diamonds, R.drawable._9_of_spades, R.drawable._10_of_hearts,
             R.drawable.jack_of_clubs2, R.drawable.queen_of_diamonds2, R.drawable.king_of_spades2};
 
-    private Card dealerCard;
-    private List<Card> userHand;
-    private BigDecimal bet = BigDecimal.ZERO;
+    private static Card dealerCard = new Card();
+    private static List<Card> userHand = new LinkedList<>();
+    private static BigDecimal bet = BigDecimal.ZERO;
 
     //public static BlackjackRound blackjackround;
     public static @Nullable BlackjackSession blackjackSession = null;
@@ -79,9 +78,6 @@ public class BlackjackFragment extends Fragment {
             LayoutInflater inflater, ViewGroup container,
             Bundle savedInstanceState
     ) {
-        dealerCard = new Card();
-        userHand = new LinkedList<>();
-
         if (blackjackSession == null)
             blackjackSession = new BlackjackSession(CasinoSessionFragment.casinoSession);
 
@@ -100,7 +96,9 @@ public class BlackjackFragment extends Fragment {
         initButtonGetOdds();
         initButtonWinGame();
         initButtonLoseGame();
-        actionSetBet();
+
+        updateUserCardDisplay();
+        updateBetDisplay();
     }
 
     @Override
@@ -154,6 +152,7 @@ public class BlackjackFragment extends Fragment {
         //adapter.setDropDownViewResource(android.R.layout.simple_spinner_item);
 
         spinnerDealerCard.setAdapter(adapter);
+        updateDealerCardDisplay();
 
         binding.blackjackFragSpinnerDealerCard.setOnItemSelectedListener(new AdapterView.OnItemSelectedListener() {
             @Override
@@ -195,7 +194,7 @@ public class BlackjackFragment extends Fragment {
     }
 
     private void initTextViewNumberOfDecks() {
-        updateNumberOfDecks(softNumberOfDecks);
+        actionSetNumberOfDecks(softNumberOfDecks);
     }
 
     // ACTIONS:
@@ -233,7 +232,7 @@ public class BlackjackFragment extends Fragment {
             public void onClick(View view) {
                 actionAddCardToUserHand(new Card(ECardSuit.ANY, ECardNum.A));
                 addCardDialog.dismiss();
-                updateUserCardAmountText();
+                updateUserCardDisplay();
             }
         });
         button2.setOnClickListener(new View.OnClickListener() {
@@ -241,7 +240,7 @@ public class BlackjackFragment extends Fragment {
             public void onClick(View view) {
                 actionAddCardToUserHand(new Card(ECardSuit.ANY, ECardNum.N_2));
                 addCardDialog.dismiss();
-                updateUserCardAmountText();
+                updateUserCardDisplay();
             }
         });
         button3.setOnClickListener(new View.OnClickListener() {
@@ -249,7 +248,7 @@ public class BlackjackFragment extends Fragment {
             public void onClick(View view) {
                 actionAddCardToUserHand(new Card(ECardSuit.ANY, ECardNum.N_3));
                 addCardDialog.dismiss();
-                updateUserCardAmountText();
+                updateUserCardDisplay();
             }
         });
         button4.setOnClickListener(new View.OnClickListener() {
@@ -257,7 +256,7 @@ public class BlackjackFragment extends Fragment {
             public void onClick(View view) {
                 actionAddCardToUserHand(new Card(ECardSuit.ANY, ECardNum.N_4));
                 addCardDialog.dismiss();
-                updateUserCardAmountText();
+                updateUserCardDisplay();
             }
         });
         button5.setOnClickListener(new View.OnClickListener() {
@@ -265,7 +264,7 @@ public class BlackjackFragment extends Fragment {
             public void onClick(View view) {
                 actionAddCardToUserHand(new Card(ECardSuit.ANY, ECardNum.N_5));
                 addCardDialog.dismiss();
-                updateUserCardAmountText();
+                updateUserCardDisplay();
             }
         });
         button6.setOnClickListener(new View.OnClickListener() {
@@ -273,7 +272,7 @@ public class BlackjackFragment extends Fragment {
             public void onClick(View view) {
                 actionAddCardToUserHand(new Card(ECardSuit.ANY, ECardNum.N_6));
                 addCardDialog.dismiss();
-                updateUserCardAmountText();
+                updateUserCardDisplay();
             }
         });
         button7.setOnClickListener(new View.OnClickListener() {
@@ -281,7 +280,7 @@ public class BlackjackFragment extends Fragment {
             public void onClick(View view) {
                 actionAddCardToUserHand(new Card(ECardSuit.ANY, ECardNum.N_7));
                 addCardDialog.dismiss();
-                updateUserCardAmountText();
+                updateUserCardDisplay();
             }
         });
         button8.setOnClickListener(new View.OnClickListener() {
@@ -289,7 +288,7 @@ public class BlackjackFragment extends Fragment {
             public void onClick(View view) {
                 actionAddCardToUserHand(new Card(ECardSuit.ANY, ECardNum.N_8));
                 addCardDialog.dismiss();
-                updateUserCardAmountText();
+                updateUserCardDisplay();
             }
         });
         button9.setOnClickListener(new View.OnClickListener() {
@@ -297,7 +296,7 @@ public class BlackjackFragment extends Fragment {
             public void onClick(View view) {
                 actionAddCardToUserHand(new Card(ECardSuit.ANY, ECardNum.N_9));
                 addCardDialog.dismiss();
-                updateUserCardAmountText();
+                updateUserCardDisplay();
             }
         });
         button10.setOnClickListener(new View.OnClickListener() {
@@ -305,7 +304,7 @@ public class BlackjackFragment extends Fragment {
             public void onClick(View view) {
                 actionAddCardToUserHand(new Card(ECardSuit.ANY, ECardNum.N_10));
                 addCardDialog.dismiss();
-                updateUserCardAmountText();
+                updateUserCardDisplay();
             }
         });
         buttonJ.setOnClickListener(new View.OnClickListener() {
@@ -313,7 +312,7 @@ public class BlackjackFragment extends Fragment {
             public void onClick(View view) {
                 actionAddCardToUserHand(new Card(ECardSuit.ANY, ECardNum.J));
                 addCardDialog.dismiss();
-                updateUserCardAmountText();
+                updateUserCardDisplay();
             }
         });
         buttonQ.setOnClickListener(new View.OnClickListener() {
@@ -321,7 +320,7 @@ public class BlackjackFragment extends Fragment {
             public void onClick(View view) {
                 actionAddCardToUserHand(new Card(ECardSuit.ANY, ECardNum.Q));
                 addCardDialog.dismiss();
-                updateUserCardAmountText();
+                updateUserCardDisplay();
             }
         });
         buttonK.setOnClickListener(new View.OnClickListener() {
@@ -329,7 +328,7 @@ public class BlackjackFragment extends Fragment {
             public void onClick(View view) {
                 actionAddCardToUserHand(new Card(ECardSuit.ANY, ECardNum.K));
                 addCardDialog.dismiss();
-                updateUserCardAmountText();
+                updateUserCardDisplay();
             }
         });
 
@@ -340,15 +339,6 @@ public class BlackjackFragment extends Fragment {
             }
         });
 
-    }
-
-    private void updateUserCardAmountText(){
-        TextView UserCardAmountTextView = (TextView) getActivity().findViewById(R.id.UserCardAmount);
-        String tempcardview = "";
-        for(int x = 0; x<userHand.size(); x++){
-            tempcardview += userHand.get(x).getECardNum() + ", ";
-        }
-        UserCardAmountTextView.setText(tempcardview);
     }
 
     private void actionShowChangeNumberOfDecksAlert() {
@@ -372,17 +362,16 @@ public class BlackjackFragment extends Fragment {
         applyButton.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                updateNumberOfDecks(numberPicker.getValue());
+                actionSetNumberOfDecks(numberPicker.getValue());
                 changeNumberOfDecksDialog.dismiss();
             }
         });
     }
 
-    private void updateNumberOfDecks(int numberOfDecks) {
+    private void actionSetNumberOfDecks(int numberOfDecks) {
         softNumberOfDecks = numberOfDecks;
         blackjackSession.setNumberOfDecks(numberOfDecks);
-        TextView numberDisplay = (TextView) getActivity().findViewById(R.id.blackjackFrag_textView_numberOfDecks_display);
-        numberDisplay.setText(String.valueOf(blackjackSession.getNumberOfDecks()));
+        updateNumberOfDecksDisplay();
     }
 
     private void actionAddCardToUserHand(Card card) {
@@ -414,8 +403,7 @@ public class BlackjackFragment extends Fragment {
             public void onClick(View view) {
                 try {
                     bet = new BigDecimal(SetBetInput.getText().toString());
-                    TextView betDisplay = (TextView) getActivity().findViewById(R.id.betTextview);
-                    betDisplay.setText(SetBetInput.getText().toString()); //displays the bet input
+                    updateBetDisplay();
                 }
                 catch (NumberFormatException e) {
                     //catch prevents bet from getting an invalid number. Also prevent crash if bet is an invalid value
@@ -456,7 +444,8 @@ public class BlackjackFragment extends Fragment {
 
     private void actionGetRecommendedAction(){
         TextView RecommendedActionDisplay = (TextView) getActivity().findViewById(R.id.RecommendedAction_textview_Blackjack);
-        RecommendedActionDisplay.setText("N/A");
+        BlackjackRound round = new BlackjackRound(bet, softNumberOfDecks, userHand, dealerCard);
+        RecommendedActionDisplay.setText(round.getRecommendedAction(getContext()));
     }
 
     private void initButtonWinGame() {
@@ -478,13 +467,55 @@ public class BlackjackFragment extends Fragment {
     }
 
 
+    private void updateBetDisplay() {
+        TextView betDisplay = (TextView) getActivity().findViewById(R.id.betTextview);
+        NumberFormat formatter = NumberFormat.getCurrencyInstance();
+        betDisplay.setText(formatter.format(bet)); //displays the bet input
+    }
+
+    private void updateDealerCardDisplay() {
+        Spinner display = getActivity().findViewById(R.id.blackjackFrag_spinner_dealerCard);
+        switch (dealerCard.num) {
+            case A:     display.setSelection(0);    break;
+            case N_2:   display.setSelection(1);    break;
+            case N_3:   display.setSelection(2);    break;
+            case N_4:   display.setSelection(3);    break;
+            case N_5:   display.setSelection(4);    break;
+            case N_6:   display.setSelection(5);    break;
+            case N_7:   display.setSelection(6);    break;
+            case N_8:   display.setSelection(7);    break;
+            case N_9:   display.setSelection(8);    break;
+            case N_10:  display.setSelection(9);    break;
+            case J:     display.setSelection(10);   break;
+            case Q:     display.setSelection(11);   break;
+            case K:     display.setSelection(12);   break;
+            default:
+                break;
+        }
+    }
+
+    private void updateUserCardDisplay(){
+        TextView UserCardAmountTextView = (TextView) getActivity().findViewById(R.id.UserCardAmount);
+        String tempcardview = "";
+        for(int x = 0; x < userHand.size(); x++){
+            tempcardview += userHand.get(x).getECardNum() + ", ";
+        }
+        UserCardAmountTextView.setText(tempcardview);
+    }
+
+    private void updateNumberOfDecksDisplay() {
+        TextView numberDisplay = (TextView) getActivity().findViewById(R.id.blackjackFrag_textView_numberOfDecks_display);
+        numberDisplay.setText(String.valueOf(blackjackSession.getNumberOfDecks()));
+    }
+
+
     private void actionWinGame() {
         // TODO
         BlackjackRound blackjackround = new BlackjackRound(bet, softNumberOfDecks, userHand, dealerCard);
         blackjackround.setWin(true);
         blackjackSession.applyRound(blackjackround); //adds the round info into sesssion even if you win or lose since winning or losing means you're done with that single round
         userHand.clear();
-        updateUserCardAmountText();
+        updateUserCardDisplay();
         actionAddToBalance();
     }
 
@@ -494,7 +525,7 @@ public class BlackjackFragment extends Fragment {
         blackjackround.setWin(false);
         blackjackSession.applyRound(blackjackround);
         userHand.clear();
-        updateUserCardAmountText();
+        updateUserCardDisplay();
         actionSubToBalance();
     }
 
