@@ -447,7 +447,12 @@ public class BlackjackFragment extends Fragment {
         // TODO Need getOdds method to be complete and called. Also needs recommended action.
         TextView oddsDisplay = (TextView) getActivity().findViewById(R.id.oddsTextview);
         oddsDisplay.setText("HELLO"); //test, put getOdds() method here. From BlackjackRound
+        actionGetRecommendedAction();
+    }
 
+    private void actionGetRecommendedAction(){
+        TextView RecommendedActionDisplay = (TextView) getActivity().findViewById(R.id.RecommendedAction_textview_Blackjack);
+        RecommendedActionDisplay.setText("HELLO");
     }
 
     private void initButtonWinGame() {
