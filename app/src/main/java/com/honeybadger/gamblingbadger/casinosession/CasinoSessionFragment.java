@@ -63,9 +63,6 @@ public class CasinoSessionFragment extends Fragment {
         // ActionBar
         initActionBarBalance();
 
-        // Visual
-        binding.casinoSessionFragTextviewText.setText("DEBUG Balance: " + casinoSession.getBalance().getCurrentBalance().toString());
-
         // Button bindings
         initButtonStartGame();
         initButtonChangeBalance();

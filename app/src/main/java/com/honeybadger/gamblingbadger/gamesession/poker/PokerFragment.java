@@ -31,6 +31,7 @@ import com.honeybadger.gamblingbadger.tips.BJTipFrag;
 import com.honeybadger.gamblingbadger.tips.PokerTipFrag;
 
 import java.math.BigDecimal;
+import java.text.NumberFormat;
 import java.util.LinkedList;
 import java.util.List;
 
@@ -46,7 +47,7 @@ public class PokerFragment extends Fragment {
 
     private List<Card> dealerCards;
     private List<Card> userHand;
-    private BigDecimal bet;
+    private BigDecimal bet = BigDecimal.ZERO;
 
     public static @Nullable PokerSession pokerSession = null;
 
@@ -370,7 +371,9 @@ public class PokerFragment extends Fragment {
                 try {
                     bet = new BigDecimal(SetBetInput.getText().toString());
                     TextView betDisplay = (TextView) getActivity().findViewById(R.id.Bet_textview_Poker);
-                    betDisplay.setText(SetBetInput.getText().toString()); //displays the bet input
+
+                    NumberFormat formatter = NumberFormat.getCurrencyInstance();
+                    betDisplay.setText(formatter.format(bet)); //displays the bet input
                 }
                 catch (NumberFormatException e) {
                     //catch prevents bet from getting an invalid number. Also prevent crash if bet is an invalid value

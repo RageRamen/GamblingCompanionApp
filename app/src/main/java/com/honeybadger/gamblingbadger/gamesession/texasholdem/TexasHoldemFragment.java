@@ -28,6 +28,7 @@ import com.honeybadger.gamblingbadger.gamesession.poker.PokerSession;
 import com.honeybadger.gamblingbadger.tips.TXTipFrag;
 
 import java.math.BigDecimal;
+import java.text.NumberFormat;
 
 public class TexasHoldemFragment extends Fragment {
 
@@ -39,7 +40,7 @@ public class TexasHoldemFragment extends Fragment {
 
     private AlertDialog setBetDialog;
 
-    private BigDecimal bet;
+    private BigDecimal bet = BigDecimal.ZERO;
 
     private static final Integer[] imageIconDatabase = {R.drawable.ace_of_spades,
             R.drawable._2_of_hearts, R.drawable._3_of_clubs, R.drawable._4_of_diamonds,
@@ -404,7 +405,9 @@ public class TexasHoldemFragment extends Fragment {
                 try {
                     bet = new BigDecimal(SetBetInput.getText().toString());
                     TextView betDisplay = (TextView) getActivity().findViewById(R.id.bet_textview_Texasholdem);
-                    betDisplay.setText(SetBetInput.getText().toString()); //displays the bet input
+
+                    NumberFormat formatter = NumberFormat.getCurrencyInstance();
+                    betDisplay.setText(formatter.format(bet)); //displays the bet input
                 }
                 catch (NumberFormatException e) {
                     //catch prevents bet from getting an invalid number. Also prevent crash if bet is an invalid value
