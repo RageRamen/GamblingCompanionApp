@@ -21,6 +21,7 @@ import androidx.navigation.fragment.NavHostFragment;
 
 import com.honeybadger.gamblingbadger.ImageSpinnerAdapter;
 import com.honeybadger.gamblingbadger.R;
+import com.honeybadger.gamblingbadger.balance.Balance;
 import com.honeybadger.gamblingbadger.cards.Card;
 import com.honeybadger.gamblingbadger.cards.ECardNum;
 import com.honeybadger.gamblingbadger.cards.ECardSuit;
@@ -400,12 +401,39 @@ public class PokerFragment extends Fragment {
         RecommendedActionDisplay.setText("HELLO TEST"); //placeholder test output
     }
 
+    private void actionAddToBalance() {
+        if(bet != null){
+            assert CasinoSessionFragment.casinoSession != null;
+            //Get the existing balance in a casino session by calling getBalance()
+            // the Balance returned by getBalance() is the balance of the casino session itself
+            Balance casinoSessionBalance = CasinoSessionFragment.casinoSession.getBalance();
+            casinoSessionBalance.addToBalance(bet, getActivity()); //test
+        }
+    }
+
+    private void actionSubToBalance() {
+        if(bet != null){
+            assert CasinoSessionFragment.casinoSession != null;
+            //Get the existing balance in a casino session by calling getBalance()
+            // the Balance returned by getBalance() is the balance of the casino session itself
+            Balance casinoSessionBalance = CasinoSessionFragment.casinoSession.getBalance();
+            casinoSessionBalance.subFromBalance(bet, getActivity()); //test
+        }
+
+    }
+
     private void actionWinGame(){
         //TODO link to when the win button is pressed. Record the round into the PokerSession as a win
+        PokerRound pokerRound = new PokerRound(bet);
+        pokerRound.setWin(true);
+        actionAddToBalance();
     }
 
     private void actionLoseGame(){
         //TODO link to when the lose button is pressed. Record the round into the PokerSession as a lose
+        PokerRound pokerRound = new PokerRound(bet);
+        pokerRound.setWin(false);
+        actionSubToBalance();
     }
 
 }

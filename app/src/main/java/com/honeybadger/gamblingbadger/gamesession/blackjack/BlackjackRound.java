@@ -112,6 +112,10 @@ public class BlackjackRound extends CardRound {
 
     public float getOdds(){
         //TODO
+        float tempOddsOf10s = 16/52;
+        float tempOddsOfAny1234etc = 4/52;
+
+
 
         return 1; //placeholder
     }

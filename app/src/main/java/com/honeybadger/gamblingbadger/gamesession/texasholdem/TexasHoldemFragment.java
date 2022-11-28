@@ -21,9 +21,11 @@ import androidx.navigation.fragment.NavHostFragment;
 
 import com.honeybadger.gamblingbadger.ImageSpinnerAdapter;
 import com.honeybadger.gamblingbadger.R;
+import com.honeybadger.gamblingbadger.balance.Balance;
 import com.honeybadger.gamblingbadger.cards.ECardNum;
 import com.honeybadger.gamblingbadger.casinosession.CasinoSessionFragment;
 import com.honeybadger.gamblingbadger.databinding.FragmentTexasHoldemBinding;
+import com.honeybadger.gamblingbadger.gamesession.poker.PokerRound;
 import com.honeybadger.gamblingbadger.gamesession.poker.PokerSession;
 import com.honeybadger.gamblingbadger.tips.TXTipFrag;
 
@@ -440,11 +442,39 @@ public class TexasHoldemFragment extends Fragment {
         RecommendedActionDisplay.setText("HELLO TEST"); //placeholder test output
     }
 
-    private void actionWinGame() {
-        //TODO link to when the win button is pressed. Record the round into the TexasHoldemSession as a win
+    private void actionAddToBalance() {
+        if(bet != null){
+            assert CasinoSessionFragment.casinoSession != null;
+            //Get the existing balance in a casino session by calling getBalance()
+            // the Balance returned by getBalance() is the balance of the casino session itself
+            Balance casinoSessionBalance = CasinoSessionFragment.casinoSession.getBalance();
+            casinoSessionBalance.addToBalance(bet, getActivity()); //test
+        }
     }
 
-    private void actionLoseGame() {
-        //TODO link to when the lose button is pressed. Record the round into the TexasHoldemSession as a lose
+    private void actionSubToBalance() {
+        if(bet != null){
+            assert CasinoSessionFragment.casinoSession != null;
+            //Get the existing balance in a casino session by calling getBalance()
+            // the Balance returned by getBalance() is the balance of the casino session itself
+            Balance casinoSessionBalance = CasinoSessionFragment.casinoSession.getBalance();
+            casinoSessionBalance.subFromBalance(bet, getActivity()); //test
+        }
+
     }
+
+    private void actionWinGame(){
+        //TODO link to when the win button is pressed. Record the round into the PokerSession as a win
+        TexasHoldemRound texasHoldemRound = new TexasHoldemRound(bet);
+        texasHoldemRound.setWin(true);
+        actionAddToBalance();
+    }
+
+    private void actionLoseGame(){
+        //TODO link to when the lose button is pressed. Record the round into the PokerSession as a lose
+        TexasHoldemRound texasHoldemRound = new TexasHoldemRound(bet);
+        texasHoldemRound.setWin(false);
+        actionSubToBalance();
+    }
+
 }
