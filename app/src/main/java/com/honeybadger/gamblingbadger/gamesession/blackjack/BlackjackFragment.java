@@ -445,7 +445,24 @@ public class BlackjackFragment extends Fragment {
     private void actionGetRecommendedAction(){
         TextView RecommendedActionDisplay = (TextView) getActivity().findViewById(R.id.RecommendedAction_textview_Blackjack);
         BlackjackRound round = new BlackjackRound(bet, softNumberOfDecks, userHand, dealerCard);
-        RecommendedActionDisplay.setText(round.getRecommendedAction(getContext()));
+        String action = "";
+        switch (round.getRecommendedAction(getContext())) {
+            case BlackjackRound.HIT: action = "Hit"; break;
+            case BlackjackRound.STAND: action = "Stand"; break;
+            case BlackjackRound.BUST: action = "Busted"; break;
+            case BlackjackRound.DOUBLE_DOWN_ELSE_STAND: action = "Double down, else stand"; break;
+            case BlackjackRound.DOUBLE_DOWN_ELSE_HIT: action = "Double down, else hit"; break;
+            case BlackjackRound.SPLIT: action = "Split"; break;
+            case BlackjackRound.SPLIT_IF_DD_AFTER_SPLITS_ELSE_HIT: action = "Split if DD after splits, else hit"; break;
+            case BlackjackRound.SPLIT_IF_DD_AFTER_SPLITS_ELSE_STAND: action = "Split if DD after splits, else stand"; break;
+            case BlackjackRound.SPLIT_IF_DD_AFTER_SPLITS_ELSE_DH: action = "Split if DD after splits, else DD, else hit"; break;
+            case BlackjackRound.SURRENDER_ELSE_HIT: action = "Surrender, else hit"; break;
+            case BlackjackRound.SURRENDER_ELSE_STAND: action = "Surrender, else stand"; break;
+            case BlackjackRound.SURRENDER_ELSE_SPLIT: action = "Surrender, else split"; break;
+            default:
+                break;
+        }
+        RecommendedActionDisplay.setText(action);
     }
 
     private void initButtonWinGame() {
