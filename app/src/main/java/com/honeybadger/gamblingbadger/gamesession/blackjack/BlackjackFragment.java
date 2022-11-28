@@ -44,9 +44,7 @@ public class BlackjackFragment extends Fragment {
     private FragmentBlackjackBinding binding;
 
     private AlertDialog addCardDialog;
-
     private AlertDialog setBetDialog; //added this for setting bets
-
     private AlertDialog changeNumberOfDecksDialog;
 
     private static final Integer[] imageIconDatabase = {R.drawable.ace_of_spades,
@@ -59,7 +57,6 @@ public class BlackjackFragment extends Fragment {
     private static List<Card> userHand = new LinkedList<>();
     private static BigDecimal bet = BigDecimal.ZERO;
 
-    //public static BlackjackRound blackjackround;
     public static @Nullable BlackjackSession blackjackSession = null;
     public static int softNumberOfDecks = BlackjackSession.DEFAULT_NUMBER_OF_DECKS;
 
