@@ -449,7 +449,8 @@ public class BlackjackFragment extends Fragment {
         float oddsNum = 0;
         BlackjackRound blackjackround = new BlackjackRound(bet, softNumberOfDecks, userHand, dealerCard);
         oddsNum = blackjackround.getOdds();
-        oddsDisplay.setText("" + oddsNum); //test, put getOdds() method here. From BlackjackRound
+        //oddsDisplay.setText("" + oddsNum); //test, put getOdds() method here. From BlackjackRound
+        oddsDisplay.setText("N/A");
         actionGetRecommendedAction();
     }
 

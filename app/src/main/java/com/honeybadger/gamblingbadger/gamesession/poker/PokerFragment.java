@@ -347,7 +347,7 @@ public class PokerFragment extends Fragment {
     private void actionUpdateOddsTextview(){
         //TODO link whatever method used when calculate button is pressed. Should calculate the odds value
         TextView oddsDisplay = (TextView) getActivity().findViewById(R.id.Odds_textview);
-        oddsDisplay.setText("HELLO TEST"); //placeholder test output
+        oddsDisplay.setText("N/A"); //placeholder test output
     }
 
     private void actionSetBet() { //NOTE: Ignore the naming that 'blackjack_set_bet_popup' is here. Realized the popup is the same for all.
@@ -398,7 +398,7 @@ public class PokerFragment extends Fragment {
     private void actionUpdateRecommendedActionTextview(){
         //TODO link whatever method used when calculate button is pressed. Should use odds values to return a string for recommended action
         TextView RecommendedActionDisplay = (TextView) getActivity().findViewById(R.id.recommendedAction_textview);
-        RecommendedActionDisplay.setText("HELLO TEST"); //placeholder test output
+        RecommendedActionDisplay.setText("N/A"); //placeholder test output
     }
 
     private void actionAddToBalance() {

@@ -433,13 +433,13 @@ public class TexasHoldemFragment extends Fragment {
     private void actionUpdateOddsTextview(){
         //TODO link whatever method used when calculate button is pressed. Should calculate the odds value
         TextView oddsDisplay = (TextView) getActivity().findViewById(R.id.Odds_textview_TexasHoldem);
-        oddsDisplay.setText("HELLO TEST"); //placeholder test output
+        oddsDisplay.setText("N/A"); //placeholder test output
     }
 
     private void actionUpdateRecommendedActionTextview(){
         //TODO link whatever method used when calculate button is pressed. Should use odds values to return a string for recommended action
         TextView RecommendedActionDisplay = (TextView) getActivity().findViewById(R.id.RecommendedAction_textview_TexasHoldem);
-        RecommendedActionDisplay.setText("HELLO TEST"); //placeholder test output
+        RecommendedActionDisplay.setText("N/A"); //placeholder test output
     }
 
     private void actionAddToBalance() {
