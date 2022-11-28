@@ -88,7 +88,7 @@ public class PokerTipFrag extends Fragment {
 
     private void actionGoToTips()
     {
-        NavHostFragment.findNavController(this).navigate(R.id.action_pokerTipFrag_to_tipsFragment);
+        NavHostFragment.findNavController(this).navigate(R.id.action_pokerTipFrag_pop);
     }
 
     private void actionReturnToCallingFrag() {
