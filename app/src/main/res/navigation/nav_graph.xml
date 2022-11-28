@@ -308,6 +308,10 @@
         <action
             android:id="@+id/action_pokerTipFrag_to_pokerHandsFrag"
             app:destination="@id/pokerHandsFrag" />
+        <action
+            android:id="@+id/action_pokerTipFrag_pop"
+            app:popUpTo="@id/pokerTipFrag"
+            app:popUpToInclusive="true" />
     </fragment>
     <fragment
         android:id="@+id/TXTipFrag"
