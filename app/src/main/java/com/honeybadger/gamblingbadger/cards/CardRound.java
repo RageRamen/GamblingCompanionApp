@@ -28,10 +28,4 @@ public abstract class CardRound {
         this.win = win;
         return this;
     }
-
-    // Info Methods
-
-    public abstract float getHandStrength();
-
-    public abstract float getExpectedValue();
 }

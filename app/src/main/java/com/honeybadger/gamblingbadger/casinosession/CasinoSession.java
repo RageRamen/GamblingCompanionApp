@@ -70,7 +70,7 @@ public class CasinoSession {
         return this.gamesPlayed;
     }
 
-    // Active Methods:
+    // Action Methods:
 
     public CasinoSession addGameSession(GameSession gameSession) {
         if (!gamesPlayed.contains(gameSession))

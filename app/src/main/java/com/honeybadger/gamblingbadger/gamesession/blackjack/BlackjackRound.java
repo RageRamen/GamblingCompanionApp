@@ -94,7 +94,6 @@ public class BlackjackRound extends CardRound {
         this.numberOfDecks = numberOfDecks;
         this.userHand = new LinkedList<>();
     }
-    //second constructor for storing userHand and dealCard
     public BlackjackRound(BigDecimal bet, int numberOfDecks, List<Card> userHand, Card dealerCard) {
         super(bet);
         this.numberOfDecks = numberOfDecks;
@@ -122,6 +121,147 @@ public class BlackjackRound extends CardRound {
 
     public String getRecommendedAction(Context context) {
         return getRecommendedAction(context.getResources());
+    }
+
+    public String getRecommendedAction(Resources resources) {
+        return getRecommendedAction(resources, true);
+    }
+
+    public String getRecommendedAction(Resources resources, boolean dealerStayOnSoft17) {
+        String action = "";
+
+        // Decide table name
+        String tableName;
+        switch (numberOfDecks) {
+            case 1:
+                if (dealerStayOnSoft17)
+                    tableName = "one_deck_dSos17";
+                else
+                    tableName = "one_deck_dHos17";
+                break;
+            case 2:
+                if (dealerStayOnSoft17)
+                    tableName = "two_deck_dSos17";
+                else
+                    tableName = "two_deck_dHos17";
+                break;
+            case 3:
+                if (dealerStayOnSoft17)
+                    tableName = "three_deck_dSos17";
+                else
+                    tableName = "three_deck_dHos17";
+                break;
+            case 4:
+                if (dealerStayOnSoft17)
+                    tableName = "four_deck_dSos17";
+                else
+                    tableName = "four_deck_dHos17";
+                break;
+            case 5:
+                if (dealerStayOnSoft17)
+                    tableName = "five_deck_dSos17";
+                else
+                    tableName = "five_deck_dHos17";
+                break;
+            case 6:
+                if (dealerStayOnSoft17)
+                    tableName = "six_deck_dSos17";
+                else
+                    tableName = "six_deck_dHos17";
+                break;
+            case 7:
+                if (dealerStayOnSoft17)
+                    tableName = "seven_deck_dSos17";
+                else
+                    tableName = "seven_deck_dHos17";
+                break;
+            case 8:
+                if (dealerStayOnSoft17)
+                    tableName = "eight_deck_dSos17";
+                else
+                    tableName = "eight_deck_dHos17";
+                break;
+            default:
+                tableName = "";
+                break;
+        }
+
+        // Parse xml into readable table
+        XmlPullParser parser = resources.getXml(R.xml.blackjack_tables);
+        HashMap<String, HashMap<ECardNum, String>> table = parseXml(parser, tableName);
+
+        // Decide action
+
+        if (userHand.size() == 2) {
+            // Test for pair
+            if (userHand.get(0).num == userHand.get(1).num) {
+                // Use split section
+                switch (userHand.get(0).num) {
+                    case N_2: action = Objects.requireNonNull(table.get(PAIR_2)).get(dealerCard.num); break;
+                    case N_3: action = Objects.requireNonNull(table.get(PAIR_3)).get(dealerCard.num); break;
+                    case N_4: action = Objects.requireNonNull(table.get(PAIR_4)).get(dealerCard.num); break;
+                    case N_5: action = Objects.requireNonNull(table.get(PAIR_5)).get(dealerCard.num); break;
+                    case N_6: action = Objects.requireNonNull(table.get(PAIR_6)).get(dealerCard.num); break;
+                    case N_7: action = Objects.requireNonNull(table.get(PAIR_7)).get(dealerCard.num); break;
+                    case N_8: action = Objects.requireNonNull(table.get(PAIR_8)).get(dealerCard.num); break;
+                    case N_9: action = Objects.requireNonNull(table.get(PAIR_9)).get(dealerCard.num); break;
+                    case N_10:
+                    case J:
+                    case Q:
+                    case K: action = Objects.requireNonNull(table.get(PAIR_10)).get(dealerCard.num); break;
+                    case A: action = Objects.requireNonNull(table.get(PAIR_A)).get(dealerCard.num); break;
+                    default: action = BUST; break;
+                }
+            }
+        }
+
+        assert action != null;
+        if (action.isEmpty()) {
+            // No pair
+            int[] hardSoftScore = getHardSoftScore(userHand);
+            int score = getBestScore(hardSoftScore);
+            if (hardSoftScoreHasAce(hardSoftScore)) {
+                // Use soft section
+                switch (score) {
+                    case 13: action = Objects.requireNonNull(table.get(SOFT_13)).get(dealerCard.num); break;
+                    case 14: action = Objects.requireNonNull(table.get(SOFT_14)).get(dealerCard.num); break;
+                    case 15: action = Objects.requireNonNull(table.get(SOFT_15)).get(dealerCard.num); break;
+                    case 16: action = Objects.requireNonNull(table.get(SOFT_16)).get(dealerCard.num); break;
+                    case 17: action = Objects.requireNonNull(table.get(SOFT_17)).get(dealerCard.num); break;
+                    case 18: action = Objects.requireNonNull(table.get(SOFT_18)).get(dealerCard.num); break;
+                    case 19: action = Objects.requireNonNull(table.get(SOFT_19)).get(dealerCard.num); break;
+                    case 20: action = Objects.requireNonNull(table.get(SOFT_20)).get(dealerCard.num); break;
+                    case 21: action = Objects.requireNonNull(table.get(SOFT_21)).get(dealerCard.num); break;
+                    default: action = BUST; break;
+                }
+            }
+            else {
+                // Use hard section
+                switch (score) {
+                    case 4: action = Objects.requireNonNull(table.get(HARD_4)).get(dealerCard.num); break;
+                    case 5: action = Objects.requireNonNull(table.get(HARD_5)).get(dealerCard.num); break;
+                    case 6: action = Objects.requireNonNull(table.get(HARD_6)).get(dealerCard.num); break;
+                    case 7: action = Objects.requireNonNull(table.get(HARD_7)).get(dealerCard.num); break;
+                    case 8: action = Objects.requireNonNull(table.get(HARD_8)).get(dealerCard.num); break;
+                    case 9: action = Objects.requireNonNull(table.get(HARD_9)).get(dealerCard.num); break;
+                    case 10: action = Objects.requireNonNull(table.get(HARD_10)).get(dealerCard.num); break;
+                    case 11: action = Objects.requireNonNull(table.get(HARD_11)).get(dealerCard.num); break;
+                    case 12: action = Objects.requireNonNull(table.get(HARD_12)).get(dealerCard.num); break;
+                    case 13: action = Objects.requireNonNull(table.get(HARD_13)).get(dealerCard.num); break;
+                    case 14: action = Objects.requireNonNull(table.get(HARD_14)).get(dealerCard.num); break;
+                    case 15: action = Objects.requireNonNull(table.get(HARD_15)).get(dealerCard.num); break;
+                    case 16: action = Objects.requireNonNull(table.get(HARD_16)).get(dealerCard.num); break;
+                    case 17: action = Objects.requireNonNull(table.get(HARD_17)).get(dealerCard.num); break;
+                    case 18: action = Objects.requireNonNull(table.get(HARD_18)).get(dealerCard.num); break;
+                    case 19: action = Objects.requireNonNull(table.get(HARD_19)).get(dealerCard.num); break;
+                    case 20: action = Objects.requireNonNull(table.get(HARD_20)).get(dealerCard.num); break;
+                    case 21: action = Objects.requireNonNull(table.get(HARD_21)).get(dealerCard.num); break;
+                    default: action = BUST; break;
+                }
+            }
+        }
+
+        return action;
     }
 
     /// LEGACY:
@@ -172,9 +312,9 @@ public class BlackjackRound extends CardRound {
         return userHand.remove(card);
     }
 
-    // INFO METHODS:
+    // UTILITY METHODS:
 
-    private List<Integer> getPossibleScores(final List<Card> deck, final List<Card> hand) {
+    /*private List<Integer> getPossibleScores(final List<Card> deck, final List<Card> hand) {
         ArrayList<Integer> possibleScores = new ArrayList<>();
         recursiveScoreCheck(possibleScores, deck, hand);
         return possibleScores;
@@ -276,6 +416,11 @@ public class BlackjackRound extends CardRound {
         return (float)expectedValue;
     }
 
+    @Override
+    public float getExpectedValue(){
+        return getHandStrength() * bet.floatValue();
+    }*/
+
     private static int[] getHardSoftScore(List<Card> hand) {
         int[] scores = new int[2];
         int hardScore = 0, softScore = 0;
@@ -319,7 +464,7 @@ public class BlackjackRound extends CardRound {
                 case N_8:
                     hardScore += 8;
                     softScore += 8;
-                break;
+                    break;
                 case N_9:
                     hardScore += 9;
                     softScore += 9;
@@ -351,152 +496,6 @@ public class BlackjackRound extends CardRound {
 
     private static boolean hardSoftScoreHasAce(int[] hardSoftScore) {
         return hardSoftScore[0] != hardSoftScore[1];
-    }
-
-    @Override
-    public float getExpectedValue(){
-        return getHandStrength() * bet.floatValue();
-    }
-
-    public String getRecommendedAction(Resources resources) {
-        return getRecommendedAction(resources, true);
-    }
-
-    public String getRecommendedAction(Resources resources, boolean dealerStayOnSoft17) {
-        String action = "";
-
-        // Decide table name
-        String tableName;
-        switch (numberOfDecks) {
-            case 1:
-                if (dealerStayOnSoft17)
-                    tableName = "one_deck_dSos17";
-                else
-                    tableName = "one_deck_dHos17";
-                break;
-            case 2:
-                if (dealerStayOnSoft17)
-                    tableName = "two_deck_dSos17";
-                else
-                    tableName = "two_deck_dHos17";
-                break;
-            case 3:
-                if (dealerStayOnSoft17)
-                    tableName = "three_deck_dSos17";
-                else
-                    tableName = "three_deck_dHos17";
-                break;
-            case 4:
-                if (dealerStayOnSoft17)
-                    tableName = "four_deck_dSos17";
-                else
-                    tableName = "four_deck_dHos17";
-                break;
-            case 5:
-                if (dealerStayOnSoft17)
-                    tableName = "five_deck_dSos17";
-                else
-                    tableName = "five_deck_dHos17";
-                break;
-            case 6:
-                if (dealerStayOnSoft17)
-                    tableName = "six_deck_dSos17";
-                else
-                    tableName = "six_deck_dHos17";
-                break;
-            case 7:
-                if (dealerStayOnSoft17)
-                    tableName = "seven_deck_dSos17";
-                else
-                    tableName = "seven_deck_dHos17";
-                break;
-            case 8:
-                if (dealerStayOnSoft17)
-                    tableName = "eight_deck_dSos17";
-                else
-                    tableName = "eight_deck_dHos17";
-                break;
-            default:
-                    tableName = "";
-                break;
-        }
-
-        // Parse xml into readable table
-        XmlPullParser parser = resources.getXml(R.xml.blackjack_tables);
-        HashMap<String, HashMap<ECardNum, String>> table = parseXml(parser, tableName);
-
-        // Decide action
-
-        if (userHand.size() == 2) {
-            // Test for pair
-            if (userHand.get(0).num == userHand.get(1).num) {
-                // Use split section
-                switch (userHand.get(0).num) {
-                    case N_2: action = Objects.requireNonNull(table.get(PAIR_2)).get(dealerCard.num); break;
-                    case N_3: action = Objects.requireNonNull(table.get(PAIR_3)).get(dealerCard.num); break;
-                    case N_4: action = Objects.requireNonNull(table.get(PAIR_4)).get(dealerCard.num); break;
-                    case N_5: action = Objects.requireNonNull(table.get(PAIR_5)).get(dealerCard.num); break;
-                    case N_6: action = Objects.requireNonNull(table.get(PAIR_6)).get(dealerCard.num); break;
-                    case N_7: action = Objects.requireNonNull(table.get(PAIR_7)).get(dealerCard.num); break;
-                    case N_8: action = Objects.requireNonNull(table.get(PAIR_8)).get(dealerCard.num); break;
-                    case N_9: action = Objects.requireNonNull(table.get(PAIR_9)).get(dealerCard.num); break;
-                    case N_10:
-                    case J:
-                    case Q:
-                    case K: action = Objects.requireNonNull(table.get(PAIR_10)).get(dealerCard.num); break;
-                    case A: action = Objects.requireNonNull(table.get(PAIR_A)).get(dealerCard.num); break;
-                    default: action = BUST; break;
-                }
-            }
-        }
-
-        assert action != null;
-        if (action.isEmpty()) {
-            // No pair
-            int[] hardSoftScore = getHardSoftScore(userHand);
-            int score = getBestScore(hardSoftScore);
-            if (hardSoftScoreHasAce(hardSoftScore)) {
-                // Use soft section
-                switch (score) {
-                    case 13: action = Objects.requireNonNull(table.get(SOFT_13)).get(dealerCard.num); break;
-                    case 14: action = Objects.requireNonNull(table.get(SOFT_14)).get(dealerCard.num); break;
-                    case 15: action = Objects.requireNonNull(table.get(SOFT_15)).get(dealerCard.num); break;
-                    case 16: action = Objects.requireNonNull(table.get(SOFT_16)).get(dealerCard.num); break;
-                    case 17: action = Objects.requireNonNull(table.get(SOFT_17)).get(dealerCard.num); break;
-                    case 18: action = Objects.requireNonNull(table.get(SOFT_18)).get(dealerCard.num); break;
-                    case 19: action = Objects.requireNonNull(table.get(SOFT_19)).get(dealerCard.num); break;
-                    case 20: action = Objects.requireNonNull(table.get(SOFT_20)).get(dealerCard.num); break;
-                    case 21: action = Objects.requireNonNull(table.get(SOFT_21)).get(dealerCard.num); break;
-                    default: action = BUST; break;
-                }
-            }
-            else {
-                // Use hard section
-                switch (score) {
-                    case 4: action = Objects.requireNonNull(table.get(HARD_4)).get(dealerCard.num); break;
-                    case 5: action = Objects.requireNonNull(table.get(HARD_5)).get(dealerCard.num); break;
-                    case 6: action = Objects.requireNonNull(table.get(HARD_6)).get(dealerCard.num); break;
-                    case 7: action = Objects.requireNonNull(table.get(HARD_7)).get(dealerCard.num); break;
-                    case 8: action = Objects.requireNonNull(table.get(HARD_8)).get(dealerCard.num); break;
-                    case 9: action = Objects.requireNonNull(table.get(HARD_9)).get(dealerCard.num); break;
-                    case 10: action = Objects.requireNonNull(table.get(HARD_10)).get(dealerCard.num); break;
-                    case 11: action = Objects.requireNonNull(table.get(HARD_11)).get(dealerCard.num); break;
-                    case 12: action = Objects.requireNonNull(table.get(HARD_12)).get(dealerCard.num); break;
-                    case 13: action = Objects.requireNonNull(table.get(HARD_13)).get(dealerCard.num); break;
-                    case 14: action = Objects.requireNonNull(table.get(HARD_14)).get(dealerCard.num); break;
-                    case 15: action = Objects.requireNonNull(table.get(HARD_15)).get(dealerCard.num); break;
-                    case 16: action = Objects.requireNonNull(table.get(HARD_16)).get(dealerCard.num); break;
-                    case 17: action = Objects.requireNonNull(table.get(HARD_17)).get(dealerCard.num); break;
-                    case 18: action = Objects.requireNonNull(table.get(HARD_18)).get(dealerCard.num); break;
-                    case 19: action = Objects.requireNonNull(table.get(HARD_19)).get(dealerCard.num); break;
-                    case 20: action = Objects.requireNonNull(table.get(HARD_20)).get(dealerCard.num); break;
-                    case 21: action = Objects.requireNonNull(table.get(HARD_21)).get(dealerCard.num); break;
-                    default: action = BUST; break;
-                }
-            }
-        }
-
-        return action;
     }
 
     private static HashMap<String, HashMap<ECardNum, String>> parseXml(XmlPullParser parser, String targetTable) {

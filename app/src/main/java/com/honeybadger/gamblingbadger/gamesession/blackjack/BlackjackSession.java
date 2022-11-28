@@ -45,6 +45,7 @@ public class BlackjackSession extends GameSession {
     public BigDecimal getBaseBet() {
         return this.baseBet;
     }
+
     public BlackjackSession setBaseBet(BigDecimal baseBet) {
         this.baseBet = baseBet;
         return this;
@@ -53,6 +54,7 @@ public class BlackjackSession extends GameSession {
     public int getNumberOfDecks() {
         return this.numberOfDecks;
     }
+
     public BlackjackSession setNumberOfDecks(int numberOfDecks) {
         this.numberOfDecks = numberOfDecks;
         return this;
@@ -62,11 +64,6 @@ public class BlackjackSession extends GameSession {
 
     public void applyRound(BlackjackRound blackjackround){ //adds the blackjack round played into the backjack session
         this.rounds.add(blackjackround);
-    }
-
-    public Pair<Float, String> getRoundPrediction(BlackjackRound round){
-        //TODO: Delete
-        return new Pair<Float, String>(0f, "");
     }
 
     // INFO METHODS:
