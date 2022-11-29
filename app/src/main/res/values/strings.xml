@@ -188,7 +188,6 @@
     <string name="pokerTip1">1. Poker face, bluff. </string>
     <string name="pokerTip2">2. Analyze other\'s expressions and call their bluffs. </string>
     <string name="pokerTip3">3. Be patient.</string>
-    <string name="pokerImageDescription">a</string>
 
     <string name="txHoldemObjective">Objective: Place wagers on your 5 card hand.  </string>
     <string name="txHoldemBasics">All players are dealt 2 cards. The betting process begins in which a player may  call, raise, or fold. Call meaning to match the previous bet, raise meaning to exceed the previous bet, or fold meaning to drop out of the game and forfeit. After that, 3 community cards are revealed which the player can use to construct their best hand. The term for this the initial three card reveal is a \"flop\".</string>
@@ -197,33 +196,35 @@
     <string name="txHoldemTip2">2. Strategy is based on the two cards in your hand.</string>
     <string name="txHoldemTip3">3. Do not be afraid to cut losses after seeing the flop.</string>
     <string name="txHoldemTip4">4. As the number of players decrease, the probability of a strong hand increases.</string>
-    <string name="txHoldemImageDescription">a</string>
-
 
     <string name="goodHandTitle">Poker hands are ranked as follows (high to low):</string>
     <string name="fiveOaK">Five of a Kind</string>
-        <string name="fiveOaKD">Five cards of the same value, not possible without wild cards.</string>
+    <string name="fiveOaKD">Five cards of the same value, not possible without wild cards.</string>
     <string name="strFlu">Straight Flush</string>
-        <string name="strFluD">Five cards of same suit AND sequential rank.</string>
+    <string name="strFluD">Five cards of same suit AND sequential rank.</string>
     <string name="fourOaK">Four of a Kind</string>
-        <string name="fourOaKD">Four cards of the same value</string>
+    <string name="fourOaKD">Four cards of the same value</string>
     <string name="fullHouse">Full House</string>
-        <string name="fullHouseD">Three cards of same value AND two cards of a different value.</string>
+    <string name="fullHouseD">Three cards of same value AND two cards of a different value.</string>
     <string name="flush">Flush</string>
-        <string name="flushD">Five cards of the same suit.</string>
+    <string name="flushD">Five cards of the same suit.</string>
     <string name="straight">Straight</string>
-        <string name="straightD">Five cards of sequential rank.</string>
+    <string name="straightD">Five cards of sequential rank.</string>
     <string name="threeOaK">Three of a Kind</string>
-        <string name="threeOaKD">Three cards of the same value. Also known as trips or a set.</string>
+    <string name="threeOaKD">Three cards of the same value. Also known as trips or a set.</string>
     <string name="twoPair">Two Pair</string>
-        <string name="twoPairD">Two pairs. If there is a tie, then the 3rd ranked card (the kicker) is used to break it.</string>
+    <string name="twoPairD">Two pairs. If there is a tie, then the 3rd ranked card (the kicker) is used to break it.</string>
     <string name="pair">Pair</string>
-        <string name="pairD">Two cards of the same value.</string>
+    <string name="pairD">Two cards of the same value.</string>
     <string name="highCard">High Card</string>
-        <string name="highCardD">A hand that falls into none of the above categories. Nothing.</string>
+    <string name="highCardD">A hand that falls into none of the above categories. Nothing.</string>
     <string name="finalNote">Generally, if there are multiple hands of the same type, the tie is broken by the value of the hand. Higher cards such as the king, queen and jacks beat lower numbers like 2.</string>
 
+    <string name="rouObjective">Objective: bet on the outcome of where a ball lands.</string>
+    <string name="rouBasics">Roulette is played using a wheel containing numbers 1 through 36. There are black and red numbers.  There is also two non whole numbers which are green. These are the zeros. If the ball settles on one of these zeroes, the house wins unless you have bet on them. American roulette has two green slots while European roulette only has one.</string>
+    <string name="rouBasicspt2">Players place their bets on what they predict the outcome of the roll to be. The dealer then spins the wheel and players are paid if their the ball wins on their bet outcome.</string>
+    <string name="rouTip1">1. Remember that the house has an edge. In American roulette this edge is 5.26%, two times larger than European!</string>
+    <string name="rouTip2">2. Understand that you cannot influence the odds, only know them.</string>
+    <string name="rouTip3">3. Try to predict the trajectory of the ball.</string>
 
-
-    <!-- TODO: Remove or change this placeholder text -->
 </resources>
