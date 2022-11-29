@@ -53,7 +53,7 @@ public class BlackjackFragment extends Fragment {
             R.drawable._8_of_diamonds, R.drawable._9_of_spades, R.drawable._10_of_hearts,
             R.drawable.jack_of_clubs2, R.drawable.queen_of_diamonds2, R.drawable.king_of_spades2};
 
-    private static Card dealerCard = new Card();
+    private static Card dealerCard = new Card(ECardSuit.ANY, ECardNum.A);
     private static List<Card> userHand = new LinkedList<>();
     private static BigDecimal bet = BigDecimal.ZERO;
 
@@ -424,19 +424,16 @@ public class BlackjackFragment extends Fragment {
             @Override
             public void onClick(View view) {
                 actionGetOdds();
+                actionGetRecommendedAction();
             }
         });
     }
 
     private void actionGetOdds() {
-        // TODO Need getOdds method to be complete and called. Also needs recommended action.
         TextView oddsDisplay = (TextView) getActivity().findViewById(R.id.oddsTextview);
-        float oddsNum = 0;
         BlackjackRound blackjackround = new BlackjackRound(bet, softNumberOfDecks, userHand, dealerCard);
-        oddsNum = blackjackround.getOdds();
-        //oddsDisplay.setText("" + oddsNum); //test, put getOdds() method here. From BlackjackRound
-        oddsDisplay.setText("N/A");
-        actionGetRecommendedAction();
+        String odds = String.format("%.2f", 100 * blackjackround.getOdds());
+        oddsDisplay.setText(odds + "%");
     }
 
     private void actionGetRecommendedAction(){

@@ -10,11 +10,10 @@
         android:id="@+id/odds_label_Blackjack"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="Odds Percent of Bust:"
+        android:text="Odds of winning:"
         app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.283"
-        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toEndOf="@+id/RecommendedAction_Label_Blackjack"
+        app:layout_constraintStart_toStartOf="@+id/RecommendedAction_Label_Blackjack"
         app:layout_constraintTop_toBottomOf="@+id/GetOddsButton"
         app:layout_constraintVertical_bias="0.208" />
 
