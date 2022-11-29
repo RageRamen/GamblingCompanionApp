@@ -6,15 +6,12 @@ import android.util.Pair;
 
 import com.honeybadger.gamblingbadger.R;
 import com.honeybadger.gamblingbadger.cards.*;
-import com.honeybadger.gamblingbadger.casinosession.CasinoSession;
 
 import org.xmlpull.v1.XmlPullParser;
 import org.xmlpull.v1.XmlPullParserException;
 
 import java.io.IOException;
 import java.math.BigDecimal;
-import java.util.ArrayList;
-import java.util.Arrays;
 import java.util.HashMap;
 import java.util.LinkedList;
 import java.util.List;
@@ -110,13 +107,9 @@ public class BlackjackRound extends CardRound {
     // INFO METHODS:
 
     public float getOdds(){
-        //TODO
-        float tempOddsOf10s = 16/52;
-        float tempOddsOfAny1234etc = 4/52;
+        int[] hardSoft = getHardSoftScore(userHand);
 
-
-
-        return 1; //placeholder
+        return BlackjackOddsTable.getValue(dealerCard, hardSoft[0], hardSoft[1]);
     }
 
     public String getRecommendedAction(Context context) {
@@ -313,113 +306,6 @@ public class BlackjackRound extends CardRound {
     }
 
     // UTILITY METHODS:
-
-    /*private List<Integer> getPossibleScores(final List<Card> deck, final List<Card> hand) {
-        ArrayList<Integer> possibleScores = new ArrayList<>();
-        recursiveScoreCheck(possibleScores, deck, hand);
-        return possibleScores;
-    }
-
-    private List<Integer> getPossibleScores(final List<Card> deck, final Card card) {
-        List<Card> hand = new LinkedList<>();
-        hand.add(card);
-        return getPossibleScores(deck, hand);
-    }
-
-    private int[] getScoreTable(final List<Card> deck, final List<Card> hand) {
-        int[] scoreTable = new int[SCORE_TABLE_SIZE];  // Guaranteed to be initialized to 0 (by java spec)
-        List<Integer> possibleScores = getPossibleScores(deck, hand);
-        for (Integer score : possibleScores)
-            scoreTable[score]++;
-        return scoreTable;
-    }
-
-    private int[] getScoreTable(final List<Card> deck, final Card card) {
-        List<Card> hand = new LinkedList<>();
-        hand.add(card);
-        return getScoreTable(deck, hand);
-    }
-
-    private void recursiveScoreCheck(ArrayList<Integer> possibleScores, final List<Card> deck, final List<Card> dealerHand) {
-        // Assumes dealer stands on soft 17
-        int score = getBestScore(getHardSoftScore(dealerHand));
-        if (score >= 17)
-            possibleScores.add(score);
-        else {
-            // Hit
-            List<Card> hitDeck = new LinkedList<>(deck);
-            List<Card> hitHand = new LinkedList<>(dealerHand);
-            for (Card card : deck) {
-                hitDeck.remove(card);
-                hitHand.add(card);
-                recursiveScoreCheck(possibleScores, hitDeck, hitHand);
-                hitHand.remove(card);
-                hitDeck.add(card);
-            }
-        }
-    }
-
-    @Override
-    public float getHandStrength() {
-        // Get remaining deck
-        List<Card> deck = Card.getDecks(numberOfDecks);
-        deck.remove(dealerCard);
-        for (Card cd : userHand)
-            deck.remove(cd);
-
-        // Get user probabilities
-        int[] userScoreTable = getScoreTable(deck, userHand);
-        int userPossibilitySize = Arrays.stream(userScoreTable).sum();
-        double[] userScoreProbabilities = new double[SCORE_TABLE_SIZE];
-        assert userPossibilitySize != 0;
-        for (int i = 0; i < SCORE_TABLE_SIZE; i++)
-            userScoreProbabilities[i] = (double)userScoreTable[i] / (double)userPossibilitySize;
-
-        // Get dealer probabilities
-        int[] dealerScoreTable = getScoreTable(deck, dealerCard);
-        int dealerPossibilitySize = Arrays.stream(userScoreTable).sum();
-        double[] dealerScoreProbabilities = new double[SCORE_TABLE_SIZE];
-        assert dealerPossibilitySize != 0;
-        for (int i = 0; i < SCORE_TABLE_SIZE; i++)
-            dealerScoreProbabilities[i] = (double)dealerScoreTable[i] / (double)dealerPossibilitySize;
-
-        // Calculate expected value
-        double expectedValue = 0;
-        double matchProbability;
-        double value;
-        for (int us = 0; us <= SCORE_TABLE_SIZE; us++) {
-            if (us > 21) {
-                // User bust always loses
-                expectedValue += userScoreProbabilities[us] * -1;
-            }
-            else {
-                // User didn't bust
-                for (int ds = 0; ds <= SCORE_TABLE_SIZE; ds++) {
-                    matchProbability = userScoreProbabilities[us] * dealerScoreProbabilities[ds];
-                    if (ds > 21 || ds < us) {
-                        // User wins
-                        value = 1;
-                    }
-                    else if (ds == us) {
-                        // Push
-                        value = 0;
-                    }
-                    else {
-                        // User loses
-                        value = -1;
-                    }
-                    expectedValue += matchProbability * value;
-                }
-            }
-        }
-
-        return (float)expectedValue;
-    }
-
-    @Override
-    public float getExpectedValue(){
-        return getHandStrength() * bet.floatValue();
-    }*/
 
     private static int[] getHardSoftScore(List<Card> hand) {
         int[] scores = new int[2];
