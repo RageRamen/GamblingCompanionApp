@@ -10,57 +10,34 @@ import android.view.ViewGroup;
 
 import com.honeybadger.gamblingbadger.R;
 
-/**
- * A simple {@link Fragment} subclass.
- * Use the {@link RouletteTipFrag#newInstance} factory method to
- * create an instance of this fragment.
- */
-public class RouletteTipFrag extends Fragment {
 
-    // TODO: Rename parameter arguments, choose names that match
-    // the fragment initialization parameters, e.g. ARG_ITEM_NUMBER
-    private static final String ARG_PARAM1 = "param1";
-    private static final String ARG_PARAM2 = "param2";
+public class RouletteTipFrag extends Fragment
+{
 
-    // TODO: Rename and change types of parameters
-    private String mParam1;
-    private String mParam2;
-
-    public RouletteTipFrag() {
+    public RouletteTipFrag()
+    {
         // Required empty public constructor
     }
 
-    /**
-     * Use this factory method to create a new instance of
-     * this fragment using the provided parameters.
-     *
-     * @param param1 Parameter 1.
-     * @param param2 Parameter 2.
-     * @return A new instance of fragment RouletteTipFrag.
-     */
-    // TODO: Rename and change types and number of parameters
-    public static RouletteTipFrag newInstance(String param1, String param2) {
+    public static RouletteTipFrag newInstance(String param1, String param2)
+    {
         RouletteTipFrag fragment = new RouletteTipFrag();
-        Bundle args = new Bundle();
-        args.putString(ARG_PARAM1, param1);
-        args.putString(ARG_PARAM2, param2);
-        fragment.setArguments(args);
         return fragment;
     }
 
     @Override
-    public void onCreate(Bundle savedInstanceState) {
+    public void onCreate(Bundle savedInstanceState)
+    {
         super.onCreate(savedInstanceState);
-        if (getArguments() != null) {
-            mParam1 = getArguments().getString(ARG_PARAM1);
-            mParam2 = getArguments().getString(ARG_PARAM2);
+        if (getArguments() != null)
+        {
+
         }
     }
 
     @Override
-    public View onCreateView(LayoutInflater inflater, ViewGroup container,
-                             Bundle savedInstanceState) {
-        // Inflate the layout for this fragment
+    public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState)
+    {
         return inflater.inflate(R.layout.fragment_roulette_tip, container, false);
     }
 }

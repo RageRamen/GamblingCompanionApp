@@ -1,5 +1,7 @@
 package com.honeybadger.gamblingbadger.timer;
 
+import android.app.ActionBar;
+import android.app.Activity;
 import android.media.Ringtone;
 import android.media.RingtoneManager;
 import android.net.Uri;
@@ -25,6 +27,8 @@ import com.honeybadger.gamblingbadger.R;
 import com.honeybadger.gamblingbadger.casinosession.CasinoSessionFragment;
 import com.honeybadger.gamblingbadger.databinding.FragmentTimerBinding;
 
+import java.text.NumberFormat;
+
 public class TimerFragment extends Fragment
 {
     private FragmentTimerBinding binding;
@@ -35,6 +39,7 @@ public class TimerFragment extends Fragment
     Button canclB; // cancel button
     Button confB; // confirm button
     int hr, min;
+    TextView ab;
 
     // FRAGMENT EVENTS:
 
@@ -60,7 +65,15 @@ public class TimerFragment extends Fragment
     public void onViewCreated(@NonNull View view, Bundle savedInstanceState) {
         super.onViewCreated(view, savedInstanceState);
 
-        timer = CasinoSessionFragment.casinoSession.getTimer(); // timer class is very important and is associated with its casinosession
+
+        try
+        {
+            timer = CasinoSessionFragment.casinoSession.getTimer(); // timer class is very important and is associated with its casinosession
+        }
+        catch(NullPointerException npe)
+        {
+            Log.e("BEN", "TIMERFRAGMENT CANNOT GET TIMER FROM CASINOSESSION?" );//should not be possible
+        }
         hours = binding.npH; //initializing global gui elements to be used in onclick functions
         mins = binding.npM;
         msg = binding.tv3;
@@ -136,6 +149,7 @@ public class TimerFragment extends Fragment
         binding = null;
     }
 
+
     // Initialize Interface
 
 
@@ -173,7 +187,7 @@ public class TimerFragment extends Fragment
                     public void onTick(long l) //updates gui in timer fragment every 1 minute
                     { // TODO: Make it so that onTick also updates a display in the action bar
                         m = l/60000;
-                        String s = "Time (mins) remaining: ";
+                        String s = "Time remaining: ";
                         timer.msRemaining = l;
                         if(l < 60000)
                         {
@@ -183,7 +197,16 @@ public class TimerFragment extends Fragment
                         {
                             s += m;
                         }
+                        if(m > 1)
+                        {
+                            s += " mins";
+                        }
+                        else
+                        {
+                            s += " min";
+                        }
                         msg.setText(s);
+                        updateActionBarTimer(getActivity(),s);
                     }
 
                     @Override
@@ -203,10 +226,17 @@ public class TimerFragment extends Fragment
                         {
                             e.printStackTrace();
                         }
+                        updateActionBarTimer(getActivity(),"");
                     }
                 }.start();
             }
         });
+    }
+
+    public static void updateActionBarTimer(Activity activity,String s)
+    {
+        TextView textViewBalance = activity.findViewById(R.id.timer);
+        textViewBalance.setText(s); //not my code, not benjamin's code, borrowed from casinosessionfragment, all credit to them
     }
 
     private void set() // function that was the set timer button
