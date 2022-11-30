@@ -164,6 +164,7 @@ public class TimerFragment extends Fragment
                 timer.isRunning = false;
                 canclB.setVisibility(View.INVISIBLE);
                 set();
+                updateActionBarTimer(getActivity(),"");
             }
         });
     }

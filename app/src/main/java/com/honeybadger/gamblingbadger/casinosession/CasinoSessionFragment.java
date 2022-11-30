@@ -22,6 +22,7 @@ import androidx.navigation.fragment.NavHostFragment;
 import com.honeybadger.gamblingbadger.R;
 import com.honeybadger.gamblingbadger.databinding.FragmentCasinoSessionBinding;
 import com.honeybadger.gamblingbadger.statistics.CasinoStatisticsFragment;
+import com.honeybadger.gamblingbadger.timer.TimerFragment;
 import com.honeybadger.gamblingbadger.tips.TipsFragment;
 
 import java.text.NumberFormat;
@@ -200,6 +201,7 @@ public class CasinoSessionFragment extends Fragment {
         casinoSession.closeSession();
 
         actionClearActionBarBalance();
+        TimerFragment.updateActionBarTimer(getActivity(),"");
 
         NavHostFragment.findNavController(CasinoSessionFragment.this)
                 .navigate(R.id.action_casinoSessionFragment_to_homeFragment);
