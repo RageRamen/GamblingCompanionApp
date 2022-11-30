@@ -1138,7 +1138,7 @@ public class BlackjackOddsTable {
                 exp_mod = table.get(dealerCard.num).get(softValue).get(SOFT);
         }
         else if (4 <= hardValue && hardValue <= 21) {
-            exp_mod = table.get(dealerCard.num).get(softValue).get(HARD);
+            exp_mod = table.get(dealerCard.num).get(hardValue).get(HARD);
         }
 
         return (exp_mod + 1f) / 2f;
