@@ -7,6 +7,7 @@ import androidx.annotation.NonNull;
 import androidx.fragment.app.Fragment;
 import androidx.navigation.fragment.NavHostFragment;
 
+import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.Menu;
 import android.view.MenuInflater;
@@ -26,7 +27,6 @@ import com.github.mikephil.charting.data.PieData;
 import com.github.mikephil.charting.data.PieDataSet;
 import com.github.mikephil.charting.data.PieEntry;
 import com.github.mikephil.charting.formatter.IndexAxisValueFormatter;
-import com.github.mikephil.charting.formatter.ValueFormatter;
 import com.honeybadger.gamblingbadger.R;
 import com.honeybadger.gamblingbadger.databinding.FragmentGeneralStatisticsBinding;
 import com.honeybadger.gamblingbadger.gamesession.EGameType;
@@ -35,7 +35,6 @@ import java.math.BigDecimal;
 import java.text.NumberFormat;
 import java.time.Duration;
 import java.util.ArrayList;
-import java.util.HashMap;
 import java.util.Map;
 
 public class GeneralStatisticsFragment extends Fragment {
@@ -190,11 +189,14 @@ public class GeneralStatisticsFragment extends Fragment {
         pieData.setDrawValues(false);
 
         pieChart.setData(pieData);
+        pieChart.getLegend().setTextColor(Color.parseColor("#FFFFFF"));
+        pieChart.getDescription().setEnabled(false);
+
         pieChart.invalidate();
     }
 
     private void initAggregateMoneyDeltaForEachGame() {
-        PieChart pieChart = getActivity().findViewById(R.id.generalStatisticsFrag_pieChart_aggregateMoneyDeltaEachGame);
+        /*PieChart pieChart = getActivity().findViewById(R.id.generalStatisticsFrag_batChart_aggregateMoneyDeltaEachGame);
         ArrayList<PieEntry> pieEntries = new ArrayList<>();
         String label = "";
 
@@ -214,7 +216,57 @@ public class GeneralStatisticsFragment extends Fragment {
         pieData.setDrawValues(false);
 
         pieChart.setData(pieData);
-        pieChart.invalidate();
+        pieChart.invalidate();*/
+
+        BarChart barChart = getActivity().findViewById(R.id.generalStatisticsFrag_batChart_aggregateMoneyDeltaEachGame);
+        ArrayList<BarEntry> barEntries = new ArrayList<>();
+        ArrayList<String> labels = new ArrayList<>();
+        String label = "";
+
+        // Input Data
+        BarEntry be;
+        int count = 0;
+        for (Map.Entry<EGameType, BigDecimal> entry : statistics.aggregateMoneyDeltaForEachGame.entrySet()) {
+            labels.add(entry.getKey().NAME);
+            //be = new BarEntry(count, presentationLuck.get(count));
+            be = new BarEntry(count, entry.getValue().floatValue());
+            count++;
+            barEntries.add(be);
+        }
+
+        // Bar Stuff:
+        BarDataSet barDataSet = new BarDataSet(barEntries, label);
+        barDataSet.setValueTextSize(12f);
+        barDataSet.setColors(COLORS);
+
+        BarData barData = new BarData(barDataSet);
+        barData.setDrawValues(true);
+        barData.setValueTextColor(Color.parseColor("#FFFFFF"));
+
+        barChart.setData(barData);
+
+        YAxis rightAxis = barChart.getAxisRight();
+        rightAxis.setDrawAxisLine(false);
+        rightAxis.setDrawTopYLabelEntry(false);
+        rightAxis.setDrawZeroLine(false);
+        rightAxis.setDrawGridLines(false);
+        rightAxis.setDrawGridLinesBehindData(false);
+        rightAxis.setDrawLabels(false);
+        rightAxis.setDrawLimitLinesBehindData(false);
+
+        YAxis leftAxis = barChart.getAxisLeft();
+        leftAxis.setTextColor(Color.parseColor("#FFFFFF"));
+        //leftAxis.setAxisMaximum(1.0f);
+        //leftAxis.setAxisMinimum(-1.0f);
+
+        XAxis xAxis = barChart.getXAxis();
+        xAxis.setValueFormatter(new IndexAxisValueFormatter(labels));
+        xAxis.setTextColor(Color.parseColor("#FFFFFF"));
+
+        barChart.getLegend().setTextColor(Color.parseColor("#FFFFFF"));
+        barChart.getDescription().setEnabled(false);
+
+        barChart.invalidate();
     }
 
     private void initAggregateLuckIndexForEachGame() {
@@ -226,10 +278,8 @@ public class GeneralStatisticsFragment extends Fragment {
         // Input Data
         BarEntry be;
         int count = 0;
-        // TODO: Remove show luck
         ArrayList<Float> presentationLuck = new ArrayList<Float>() { {add(0.25f); add(-0.35f); add(0.4f); }};
         for (Map.Entry<EGameType, Float> entry : statistics.aggregateLuckIndexForEachGame.entrySet()) {
-            //be = new BarEntry(count++, entry.getValue());
             labels.add(entry.getKey().NAME);
             be = new BarEntry(count, presentationLuck.get(count));
             count++;
@@ -242,6 +292,7 @@ public class GeneralStatisticsFragment extends Fragment {
         barDataSet.setColors(COLORS);
 
         BarData barData = new BarData(barDataSet);
+        barData.setValueTextColor(Color.parseColor("#FFFFFF"));
         barData.setDrawValues(true);
 
         barChart.setData(barData);
@@ -256,12 +307,17 @@ public class GeneralStatisticsFragment extends Fragment {
         rightAxis.setDrawLimitLinesBehindData(false);
 
         YAxis leftAxis = barChart.getAxisLeft();
+        leftAxis.setTextColor(Color.parseColor("#FFFFFF"));
         leftAxis.setAxisMaximum(1.0f);
         leftAxis.setAxisMinimum(-1.0f);
 
         XAxis xAxis = barChart.getXAxis();
         xAxis.setValueFormatter(new IndexAxisValueFormatter(labels));
+        xAxis.setTextColor(Color.parseColor("#FFFFFF"));
 
+
+        barChart.getLegend().setTextColor(Color.parseColor("#FFFFFF"));
+        barChart.getDescription().setEnabled(false);
 
         barChart.invalidate();
     }
