@@ -56,38 +56,40 @@ public class Balance {
 
         EBalanceMsg msg = EBalanceMsg.BM_NONE;
 
-        BigDecimal result = this.currentBalance.subtract(amount);
+        final BigDecimal P10_THRESHOLD = startingBalance.multiply(new BigDecimal(0.10f));
+        final BigDecimal P25_THRESHOLD =startingBalance.multiply(new BigDecimal(0.25f));
+        final BigDecimal P50_THRESHOLD = startingBalance.multiply(new BigDecimal(0.50f));
 
-        BigDecimal ONE_HUNDRED = new BigDecimal(100);
-        BigDecimal percentage = result.multiply(ONE_HUNDRED).divide(this.startingBalance, RoundingMode.CEILING);
-        BigDecimal percent_10 = new BigDecimal(10);
-        BigDecimal percent_25 = new BigDecimal(25);
-        BigDecimal percent_50 = new BigDecimal(50);
-        this.currentBalance = result;
+        boolean negativeEligible = currentBalance.compareTo(BigDecimal.ZERO) > 0;
+        boolean p10Eligible = currentBalance.compareTo(P10_THRESHOLD) > 0;
+        boolean p25Eligible = currentBalance.compareTo(P25_THRESHOLD) > 0;
+        boolean p50Eligible = currentBalance.compareTo(P50_THRESHOLD) > 0;
 
-        if(result.signum() < 0){ //if result after adding amount to curr. bal is negative
+        BigDecimal result = currentBalance.subtract(amount);
+
+        boolean negativeGuilty = result.compareTo(BigDecimal.ZERO) <= 0;
+        boolean p10Guilty = result.compareTo(P10_THRESHOLD) <= 0;
+        boolean p25Guilty = result.compareTo(P25_THRESHOLD) <= 0;
+        boolean p50Guilty = result.compareTo(P50_THRESHOLD) <= 0;
+
+        if(negativeEligible && negativeGuilty) {
+            // If the balance was positive and is now negative:
             showNegativeAlert(activity);
             msg = EBalanceMsg.BM_NEGATIVE_BALANCE;
         }
-        //if result after adding amount to curr bal. is less than 10%
-        else if(percentage.compareTo(percent_10) < 0){
+        else if(p10Eligible && p10Guilty) {
+            // If the balance was above 10% and is now below 10%
             show10PAlert(activity);
             msg = EBalanceMsg.BM_10_PERCENT;
         }
-        //if result after adding amount to curr bal. is less than 25%
-        else if (percentage.compareTo(percent_25) < 0){
+        else if (p25Eligible && p25Guilty) {
+            // If the balance was above 25% and is now below 25%
             show25PAlert(activity);
             msg = EBalanceMsg.BM_25_PERCENT;
         }
-
-        else if(percentage.compareTo(percent_50) == 0) {
+        else if(p50Eligible && p50Guilty) {
+            // If the balance was above 50% and is now below 50%
             show50PAlert(activity);
-            msg = EBalanceMsg.BM_50_PERCENT;
-        }
-
-        //if result after adding amount to curr bal. is less than 50%
-        else if (percentage.compareTo(percent_50) < 0){
-            showless50PAlert(activity);
             msg = EBalanceMsg.BM_50_PERCENT;
         }
 
@@ -98,6 +100,8 @@ public class Balance {
             showFailAlert(activity);
             msg = EBalanceMsg.BM_FAIL;
         }
+
+        currentBalance = result;
 
         return msg;
     }
@@ -122,7 +126,7 @@ public class Balance {
     private void showNegativeAlert(Activity activity) {
         AlertDialog.Builder alert = new AlertDialog.Builder(activity);
         alert.setTitle("Balance has Gone Into the Negatives");
-        alert.setMessage("Please trust your past self. Future you will appreciate it.");
+        alert.setMessage("Please trust your past self and refrain from playing. Future you will appreciate it.");
         alert.setNeutralButton("Ok", null);
         alert.show();
     }
@@ -144,14 +148,6 @@ public class Balance {
     }
 
     private void show50PAlert(Activity activity) {
-        AlertDialog.Builder alert = new AlertDialog.Builder(activity);
-        alert.setTitle("Balance Warning");
-        alert.setMessage("Your balance is now 50% of your starting balance.");
-        alert.setNeutralButton("Ok", null);
-        alert.show();
-    }
-
-    private void showless50PAlert(Activity activity) {
         AlertDialog.Builder alert = new AlertDialog.Builder(activity);
         alert.setTitle("Balance Warning");
         alert.setMessage("Your balance is now < 50% of your starting balance.");
