@@ -155,7 +155,7 @@ public class BlackjackFragment extends Fragment {
             @Override
             public void onItemSelected(AdapterView<?> adapterView, View view, int i, long l) {
                 ECardNum number;
-                switch ((int)l) {
+                switch ((int)i) {
                     default: number = ECardNum.ANY; break;
                     case 0: number = ECardNum.A; break;
                     case 1: number = ECardNum.N_2; break;
