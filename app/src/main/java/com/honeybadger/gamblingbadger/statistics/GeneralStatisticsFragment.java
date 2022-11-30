@@ -224,6 +224,7 @@ public class GeneralStatisticsFragment extends Fragment {
         String label = "";
 
         // Input Data
+        NumberFormat formatter = NumberFormat.getCurrencyInstance();
         BarEntry be;
         int count = 0;
         for (Map.Entry<EGameType, BigDecimal> entry : statistics.aggregateMoneyDeltaForEachGame.entrySet()) {
