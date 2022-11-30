@@ -17,6 +17,10 @@ public class BlackjackOddsTable {
         {
             put(ECardNum.A, new ArrayList<HashMap<String, Float>>() {
                 {
+                    add(new HashMap<>());  // 0
+                    add(new HashMap<>());  // 1
+                    add(new HashMap<>());  // 2
+                    add(new HashMap<>());  // 3
                     add(new HashMap<String, Float>() {  // Value 4
                         {
                             put(HARD, -0.292f);
@@ -121,6 +125,10 @@ public class BlackjackOddsTable {
             });
             put(ECardNum.N_2, new ArrayList<HashMap<String, Float>>() {
                 {
+                    add(new HashMap<>());  // 0
+                    add(new HashMap<>());  // 1
+                    add(new HashMap<>());  // 2
+                    add(new HashMap<>());  // 3
                     add(new HashMap<String, Float>() {  // Value 4
                         {
                             put(HARD, -0.082f);
@@ -225,6 +233,10 @@ public class BlackjackOddsTable {
             });
             put(ECardNum.N_3, new ArrayList<HashMap<String, Float>>() {
                 {
+                    add(new HashMap<>());  // 0
+                    add(new HashMap<>());  // 1
+                    add(new HashMap<>());  // 2
+                    add(new HashMap<>());  // 3
                     add(new HashMap<String, Float>() {  // Value 4
                         {
                             put(HARD, -0.080f);
@@ -329,6 +341,10 @@ public class BlackjackOddsTable {
             });
             put(ECardNum.N_4, new ArrayList<HashMap<String, Float>>() {
                 {
+                    add(new HashMap<>());  // 0
+                    add(new HashMap<>());  // 1
+                    add(new HashMap<>());  // 2
+                    add(new HashMap<>());  // 3
                     add(new HashMap<String, Float>() {  // Value 4
                         {
                             put(HARD, -0.044f);
@@ -433,6 +449,10 @@ public class BlackjackOddsTable {
             });
             put(ECardNum.N_5, new ArrayList<HashMap<String, Float>>() {
                 {
+                    add(new HashMap<>());  // 0
+                    add(new HashMap<>());  // 1
+                    add(new HashMap<>());  // 2
+                    add(new HashMap<>());  // 3
                     add(new HashMap<String, Float>() {  // Value 4
                         {
                             put(HARD, -0.003f);
@@ -537,6 +557,10 @@ public class BlackjackOddsTable {
             });
             put(ECardNum.N_6, new ArrayList<HashMap<String, Float>>() {
                 {
+                    add(new HashMap<>());  // 0
+                    add(new HashMap<>());  // 1
+                    add(new HashMap<>());  // 2
+                    add(new HashMap<>());  // 3
                     add(new HashMap<String, Float>() {  // Value 4
                         {
                             put(HARD, 0.030f);
@@ -641,6 +665,10 @@ public class BlackjackOddsTable {
             });
             put(ECardNum.N_7, new ArrayList<HashMap<String, Float>>() {
                 {
+                    add(new HashMap<>());  // 0
+                    add(new HashMap<>());  // 1
+                    add(new HashMap<>());  // 2
+                    add(new HashMap<>());  // 3
                     add(new HashMap<String, Float>() {  // Value 4
                         {
                             put(HARD, -0.088f);
@@ -745,6 +773,10 @@ public class BlackjackOddsTable {
             });
             put(ECardNum.N_8, new ArrayList<HashMap<String, Float>>() {
                 {
+                    add(new HashMap<>());  // 0
+                    add(new HashMap<>());  // 1
+                    add(new HashMap<>());  // 2
+                    add(new HashMap<>());  // 3
                     add(new HashMap<String, Float>() {  // Value 4
                         {
                             put(HARD, -0.156f);
@@ -849,6 +881,10 @@ public class BlackjackOddsTable {
             });
             put(ECardNum.N_9, new ArrayList<HashMap<String, Float>>() {
                 {
+                    add(new HashMap<>());  // 0
+                    add(new HashMap<>());  // 1
+                    add(new HashMap<>());  // 2
+                    add(new HashMap<>());  // 3
                     add(new HashMap<String, Float>() {  // Value 4
                         {
                             put(HARD, -0.237f);
@@ -953,6 +989,10 @@ public class BlackjackOddsTable {
             });
             put(ECardNum.N_10, new ArrayList<HashMap<String, Float>>() {
                 {
+                    add(new HashMap<>());  // 0
+                    add(new HashMap<>());  // 1
+                    add(new HashMap<>());  // 2
+                    add(new HashMap<>());  // 3
                     add(new HashMap<String, Float>() {  // Value 4
                         {
                             put(HARD, -0.287f);
@@ -1058,23 +1098,47 @@ public class BlackjackOddsTable {
             put(ECardNum.J, get(ECardNum.N_10));
             put(ECardNum.Q, get(ECardNum.N_10));
             put(ECardNum.K, get(ECardNum.N_10));
+            put(ECardNum.ANY, new ArrayList<HashMap<String, Float>>() {
+                {
+                    add(new HashMap<>());  // 0
+                    add(new HashMap<>());  // 1
+                    add(new HashMap<>());  // 2
+                    add(new HashMap<>());  // 3
+                    add(new HashMap<>());  // 4
+                    add(new HashMap<>());  // 5
+                    add(new HashMap<>());  // 6
+                    add(new HashMap<>());  // 7
+                    add(new HashMap<>());  // 8
+                    add(new HashMap<>());  // 9
+                    add(new HashMap<>());  // 10
+                    add(new HashMap<>());  // 11
+                    add(new HashMap<>());  // 12
+                    add(new HashMap<>());  // 13
+                    add(new HashMap<>());  // 14
+                    add(new HashMap<>());  // 15
+                    add(new HashMap<>());  // 16
+                    add(new HashMap<>());  // 17
+                    add(new HashMap<>());  // 18
+                    add(new HashMap<>());  // 19
+                    add(new HashMap<>());  // 20
+                    add(new HashMap<>());  // 21
+                }
+            });
+            put(ECardNum.R, get(ECardNum.ANY));
         }
     };
 
     public static float getValue(Card dealerCard, int hardValue, int softValue) {
         float exp_mod = -1.0f;
-        String HardSoft;
 
-        if (hardValue >= 4) {
-            if (softValue == hardValue) HardSoft = HARD;
-            else HardSoft = SOFT;
-
-            if (softValue <= 21) {
-                exp_mod = table.get(dealerCard.num).get(softValue).get(HardSoft);
-            }
-            else if (hardValue <= 21) {
-                exp_mod = table.get(dealerCard.num).get(hardValue).get(HARD);
-            }
+        if (4 <= softValue && softValue <= 21) {
+            if (softValue < 12)
+                exp_mod = table.get(dealerCard.num).get(softValue).get(HARD);
+            else
+                exp_mod = table.get(dealerCard.num).get(softValue).get(SOFT);
+        }
+        else if (4 <= hardValue && hardValue <= 21) {
+            exp_mod = table.get(dealerCard.num).get(softValue).get(HARD);
         }
 
         return (exp_mod + 1f) / 2f;
