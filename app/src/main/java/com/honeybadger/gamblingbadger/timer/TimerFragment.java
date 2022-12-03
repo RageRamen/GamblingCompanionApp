@@ -81,10 +81,10 @@ public class TimerFragment extends Fragment
         confB = binding.conbutton;
 
         hours.setMinValue(0);  //setting values for number pickers
-        hours.setMaxValue(23); hours.setValue(1); // default is 1:30
+        hours.setMaxValue(23); hours.setValue(4); // default is 4:00
 
         mins.setMinValue(0); // valid range is [0:01,23:59]
-        mins.setMaxValue(59); mins.setValue(30);
+        mins.setMaxValue(59); mins.setValue(00);
 
         initButtonCancel();
         initButtonConfirm();
