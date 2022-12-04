@@ -93,6 +93,8 @@ public class Balance {
             msg = EBalanceMsg.BM_50_PERCENT;
         }
 
+        this.currentBalance = this.currentBalance.add(amount);
+
         try {
             CasinoSessionFragment.updateActionBarBalance(activity);
         }
@@ -100,8 +102,6 @@ public class Balance {
             showFailAlert(activity);
             msg = EBalanceMsg.BM_FAIL;
         }
-
-        currentBalance = result;
 
         return msg;
     }
