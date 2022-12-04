@@ -93,7 +93,7 @@ public class Balance {
             msg = EBalanceMsg.BM_50_PERCENT;
         }
 
-        this.currentBalance = this.currentBalance.add(amount);
+        this.currentBalance = this.currentBalance.subtract(amount);
 
         try {
             CasinoSessionFragment.updateActionBarBalance(activity);
