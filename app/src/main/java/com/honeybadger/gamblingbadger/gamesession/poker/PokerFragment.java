@@ -27,14 +27,10 @@ import com.honeybadger.gamblingbadger.cards.ECardNum;
 import com.honeybadger.gamblingbadger.cards.ECardSuit;
 import com.honeybadger.gamblingbadger.casinosession.CasinoSessionFragment;
 import com.honeybadger.gamblingbadger.databinding.FragmentPokerBinding;
-import com.honeybadger.gamblingbadger.gamesession.blackjack.BlackjackSession;
-import com.honeybadger.gamblingbadger.tips.BJTipFrag;
 import com.honeybadger.gamblingbadger.tips.PokerTipFrag;
 
 import java.math.BigDecimal;
 import java.text.NumberFormat;
-import java.util.LinkedList;
-import java.util.List;
 
 public class PokerFragment extends Fragment {
 
@@ -46,8 +42,7 @@ public class PokerFragment extends Fragment {
 
     private AlertDialog setBetDialog;
 
-    private List<Card> dealerCards;
-    private List<Card> userHand;
+    private Card[] userHand = new Card[5];
     private BigDecimal bet = BigDecimal.ZERO;
 
     public static @Nullable PokerSession pokerSession = null;
@@ -74,10 +69,8 @@ public class PokerFragment extends Fragment {
             LayoutInflater inflater, ViewGroup container,
             Bundle savedInstanceState
     ) {
-        userHand = new LinkedList<>();
-        dealerCards = new LinkedList<>();
         //default dealer cards is all aces, just as a default card setup
-        setDefaultDealerCard();
+        setDefaultUserCards();
 
         if (pokerSession == null)
             pokerSession = new PokerSession(CasinoSessionFragment.casinoSession);
@@ -142,13 +135,12 @@ public class PokerFragment extends Fragment {
 
     // INTERFACE:
 
-    private void setDefaultDealerCard(){
-        dealerCards.clear();
-        dealerCards.add(new Card(ECardSuit.ANY, ECardNum.A));
-        dealerCards.add(new Card(ECardSuit.ANY, ECardNum.A));
-        dealerCards.add(new Card(ECardSuit.ANY, ECardNum.A));
-        dealerCards.add(new Card(ECardSuit.ANY, ECardNum.A));
-        dealerCards.add(new Card(ECardSuit.ANY, ECardNum.A));
+    private void setDefaultUserCards(){
+        userHand[0] = new Card(ECardSuit.ANY, ECardNum.A);
+        userHand[1] = new Card(ECardSuit.ANY, ECardNum.A);
+        userHand[2] = new Card(ECardSuit.ANY, ECardNum.A);
+        userHand[3] = new Card(ECardSuit.ANY, ECardNum.A);
+        userHand[4] = new Card(ECardSuit.ANY, ECardNum.A);
     }
 
     private void initSpinnerDealerCard() {
@@ -173,8 +165,7 @@ public class PokerFragment extends Fragment {
             @Override
             public void onItemSelected(AdapterView<?> adapterView, View view, int i, long l) {
                 ECardNum number;
-                ECardSuit suit;
-                switch ((int)l) {
+                switch ((int)i) {
                     default: number = ECardNum.ANY; break;
                     case 0: number = ECardNum.A; break;
                     case 1: number = ECardNum.N_2; break;
@@ -190,6 +181,7 @@ public class PokerFragment extends Fragment {
                     case 11: number = ECardNum.Q; break;
                     case 12: number = ECardNum.K; break;
                 }
+                userHand[0] = new Card(ECardSuit.ANY, number);
             }
             @Override
             public void onNothingSelected(AdapterView<?> adapterView) {
@@ -201,7 +193,7 @@ public class PokerFragment extends Fragment {
             @Override
             public void onItemSelected(AdapterView<?> adapterView, View view, int i, long l) {
                 ECardNum number;
-                switch ((int)l) {
+                switch ((int)i) {
                     default: number = ECardNum.ANY; break;
                     case 0: number = ECardNum.A; break;
                     case 1: number = ECardNum.N_2; break;
@@ -217,6 +209,7 @@ public class PokerFragment extends Fragment {
                     case 11: number = ECardNum.Q; break;
                     case 12: number = ECardNum.K; break;
                 }
+                userHand[1] = new Card(ECardSuit.ANY, number);
             }
             @Override
             public void onNothingSelected(AdapterView<?> adapterView) {
@@ -228,7 +221,7 @@ public class PokerFragment extends Fragment {
             @Override
             public void onItemSelected(AdapterView<?> adapterView, View view, int i, long l) {
                 ECardNum number;
-                switch ((int)l) {
+                switch ((int)i) {
                     default: number = ECardNum.ANY; break;
                     case 0: number = ECardNum.A; break;
                     case 1: number = ECardNum.N_2; break;
@@ -244,6 +237,7 @@ public class PokerFragment extends Fragment {
                     case 11: number = ECardNum.Q; break;
                     case 12: number = ECardNum.K; break;
                 }
+                userHand[2] = new Card(ECardSuit.ANY, number);
             }
             @Override
             public void onNothingSelected(AdapterView<?> adapterView) {
@@ -255,7 +249,7 @@ public class PokerFragment extends Fragment {
             @Override
             public void onItemSelected(AdapterView<?> adapterView, View view, int i, long l) {
                 ECardNum number;
-                switch ((int)l) {
+                switch ((int)i) {
                     default: number = ECardNum.ANY; break;
                     case 0: number = ECardNum.A; break;
                     case 1: number = ECardNum.N_2; break;
@@ -271,6 +265,7 @@ public class PokerFragment extends Fragment {
                     case 11: number = ECardNum.Q; break;
                     case 12: number = ECardNum.K; break;
                 }
+                userHand[3] = new Card(ECardSuit.ANY, number);
             }
             @Override
             public void onNothingSelected(AdapterView<?> adapterView) {
@@ -282,7 +277,7 @@ public class PokerFragment extends Fragment {
             @Override
             public void onItemSelected(AdapterView<?> adapterView, View view, int i, long l) {
                 ECardNum number;
-                switch ((int)l) {
+                switch ((int)i) {
                     default: number = ECardNum.ANY; break;
                     case 0: number = ECardNum.A; break;
                     case 1: number = ECardNum.N_2; break;
@@ -298,6 +293,7 @@ public class PokerFragment extends Fragment {
                     case 11: number = ECardNum.Q; break;
                     case 12: number = ECardNum.K; break;
                 }
+                userHand[4] = new Card(ECardSuit.ANY, number);
             }
             @Override
             public void onNothingSelected(AdapterView<?> adapterView) {
@@ -347,7 +343,9 @@ public class PokerFragment extends Fragment {
     private void actionUpdateOddsTextview(){
         //TODO link whatever method used when calculate button is pressed. Should calculate the odds value
         TextView oddsDisplay = (TextView) getActivity().findViewById(R.id.Odds_textview);
-        oddsDisplay.setText("N/A"); //placeholder test output
+        PokerRound round = new PokerRound(bet, userHand);
+        String odds = String.format("%.2f", 100 * round.getOdds());
+        oddsDisplay.setText(odds + "%");
     }
 
     private void actionSetBet() { //NOTE: Ignore the naming that 'blackjack_set_bet_popup' is here. Realized the popup is the same for all.

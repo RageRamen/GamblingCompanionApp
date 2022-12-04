@@ -22,7 +22,9 @@ import androidx.navigation.fragment.NavHostFragment;
 import com.honeybadger.gamblingbadger.ImageSpinnerAdapter;
 import com.honeybadger.gamblingbadger.R;
 import com.honeybadger.gamblingbadger.balance.Balance;
+import com.honeybadger.gamblingbadger.cards.Card;
 import com.honeybadger.gamblingbadger.cards.ECardNum;
+import com.honeybadger.gamblingbadger.cards.ECardSuit;
 import com.honeybadger.gamblingbadger.casinosession.CasinoSessionFragment;
 import com.honeybadger.gamblingbadger.databinding.FragmentTexasHoldemBinding;
 import com.honeybadger.gamblingbadger.gamesession.poker.PokerRound;
@@ -43,6 +45,9 @@ public class TexasHoldemFragment extends Fragment {
     private AlertDialog setBetDialog;
 
     private BigDecimal bet = BigDecimal.ZERO;
+
+    private Card[] userCards = new Card[2];
+    private Card[] tableCards = new Card[5];
 
     private static final Integer[] imageIconDatabase = {R.drawable.ace_of_spades,
             R.drawable._2_of_hearts, R.drawable._3_of_clubs, R.drawable._4_of_diamonds,
@@ -85,6 +90,8 @@ public class TexasHoldemFragment extends Fragment {
         initLoseButton();
         initCalculateButton();
         initUserHandCards();
+
+        setAllCardsDefault();
     }
 
     @Override
@@ -373,6 +380,17 @@ public class TexasHoldemFragment extends Fragment {
 
     // ACTIONS:
 
+    private void setAllCardsDefault() {
+        userCards[0] = new Card(ECardSuit.ANY, ECardNum.A);
+        userCards[1] = new Card(ECardSuit.ANY, ECardNum.A);
+
+        tableCards[0] = new Card(ECardSuit.ANY, ECardNum.A);
+        tableCards[1] = new Card(ECardSuit.ANY, ECardNum.A);
+        tableCards[2] = new Card(ECardSuit.ANY, ECardNum.A);
+        tableCards[3] = new Card(ECardSuit.ANY, ECardNum.A);
+        tableCards[4] = new Card(ECardSuit.ANY, ECardNum.A);
+    }
+
     private void actionGoToTexasHoldemTips() {
         TXTipFrag.callingFragmentReturnActionID = R.id.action_TXTipFrag_to_texasHoldemFragment;
         NavHostFragment.findNavController(this).navigate(R.id.action_texasHoldemFragment_to_TXTipFrag);
@@ -433,7 +451,9 @@ public class TexasHoldemFragment extends Fragment {
     private void actionUpdateOddsTextview(){
         //TODO link whatever method used when calculate button is pressed. Should calculate the odds value
         TextView oddsDisplay = (TextView) getActivity().findViewById(R.id.Odds_textview_TexasHoldem);
-        oddsDisplay.setText("N/A"); //placeholder test output
+        TexasHoldemRound round = new TexasHoldemRound(bet, userCards, tableCards);
+        String odds = String.format("%.2f", 100 * round.getOdds());
+        oddsDisplay.setText(odds + "%");
     }
 
     private void actionUpdateRecommendedActionTextview(){

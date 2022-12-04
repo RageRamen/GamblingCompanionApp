@@ -57,7 +57,7 @@ public class Balance {
         EBalanceMsg msg = EBalanceMsg.BM_NONE;
 
         final BigDecimal P10_THRESHOLD = startingBalance.multiply(new BigDecimal(0.10f));
-        final BigDecimal P25_THRESHOLD =startingBalance.multiply(new BigDecimal(0.25f));
+        final BigDecimal P25_THRESHOLD = startingBalance.multiply(new BigDecimal(0.25f));
         final BigDecimal P50_THRESHOLD = startingBalance.multiply(new BigDecimal(0.50f));
 
         boolean negativeEligible = currentBalance.compareTo(BigDecimal.ZERO) > 0;
