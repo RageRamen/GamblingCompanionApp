@@ -157,6 +157,9 @@
         <action
             android:id="@+id/action_tipsFragment_to_TXTipFrag"
             app:destination="@id/TXTipFrag" />
+        <action
+            android:id="@+id/action_tipsFragment_to_rouletteTipFrag"
+            app:destination="@id/rouletteTipFrag" />
     </fragment>
 
     <fragment
@@ -337,6 +340,16 @@
         <action
             android:id="@+id/action_pokerHandsFrag_pop"
             app:popUpTo="@id/pokerHandsFrag"
+            app:popUpToInclusive="true" />
+    </fragment>
+    <fragment
+        android:id="@+id/rouletteTipFrag"
+        android:name="com.honeybadger.gamblingbadger.tips.RouletteTipFrag"
+        android:label="@string/americanRoulette_title"
+        tools:layout="@layout/fragment_roulette_tip">
+        <action
+            android:id="@+id/action_rouletteTipFrag_pop"
+            app:popUpTo="@id/rouletteTipFrag"
             app:popUpToInclusive="true" />
     </fragment>
 </navigation>

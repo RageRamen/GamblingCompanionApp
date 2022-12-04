@@ -74,6 +74,15 @@ public class TipsFragment extends Fragment {
                         .navigate(R.id.action_tipsFragment_to_TXTipFrag);
             }
         });
+
+        binding.buttonHelpRou.setOnClickListener(new View.OnClickListener(){
+
+            @Override
+            public void onClick(View view) {
+                NavHostFragment.findNavController(TipsFragment.this)
+                        .navigate(R.id.action_tipsFragment_to_rouletteTipFrag);
+            }
+        });
     }
 
     @Override
