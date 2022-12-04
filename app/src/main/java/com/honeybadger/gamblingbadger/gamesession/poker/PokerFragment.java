@@ -31,6 +31,8 @@ import com.honeybadger.gamblingbadger.tips.PokerTipFrag;
 
 import java.math.BigDecimal;
 import java.text.NumberFormat;
+import java.util.LinkedList;
+import java.util.List;
 
 public class PokerFragment extends Fragment {
 
@@ -396,7 +398,16 @@ public class PokerFragment extends Fragment {
     private void actionUpdateRecommendedActionTextview(){
         //TODO link whatever method used when calculate button is pressed. Should use odds values to return a string for recommended action
         TextView RecommendedActionDisplay = (TextView) getActivity().findViewById(R.id.recommendedAction_textview);
-        RecommendedActionDisplay.setText("N/A"); //placeholder test output
+
+        PokerRound pokerRound = new PokerRound(bet, userHand);
+        List<Card> discardHands = new LinkedList<>();
+        discardHands = pokerRound.getRecommendedDiscards();
+
+        String tempcardview = "";
+        for(int x = 0; x < discardHands.size(); x++){
+            tempcardview += discardHands.get(x).getECardNum() + ":" + discardHands.get(x).getECardSuit() + ", ";
+        }
+        RecommendedActionDisplay.setText(tempcardview); //placeholder test output
     }
 
     private void actionAddToBalance() {

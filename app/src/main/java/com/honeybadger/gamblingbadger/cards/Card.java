@@ -142,4 +142,7 @@ public class Card {
     public ECardNum getECardNum(){
         return this.num;
     }
+    public ECardSuit getECardSuit(){
+        return this.suit;
+    } //added this here for poker -Bryan
 }
